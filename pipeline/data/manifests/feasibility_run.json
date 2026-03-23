@@ -1,0 +1,46 @@
+{
+  "processing_run_id": "ad1a26217c95",
+  "region": "nova-scotia",
+  "spots": [
+    "cow-bay",
+    "lawrencetown-beach",
+    "martinique-beach"
+  ],
+  "data_sources": [
+    "Sentinel-2 via Google Earth Engine",
+    "Open-Meteo Marine API",
+    "Open-Meteo Weather API"
+  ],
+  "code_version": null,
+  "generated_at_utc": "2026-03-23T16:42:52.226454+00:00",
+  "script": "04_run_feasibility.py",
+  "spot_results": [
+    {
+      "slug": "cow-bay",
+      "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/cow-bay.json",
+      "steps": {
+        "scene_inventory": "ok",
+        "export": "skipped",
+        "conditions": "ok"
+      }
+    },
+    {
+      "slug": "lawrencetown-beach",
+      "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/lawrencetown-beach.json",
+      "steps": {
+        "scene_inventory": "ok",
+        "export": "skipped",
+        "conditions": "ok"
+      }
+    },
+    {
+      "slug": "martinique-beach",
+      "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/martinique-beach.json",
+      "steps": {
+        "scene_inventory": "ok",
+        "export": "skipped",
+        "conditions": "ok"
+      }
+    }
+  ]
+}

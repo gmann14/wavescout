@@ -1,0 +1,20 @@
+# Core
+earthengine-api
+rasterio
+geopandas
+shapely
+numpy
+pandas
+requests
+matplotlib
+
+# ML (Phase 2+)
+torch
+torchvision
+scikit-learn
+
+# Notebooks
+jupyter
+
+# Coastal analysis
+# coastsat  # Install separately: pip install coastsat

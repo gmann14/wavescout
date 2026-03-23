@@ -1,0 +1,16 @@
+{
+  "name": "Cow Bay (Osbourne)",
+  "slug": "cow-bay",
+  "region": "nova-scotia",
+  "bbox": [-63.45, 44.59, -63.39, 44.62],
+  "point": {
+    "lat": 44.6050,
+    "lon": -63.4167
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

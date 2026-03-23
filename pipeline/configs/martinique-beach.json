@@ -1,0 +1,16 @@
+{
+  "name": "Martinique Beach",
+  "slug": "martinique-beach",
+  "region": "nova-scotia",
+  "bbox": [-63.17, 44.66, -63.10, 44.70],
+  "point": {
+    "lat": 44.6833,
+    "lon": -63.1333
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

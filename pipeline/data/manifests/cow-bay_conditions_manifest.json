@@ -1,0 +1,451 @@
+{
+  "script": "03_check_conditions.py",
+  "generated_at_utc": "2026-03-23T16:41:59.464556+00:00",
+  "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/cow-bay.json",
+  "region": {
+    "name": "Cow Bay (Osbourne)",
+    "slug": "cow-bay",
+    "region": "nova-scotia",
+    "point": {
+      "lat": 44.605,
+      "lon": -63.4167
+    },
+    "bbox": [
+      -63.45,
+      44.59,
+      -63.39,
+      44.62
+    ]
+  },
+  "query": {
+    "summary_hour_utc": 11,
+    "dates": [
+      "2017-01-01",
+      "2026-03-23",
+      "2017-07-10",
+      "2026-03-20",
+      "2017-08-02",
+      "2017-08-07",
+      "2017-08-09",
+      "2017-08-29",
+      "2017-09-13",
+      "2017-10-01",
+      "2017-10-13",
+      "2017-11-30",
+      "2018-05-14",
+      "2018-12-27",
+      "2019-01-19",
+      "2019-01-29",
+      "2019-02-03",
+      "2019-02-10",
+      "2019-02-15",
+      "2019-02-20"
+    ],
+    "data_sources": {
+      "marine": "Open-Meteo Marine API (marine-api.open-meteo.com)",
+      "weather": "Open-Meteo Weather API (api.open-meteo.com)"
+    }
+  },
+  "observations": [
+    {
+      "date": "2017-01-01",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-01-01T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 31.4,
+        "wind_direction_deg": 165,
+        "wind_gusts_kmh": 61.9
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2026-03-23T11:00",
+        "wave_height_m": 1.7,
+        "wave_direction_deg": 117,
+        "wave_period_s": 6.05,
+        "swell_height_m": 0.96,
+        "swell_direction_deg": 140,
+        "swell_period_s": 5.5
+      },
+      "weather": {
+        "wind_speed_kmh": 21.4,
+        "wind_direction_deg": 45,
+        "wind_gusts_kmh": 51.5
+      }
+    },
+    {
+      "date": "2017-07-10",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-07-10T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 10.2,
+        "wind_direction_deg": 219,
+        "wind_gusts_kmh": 23.8
+      }
+    },
+    {
+      "date": "2026-03-20",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2026-03-20T11:00",
+        "wave_height_m": 1.16,
+        "wave_direction_deg": 131,
+        "wave_period_s": 7.65,
+        "swell_height_m": 1.02,
+        "swell_direction_deg": 131,
+        "swell_period_s": 6.7
+      },
+      "weather": {
+        "wind_speed_kmh": 7.6,
+        "wind_direction_deg": 98,
+        "wind_gusts_kmh": 9.0
+      }
+    },
+    {
+      "date": "2017-08-02",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-08-02T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 7.0,
+        "wind_direction_deg": 78,
+        "wind_gusts_kmh": 16.6
+      }
+    },
+    {
+      "date": "2017-08-07",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-08-07T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 14.4,
+        "wind_direction_deg": 270,
+        "wind_gusts_kmh": 31.3
+      }
+    },
+    {
+      "date": "2017-08-09",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-08-09T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 10.1,
+        "wind_direction_deg": 287,
+        "wind_gusts_kmh": 23.0
+      }
+    },
+    {
+      "date": "2017-08-29",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-08-29T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 6.1,
+        "wind_direction_deg": 357,
+        "wind_gusts_kmh": 14.8
+      }
+    },
+    {
+      "date": "2017-09-13",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-09-13T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 11.5,
+        "wind_direction_deg": 319,
+        "wind_gusts_kmh": 23.4
+      }
+    },
+    {
+      "date": "2017-10-01",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-10-01T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 6.1,
+        "wind_direction_deg": 273,
+        "wind_gusts_kmh": 13.3
+      }
+    },
+    {
+      "date": "2017-10-13",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-10-13T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 4.0,
+        "wind_direction_deg": 5,
+        "wind_gusts_kmh": 12.2
+      }
+    },
+    {
+      "date": "2017-11-30",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2017-11-30T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 15.9,
+        "wind_direction_deg": 321,
+        "wind_gusts_kmh": 36.4
+      }
+    },
+    {
+      "date": "2018-05-14",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2018-05-14T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 9.5,
+        "wind_direction_deg": 171,
+        "wind_gusts_kmh": 22.7
+      }
+    },
+    {
+      "date": "2018-12-27",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2018-12-27T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 23.0,
+        "wind_direction_deg": 311,
+        "wind_gusts_kmh": 47.5
+      }
+    },
+    {
+      "date": "2019-01-19",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-01-19T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 20.4,
+        "wind_direction_deg": 312,
+        "wind_gusts_kmh": 39.6
+      }
+    },
+    {
+      "date": "2019-01-29",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-01-29T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 19.7,
+        "wind_direction_deg": 8,
+        "wind_gusts_kmh": 44.6
+      }
+    },
+    {
+      "date": "2019-02-03",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-02-03T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 16.7,
+        "wind_direction_deg": 303,
+        "wind_gusts_kmh": 36.0
+      }
+    },
+    {
+      "date": "2019-02-10",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-02-10T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 27.4,
+        "wind_direction_deg": 287,
+        "wind_gusts_kmh": 58.0
+      }
+    },
+    {
+      "date": "2019-02-15",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-02-15T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 5.4,
+        "wind_direction_deg": 8,
+        "wind_gusts_kmh": 14.8
+      }
+    },
+    {
+      "date": "2019-02-20",
+      "location_name": "Cow Bay (Osbourne)",
+      "latitude": 44.605,
+      "longitude": -63.4167,
+      "marine": {
+        "time": "2019-02-20T11:00",
+        "wave_height_m": null,
+        "wave_direction_deg": null,
+        "wave_period_s": null,
+        "swell_height_m": null,
+        "swell_direction_deg": null,
+        "swell_period_s": null
+      },
+      "weather": {
+        "wind_speed_kmh": 25.7,
+        "wind_direction_deg": 312,
+        "wind_gusts_kmh": 55.8
+      }
+    }
+  ]
+}

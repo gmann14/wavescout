@@ -1,0 +1,229 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lawrencetown Beach",
+        "region": "Eastern Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Flagship NS surf spot, 30 min from Halifax. Most popular and consistent."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.3417, 44.6375]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cow Bay (Osbourne)",
+        "region": "Eastern Shore",
+        "break_type": "reef",
+        "bottom": "rock",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Rolling right over rock bottom. Multiple reef breaks including 'Minutes'."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.4167, 44.6050]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Martinique Beach",
+        "region": "Eastern Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Powerful Atlantic swells. Long beach break."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.1333, 44.6833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Broad Cove",
+        "region": "Eastern Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Beach break on Eastern Shore."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.2167, 44.6667]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Clam Harbour Beach",
+        "region": "Eastern Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Beach break. Home of the annual sandcastle competition."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-62.8833, 44.7167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Caldwells Cove",
+        "region": "Eastern Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Sheltered cove break."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.0500, 44.7000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cherry Hill",
+        "region": "South Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "S",
+        "status": "confirmed",
+        "notes": "Beach break on the South Shore."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.4667, 44.0500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Summerville",
+        "region": "South Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "S",
+        "status": "confirmed",
+        "notes": "Beach break on the South Shore."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.4833, 44.0333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "White Point",
+        "region": "South Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "S",
+        "status": "confirmed",
+        "notes": "South-facing beach break near White Point Lodge."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.7333, 43.9333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Western Head",
+        "region": "South Shore",
+        "break_type": "point",
+        "bottom": "rock",
+        "facing": "S",
+        "status": "confirmed",
+        "notes": "Near Liverpool. Rocky point break."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.6667, 43.9833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mavillette Beach",
+        "region": "French Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SW",
+        "status": "confirmed",
+        "notes": "SW-facing beach on the French Shore. Picks up different swell window."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-66.1500, 44.0833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sandy Cove Beach",
+        "region": "French Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SW",
+        "status": "confirmed",
+        "notes": "Beach break on Digby Neck."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-65.9667, 44.3500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gullivers Cove",
+        "region": "French Shore",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "W",
+        "status": "confirmed",
+        "notes": "Sheltered cove on Digby Neck."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-65.8833, 44.3833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Point Michaud",
+        "region": "Cape Breton",
+        "break_type": "beach",
+        "bottom": "sand",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Remote, powerful beach break in Cape Breton. Long drive from Halifax."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-60.4667, 45.6333]
+      }
+    }
+  ]
+}
