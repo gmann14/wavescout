@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WaveScout - Feasibility Viewer</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --text: #e1e4ed;
+      --text-muted: #8b8fa3;
+      --accent: #4a9eff;
+      --accent-dim: #2a5f99;
+      --green: #3dd68c;
+      --yellow: #f5c842;
+      --red: #f5564a;
+      --orange: #f59e0b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    header .badge {
+      font-size: 0.75rem;
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .summary-card h3 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-card .value {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .summary-card .detail {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .spot-tabs {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spot-tab {
+      padding: 0.6rem 1.25rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .spot-tab:hover { color: var(--text); }
+    .spot-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .section-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-heading .count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tr:hover td { background: rgba(74, 158, 255, 0.04); }
+
+    .mono { font-family: 'SF Mono', 'Menlo', monospace; font-size: 0.8rem; }
+    .null { color: var(--text-muted); font-style: italic; }
+
+    .wave-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.4rem;
+    }
+
+    .wave-flat { background: var(--text-muted); }
+    .wave-small { background: var(--green); }
+    .wave-medium { background: var(--yellow); }
+    .wave-large { background: var(--orange); }
+    .wave-heavy { background: var(--red); }
+
+    .wind-dir {
+      display: inline-block;
+      width: 16px;
+      text-align: center;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-bar label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .filter-bar select, .filter-bar input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    #status {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-row span { display: flex; align-items: center; gap: 0.3rem; }
+
+    .season-summer { color: var(--yellow); }
+    .season-other { color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>WaveScout</h1>
+    <span class="badge">Phase 1 Feasibility</span>
+  </header>
+
+  <div class="container">
+    <div id="status">Loading manifests...</div>
+    <div id="app" style="display:none">
+      <div class="summary-grid" id="summaryGrid"></div>
+      <div class="spot-tabs" id="spotTabs"></div>
+      <div id="spotContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const MANIFEST_BASE = '../pipeline/data/manifests/';
+    const SPOTS = ['lawrencetown-beach', 'cow-bay', 'martinique-beach'];
+
+    const state = {
+      inventories: {},
+      conditions: {},
+      run: null,
+      activeSpot: null,
+      seasonFilter: 'all',
+    };
+
+    function fmt(val, unit) {
+      if (val === null || val === undefined) return '<span class="null">--</span>';
+      const n = typeof val === 'number' ? val.toFixed(1) : val;
+      return unit ? `${n}${unit}` : `${n}`;
+    }
+
+    function waveClass(h) {
+      if (h === null || h === undefined) return 'wave-flat';
+      if (h < 0.5) return 'wave-flat';
+      if (h < 1.0) return 'wave-small';
+      if (h < 2.0) return 'wave-medium';
+      if (h < 3.0) return 'wave-large';
+      return 'wave-heavy';
+    }
+
+    function windArrow(deg) {
+      if (deg === null || deg === undefined) return '<span class="null">--</span>';
+      const arrows = ['N','NE','E','SE','S','SW','W','NW'];
+      const idx = Math.round(deg / 45) % 8;
+      return `<span class="wind-dir" title="${deg}">${arrows[idx]}</span>`;
+    }
+
+    function isSummer(dateStr) {
+      const m = parseInt(dateStr.split('-')[1], 10);
+      return m >= 6 && m <= 9;
+    }
+
+    async function loadJson(path) {
+      const resp = await fetch(path);
+      if (!resp.ok) throw new Error(`Failed to load ${path}: ${resp.status}`);
+      return resp.json();
+    }
+
+    async function loadAll() {
+      const promises = [];
+
+      promises.push(
+        loadJson(`${MANIFEST_BASE}feasibility_run.json`)
+          .then(d => { state.run = d; })
+          .catch(() => { state.run = null; })
+      );
+
+      for (const slug of SPOTS) {
+        promises.push(
+          loadJson(`${MANIFEST_BASE}${slug}_scene_inventory.json`)
+            .then(d => { state.inventories[slug] = d; })
+            .catch(() => { state.inventories[slug] = null; })
+        );
+        promises.push(
+          loadJson(`${MANIFEST_BASE}${slug}_conditions_manifest.json`)
+            .then(d => { state.conditions[slug] = d; })
+            .catch(() => { state.conditions[slug] = null; })
+        );
+      }
+
+      await Promise.all(promises);
+    }
+
+    function renderSummary() {
+      const grid = document.getElementById('summaryGrid');
+      const spotsLoaded = SPOTS.filter(s => state.inventories[s]);
+
+      const totalScenes = spotsLoaded.reduce((sum, s) => {
+        return sum + (state.inventories[s]?.summary?.total_scene_count || 0);
+      }, 0);
+      const clearScenes = spotsLoaded.reduce((sum, s) => {
+        return sum + (state.inventories[s]?.summary?.clear_scene_count || 0);
+      }, 0);
+
+      const conditionsWithMarine = spotsLoaded.reduce((sum, s) => {
+        const obs = state.conditions[s]?.observations || [];
+        return sum + obs.filter(o => o.marine?.wave_height_m !== null).length;
+      }, 0);
+      const conditionsTotal = spotsLoaded.reduce((sum, s) => {
+        return sum + (state.conditions[s]?.observations?.length || 0);
+      }, 0);
+
+      const summerScenes = spotsLoaded.reduce((sum, s) => {
+        const dates = state.inventories[s]?.clear_scene_dates || [];
+        return sum + dates.filter(isSummer).length;
+      }, 0);
+
+      grid.innerHTML = `
+        <div class="summary-card">
+          <h3>Spots Analyzed</h3>
+          <div class="value">${spotsLoaded.length}</div>
+          <div class="detail">Nova Scotia region</div>
+        </div>
+        <div class="summary-card">
+          <h3>Clear Scenes</h3>
+          <div class="value">${clearScenes.toLocaleString()}</div>
+          <div class="detail">${totalScenes.toLocaleString()} total / ${(clearScenes / totalScenes * 100).toFixed(0)}% clear rate</div>
+        </div>
+        <div class="summary-card">
+          <h3>Summer Scenes (Jun-Sep)</h3>
+          <div class="value">${summerScenes}</div>
+          <div class="detail">${(summerScenes / clearScenes * 100).toFixed(0)}% of clear scenes</div>
+        </div>
+        <div class="summary-card">
+          <h3>Conditions Data</h3>
+          <div class="value">${conditionsWithMarine} / ${conditionsTotal}</div>
+          <div class="detail">observations with marine data</div>
+        </div>
+      `;
+    }
+
+    function renderTabs() {
+      const tabs = document.getElementById('spotTabs');
+      tabs.innerHTML = '';
+      for (const slug of SPOTS) {
+        const inv = state.inventories[slug];
+        if (!inv) continue;
+        const btn = document.createElement('button');
+        btn.className = 'spot-tab' + (slug === state.activeSpot ? ' active' : '');
+        btn.textContent = inv.region?.name || slug;
+        btn.onclick = () => {
+          state.activeSpot = slug;
+          renderTabs();
+          renderSpot();
+        };
+        tabs.appendChild(btn);
+      }
+    }
+
+    function renderSpot() {
+      const el = document.getElementById('spotContent');
+      const slug = state.activeSpot;
+      const inv = state.inventories[slug];
+      const cond = state.conditions[slug];
+
+      if (!inv) {
+        el.innerHTML = '<p>No data for this spot.</p>';
+        return;
+      }
+
+      const dates = inv.clear_scene_dates || [];
+      const condByDate = {};
+      if (cond) {
+        for (const obs of (cond.observations || [])) {
+          condByDate[obs.date] = obs;
+        }
+      }
+
+      // Build merged table
+      const filtered = state.seasonFilter === 'summer'
+        ? dates.filter(isSummer)
+        : dates;
+
+      const meta = `
+        <div class="meta-row">
+          <span>Lat: ${inv.region?.point?.lat || '--'}, Lon: ${inv.region?.point?.lon || '--'}</span>
+          <span>Date range: ${inv.query?.start_date} to ${inv.query?.end_date}</span>
+          <span>Cloud max: ${inv.query?.cloud_max}%</span>
+        </div>
+      `;
+
+      const filterHtml = `
+        <div class="filter-bar">
+          <label>Season:</label>
+          <select id="seasonSelect">
+            <option value="all"${state.seasonFilter === 'all' ? ' selected' : ''}>All months</option>
+            <option value="summer"${state.seasonFilter === 'summer' ? ' selected' : ''}>Summer (Jun-Sep)</option>
+          </select>
+        </div>
+      `;
+
+      const rows = filtered.map(date => {
+        const obs = condByDate[date];
+        const m = obs?.marine || {};
+        const w = obs?.weather || {};
+        const summerCls = isSummer(date) ? 'season-summer' : 'season-other';
+
+        return `<tr>
+          <td class="mono ${summerCls}">${date}</td>
+          <td><span class="wave-indicator ${waveClass(m.wave_height_m)}"></span>${fmt(m.wave_height_m, 'm')}</td>
+          <td>${fmt(m.wave_direction_deg, '')}</td>
+          <td>${fmt(m.wave_period_s, 's')}</td>
+          <td><span class="wave-indicator ${waveClass(m.swell_height_m)}"></span>${fmt(m.swell_height_m, 'm')}</td>
+          <td>${fmt(m.swell_direction_deg, '')}</td>
+          <td>${fmt(m.swell_period_s, 's')}</td>
+          <td>${fmt(w.wind_speed_kmh, '')}</td>
+          <td>${windArrow(w.wind_direction_deg)}</td>
+          <td>${fmt(w.wind_gusts_kmh, '')}</td>
+        </tr>`;
+      }).join('');
+
+      el.innerHTML = `
+        ${meta}
+        <div class="section-heading">
+          Scene Inventory + Conditions
+          <span class="count">${filtered.length} of ${dates.length} clear scenes shown</span>
+        </div>
+        ${filterHtml}
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Wave Ht</th>
+              <th>Wave Dir</th>
+              <th>Wave Per</th>
+              <th>Swell Ht</th>
+              <th>Swell Dir</th>
+              <th>Swell Per</th>
+              <th>Wind km/h</th>
+              <th>Wind Dir</th>
+              <th>Gusts km/h</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+
+      document.getElementById('seasonSelect').onchange = (e) => {
+        state.seasonFilter = e.target.value;
+        renderSpot();
+      };
+    }
+
+    async function init() {
+      try {
+        await loadAll();
+        document.getElementById('status').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+
+        state.activeSpot = SPOTS.find(s => state.inventories[s]) || SPOTS[0];
+
+        renderSummary();
+        renderTabs();
+        renderSpot();
+      } catch (err) {
+        document.getElementById('status').textContent = 'Error loading data: ' + err.message;
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
