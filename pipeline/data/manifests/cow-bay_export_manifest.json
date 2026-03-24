@@ -1,0 +1,102 @@
+{
+  "script": "02_export_sample_images.py",
+  "generated_at_utc": "2026-03-24T14:39:55.542610+00:00",
+  "config_path": "pipeline/configs/cow-bay.json",
+  "region": {
+    "name": "Cow Bay (Osbourne)",
+    "slug": "cow-bay",
+    "region": "nova-scotia",
+    "bbox": [
+      -63.45,
+      44.59,
+      -63.39,
+      44.62
+    ],
+    "point": {
+      "lat": 44.605,
+      "lon": -63.4167
+    }
+  },
+  "query": {
+    "start_date": "2020-06-01",
+    "end_date": "2025-09-30",
+    "cloud_max": 15.0,
+    "limit": 8,
+    "scale": 10,
+    "bands": [
+      "B2",
+      "B3",
+      "B4",
+      "B8",
+      "B11",
+      "SCL"
+    ],
+    "drive_folder": "wavescout_samples"
+  },
+  "exports": [
+    {
+      "description": "cow-bay_2025-09-29",
+      "date": "2025-09-29",
+      "cloud_pct": 0.003457,
+      "product_id": "S2C_MSIL2A_20250929T151701_N0511_R025_T20TMQ_20250929T195817",
+      "system_index": "20250929T151701_20250929T151751_T20TMQ",
+      "task_id": "5XAUJBGPDMPNJXFDPKQRJI4B"
+    },
+    {
+      "description": "cow-bay_2025-09-21",
+      "date": "2025-09-21",
+      "cloud_pct": 0.001031,
+      "product_id": "S2B_MSIL2A_20250921T150719_N0511_R125_T20TMQ_20250921T202210",
+      "system_index": "20250921T150719_20250921T150840_T20TMQ",
+      "task_id": "4PEZFDOPBWFOD5ZZHHOH7W5H"
+    },
+    {
+      "description": "cow-bay_2025-09-16",
+      "date": "2025-09-16",
+      "cloud_pct": 0.000952,
+      "product_id": "S2C_MSIL2A_20250916T150731_N0511_R125_T20TMQ_20250916T210414",
+      "system_index": "20250916T150731_20250916T150948_T20TMQ",
+      "task_id": "MQBP7V5BJQUJWSCOOOT4UTKC"
+    },
+    {
+      "description": "cow-bay_2025-09-14",
+      "date": "2025-09-14",
+      "cloud_pct": 9.540516,
+      "product_id": "S2B_MSIL2A_20250914T151649_N0511_R025_T20TMQ_20250914T201429",
+      "system_index": "20250914T151649_20250914T151647_T20TMQ",
+      "task_id": "JZOCIH2ZVYBPI4NJCA4WSRLF"
+    },
+    {
+      "description": "cow-bay_2025-09-04",
+      "date": "2025-09-04",
+      "cloud_pct": 0.038941,
+      "product_id": "S2B_MSIL2A_20250904T151649_N0511_R025_T20TMQ_20250904T201053",
+      "system_index": "20250904T151649_20250904T151648_T20TMQ",
+      "task_id": "AKMXZM565RM5W7ES5I6OP6ND"
+    },
+    {
+      "description": "cow-bay_2025-09-01",
+      "date": "2025-09-01",
+      "cloud_pct": 6.308532,
+      "product_id": "S2B_MSIL2A_20250901T150719_N0511_R125_T20TMQ_20250901T202216",
+      "system_index": "20250901T150719_20250901T150714_T20TMQ",
+      "task_id": "GJ2UDQSXYUTSMOSQUSJC6CQR"
+    },
+    {
+      "description": "cow-bay_2025-08-17",
+      "date": "2025-08-17",
+      "cloud_pct": 1.668503,
+      "product_id": "S2C_MSIL2A_20250817T150731_N0511_R125_T20TMQ_20250817T205813",
+      "system_index": "20250817T150731_20250817T150929_T20TMQ",
+      "task_id": "ZIP7RCCK2PSTSZ6REHQZC7QL"
+    },
+    {
+      "description": "cow-bay_2025-08-15",
+      "date": "2025-08-15",
+      "cloud_pct": 0.938189,
+      "product_id": "S2B_MSIL2A_20250815T151649_N0511_R025_T20TMQ_20250815T190106",
+      "system_index": "20250815T151649_20250815T151810_T20TMQ",
+      "task_id": "UVVSYGDFSRGKIQXKZWFOKY6G"
+    }
+  ]
+}

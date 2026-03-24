@@ -1,6 +1,6 @@
 {
   "script": "03_check_conditions.py",
-  "generated_at_utc": "2026-03-23T16:41:59.464556+00:00",
+  "generated_at_utc": "2026-03-24T14:16:31.505381+00:00",
   "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/cow-bay.json",
   "region": {
     "name": "Cow Bay (Osbourne)",
@@ -21,7 +21,7 @@
     "summary_hour_utc": 11,
     "dates": [
       "2017-01-01",
-      "2026-03-23",
+      "2026-03-24",
       "2017-07-10",
       "2026-03-20",
       "2017-08-02",
@@ -68,23 +68,23 @@
       }
     },
     {
-      "date": "2026-03-23",
+      "date": "2026-03-24",
       "location_name": "Cow Bay (Osbourne)",
       "latitude": 44.605,
       "longitude": -63.4167,
       "marine": {
-        "time": "2026-03-23T11:00",
-        "wave_height_m": 1.7,
-        "wave_direction_deg": 117,
-        "wave_period_s": 6.05,
-        "swell_height_m": 0.96,
-        "swell_direction_deg": 140,
-        "swell_period_s": 5.5
+        "time": "2026-03-24T11:00",
+        "wave_height_m": 1.62,
+        "wave_direction_deg": 101,
+        "wave_period_s": 8.05,
+        "swell_height_m": 1.38,
+        "swell_direction_deg": 98,
+        "swell_period_s": 7.15
       },
       "weather": {
-        "wind_speed_kmh": 21.4,
-        "wind_direction_deg": 45,
-        "wind_gusts_kmh": 51.5
+        "wind_speed_kmh": 19.9,
+        "wind_direction_deg": 325,
+        "wind_gusts_kmh": 49.3
       }
     },
     {

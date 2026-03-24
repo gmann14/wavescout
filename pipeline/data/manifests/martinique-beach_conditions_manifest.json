@@ -1,6 +1,6 @@
 {
   "script": "03_check_conditions.py",
-  "generated_at_utc": "2026-03-23T16:42:52.121151+00:00",
+  "generated_at_utc": "2026-03-24T14:17:17.092498+00:00",
   "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/martinique-beach.json",
   "region": {
     "name": "Martinique Beach",
@@ -21,7 +21,7 @@
     "summary_hour_utc": 11,
     "dates": [
       "2017-01-01",
-      "2026-03-23",
+      "2026-03-24",
       "2017-07-10",
       "2026-03-20",
       "2017-08-02",
@@ -68,23 +68,23 @@
       }
     },
     {
-      "date": "2026-03-23",
+      "date": "2026-03-24",
       "location_name": "Martinique Beach",
       "latitude": 44.6833,
       "longitude": -63.1333,
       "marine": {
-        "time": "2026-03-23T11:00",
-        "wave_height_m": 1.46,
-        "wave_direction_deg": 123,
-        "wave_period_s": 5.85,
-        "swell_height_m": 0.76,
-        "swell_direction_deg": 145,
-        "swell_period_s": 5.8
+        "time": "2026-03-24T11:00",
+        "wave_height_m": 1.3,
+        "wave_direction_deg": 113,
+        "wave_period_s": 7.45,
+        "swell_height_m": 0.96,
+        "swell_direction_deg": 144,
+        "swell_period_s": 7.55
       },
       "weather": {
-        "wind_speed_kmh": 22.4,
-        "wind_direction_deg": 44,
-        "wind_gusts_kmh": 51.8
+        "wind_speed_kmh": 19.4,
+        "wind_direction_deg": 329,
+        "wind_gusts_kmh": 48.2
       }
     },
     {

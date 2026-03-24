@@ -1,0 +1,102 @@
+{
+  "script": "02_export_sample_images.py",
+  "generated_at_utc": "2026-03-24T14:39:55.391136+00:00",
+  "config_path": "pipeline/configs/martinique-beach.json",
+  "region": {
+    "name": "Martinique Beach",
+    "slug": "martinique-beach",
+    "region": "nova-scotia",
+    "bbox": [
+      -63.17,
+      44.66,
+      -63.1,
+      44.7
+    ],
+    "point": {
+      "lat": 44.6833,
+      "lon": -63.1333
+    }
+  },
+  "query": {
+    "start_date": "2020-06-01",
+    "end_date": "2025-09-30",
+    "cloud_max": 15.0,
+    "limit": 8,
+    "scale": 10,
+    "bands": [
+      "B2",
+      "B3",
+      "B4",
+      "B8",
+      "B11",
+      "SCL"
+    ],
+    "drive_folder": "wavescout_samples"
+  },
+  "exports": [
+    {
+      "description": "martinique-beach_2025-09-29",
+      "date": "2025-09-29",
+      "cloud_pct": 0.003457,
+      "product_id": "S2C_MSIL2A_20250929T151701_N0511_R025_T20TMQ_20250929T195817",
+      "system_index": "20250929T151701_20250929T151751_T20TMQ",
+      "task_id": "NAYEIX26J45I52Z5HYYZEUC4"
+    },
+    {
+      "description": "martinique-beach_2025-09-21",
+      "date": "2025-09-21",
+      "cloud_pct": 0.001031,
+      "product_id": "S2B_MSIL2A_20250921T150719_N0511_R125_T20TMQ_20250921T202210",
+      "system_index": "20250921T150719_20250921T150840_T20TMQ",
+      "task_id": "VMIV5PC7VFMHV4ULS4CTC4GZ"
+    },
+    {
+      "description": "martinique-beach_2025-09-16",
+      "date": "2025-09-16",
+      "cloud_pct": 0.000952,
+      "product_id": "S2C_MSIL2A_20250916T150731_N0511_R125_T20TMQ_20250916T210414",
+      "system_index": "20250916T150731_20250916T150948_T20TMQ",
+      "task_id": "FVQSJCD5OMGSQ3CNSAUGHH5F"
+    },
+    {
+      "description": "martinique-beach_2025-09-14",
+      "date": "2025-09-14",
+      "cloud_pct": 9.540516,
+      "product_id": "S2B_MSIL2A_20250914T151649_N0511_R025_T20TMQ_20250914T201429",
+      "system_index": "20250914T151649_20250914T151647_T20TMQ",
+      "task_id": "B2N4HD6LW4LQX33AOYRUC6NG"
+    },
+    {
+      "description": "martinique-beach_2025-09-04",
+      "date": "2025-09-04",
+      "cloud_pct": 0.038941,
+      "product_id": "S2B_MSIL2A_20250904T151649_N0511_R025_T20TMQ_20250904T201053",
+      "system_index": "20250904T151649_20250904T151648_T20TMQ",
+      "task_id": "M6QI7KQZMTKVXBUAAKXLACVD"
+    },
+    {
+      "description": "martinique-beach_2025-09-01",
+      "date": "2025-09-01",
+      "cloud_pct": 6.308532,
+      "product_id": "S2B_MSIL2A_20250901T150719_N0511_R125_T20TMQ_20250901T202216",
+      "system_index": "20250901T150719_20250901T150714_T20TMQ",
+      "task_id": "W3SGOV6NGQCKOLMTJZTSAGCY"
+    },
+    {
+      "description": "martinique-beach_2025-08-17",
+      "date": "2025-08-17",
+      "cloud_pct": 1.668503,
+      "product_id": "S2C_MSIL2A_20250817T150731_N0511_R125_T20TMQ_20250817T205813",
+      "system_index": "20250817T150731_20250817T150929_T20TMQ",
+      "task_id": "EGHNLZD54N2T2G4I2NZLIP5T"
+    },
+    {
+      "description": "martinique-beach_2025-08-15",
+      "date": "2025-08-15",
+      "cloud_pct": 0.938189,
+      "product_id": "S2B_MSIL2A_20250815T151649_N0511_R025_T20TMQ_20250815T190106",
+      "system_index": "20250815T151649_20250815T151810_T20TMQ",
+      "task_id": "EAG6BQR7HTGGR7ISXJ3XTECS"
+    }
+  ]
+}

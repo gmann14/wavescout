@@ -1,6 +1,6 @@
 {
   "script": "01_test_gee_access.py",
-  "generated_at_utc": "2026-03-23T16:42:04.546442+00:00",
+  "generated_at_utc": "2026-03-24T14:16:35.951092+00:00",
   "config_path": "/Users/grahammann/Coding/wavescout/pipeline/configs/lawrencetown-beach.json",
   "region": {
     "name": "Lawrencetown Beach",
@@ -19,11 +19,11 @@
   },
   "query": {
     "start_date": "2017-01-01",
-    "end_date": "2026-03-23",
+    "end_date": "2026-03-24",
     "cloud_max": 30.0
   },
   "summary": {
-    "total_scene_count": 1097,
+    "total_scene_count": 1098,
     "clear_scene_count": 306,
     "first_clear_date": "2017-07-10",
     "last_clear_date": "2026-03-20"

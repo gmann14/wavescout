@@ -1,5 +1,5 @@
 {
-  "processing_run_id": "ad1a26217c95",
+  "processing_run_id": "e967dcb722a0",
   "region": "nova-scotia",
   "spots": [
     "cow-bay",
@@ -11,8 +11,8 @@
     "Open-Meteo Marine API",
     "Open-Meteo Weather API"
   ],
-  "code_version": null,
-  "generated_at_utc": "2026-03-23T16:42:52.226454+00:00",
+  "code_version": "b9788dc",
+  "generated_at_utc": "2026-03-24T14:17:17.232653+00:00",
   "script": "04_run_feasibility.py",
   "spot_results": [
     {
