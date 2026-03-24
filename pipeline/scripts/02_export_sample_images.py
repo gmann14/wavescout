@@ -113,7 +113,9 @@ def main() -> None:
 
     exports = []
     for i in range(count):
-        image = ee.Image(image_list.get(i)).select(bands)
+        raw = ee.Image(image_list.get(i)).select(bands)
+        # Cast all bands to UInt16 (SCL is Byte, spectral bands are UInt16)
+        image = raw.toUint16()
         date = ee.Date(image.get("system:time_start")).format("YYYY-MM-dd").getInfo()
         cloud_pct = image.get("CLOUDY_PIXEL_PERCENTAGE").getInfo()
         product_id = image.get("PRODUCT_ID").getInfo()
