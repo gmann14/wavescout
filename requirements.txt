@@ -1,5 +1,6 @@
 # Core
 earthengine-api
+python-dotenv
 rasterio
 geopandas
 shapely

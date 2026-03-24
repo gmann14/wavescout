@@ -7,6 +7,10 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
 
 DEFAULT_CONFIG_PATH = (
     Path(__file__).resolve().parents[1] / "configs" / "lawrencetown-beach.json"
