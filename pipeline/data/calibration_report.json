@@ -1,0 +1,302 @@
+{
+  "summary": {
+    "total_segments": 16939,
+    "total_known_spots": 14,
+    "matched_spots": 14,
+    "unmatched_spots": 0,
+    "score_stats": {
+      "all_segments_mean": 42.5,
+      "all_segments_median": 39.7,
+      "known_spots_mean_score": 43.8,
+      "known_spots_median_score": 39.0,
+      "known_spots_mean_percentile": 52.0,
+      "known_spots_median_percentile": 45.0
+    },
+    "distance_stats": {
+      "mean_match_distance_m": 3017.9,
+      "max_match_distance_m": 9710.9
+    }
+  },
+  "spot_matches": [
+    {
+      "spot_name": "Lawrencetown Beach",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.6375,
+      "spot_lon": -63.3417,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04014",
+      "matched_segment_rank": 1516,
+      "distance_m": 678.4,
+      "segment_score": 66.8,
+      "segment_orientation_deg": 180.9,
+      "score_percentile": 91.1,
+      "score_breakdown": {
+        "swell_exposure": 40.0,
+        "geometry": 11.8,
+        "bathymetry": 0.0,
+        "road_access": 15.0
+      }
+    },
+    {
+      "spot_name": "Cow Bay (Osbourne)",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.605,
+      "spot_lon": -63.4167,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04326",
+      "matched_segment_rank": 7054,
+      "distance_m": 1185.2,
+      "segment_score": 40.0,
+      "segment_orientation_deg": 8.3,
+      "score_percentile": 60.7,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 25.0,
+        "bathymetry": 0.0,
+        "road_access": 15.0
+      }
+    },
+    {
+      "spot_name": "Martinique Beach",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.6833,
+      "spot_lon": -63.1333,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04390",
+      "matched_segment_rank": 1088,
+      "distance_m": 943.7,
+      "segment_score": 71.0,
+      "segment_orientation_deg": 170.8,
+      "score_percentile": 93.6,
+      "score_breakdown": {
+        "swell_exposure": 40.0,
+        "geometry": 16.0,
+        "bathymetry": 0.0,
+        "road_access": 15.0
+      }
+    },
+    {
+      "spot_name": "Broad Cove",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.6667,
+      "spot_lon": -63.2167,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04441",
+      "matched_segment_rank": 13155,
+      "distance_m": 552.8,
+      "segment_score": 32.7,
+      "segment_orientation_deg": 236.1,
+      "score_percentile": 22.4,
+      "score_breakdown": {
+        "swell_exposure": 6.6,
+        "geometry": 13.8,
+        "bathymetry": 0.0,
+        "road_access": 12.3
+      }
+    },
+    {
+      "spot_name": "Clam Harbour Beach",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.7167,
+      "spot_lon": -62.8833,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04780",
+      "matched_segment_rank": 5585,
+      "distance_m": 257.0,
+      "segment_score": 44.0,
+      "segment_orientation_deg": 224.0,
+      "score_percentile": 67.1,
+      "score_breakdown": {
+        "swell_exposure": 5.7,
+        "geometry": 25.0,
+        "bathymetry": 0.0,
+        "road_access": 13.3
+      }
+    },
+    {
+      "spot_name": "Caldwells Cove",
+      "spot_region": "Eastern Shore",
+      "spot_facing": "SE",
+      "spot_lat": 44.7,
+      "spot_lon": -63.05,
+      "matched": true,
+      "matched_segment_id": "ns-seg-04408",
+      "matched_segment_rank": 10723,
+      "distance_m": 1650.4,
+      "segment_score": 37.3,
+      "segment_orientation_deg": 35.6,
+      "score_percentile": 36.8,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 23.3,
+        "bathymetry": 0.0,
+        "road_access": 14.0
+      }
+    },
+    {
+      "spot_name": "Cherry Hill",
+      "spot_region": "South Shore",
+      "spot_facing": "S",
+      "spot_lat": 44.05,
+      "spot_lon": -64.4667,
+      "matched": true,
+      "matched_segment_id": "ns-seg-01583",
+      "matched_segment_rank": 12607,
+      "distance_m": 7225.9,
+      "segment_score": 33.9,
+      "segment_orientation_deg": 77.6,
+      "score_percentile": 25.7,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 18.9,
+        "bathymetry": 0.0,
+        "road_access": 15.0
+      }
+    },
+    {
+      "spot_name": "Summerville",
+      "spot_region": "South Shore",
+      "spot_facing": "S",
+      "spot_lat": 44.0333,
+      "spot_lon": -64.4833,
+      "matched": true,
+      "matched_segment_id": "ns-seg-01583",
+      "matched_segment_rank": 12607,
+      "distance_m": 6971.3,
+      "segment_score": 33.9,
+      "segment_orientation_deg": 77.6,
+      "score_percentile": 25.7,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 18.9,
+        "bathymetry": 0.0,
+        "road_access": 15.0
+      }
+    },
+    {
+      "spot_name": "White Point",
+      "spot_region": "South Shore",
+      "spot_facing": "S",
+      "spot_lat": 43.9333,
+      "spot_lon": -64.7333,
+      "matched": true,
+      "matched_segment_id": "ns-seg-01402",
+      "matched_segment_rank": 10072,
+      "distance_m": 2204.3,
+      "segment_score": 38.2,
+      "segment_orientation_deg": 61.6,
+      "score_percentile": 40.6,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 25.0,
+        "bathymetry": 0.0,
+        "road_access": 13.2
+      }
+    },
+    {
+      "spot_name": "Western Head",
+      "spot_region": "South Shore",
+      "spot_facing": "S",
+      "spot_lat": 43.9833,
+      "spot_lon": -64.6667,
+      "matched": true,
+      "matched_segment_id": "ns-seg-01231",
+      "matched_segment_rank": 12796,
+      "distance_m": 542.5,
+      "segment_score": 33.5,
+      "segment_orientation_deg": 352.2,
+      "score_percentile": 24.5,
+      "score_breakdown": {
+        "swell_exposure": 0.0,
+        "geometry": 18.7,
+        "bathymetry": 0.0,
+        "road_access": 14.8
+      }
+    },
+    {
+      "spot_name": "Mavillette Beach",
+      "spot_region": "French Shore",
+      "spot_facing": "SW",
+      "spot_lat": 44.0833,
+      "spot_lon": -66.15,
+      "matched": true,
+      "matched_segment_id": "ns-seg-00254",
+      "matched_segment_rank": 6483,
+      "distance_m": 2498.4,
+      "segment_score": 40.6,
+      "segment_orientation_deg": 246.1,
+      "score_percentile": 61.7,
+      "score_breakdown": {
+        "swell_exposure": 7.7,
+        "geometry": 18.4,
+        "bathymetry": 0.0,
+        "road_access": 14.5
+      }
+    },
+    {
+      "spot_name": "Sandy Cove Beach",
+      "spot_region": "French Shore",
+      "spot_facing": "SW",
+      "spot_lat": 44.35,
+      "spot_lon": -65.9667,
+      "matched": true,
+      "matched_segment_id": "ns-seg-03150",
+      "matched_segment_rank": 9330,
+      "distance_m": 7030.8,
+      "segment_score": 39.0,
+      "segment_orientation_deg": 117.7,
+      "score_percentile": 45.0,
+      "score_breakdown": {
+        "swell_exposure": 10.3,
+        "geometry": 14.0,
+        "bathymetry": 0.0,
+        "road_access": 14.7
+      }
+    },
+    {
+      "spot_name": "Gullivers Cove",
+      "spot_region": "French Shore",
+      "spot_facing": "W",
+      "spot_lat": 44.3833,
+      "spot_lon": -65.8833,
+      "matched": true,
+      "matched_segment_id": "ns-seg-03150",
+      "matched_segment_rank": 9330,
+      "distance_m": 9710.9,
+      "segment_score": 39.0,
+      "segment_orientation_deg": 117.7,
+      "score_percentile": 45.0,
+      "score_breakdown": {
+        "swell_exposure": 10.3,
+        "geometry": 14.0,
+        "bathymetry": 0.0,
+        "road_access": 14.7
+      }
+    },
+    {
+      "spot_name": "Point Michaud",
+      "spot_region": "Cape Breton",
+      "spot_facing": "SE",
+      "spot_lat": 45.6333,
+      "spot_lon": -60.4667,
+      "matched": true,
+      "matched_segment_id": "ns-seg-10424",
+      "matched_segment_rank": 1947,
+      "distance_m": 799.3,
+      "segment_score": 63.8,
+      "segment_orientation_deg": 189.9,
+      "score_percentile": 88.6,
+      "score_breakdown": {
+        "swell_exposure": 40.0,
+        "geometry": 18.8,
+        "bathymetry": 0.0,
+        "road_access": 5.0
+      }
+    }
+  ]
+}

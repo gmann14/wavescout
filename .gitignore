@@ -2,3 +2,8 @@ venv/
 __pycache__/
 *.pyc
 .env
+
+# Large cached data (re-downloadable from Overpass/GEBCO)
+pipeline/data/coastline/ns_coastline.geojson
+pipeline/data/coastline/ns_roads_utm.json
+pipeline/data/thumbnails/
