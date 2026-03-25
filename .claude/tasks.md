@@ -1,7 +1,7 @@
 # WaveScout — Tasks
 
 > Source of truth for project status. Updated after every work session.
-> Last updated: 2026-03-25 (Phase 1 GO + Phase 2.5 foam detection running)
+> Last updated: 2026-03-25 (Phase 2.5: full multi-spot foam detection pipeline running)
 
 ## Phase 1: Feasibility Prototype ✅ COMPLETE — GO decision made
 
@@ -57,8 +57,9 @@
 - [x] `12_calibrate.py` — Matches 14 known spots to nearest segments. Top known spots (Martinique, Lawrencetown, Point Michaud) rank 88-94th percentile. Strong validation.
 
 ### Remaining
-- [ ] **Graham: Pin lesser-known South Shore NS spots with characteristics** (point/beach/reef, swell window, notes)
-- [ ] Ingest Graham's spot pins into `ns_spots.geojson` with metadata
+- [x] **Graham pinned 6 South Shore spots** — Snapjaw, Rafuse Island, Hell Point, Hirtle's Beach, Gaff Point, Seaside
+- [x] Ingested into `ns_spots.geojson` — 20 total spots (9 Graham + 11 public sources)
+- [x] Created configs for all 20 spots with correct bboxes and verified segment coverage
 - [ ] Bathymetry profile where available (CHS nautical charts / GEBCO)
 - [ ] Historical swell correlation: "how often does each spot get ideal conditions?"
 - [ ] Satellite validation: confirm white water on days conditions predict surf
@@ -98,10 +99,13 @@
 - Profiles: turn-on at 0.28-0.42m, optimal 0.5-1.0m, directional from S/SE/E ✅
 
 ### Remaining
-- [ ] Run full Lawrencetown archive (120 clear scenes post-2021-10) — **IN PROGRESS** (53/120 as of 10am Mar 25, tmux session `wavescout` on `~/.tmux/sock`, log: `/tmp/wavescout_foam_full.log`)
-- [ ] Run Cow Bay and Martinique Beach for cross-spot comparison
-- [ ] Cross-spot comparison: same dates across all 3 spots
-- [ ] Validate against 14 known spots — do profiles match expected behavior?
+- [x] Run full Lawrencetown archive — **DONE** (120 scenes, 2,708 detections, 23 profiles)
+- [ ] Run all other spots (8 known + 11 public) — **IN PROGRESS** in tmux `wavescout` session (`~/.tmux/sock`)
+  - Queue: cow-bay → martinique → snapjaw → rafuse-island → hell-point → hirtles → gaff-point → seaside
+  - 11 public spots queued after: white-point, western-head, cherry-hill, point-michaud, clam-harbour, summerville, kennington-cove, ingonish, mavillette, broad-cove, gullivers-cove
+  - Est. 12-16hrs total runtime
+- [ ] Cross-spot comparison: same dates across all spots
+- [ ] Validate profiles against known spot behavior
 - [ ] Extend to full NS coastline (16,939 exposed segments from geometry scoring)
 - [ ] Merge geometry scores + NIR evidence + conditions into unified spot ranking
 - [ ] Generate `spots.geojson` output bundle for web viewer

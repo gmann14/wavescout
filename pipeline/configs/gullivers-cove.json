@@ -1,1 +1,1 @@
-{"name":"Gullivers Cove","slug":"gullivers-cove","region":"nova-scotia","bbox":[-65.75,44.60,-65.69,44.64],"point":{"lat":44.6189,"lon":-65.7193},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{"name":"Gullivers Cove","slug":"gullivers-cove","region":"nova-scotia","bbox":[-65.74,44.60,-65.69,44.64],"point":{"lat":44.619,"lon":-65.719},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}

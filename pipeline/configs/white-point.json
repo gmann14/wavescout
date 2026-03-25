@@ -1,1 +1,1 @@
-{"name":"White Point Beach","slug":"white-point","region":"nova-scotia","bbox":[-64.76,43.92,-64.68,43.98],"point":{"lat":43.9553,"lon":-64.7345},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{"name":"White Point Beach","slug":"white-point","region":"nova-scotia","bbox":[-64.76,43.93,-64.69,43.98],"point":{"lat":43.955,"lon":-64.734},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
