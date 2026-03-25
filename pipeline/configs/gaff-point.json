@@ -1,0 +1,9 @@
+{
+  "name": "Gaff Point",
+  "slug": "gaff-point",
+  "region": "nova-scotia",
+  "bbox": [-64.31, 44.24, -64.26, 44.27],
+  "point": { "lat": 44.25466, "lon": -64.28371 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}

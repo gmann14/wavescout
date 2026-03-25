@@ -1,9 +1,10 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "source": "Graham Mann — local knowledge",
+    "source": "Graham Mann \u2014 local knowledge",
     "created": "2026-03-25",
-    "notes": "South Shore NS surf spots. Used for foam detection calibration and cross-validation."
+    "notes": "NS surf spots: 9 from local knowledge + 11 from public sources (Surfline, Stormrider, Nomad Surfers)",
+    "updated": "2026-03-25"
   },
   "features": [
     {
@@ -19,7 +20,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-63.3417, 44.6375]
+        "coordinates": [
+          -63.3417,
+          44.6375
+        ]
       }
     },
     {
@@ -35,7 +39,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-63.4167, 44.6167]
+        "coordinates": [
+          -63.4167,
+          44.6167
+        ]
       }
     },
     {
@@ -51,7 +58,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-63.1333, 44.6833]
+        "coordinates": [
+          -63.1333,
+          44.6833
+        ]
       }
     },
     {
@@ -60,14 +70,17 @@
         "name": "Snapjaw",
         "slug": "snapjaw",
         "type": "point",
-        "swell_window": "S, big swell only — works when other spots are blown out",
+        "swell_window": "S, big swell only \u2014 works when other spots are blown out",
         "notes": "Needs more southerly direction. Only fires in really big swell.",
         "confidence": "medium",
         "source": "graham-local-knowledge"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.43385, 44.22726]
+        "coordinates": [
+          -64.43385,
+          44.22726
+        ]
       }
     },
     {
@@ -83,7 +96,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.23079, 44.45612]
+        "coordinates": [
+          -64.23079,
+          44.45612
+        ]
       }
     },
     {
@@ -99,7 +115,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.24572, 44.25995]
+        "coordinates": [
+          -64.24572,
+          44.25995
+        ]
       }
     },
     {
@@ -115,7 +134,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.27210, 44.26500]
+        "coordinates": [
+          -64.2721,
+          44.265
+        ]
       }
     },
     {
@@ -125,13 +147,16 @@
         "slug": "gaff-point",
         "type": "unknown",
         "swell_window": "big swell",
-        "notes": "Location approximate — Graham not 100% sure on exact break location. Likely needs big swell.",
+        "notes": "Location approximate \u2014 Graham not 100% sure on exact break location. Likely needs big swell.",
         "confidence": "low",
         "source": "graham-local-knowledge"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.28371, 44.25466]
+        "coordinates": [
+          -64.28371,
+          44.25466
+        ]
       }
     },
     {
@@ -147,7 +172,219 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-64.29034, 44.31164]
+        "coordinates": [
+          -64.29034,
+          44.31164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "White Point Beach",
+        "slug": "white-point",
+        "type": "beach",
+        "swell_window": "SE groundswell",
+        "notes": "Consistent beach break near Liverpool. Relatively reliable.",
+        "confidence": "high",
+        "source": "public-surfline-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.7345,
+          43.9553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Western Head",
+        "slug": "western-head",
+        "type": "reef/point",
+        "swell_window": "good groundswell",
+        "notes": "Reef and pointbreak near Liverpool. More power than White Point.",
+        "confidence": "high",
+        "source": "public-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.6617,
+          43.9733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cherry Hill",
+        "slug": "cherry-hill",
+        "type": "beach",
+        "swell_window": "S/SE",
+        "notes": "Beach break between Liverpool and Lunenburg. Mentioned by Stormrider.",
+        "confidence": "high",
+        "source": "public-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5169,
+          44.1386
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Point Michaud",
+        "slug": "point-michaud",
+        "type": "beach",
+        "swell_window": "S/SE, year-round",
+        "notes": "3km sandy beach, Cape Breton. Clean and forgiving. Rarely crowded.",
+        "confidence": "high",
+        "source": "public-surfline-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.3994,
+          45.6541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Clam Harbour Beach",
+        "slug": "clam-harbour",
+        "type": "beach",
+        "swell_window": "SE",
+        "notes": "Eastern Shore beach, provincial park.",
+        "confidence": "medium",
+        "source": "public-nomadsurfers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.8857,
+          44.7222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Summerville Beach",
+        "slug": "summerville",
+        "type": "beach",
+        "swell_window": "S/SE",
+        "notes": "South Shore beach break.",
+        "confidence": "medium",
+        "source": "public-nomadsurfers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.7502,
+          44.0586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kennington Cove",
+        "slug": "kennington-cove",
+        "type": "unknown",
+        "swell_window": "S",
+        "notes": "Cape Breton, south-facing. One of the more well-known CB spots per Stormrider.",
+        "confidence": "medium",
+        "source": "public-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.975,
+          45.9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ingonish Beach",
+        "slug": "ingonish",
+        "type": "beach",
+        "swell_window": "NE",
+        "notes": "Cape Breton Highlands NP area. Exposed NE-facing. Largely untapped.",
+        "confidence": "medium",
+        "source": "public-stormrider"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.4,
+          46.65
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mavillette Beach",
+        "slug": "mavillette",
+        "type": "beach",
+        "swell_window": "SW (Bay of Fundy)",
+        "notes": "Bay of Fundy side. Different swell window than Atlantic coast.",
+        "confidence": "medium",
+        "source": "public-nomadsurfers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.1799,
+          44.0767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Broad Cove",
+        "slug": "broad-cove",
+        "type": "unknown",
+        "swell_window": "unknown",
+        "notes": "Listed on Nomad Surfers. Location approximate.",
+        "confidence": "low",
+        "source": "public-nomadsurfers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.525,
+          44.58
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gullivers Cove",
+        "slug": "gullivers-cove",
+        "type": "unknown",
+        "swell_window": "SW (Bay of Fundy)",
+        "notes": "Bay of Fundy side. Listed on Nomad Surfers.",
+        "confidence": "low",
+        "source": "public-nomadsurfers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7193,
+          44.6189
+        ]
       }
     }
   ]

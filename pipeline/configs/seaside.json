@@ -1,0 +1,9 @@
+{
+  "name": "Seaside",
+  "slug": "seaside",
+  "region": "nova-scotia",
+  "bbox": [-64.32, 44.30, -64.27, 44.33],
+  "point": { "lat": 44.31164, "lon": -64.29034 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}

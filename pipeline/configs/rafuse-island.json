@@ -1,0 +1,9 @@
+{
+  "name": "Rafuse Island",
+  "slug": "rafuse-island",
+  "region": "nova-scotia",
+  "bbox": [-64.26, 44.44, -64.21, 44.47],
+  "point": { "lat": 44.45612, "lon": -64.23079 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}

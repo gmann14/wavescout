@@ -1,0 +1,9 @@
+{
+  "name": "Hell Point",
+  "slug": "hell-point",
+  "region": "nova-scotia",
+  "bbox": [-64.27, 44.245, -64.22, 44.275],
+  "point": { "lat": 44.25995, "lon": -64.24572 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Snapjaw",
+  "slug": "snapjaw",
+  "region": "nova-scotia",
+  "bbox": [-64.46, 44.21, -64.41, 44.24],
+  "point": { "lat": 44.22726, "lon": -64.43385 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}

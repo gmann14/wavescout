@@ -1,0 +1,9 @@
+{
+  "name": "Hirtle's Beach",
+  "slug": "hirtles-beach",
+  "region": "nova-scotia",
+  "bbox": [-64.30, 44.25, -64.25, 44.28],
+  "point": { "lat": 44.265, "lon": -64.2721 },
+  "date_range": { "start": "2017-01-01" },
+  "export": { "drive_folder": "wavescout_samples" }
+}
