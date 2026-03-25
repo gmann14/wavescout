@@ -1,6 +1,6 @@
 {
   "script": "02_export_sample_images.py",
-  "generated_at_utc": "2026-03-24T14:39:55.542610+00:00",
+  "generated_at_utc": "2026-03-24T17:05:51.231371+00:00",
   "config_path": "pipeline/configs/cow-bay.json",
   "region": {
     "name": "Cow Bay (Osbourne)",
@@ -18,10 +18,10 @@
     }
   },
   "query": {
-    "start_date": "2020-06-01",
-    "end_date": "2025-09-30",
-    "cloud_max": 15.0,
-    "limit": 8,
+    "start_date": "2017-01-01",
+    "end_date": "2026-03-24",
+    "cloud_max": 20.0,
+    "limit": 20,
     "scale": 10,
     "bands": [
       "B2",
@@ -35,12 +35,140 @@
   },
   "exports": [
     {
+      "description": "cow-bay_2026-03-18",
+      "date": "2026-03-18",
+      "cloud_pct": 8.519461,
+      "product_id": "S2C_MSIL2A_20260318T151651_N0512_R025_T20TMQ_20260318T212619",
+      "system_index": "20260318T151651_20260318T151651_T20TMQ",
+      "task_id": "45H5TQ5R4N4G6FCQ55W2UOWO"
+    },
+    {
+      "description": "cow-bay_2026-03-10",
+      "date": "2026-03-10",
+      "cloud_pct": 0.985202,
+      "product_id": "S2A_MSIL2A_20260310T151721_N0512_R025_T20TMQ_20260310T214811",
+      "system_index": "20260310T151721_20260310T151719_T20TMQ",
+      "task_id": "G3FTA567Z7UUPQY54BCY7MX2"
+    },
+    {
+      "description": "cow-bay_2026-03-10",
+      "date": "2026-03-10",
+      "cloud_pct": 3.368053,
+      "product_id": "S2B_MSIL2A_20260310T150709_N0512_R125_T20TMQ_20260310T201745",
+      "system_index": "20260310T150709_20260310T150940_T20TMQ",
+      "task_id": "FKB5EXWGZWDU4ZWDCWOE2QCW"
+    },
+    {
+      "description": "cow-bay_2026-03-03",
+      "date": "2026-03-03",
+      "cloud_pct": 0.270978,
+      "product_id": "S2B_MSIL2A_20260303T151649_N0512_R025_T20TMQ_20260303T203627",
+      "system_index": "20260303T151649_20260303T152002_T20TMQ",
+      "task_id": "XZ2XT6NVJ6LK7QFQAXEU2XKE"
+    },
+    {
+      "description": "cow-bay_2026-02-28",
+      "date": "2026-02-28",
+      "cloud_pct": 0.11568,
+      "product_id": "S2B_MSIL2A_20260228T150709_N0512_R125_T20TMQ_20260228T201536",
+      "system_index": "20260228T150709_20260228T150712_T20TMQ",
+      "task_id": "SQFTPXS3QTYNX2ALZTMRQOBT"
+    },
+    {
+      "description": "cow-bay_2026-02-13",
+      "date": "2026-02-13",
+      "cloud_pct": 7.149488,
+      "product_id": "S2C_MSIL2A_20260213T150721_N0512_R125_T20TMQ_20260213T175609",
+      "system_index": "20260213T150721_20260213T150951_T20TMQ",
+      "task_id": "PSEFDGXJ2AMBXXJZ3TAFZL3A"
+    },
+    {
+      "description": "cow-bay_2026-01-29",
+      "date": "2026-01-29",
+      "cloud_pct": 16.7063,
+      "product_id": "S2B_MSIL2A_20260129T150709_N0511_R125_T20TMQ_20260129T201734",
+      "system_index": "20260129T150709_20260129T151002_T20TMQ",
+      "task_id": "FFW4UYNE2MU2HNC3SURKQXIU"
+    },
+    {
+      "description": "cow-bay_2025-12-23",
+      "date": "2025-12-23",
+      "cloud_pct": 9.258861,
+      "product_id": "S2B_MSIL2A_20251223T151649_N0511_R025_T20TMQ_20251223T203632",
+      "system_index": "20251223T151649_20251223T151648_T20TMQ",
+      "task_id": "3EWUB22QHQMUMLGN5S6EJZN2"
+    },
+    {
+      "description": "cow-bay_2025-12-18",
+      "date": "2025-12-18",
+      "cloud_pct": 8.350842,
+      "product_id": "S2C_MSIL2A_20251218T151701_N0511_R025_T20TMQ_20251218T171418",
+      "system_index": "20251218T151701_20251218T151657_T20TMQ",
+      "task_id": "5CDSVWAX3ZCOAHQO2SW3LXVB"
+    },
+    {
+      "description": "cow-bay_2025-12-05",
+      "date": "2025-12-05",
+      "cloud_pct": 13.393819,
+      "product_id": "S2C_MSIL2A_20251205T150721_N0511_R125_T20TMQ_20251205T164310",
+      "system_index": "20251205T150721_20251205T150816_T20TMQ",
+      "task_id": "UD34DGDQHQ34MHS6DQ2ULUV6"
+    },
+    {
+      "description": "cow-bay_2025-11-23",
+      "date": "2025-11-23",
+      "cloud_pct": 5.11979,
+      "product_id": "S2B_MSIL2A_20251123T151639_N0511_R025_T20TMQ_20251123T170905",
+      "system_index": "20251123T151639_20251123T151816_T20TMQ",
+      "task_id": "LTWI76HRWIL7MH7REI3YYDST"
+    },
+    {
+      "description": "cow-bay_2025-11-05",
+      "date": "2025-11-05",
+      "cloud_pct": 5.695007,
+      "product_id": "S2C_MSIL2A_20251105T150731_N0511_R125_T20TMQ_20251105T165714",
+      "system_index": "20251105T150731_20251105T150727_T20TMQ",
+      "task_id": "RA6V6LYOGJ62VDA2EGPY6YWS"
+    },
+    {
+      "description": "cow-bay_2025-11-03",
+      "date": "2025-11-03",
+      "cloud_pct": 4.416495,
+      "product_id": "S2B_MSIL2A_20251103T151649_N0511_R025_T20TMQ_20251103T185651",
+      "system_index": "20251103T151649_20251103T151645_T20TMQ",
+      "task_id": "YUQJPNZO7AOZRCN7H3F4SCIV"
+    },
+    {
+      "description": "cow-bay_2025-10-24",
+      "date": "2025-10-24",
+      "cloud_pct": 1.378141,
+      "product_id": "S2B_MSIL2A_20251024T151649_N0511_R025_T20TMQ_20251024T185636",
+      "system_index": "20251024T151649_20251024T151648_T20TMQ",
+      "task_id": "4SMT26P543PBZ5SNTXLBXRWH"
+    },
+    {
+      "description": "cow-bay_2025-10-11",
+      "date": "2025-10-11",
+      "cloud_pct": 16.174291,
+      "product_id": "S2B_MSIL2A_20251011T150719_N0511_R125_T20TMQ_20251011T203422",
+      "system_index": "20251011T150719_20251011T150717_T20TMQ",
+      "task_id": "7KEJRE6DS4V2NBPWUOYVVD3G"
+    },
+    {
+      "description": "cow-bay_2025-10-04",
+      "date": "2025-10-04",
+      "cloud_pct": 0.002551,
+      "product_id": "S2B_MSIL2A_20251004T151649_N0511_R025_T20TMQ_20251004T203636",
+      "system_index": "20251004T151649_20251004T151648_T20TMQ",
+      "task_id": "CD5YEWVTCYUBVXKPBVYM5X2A"
+    },
+    {
       "description": "cow-bay_2025-09-29",
       "date": "2025-09-29",
       "cloud_pct": 0.003457,
       "product_id": "S2C_MSIL2A_20250929T151701_N0511_R025_T20TMQ_20250929T195817",
       "system_index": "20250929T151701_20250929T151751_T20TMQ",
-      "task_id": "5XAUJBGPDMPNJXFDPKQRJI4B"
+      "task_id": "52KZMHJSLWR7AW77WPIM3LDV"
     },
     {
       "description": "cow-bay_2025-09-21",
@@ -48,7 +176,7 @@
       "cloud_pct": 0.001031,
       "product_id": "S2B_MSIL2A_20250921T150719_N0511_R125_T20TMQ_20250921T202210",
       "system_index": "20250921T150719_20250921T150840_T20TMQ",
-      "task_id": "4PEZFDOPBWFOD5ZZHHOH7W5H"
+      "task_id": "JAP5FEDQ3345M36VMVKNP57G"
     },
     {
       "description": "cow-bay_2025-09-16",
@@ -56,7 +184,7 @@
       "cloud_pct": 0.000952,
       "product_id": "S2C_MSIL2A_20250916T150731_N0511_R125_T20TMQ_20250916T210414",
       "system_index": "20250916T150731_20250916T150948_T20TMQ",
-      "task_id": "MQBP7V5BJQUJWSCOOOT4UTKC"
+      "task_id": "IBPZFKDCWYNHT6JO6QZUYSWY"
     },
     {
       "description": "cow-bay_2025-09-14",
@@ -64,39 +192,7 @@
       "cloud_pct": 9.540516,
       "product_id": "S2B_MSIL2A_20250914T151649_N0511_R025_T20TMQ_20250914T201429",
       "system_index": "20250914T151649_20250914T151647_T20TMQ",
-      "task_id": "JZOCIH2ZVYBPI4NJCA4WSRLF"
-    },
-    {
-      "description": "cow-bay_2025-09-04",
-      "date": "2025-09-04",
-      "cloud_pct": 0.038941,
-      "product_id": "S2B_MSIL2A_20250904T151649_N0511_R025_T20TMQ_20250904T201053",
-      "system_index": "20250904T151649_20250904T151648_T20TMQ",
-      "task_id": "AKMXZM565RM5W7ES5I6OP6ND"
-    },
-    {
-      "description": "cow-bay_2025-09-01",
-      "date": "2025-09-01",
-      "cloud_pct": 6.308532,
-      "product_id": "S2B_MSIL2A_20250901T150719_N0511_R125_T20TMQ_20250901T202216",
-      "system_index": "20250901T150719_20250901T150714_T20TMQ",
-      "task_id": "GJ2UDQSXYUTSMOSQUSJC6CQR"
-    },
-    {
-      "description": "cow-bay_2025-08-17",
-      "date": "2025-08-17",
-      "cloud_pct": 1.668503,
-      "product_id": "S2C_MSIL2A_20250817T150731_N0511_R125_T20TMQ_20250817T205813",
-      "system_index": "20250817T150731_20250817T150929_T20TMQ",
-      "task_id": "ZIP7RCCK2PSTSZ6REHQZC7QL"
-    },
-    {
-      "description": "cow-bay_2025-08-15",
-      "date": "2025-08-15",
-      "cloud_pct": 0.938189,
-      "product_id": "S2B_MSIL2A_20250815T151649_N0511_R025_T20TMQ_20250815T190106",
-      "system_index": "20250815T151649_20250815T151810_T20TMQ",
-      "task_id": "UVVSYGDFSRGKIQXKZWFOKY6G"
+      "task_id": "KKT6PJKXAE4S3ZRVVTRHXYYP"
     }
   ]
 }
