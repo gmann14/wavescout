@@ -98,7 +98,7 @@
 - Profiles: turn-on at 0.28-0.42m, optimal 0.5-1.0m, directional from S/SE/E ✅
 
 ### Remaining
-- [ ] Run full Lawrencetown archive (120 clear scenes post-2021-10)
+- [ ] Run full Lawrencetown archive (120 clear scenes post-2021-10) — **IN PROGRESS** (53/120 as of 10am Mar 25, tmux session `wavescout` on `~/.tmux/sock`, log: `/tmp/wavescout_foam_full.log`)
 - [ ] Run Cow Bay and Martinique Beach for cross-spot comparison
 - [ ] Cross-spot comparison: same dates across all 3 spots
 - [ ] Validate against 14 known spots — do profiles match expected behavior?
