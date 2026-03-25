@@ -1,0 +1,154 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "Graham Mann — local knowledge",
+    "created": "2026-03-25",
+    "notes": "South Shore NS surf spots. Used for foam detection calibration and cross-validation."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lawrencetown Beach",
+        "slug": "lawrencetown-beach",
+        "type": "beach",
+        "swell_window": "S/SE, works in most swell sizes",
+        "notes": "Most popular NS surf spot. Consistent beach break. Known reference point.",
+        "confidence": "high",
+        "source": "well-known"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.3417, 44.6375]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cow Bay",
+        "slug": "cow-bay",
+        "type": "beach",
+        "swell_window": "S/SE",
+        "notes": "Beach break near Halifax. Known spot.",
+        "confidence": "high",
+        "source": "well-known"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.4167, 44.6167]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Martinique Beach",
+        "slug": "martinique-beach",
+        "type": "beach",
+        "swell_window": "S/SE",
+        "notes": "Long beach break, provincial park. Known spot.",
+        "confidence": "high",
+        "source": "well-known"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.1333, 44.6833]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Snapjaw",
+        "slug": "snapjaw",
+        "type": "point",
+        "swell_window": "S, big swell only — works when other spots are blown out",
+        "notes": "Needs more southerly direction. Only fires in really big swell.",
+        "confidence": "medium",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.43385, 44.22726]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rafuse Island",
+        "slug": "rafuse-island",
+        "type": "point",
+        "swell_window": "big swell",
+        "notes": "Point break that works in big swell. Less certain on specifics.",
+        "confidence": "low-medium",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.23079, 44.45612]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hell Point",
+        "slug": "hell-point",
+        "type": "slab/point",
+        "swell_window": "moderate swell",
+        "notes": "Slab/point break. Works in moderate swell.",
+        "confidence": "medium",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.24572, 44.25995]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hirtle's Beach",
+        "slug": "hirtles-beach",
+        "type": "beach",
+        "swell_window": "small to moderate swell",
+        "notes": "Usually has something in small/moderate swell. Not a great spot overall.",
+        "confidence": "medium",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.27210, 44.26500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gaff Point",
+        "slug": "gaff-point",
+        "type": "unknown",
+        "swell_window": "big swell",
+        "notes": "Location approximate — Graham not 100% sure on exact break location. Likely needs big swell.",
+        "confidence": "low",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.28371, 44.25466]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Seaside",
+        "slug": "seaside",
+        "type": "point",
+        "swell_window": "moderate to big E swell",
+        "notes": "Point break. Works in moderate/big easterly swell. Location approximate.",
+        "confidence": "low-medium",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.29034, 44.31164]
+      }
+    }
+  ]
+}
