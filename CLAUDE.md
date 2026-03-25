@@ -22,13 +22,13 @@ Surf discovery tool using satellite imagery (Sentinel-2), coastline geometry, an
 - **Different spots have different swell thresholds** — must build swell-response profiles per segment
 - **10m resolution can detect foam presence and extent** but not individual wave shapes
 - **All 3 test spots share Sentinel-2 tile T20TMQ** — same-day cross-spot comparison possible
-- **Marine data only available from ~2019** via Open-Meteo; earlier scenes have wind only
+- **Open-Meteo swell data starts 2021-10** for NS coast; earlier scenes have null swell values
 
 ## Project Structure
 ```
 pipeline/
   configs/          — spot config JSON files (bbox, coordinates)
-  scripts/          — numbered pipeline scripts (01-07 so far)
+  scripts/          — numbered pipeline scripts (01-14)
   data/
     manifests/      — scene inventories, conditions, export manifests
     reviews/        — CSV review sheets for manual labeling
@@ -57,6 +57,8 @@ FEASIBILITY-STATUS.md — feasibility findings and GO decision
 10. `10_segment_coastline.py` — OSM coastline → 500m segments with exposure filter
 11. `11_score_geometry.py` — geometry scoring 0-100
 12. `12_calibrate.py` — validate against 14 known spots
+13. `13_detect_foam_nir.py` — NIR foam detection per segment per scene (GEE server-side)
+14. `14_build_swell_profiles.py` — swell-response profiles from foam detections
 
 ## Commands
 ```bash
