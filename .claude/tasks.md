@@ -1,9 +1,9 @@
 # WaveScout — Tasks
 
 > Source of truth for project status. Updated after every work session.
-> Last updated: 2026-03-25 (Phase 2.5 NIR foam detection pipeline)
+> Last updated: 2026-03-25 (Phase 1 GO + Phase 2.5 foam detection running)
 
-## Phase 1: Feasibility Prototype ✅ MOSTLY DONE — awaiting imagery review
+## Phase 1: Feasibility Prototype ✅ COMPLETE — GO decision made
 
 ### Pipeline Scripts (all working)
 - [x] `01_test_gee_access.py` — scene inventory for configured spots
@@ -115,7 +115,7 @@
 - GitHub: `gmann14/wavescout`
 - GEE Project: `seotakeoff` (via .env)
 - Python 3.12 venv
-- 6 git commits total
+- 12 git commits total
 - No web deployment yet (pipeline-only project for now)
 
 ## Blockers
