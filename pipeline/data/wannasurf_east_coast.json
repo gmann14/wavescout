@@ -1,0 +1,350 @@
+[
+  {
+    "slug": "Andrews_Head",
+    "name": "Andrews Head",
+    "lat": 44.06795,
+    "lon": -64.56362,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "and holds up to",
+    "bottom": "Sandy with rock",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Antlers_beach",
+    "name": "Antlers beach",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "North, East, NorthEast",
+    "swell_size": "Less than 1m / 3ft and holds up to 2m+ / 6ft+",
+    "bottom": "Sandy with rock",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Banc_de_Pabos",
+    "name": "Banc de Pabos",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthWest, South, SouthEast",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
+    "bottom": "Sandy with rock",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Blueberry_Bay",
+    "name": "Blueberry Bay",
+    "lat": 44.06582,
+    "lon": -64.58223,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "Less than 1m / 3ft and holds up to 5m / 16 ft and over",
+    "bottom": "Sandy with rock",
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "Broad_Cove",
+    "name": "Broad Cove",
+    "lat": 44.17714,
+    "lon": -64.47011,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "and holds up to",
+    "bottom": "Boulders",
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "Cape_Lumiere",
+    "name": "Cape Lumiere",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
+    "bottom": "Sandy",
+    "experience": "Beginners wave"
+  },
+  {
+    "slug": "cherry_hill",
+    "name": "Cherry hill",
+    "lat": 44.14015,
+    "lon": -64.50665,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthWest",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
+    "bottom": "Sandy",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "cow_bay_-_moose_rocks",
+    "name": "Cow bay",
+    "lat": 44.61393,
+    "lon": -63.42957,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthWest, South",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 3m+ / 10ft+",
+    "bottom": "Boulders",
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "dennis_beach",
+    "name": "Dennis beach",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South",
+    "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
+    "bottom": "Sandy",
+    "experience": null
+  },
+  {
+    "slug": "eastern_brook",
+    "name": "Eastern brook",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South, SouthEast, East",
+    "swell_size": "Less than 1m / 3ft and holds up to 2.5m+ / 8ft+",
+    "bottom": "Flat rocks",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "fisherman_s_reserve",
+    "name": "Fisherman s reserve",
+    "lat": 44.64814,
+    "lon": -63.27438,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "North, NorthWest",
+    "swell_size": "1.5m-2m /5ft-6ft and holds up to 4m+ / 12ft",
+    "bottom": "Boulders",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "forevers",
+    "name": "Forevers",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthWest, South, SouthEast",
+    "swell_size": "and holds up to",
+    "bottom": null,
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "Habitat__67_-_Montreal",
+    "name": "Habitat  67",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "Don't know",
+    "swell_size": "1.5m-2m /5ft-6ft and holds up to 2m+ / 6ft+",
+    "bottom": "Flat rocks",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "hirtles",
+    "name": "Hirtles",
+    "lat": 44.25885,
+    "lon": -64.27036,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "Less than 1m / 3ft and holds up to 4m+ / 12ft",
+    "bottom": "Sandy",
+    "experience": "Beginners wave"
+  },
+  {
+    "slug": "icicles",
+    "name": "Icicles",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South",
+    "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
+    "bottom": "Flat rocks",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "ingonish_beach",
+    "name": "Ingonish beach",
+    "lat": 46.64702,
+    "lon": -60.38755,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "North, East, NorthEast",
+    "swell_size": "Less than 1m / 3ft and holds up to 3m+ / 10ft+",
+    "bottom": "Sandy",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "juicy_s",
+    "name": "Juicy s",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South, SouthEast",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
+    "bottom": "Sandy",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Kennington_Cove",
+    "name": "Kennington Cove",
+    "lat": 45.87646,
+    "lon": -60.06054,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthEast",
+    "swell_size": "Don't know and holds up to Don't know",
+    "bottom": "Sandy",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "killaz",
+    "name": "Killaz",
+    "lat": 44.6529,
+    "lon": -63.26443,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "North, NorthEast",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
+    "bottom": "Flat rocks",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "lawrencetown",
+    "name": "Lawrencetown",
+    "lat": 44.64215,
+    "lon": -63.34202,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South, SouthEast, East",
+    "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
+    "bottom": "Flat rocks with sand",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "lawrencetown_-_plan_b",
+    "name": "Lawrencetown",
+    "lat": 44.64421,
+    "lon": -63.35944,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "South, SouthEast, East",
+    "swell_size": "Less than 1m / 3ft and holds up to Don't know",
+    "bottom": "Sandy with rock",
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Left_Point",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "martinique",
+    "name": "Martinique",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthWest, South, SouthEast",
+    "swell_size": "Less than 1m / 3ft and holds up to 2m+ / 6ft+",
+    "bottom": "Sandy",
+    "experience": "Beginners wave"
+  },
+  {
+    "slug": "Meadows_point",
+    "name": "Meadows point",
+    "lat": 44.05915,
+    "lon": -64.63211,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "and holds up to",
+    "bottom": "Sandy with rock",
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "Minutes",
+    "name": "Minutes",
+    "lat": 44.62924,
+    "lon": -63.41625,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "Less than 1m / 3ft and holds up to 5m / 16 ft and over",
+    "bottom": "Boulders",
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "osbourne",
+    "name": "Osbourne",
+    "lat": 44.61065,
+    "lon": -63.42044,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "and holds up to",
+    "bottom": null,
+    "experience": "Experienced surfers"
+  },
+  {
+    "slug": "Point_Michaud",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "Point_Pleasant_Beach_Park",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "Pubnico_Beach",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "rissers",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "rudy_s",
+    "name": "Rudy s",
+    "lat": null,
+    "lon": null,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": "SouthEast, East, NorthEast",
+    "swell_size": "2.5m-3m / 8ft-10ft and holds up to 4m+ / 12ft",
+    "bottom": null,
+    "experience": "All surfers"
+  },
+  {
+    "slug": "Sable_Island",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "slug": "Seals",
+    "name": "Seals",
+    "lat": 44.66738,
+    "lon": -63.25242,
+    "break_type": "",
+    "wave_direction": "",
+    "swell_direction": null,
+    "swell_size": "and holds up to",
+    "bottom": "Sandy with rock",
+    "experience": null
+  }
+]
