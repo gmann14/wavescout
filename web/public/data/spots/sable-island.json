@@ -1,0 +1,12 @@
+{
+  "name": "Sable Island",
+  "slug": "sable-island",
+  "coordinates": [
+    -59.876,
+    43.9288
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left"
+}

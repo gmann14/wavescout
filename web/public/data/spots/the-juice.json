@@ -1,0 +1,12 @@
+{
+  "name": "The Juice",
+  "slug": "the-juice",
+  "coordinates": [
+    -61.73,
+    45.13
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Rivermouth",
+  "wannasurf_direction": "Right and left"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Pubnico Beach",
+  "slug": "pubnico-beach",
+  "coordinates": [
+    -65.63,
+    43.58
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left"
+}

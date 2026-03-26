@@ -1,0 +1,12 @@
+{
+  "name": "Rudy's",
+  "slug": "rudys",
+  "coordinates": [
+    -63.27,
+    44.65
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Blueberry Bay",
+  "slug": "blueberry-bay",
+  "coordinates": [
+    -64.5822,
+    44.0658
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Point-break",
+  "wannasurf_direction": "Right and left"
+}

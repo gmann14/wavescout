@@ -1,0 +1,12 @@
+{
+  "name": "Minutes",
+  "slug": "minutes",
+  "coordinates": [
+    -63.415339,
+    44.632158
+  ],
+  "source": "surfline",
+  "tier": 1,
+  "surfline_url": "https://www.surfline.com/surf-report/minutes/5842041f4e65fad6a7708dbb",
+  "surfline_id": "5842041f4e65fad6a7708dbb"
+}

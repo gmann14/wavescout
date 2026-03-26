@@ -1,0 +1,12 @@
+{
+  "name": "Killaz",
+  "slug": "killaz",
+  "coordinates": [
+    -63.2644,
+    44.6529
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Reef-rocky",
+  "wannasurf_direction": "Right and left"
+}

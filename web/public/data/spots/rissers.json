@@ -1,0 +1,12 @@
+{
+  "name": "Rissers",
+  "slug": "rissers",
+  "coordinates": [
+    -64.4272,
+    44.2297
+  ],
+  "source": "wannasurf",
+  "tier": 2,
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left"
+}

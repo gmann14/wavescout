@@ -1,425 +1,772 @@
 {
   "type": "FeatureCollection",
-  "metadata": {
-    "source": "WaveScout pipeline",
-    "created": "2026-03-26",
-    "count": 20
-  },
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "name": "Lawrencetown Beach",
-        "slug": "lawrencetown-beach",
-        "type": "beach",
-        "swell_window": "S/SE, works in most swell sizes",
-        "notes": "Most popular NS surf spot. Consistent beach break. Known reference point.",
-        "confidence": "high",
-        "source": "well-known",
-        "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-beach/584204204e65fad6a77094cf",
-        "surfline_id": "584204204e65fad6a77094cf"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -63.343,
           44.643
         ]
+      },
+      "properties": {
+        "slug": "lawrencetown-beach",
+        "name": "Lawrencetown Beach",
+        "source": "well-known",
+        "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-beach/584204204e65fad6a77094cf",
+        "surfline_id": "584204204e65fad6a77094cf",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Cow Bay",
-        "slug": "cow-bay",
-        "type": "beach",
-        "swell_window": "S/SE",
-        "notes": "Beach break near Halifax. Known spot.",
-        "confidence": "high",
-        "source": "well-known",
-        "break_type": "Reef-rocky",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/the-moose/584204204e65fad6a77094cb",
-        "surfline_id": "584204204e65fad6a77094cb"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -63.43175,
           44.61383
         ]
+      },
+      "properties": {
+        "slug": "cow-bay",
+        "name": "Cow Bay",
+        "source": "well-known",
+        "surfline_url": "https://www.surfline.com/surf-report/the-moose/584204204e65fad6a77094cb",
+        "surfline_id": "584204204e65fad6a77094cb",
+        "break_type": "Reef-rocky",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Martinique Beach",
-        "slug": "martinique-beach",
-        "type": "beach",
-        "swell_window": "S/SE",
-        "notes": "Long beach break, provincial park. Known spot.",
-        "confidence": "high",
-        "source": "well-known",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/martinique/5842041f4e65fad6a7708db0",
-        "surfline_id": "5842041f4e65fad6a7708db0"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -63.13179,
           44.6899
         ]
+      },
+      "properties": {
+        "slug": "martinique-beach",
+        "name": "Martinique Beach",
+        "source": "well-known",
+        "surfline_url": "https://www.surfline.com/surf-report/martinique/5842041f4e65fad6a7708db0",
+        "surfline_id": "5842041f4e65fad6a7708db0",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Snapjaw",
-        "slug": "snapjaw",
-        "type": "point",
-        "swell_window": "S, big swell only \u2014 works when other spots are blown out",
-        "notes": "Needs more southerly direction. Only fires in really big swell.",
-        "confidence": "medium",
-        "source": "graham-local-knowledge"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.43385,
           44.22726
         ]
+      },
+      "properties": {
+        "slug": "snapjaw",
+        "name": "Snapjaw",
+        "source": "graham-local-knowledge",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Rafuse Island",
-        "slug": "rafuse-island",
-        "type": "point",
-        "swell_window": "big swell",
-        "notes": "Point break that works in big swell. Less certain on specifics.",
-        "confidence": "low-medium",
-        "source": "graham-local-knowledge"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.23079,
           44.45612
         ]
+      },
+      "properties": {
+        "slug": "rafuse-island",
+        "name": "Rafuse Island",
+        "source": "graham-local-knowledge",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Hell Point",
-        "slug": "hell-point",
-        "type": "slab/point",
-        "swell_window": "moderate swell",
-        "notes": "Slab/point break. Works in moderate swell.",
-        "confidence": "medium",
-        "source": "graham-local-knowledge"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.24572,
           44.25995
         ]
+      },
+      "properties": {
+        "slug": "hell-point",
+        "name": "Hell Point",
+        "source": "graham-local-knowledge",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Hirtle's Beach",
-        "slug": "hirtles-beach",
-        "type": "beach",
-        "swell_window": "small to moderate swell",
-        "notes": "Usually has something in small/moderate swell. Not a great spot overall.",
-        "confidence": "medium",
-        "source": "graham-local-knowledge",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/hirtles/584204204e65fad6a7709abd",
-        "surfline_id": "584204204e65fad6a7709abd"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.272,
           44.261
         ]
+      },
+      "properties": {
+        "slug": "hirtles-beach",
+        "name": "Hirtle's Beach",
+        "source": "graham-local-knowledge",
+        "surfline_url": "https://www.surfline.com/surf-report/hirtles/584204204e65fad6a7709abd",
+        "surfline_id": "584204204e65fad6a7709abd",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Gaff Point",
-        "slug": "gaff-point",
-        "type": "unknown",
-        "swell_window": "big swell",
-        "notes": "Location approximate \u2014 Graham not 100% sure on exact break location. Likely needs big swell.",
-        "confidence": "low",
-        "source": "graham-local-knowledge"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.28371,
           44.25466
         ]
+      },
+      "properties": {
+        "slug": "gaff-point",
+        "name": "Gaff Point",
+        "source": "graham-local-knowledge",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Seaside",
-        "slug": "seaside",
-        "type": "point",
-        "swell_window": "moderate to big E swell",
-        "notes": "Point break. Works in moderate/big easterly swell. Location approximate.",
-        "confidence": "low-medium",
-        "source": "graham-local-knowledge"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.29034,
           44.31164
         ]
+      },
+      "properties": {
+        "slug": "seaside",
+        "name": "Seaside",
+        "source": "graham-local-knowledge",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "White Point Beach",
-        "slug": "white-point",
-        "type": "beach",
-        "swell_window": "SE groundswell",
-        "notes": "Consistent beach break near Liverpool. Relatively reliable.",
-        "confidence": "high",
-        "source": "public-surfline-stormrider",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/white-point/640a3948606c459c16aefb85",
-        "surfline_id": "640a3948606c459c16aefb85"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.7352,
           43.9643
         ]
+      },
+      "properties": {
+        "slug": "white-point",
+        "name": "White Point Beach",
+        "source": "public-surfline-stormrider",
+        "surfline_url": "https://www.surfline.com/surf-report/white-point/640a3948606c459c16aefb85",
+        "surfline_id": "640a3948606c459c16aefb85",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Western Head",
-        "slug": "western-head",
-        "type": "reef/point",
-        "swell_window": "good groundswell",
-        "notes": "Reef and pointbreak near Liverpool. More power than White Point.",
-        "confidence": "high",
-        "source": "public-stormrider",
-        "surfline_url": "https://www.surfline.com/surf-report/western-head/584204204e65fad6a77094ce",
-        "surfline_id": "584204204e65fad6a77094ce"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.68,
           43.985
         ]
+      },
+      "properties": {
+        "slug": "western-head",
+        "name": "Western Head",
+        "source": "public-stormrider",
+        "surfline_url": "https://www.surfline.com/surf-report/western-head/584204204e65fad6a77094ce",
+        "surfline_id": "584204204e65fad6a77094ce",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Cherry Hill",
-        "slug": "cherry-hill",
-        "type": "beach",
-        "swell_window": "S/SE",
-        "notes": "Beach break between Liverpool and Lunenburg. Mentioned by Stormrider.",
-        "confidence": "high",
-        "source": "public-stormrider",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/cherry-hill/584204204e65fad6a7709abe",
-        "surfline_id": "584204204e65fad6a7709abe"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.509,
           44.139
         ]
+      },
+      "properties": {
+        "slug": "cherry-hill",
+        "name": "Cherry Hill",
+        "source": "public-stormrider",
+        "surfline_url": "https://www.surfline.com/surf-report/cherry-hill/584204204e65fad6a7709abe",
+        "surfline_id": "584204204e65fad6a7709abe",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Point Michaud",
-        "slug": "point-michaud",
-        "type": "beach",
-        "swell_window": "S/SE, year-round",
-        "notes": "3km sandy beach, Cape Breton. Clean and forgiving. Rarely crowded.",
-        "confidence": "high",
-        "source": "public-surfline-stormrider",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/point-michaud/584204204e65fad6a77094d0",
-        "surfline_id": "584204204e65fad6a77094d0"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -60.68454,
           45.5846
         ]
+      },
+      "properties": {
+        "slug": "point-michaud",
+        "name": "Point Michaud",
+        "source": "public-surfline-stormrider",
+        "surfline_url": "https://www.surfline.com/surf-report/point-michaud/584204204e65fad6a77094d0",
+        "surfline_id": "584204204e65fad6a77094d0",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Clam Harbour Beach",
-        "slug": "clam-harbour",
-        "type": "beach",
-        "swell_window": "SE",
-        "notes": "Eastern Shore beach, provincial park.",
-        "confidence": "medium",
-        "source": "public-nomadsurfers"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -62.8857,
           44.7222
         ]
+      },
+      "properties": {
+        "slug": "clam-harbour",
+        "name": "Clam Harbour Beach",
+        "source": "public-nomadsurfers",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Summerville Beach",
-        "slug": "summerville",
-        "type": "beach",
-        "swell_window": "S/SE",
-        "notes": "South Shore beach break.",
-        "confidence": "medium",
-        "source": "public-nomadsurfers"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.7502,
           44.0586
         ]
+      },
+      "properties": {
+        "slug": "summerville",
+        "name": "Summerville Beach",
+        "source": "public-nomadsurfers",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Kennington Cove",
-        "slug": "kennington-cove",
-        "type": "unknown",
-        "swell_window": "S",
-        "notes": "Cape Breton, south-facing. One of the more well-known CB spots per Stormrider.",
-        "confidence": "medium",
-        "source": "public-stormrider",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -60.0605,
           45.8765
         ]
+      },
+      "properties": {
+        "slug": "kennington-cove",
+        "name": "Kennington Cove",
+        "source": "public-stormrider",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Ingonish Beach",
-        "slug": "ingonish",
-        "type": "beach",
-        "swell_window": "NE",
-        "notes": "Cape Breton Highlands NP area. Exposed NE-facing. Largely untapped.",
-        "confidence": "medium",
-        "source": "public-stormrider",
-        "break_type": "Beach-break",
-        "break_direction": "Right and left"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -60.4,
           46.65
         ]
+      },
+      "properties": {
+        "slug": "ingonish",
+        "name": "Ingonish Beach",
+        "source": "public-stormrider",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Mavillette Beach",
-        "slug": "mavillette",
-        "type": "beach",
-        "swell_window": "SW (Bay of Fundy)",
-        "notes": "Bay of Fundy side. Different swell window than Atlantic coast.",
-        "confidence": "medium",
-        "source": "public-nomadsurfers"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -66.1799,
           44.0767
         ]
+      },
+      "properties": {
+        "slug": "mavillette",
+        "name": "Mavillette Beach",
+        "source": "public-nomadsurfers",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Broad Cove",
-        "slug": "broad-cove",
-        "type": "unknown",
-        "swell_window": "unknown",
-        "notes": "Listed on Nomad Surfers. Location approximate.",
-        "confidence": "low",
-        "source": "public-nomadsurfers",
-        "break_type": "Reef-rocky",
-        "break_direction": "Right and left",
-        "surfline_url": "https://www.surfline.com/surf-report/broad-cove/640a394cb6d769299e4f9039",
-        "surfline_id": "640a394cb6d769299e4f9039"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -64.4743,
           44.1775
         ]
+      },
+      "properties": {
+        "slug": "broad-cove",
+        "name": "Broad Cove",
+        "source": "public-nomadsurfers",
+        "surfline_url": "https://www.surfline.com/surf-report/broad-cove/640a394cb6d769299e4f9039",
+        "surfline_id": "640a394cb6d769299e4f9039",
+        "break_type": "Reef-rocky",
+        "break_direction": "Right and left",
+        "tier": 1
       }
     },
     {
       "type": "Feature",
-      "properties": {
-        "name": "Gullivers Cove",
-        "slug": "gullivers-cove",
-        "type": "unknown",
-        "swell_window": "SW (Bay of Fundy)",
-        "notes": "Bay of Fundy side. Listed on Nomad Surfers.",
-        "confidence": "low",
-        "source": "public-nomadsurfers"
-      },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -65.7193,
           44.6189
         ]
+      },
+      "properties": {
+        "slug": "gullivers-cove",
+        "name": "Gullivers Cove",
+        "source": "public-nomadsurfers",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.35122,
+          44.64182
+        ]
+      },
+      "properties": {
+        "slug": "lawrencetown-point",
+        "name": "Lawrencetown Point",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-point/584204204e65fad6a77096b0",
+        "surfline_id": "584204204e65fad6a77096b0",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.325,
+          44.639
+        ]
+      },
+      "properties": {
+        "slug": "left-point",
+        "name": "Left Point",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/left-point/584204204e65fad6a77096b5",
+        "surfline_id": "584204204e65fad6a77096b5",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.25684,
+          44.657329
+        ]
+      },
+      "properties": {
+        "slug": "right-point",
+        "name": "Right Point",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/right-point/5842041f4e65fad6a7708db1",
+        "surfline_id": "5842041f4e65fad6a7708db1",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.25845,
+          44.66404
+        ]
+      },
+      "properties": {
+        "slug": "the-cove",
+        "name": "The Cove",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/the-cove/5842041f4e65fad6a7708daf",
+        "surfline_id": "5842041f4e65fad6a7708daf",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.415339,
+          44.632158
+        ]
+      },
+      "properties": {
+        "slug": "minutes",
+        "name": "Minutes",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/minutes/5842041f4e65fad6a7708dbb",
+        "surfline_id": "5842041f4e65fad6a7708dbb",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.417031,
+          44.61774
+        ]
+      },
+      "properties": {
+        "slug": "osbourne",
+        "name": "Osbourne",
+        "source": "surfline",
+        "surfline_url": "https://www.surfline.com/surf-report/osbourne/5842041f4e65fad6a7708db2",
+        "surfline_id": "5842041f4e65fad6a7708db2",
+        "tier": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5636,
+          44.068
+        ]
+      },
+      "properties": {
+        "slug": "andrews-head",
+        "name": "Andrews Head",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5822,
+          44.0658
+        ]
+      },
+      "properties": {
+        "slug": "blueberry-bay",
+        "name": "Blueberry Bay",
+        "source": "wannasurf",
+        "break_type": "Point-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.55,
+          45.22
+        ]
+      },
+      "properties": {
+        "slug": "eastern-brook",
+        "name": "Eastern Brook",
+        "source": "wannasurf",
+        "break_type": "Reef-rocky",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": "Near Larrys River/Torbay Provincial Park, Guysborough. Possibly only ever surfed by one person."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2744,
+          44.6481
+        ]
+      },
+      "properties": {
+        "slug": "fishermans-reserve",
+        "name": "Fisherman's Reserve",
+        "source": "wannasurf",
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.92,
+          44.49
+        ]
+      },
+      "properties": {
+        "slug": "forevers",
+        "name": "Forevers",
+        "source": "wannasurf",
+        "break_type": "Point-break",
+        "break_direction": "",
+        "tier": 2,
+        "note": "Possibly mythical. Near Peggys Cove, Chebucto Peninsula. Claims: longest wave on east seaboard, 300-500m rides. Good candidate for satellite verification/debunking."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.74,
+          45.13
+        ]
+      },
+      "properties": {
+        "slug": "juicys",
+        "name": "Juicy's",
+        "source": "wannasurf",
+        "break_type": "Rivermouth",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": "Rivermouth at New Harbour near Country Harbour. Tidal river narrows to channel, jacks up waves. Best fall/hurricane season. No crowds. Water super warm 70s-80s F in summer from tidal river."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2644,
+          44.6529
+        ]
+      },
+      "properties": {
+        "slug": "killaz",
+        "name": "Killaz",
+        "source": "wannasurf",
+        "break_type": "Reef-rocky",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.6321,
+          44.0592
+        ]
+      },
+      "properties": {
+        "slug": "meadows-point",
+        "name": "Meadows Point",
+        "source": "wannasurf",
+        "break_type": "Point-break",
+        "break_direction": "Left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.5626,
+          44.6199
+        ]
+      },
+      "properties": {
+        "slug": "point-pleasant-beach-park",
+        "name": "Point Pleasant Beach Park",
+        "source": "wannasurf",
+        "break_type": "",
+        "break_direction": "",
+        "tier": 2,
+        "note": "Closest surf spot to Halifax downtown. Breaks off old military bunkers at south end of Point Pleasant Park. Never foggy like Lawrencetown. Empty lineups."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.63,
+          43.58
+        ]
+      },
+      "properties": {
+        "slug": "pubnico-beach",
+        "name": "Pubnico Beach",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": "Near Clarks Harbour/Barrington, southwestern NS. Forbes Point Road. Empty, isolated, beautiful. Hurricane season best (Aug-Nov)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.4272,
+          44.2297
+        ]
+      },
+      "properties": {
+        "slug": "rissers",
+        "name": "Rissers",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.27,
+          44.65
+        ]
+      },
+      "properties": {
+        "slug": "rudys",
+        "name": "Rudy's",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": "Past Lawrencetown and Fishermans Reserve. Cove with inside and outside break. Paddle >20min or boat. Empty."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.876,
+          43.9288
+        ]
+      },
+      "properties": {
+        "slug": "sable-island",
+        "name": "Sable Island",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2524,
+          44.6674
+        ]
+      },
+      "properties": {
+        "slug": "seals",
+        "name": "Seals",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.73,
+          45.13
+        ]
+      },
+      "properties": {
+        "slug": "the-juice",
+        "name": "The Juice",
+        "source": "wannasurf",
+        "break_type": "Rivermouth",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": "Named for Justin Avery (18, killed by car). Near Country Harbour rivermouth. Same area as Juicys but distinct break. 3.5hrs from Halifax. Always empty."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.6372,
+          44.0578
+        ]
+      },
+      "properties": {
+        "slug": "the-meadows",
+        "name": "The Meadows",
+        "source": "wannasurf",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "tier": 2,
+        "note": ""
       }
     }
   ]
