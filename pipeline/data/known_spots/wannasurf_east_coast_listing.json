@@ -1,0 +1,275 @@
+[
+  {
+    "name": "Andrews Head",
+    "slug": "Andrews_Head",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Antlers Beach",
+    "slug": "Antlers_beach",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Banc de Pabos",
+    "slug": "Banc_de_Pabos",
+    "direction": "Right and left",
+    "type": "Sand-bar",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Blueberry Bay",
+    "slug": "Blueberry_Bay",
+    "direction": "Right and left",
+    "type": "Point-break",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Broad Cove",
+    "slug": "Broad_Cove",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Cape Lumiere",
+    "slug": "Cape_Lumiere",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "Beginners wave"
+  },
+  {
+    "name": "Cherry Hill",
+    "slug": "cherry_hill",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Cow Bay - Moose Rocks",
+    "slug": "cow_bay_-_moose_rocks",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Dennis Beach",
+    "slug": "dennis_beach",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": ""
+  },
+  {
+    "name": "Eastern Brook",
+    "slug": "eastern_brook",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Fisherman's Reserve",
+    "slug": "fisherman_s_reserve",
+    "direction": "Right",
+    "type": "Point-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Forevers",
+    "slug": "forevers",
+    "direction": "",
+    "type": "Point-break",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Habitat '67 - Montreal",
+    "slug": "Habitat__67_-_Montreal",
+    "direction": "Right and left",
+    "type": "Rivermouth",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Hirtles",
+    "slug": "hirtles",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "Beginners wave"
+  },
+  {
+    "name": "Icicles",
+    "slug": "icicles",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Ingonish Beach",
+    "slug": "ingonish_beach",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Juicy's",
+    "slug": "juicy_s",
+    "direction": "Right and left",
+    "type": "Rivermouth",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Kennington Cove",
+    "slug": "Kennington_Cove",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Killaz",
+    "slug": "killaz",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Lawrencetown",
+    "slug": "lawrencetown",
+    "direction": "Right",
+    "type": "Point-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Lawrencetown - Plan B",
+    "slug": "lawrencetown_-_plan_b",
+    "direction": "Right and left",
+    "type": "Sand-bar",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Left Point",
+    "slug": "left_point",
+    "direction": "Left",
+    "type": "Point-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Martinique",
+    "slug": "martinique",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "Beginners wave"
+  },
+  {
+    "name": "Meadows Point",
+    "slug": "Meadows_point",
+    "direction": "Left",
+    "type": "Point-break",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Minutes",
+    "slug": "Minutes",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Osbourne",
+    "slug": "osbourne",
+    "direction": "Right",
+    "type": "Point-break",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Point Michaud",
+    "slug": "point_michaud",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Point Pleasant Beach Park",
+    "slug": "point_pleasant_beach_park",
+    "direction": "",
+    "type": "",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Pubnico Beach",
+    "slug": "pubnico_beach",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Rissers",
+    "slug": "Rissers",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Rudy's",
+    "slug": "rudy_s",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Sable Island",
+    "slug": "sable_island",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "Pros or kamikaze only"
+  },
+  {
+    "name": "Seals",
+    "slug": "Seals",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": ""
+  },
+  {
+    "name": "The Juice",
+    "slug": "the_juice",
+    "direction": "Right and left",
+    "type": "Rivermouth",
+    "experience": "All surfers"
+  },
+  {
+    "name": "The Meadows",
+    "slug": "The_Meadows",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Vague a Guy - Lasalle",
+    "slug": "saint_laurent_-_lachine",
+    "direction": "Right and left",
+    "type": "Reef-rocky",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "White Point",
+    "slug": "White_Point",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "Experienced surfers"
+  },
+  {
+    "name": "Windmill Bight",
+    "slug": "Windmill_Bight",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  },
+  {
+    "name": "Zaluds",
+    "slug": "zaluds",
+    "direction": "Right and left",
+    "type": "Beach-break",
+    "experience": "All surfers"
+  }
+]
