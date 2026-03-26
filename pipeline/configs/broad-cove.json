@@ -1,1 +1,21 @@
-{"name":"Broad Cove","slug":"broad-cove","region":"nova-scotia","bbox":[-63.55,44.56,-63.50,44.60],"point":{"lat":44.58,"lon":-63.525},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{
+  "name": "Broad Cove",
+  "slug": "broad-cove",
+  "region": "nova-scotia",
+  "bbox": [
+    -64.49510000000001,
+    44.157199999999996,
+    -64.4451,
+    44.1972
+  ],
+  "point": {
+    "lat": 44.1772,
+    "lon": -64.4701
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

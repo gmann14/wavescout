@@ -5,30 +5,37 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 44.067953643385,
-    "lng": -64.563615135849,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.068,
+    "lng": -64.5636,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Antlers Beach",
     "wannasurf_slug": "Antlers_beach",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "note": "NOT NS - coordinates in British Columbia"
   },
   {
     "name": "Blueberry Bay",
     "wannasurf_slug": "Blueberry_Bay",
     "type": "Point-break",
     "direction": "Right and left",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.0658,
+    "lng": -64.5822,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Broad Cove",
     "wannasurf_slug": "Broad_Cove",
     "type": "Reef-rocky",
     "direction": "Right and left",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.1772,
+    "lng": -64.4701,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Cherry Hill",
@@ -36,16 +43,19 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 44.14014928522,
-    "lng": -64.50665473938,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.1402,
+    "lng": -64.5066,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Cow Bay - Moose Rocks",
     "wannasurf_slug": "cow_bay_-_moose_rocks",
     "type": "Reef-rocky",
     "direction": "Right and left",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.6139,
+    "lng": -63.4296,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Dennis Beach",
@@ -67,9 +77,9 @@
     "type": "Point-break",
     "direction": "Right",
     "experience": "All surfers",
-    "lat": 44.648139323194,
-    "lng": -63.274383544922,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.6481,
+    "lng": -63.2744,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Forevers",
@@ -84,9 +94,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "Beginners wave",
-    "lat": 44.258847258582,
-    "lng": -64.270362854004,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.2589,
+    "lng": -64.2704,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Icicles",
@@ -101,9 +111,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 46.647020415466,
-    "lng": -60.387554168701,
-    "coords_source": "wannasurf_kmz"
+    "lat": 46.647,
+    "lng": -60.3875,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Juicy's",
@@ -118,9 +128,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 45.87646113123,
-    "lng": -60.060539245605,
-    "coords_source": "wannasurf_kmz"
+    "lat": 45.8765,
+    "lng": -60.0605,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Killaz",
@@ -128,9 +138,9 @@
     "type": "Reef-rocky",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 44.652902043911,
-    "lng": -63.264427185059,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.6529,
+    "lng": -63.2644,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Lawrencetown",
@@ -138,9 +148,9 @@
     "type": "Point-break",
     "direction": "Right",
     "experience": "All surfers",
-    "lat": 44.642154837656,
-    "lng": -63.342018127441,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.6422,
+    "lng": -63.342,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Lawrencetown - Plan B",
@@ -148,9 +158,9 @@
     "type": "Sand-bar",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 44.642154837656,
-    "lng": -63.342018127441,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.6442,
+    "lng": -63.3594,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Left Point",
@@ -172,23 +182,29 @@
     "type": "Point-break",
     "direction": "Left",
     "experience": "Experienced surfers",
-    "lat": 44.05915359605,
-    "lng": -64.632114730775,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.0592,
+    "lng": -64.6321,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Minutes",
     "wannasurf_slug": "Minutes",
     "type": "Reef-rocky",
     "direction": "Right and left",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.6293,
+    "lng": -63.4162,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Osbourne",
     "wannasurf_slug": "osbourne",
     "type": "Point-break",
     "direction": "Right",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.6107,
+    "lng": -63.4204,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Point Michaud",
@@ -196,9 +212,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "All surfers",
-    "lat": 45.588095187818,
-    "lng": -60.679550170899,
-    "coords_source": "wannasurf_kmz"
+    "lat": 45.5881,
+    "lng": -60.6795,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Point Pleasant Beach Park",
@@ -219,7 +235,10 @@
     "wannasurf_slug": "Rissers",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 44.2297,
+    "lng": -64.4272,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Rudy's",
@@ -234,9 +253,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "Pros or kamikaze only",
-    "lat": 43.928808154647,
-    "lng": -59.876003265381,
-    "coords_source": "wannasurf_kmz"
+    "lat": 43.9288,
+    "lng": -59.876,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Seals",
@@ -244,9 +263,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "",
-    "lat": 44.667380764457,
-    "lng": -63.252416923642,
-    "coords_source": "wannasurf_kmz"
+    "lat": 44.6674,
+    "lng": -63.2524,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "The Juice",
@@ -260,7 +279,10 @@
     "wannasurf_slug": "The_Meadows",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 44.0578,
+    "lng": -64.6372,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "White Point",
@@ -268,9 +290,9 @@
     "type": "Beach-break",
     "direction": "Right and left",
     "experience": "Experienced surfers",
-    "lat": 43.961822209686,
-    "lng": -64.735260084271,
-    "coords_source": "wannasurf_kmz"
+    "lat": 43.9618,
+    "lng": -64.7353,
+    "coords_source": "wannasurf_browser_scrape"
   },
   {
     "name": "Zaluds",

@@ -1,1 +1,19 @@
-{"slug":"broad-cove","name":"Broad Cove","swell_profile":null,"foam_summary":{"scenes_processed":120,"segments_processed":4,"total_detections":416,"errors":0,"scenes_with_foam":95,"date_range":{"start":"2021-10-07","end":"2026-03-18"}}}
+{
+  "slug": "broad-cove",
+  "name": "Broad Cove",
+  "swell_profile": null,
+  "foam_summary": {
+    "scenes_processed": 120,
+    "segments_processed": 4,
+    "total_detections": 416,
+    "errors": 0,
+    "scenes_with_foam": 95,
+    "date_range": {
+      "start": "2021-10-07",
+      "end": "2026-03-18"
+    }
+  },
+  "wannasurf_type": "Reef-rocky",
+  "wannasurf_direction": "Right and left",
+  "wannasurf_experience": "Experienced surfers"
+}

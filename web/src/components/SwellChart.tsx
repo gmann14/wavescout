@@ -43,7 +43,7 @@ export default function SwellChart({ profile }: Props) {
   const bestBin = profile.optimal_range?.best_bin;
 
   return (
-    <div className="w-full h-48">
+    <div style={{ width: "100%", height: 192, minWidth: 200 }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <XAxis

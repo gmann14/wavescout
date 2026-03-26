@@ -1,0 +1,392 @@
+[
+  {
+    "name": "Lawrencetown Beach",
+    "slug": "lawrencetown-beach",
+    "lat": 44.6375,
+    "lng": -63.3417,
+    "source": "well-known",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be667a",
+      "station_name": "Three Fathom Harbour",
+      "distance_km": 6.0
+    }
+  },
+  {
+    "name": "Cow Bay",
+    "slug": "cow-bay",
+    "lat": 44.6167,
+    "lng": -63.4167,
+    "source": "well-known",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be6679",
+      "station_name": "Eastern Passage",
+      "distance_km": 5.3
+    }
+  },
+  {
+    "name": "Martinique Beach",
+    "slug": "martinique-beach",
+    "lat": 44.6833,
+    "lng": -63.1333,
+    "source": "well-known",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd30650e0fdc4b9b4be6b86",
+      "station_name": "East Petpeswick",
+      "distance_km": 4.6
+    }
+  },
+  {
+    "name": "Snapjaw",
+    "slug": "snapjaw",
+    "lat": 44.22726,
+    "lng": -64.43385,
+    "source": "graham-local-knowledge",
+    "type": "point",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe8d",
+      "station_name": "Riverport",
+      "distance_km": 9.9
+    }
+  },
+  {
+    "name": "Rafuse Island",
+    "slug": "rafuse-island",
+    "lat": 44.45612,
+    "lng": -64.23079,
+    "source": "graham-local-knowledge",
+    "type": "point",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be6675",
+      "station_name": "Big Tancook Island",
+      "distance_km": 5.1
+    }
+  },
+  {
+    "name": "Hell Point",
+    "slug": "hell-point",
+    "lat": 44.25995,
+    "lng": -64.24572,
+    "source": "graham-local-knowledge",
+    "type": "slab/point",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe8d",
+      "station_name": "Riverport",
+      "distance_km": 8.6
+    }
+  },
+  {
+    "name": "Hirtle's Beach",
+    "slug": "hirtles-beach",
+    "lat": 44.265,
+    "lng": -64.2721,
+    "source": "graham-local-knowledge",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe8d",
+      "station_name": "Riverport",
+      "distance_km": 6.4
+    }
+  },
+  {
+    "name": "Gaff Point",
+    "slug": "gaff-point",
+    "lat": 44.25466,
+    "lng": -64.28371,
+    "source": "graham-local-knowledge",
+    "type": "unknown",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe8d",
+      "station_name": "Riverport",
+      "distance_km": 6.2
+    }
+  },
+  {
+    "name": "Seaside",
+    "slug": "seaside",
+    "lat": 44.31164,
+    "lng": -64.29034,
+    "source": "graham-local-knowledge",
+    "type": "point",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe8d",
+      "station_name": "Riverport",
+      "distance_km": 5.0
+    }
+  },
+  {
+    "name": "White Point Beach",
+    "slug": "white-point",
+    "lat": 43.9553,
+    "lng": -64.7345,
+    "source": "public-surfline-stormrider",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcad",
+      "station_name": "Port Mouton",
+      "distance_km": 9.3
+    }
+  },
+  {
+    "name": "Western Head",
+    "slug": "western-head",
+    "lat": 43.9733,
+    "lng": -64.6617,
+    "source": "public-stormrider",
+    "type": "reef/point",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcaf",
+      "station_name": "Liverpool",
+      "distance_km": 8.8
+    }
+  },
+  {
+    "name": "Cherry Hill",
+    "slug": "cherry-hill",
+    "lat": 44.1386,
+    "lng": -64.5169,
+    "source": "public-stormrider",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcaf",
+      "station_name": "Liverpool",
+      "distance_km": 17.3
+    }
+  },
+  {
+    "name": "Point Michaud",
+    "slug": "point-michaud",
+    "lat": 45.6541,
+    "lng": -60.3994,
+    "source": "public-surfline-stormrider",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbea8",
+      "station_name": "Fourchu",
+      "distance_km": 13.9
+    }
+  },
+  {
+    "name": "Clam Harbour Beach",
+    "slug": "clam-harbour",
+    "lat": 44.7222,
+    "lng": -62.8857,
+    "source": "public-nomadsurfers",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e03d0f4a073c4bbe99",
+      "station_name": "Little Harbour",
+      "distance_km": 3.8
+    }
+  },
+  {
+    "name": "Summerville Beach",
+    "slug": "summerville",
+    "lat": 44.0586,
+    "lng": -64.7502,
+    "source": "public-nomadsurfers",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcaf",
+      "station_name": "Liverpool",
+      "distance_km": 4.6
+    }
+  },
+  {
+    "name": "Kennington Cove",
+    "slug": "kennington-cove",
+    "lat": 45.9,
+    "lng": -59.975,
+    "source": "public-stormrider",
+    "type": "unknown",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e23d0f4a073c4bc118",
+      "station_name": "Louisbourg",
+      "distance_km": 1.9
+    }
+  },
+  {
+    "name": "Ingonish Beach",
+    "slug": "ingonish",
+    "lat": 46.65,
+    "lng": -60.4,
+    "source": "public-stormrider",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1e33d0f4a073c4bc12d",
+      "station_name": "Ingonish Beach",
+      "distance_km": 2.4
+    }
+  },
+  {
+    "name": "Mavillette Beach",
+    "slug": "mavillette",
+    "lat": 44.0767,
+    "lng": -66.1799,
+    "source": "public-nomadsurfers",
+    "type": "beach",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be666d",
+      "station_name": "Cape St. Marys",
+      "distance_km": 1.8
+    }
+  },
+  {
+    "name": "Broad Cove",
+    "slug": "broad-cove",
+    "lat": 44.58,
+    "lng": -63.525,
+    "source": "public-nomadsurfers",
+    "type": "unknown",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be6679",
+      "station_name": "Eastern Passage",
+      "distance_km": 5.2
+    }
+  },
+  {
+    "name": "Gullivers Cove",
+    "slug": "gullivers-cove",
+    "lat": 44.6189,
+    "lng": -65.7193,
+    "source": "public-nomadsurfers",
+    "type": "unknown",
+    "tier": "foam-verified",
+    "has_foam_data": true,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbc6c",
+      "station_name": "Digby",
+      "distance_km": 2.9
+    }
+  },
+  {
+    "name": "Fisherman s Reserve",
+    "slug": "fisherman-s-reserve",
+    "lat": 44.648139323194,
+    "lng": -63.274383544922,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be667a",
+      "station_name": "Three Fathom Harbour",
+      "distance_km": 1.8
+    }
+  },
+  {
+    "name": "Killaz",
+    "slug": "killaz",
+    "lat": 44.652902043911,
+    "lng": -63.264427185059,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be667a",
+      "station_name": "Three Fathom Harbour",
+      "distance_km": 2.2
+    }
+  },
+  {
+    "name": "Sable Island",
+    "slug": "sable-island",
+    "lat": 43.928808154647,
+    "lng": -59.876003265381,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcd9",
+      "station_name": "Sable Island/Sable, \u00c3\u017dle de",
+      "distance_km": 7.3
+    }
+  },
+  {
+    "name": "Seals",
+    "slug": "seals",
+    "lat": 44.667380764457,
+    "lng": -63.252416923642,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5dd3064de0fdc4b9b4be667a",
+      "station_name": "Three Fathom Harbour",
+      "distance_km": 4.0
+    }
+  },
+  {
+    "name": "Andrews Head",
+    "slug": "andrews-head",
+    "lat": 44.067953643385,
+    "lng": -64.563615135849,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcaf",
+      "station_name": "Liverpool",
+      "distance_km": 10.7
+    }
+  },
+  {
+    "name": "Meadows point",
+    "slug": "meadows-point",
+    "lat": 44.05915359605,
+    "lng": -64.632114730775,
+    "source": "wannasurf",
+    "type": "unknown",
+    "tier": "known-public",
+    "has_foam_data": false,
+    "tide_station": {
+      "station_id": "5cebf1df3d0f4a073c4bbcaf",
+      "station_name": "Liverpool",
+      "distance_km": 5.1
+    }
+  }
+]

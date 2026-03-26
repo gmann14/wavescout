@@ -25,7 +25,10 @@
           "foam_fraction": 0.7267,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-12-09_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-12-09_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-12-09_0.4m_nir.png",
+          "tide_m": 0.54,
+          "tide_state": "low",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2023-09-27",
@@ -33,7 +36,10 @@
           "foam_fraction": 0.9916,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-09-27_0.6m_rgb.png",
-          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-09-27_0.6m_nir.png"
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-09-27_0.6m_nir.png",
+          "tide_m": 0.63,
+          "tide_state": "low",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2026-02-28",
@@ -41,7 +47,10 @@
           "foam_fraction": 0.7515,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-02-28_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-02-28_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-02-28_1.0m_nir.png",
+          "tide_m": 0.34,
+          "tide_state": "low",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2026-03-18",
@@ -49,7 +58,10 @@
           "foam_fraction": 0.6348,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-03-18_2.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-03-18_2.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2026-03-18_2.3m_nir.png",
+          "tide_m": 0.89,
+          "tide_state": "mid",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2023-11-19",
@@ -57,7 +69,10 @@
           "foam_fraction": 0.9728,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-11-19_3.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-11-19_3.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-11-19_3.7m_nir.png",
+          "tide_m": 1.5,
+          "tide_state": "high",
+          "tide_station": "Chezzetcook Inlet"
         }
       ]
     },
@@ -71,7 +86,10 @@
           "foam_fraction": 0.187,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2024-09-16_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2024-09-16_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2024-09-16_0.4m_nir.png",
+          "tide_m": 0.56,
+          "tide_state": "low",
+          "tide_station": "Halifax"
         },
         {
           "date": "2023-09-27",
@@ -79,7 +97,10 @@
           "foam_fraction": 0.9735,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-09-27_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-09-27_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-09-27_0.7m_nir.png",
+          "tide_m": 0.5,
+          "tide_state": "low",
+          "tide_station": "Halifax"
         },
         {
           "date": "2022-06-12",
@@ -87,7 +108,10 @@
           "foam_fraction": 0.3064,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-06-12_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-06-12_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-06-12_1.2m_nir.png",
+          "tide_m": 0.47,
+          "tide_state": "low",
+          "tide_station": "Halifax"
         },
         {
           "date": "2025-12-18",
@@ -95,7 +119,10 @@
           "foam_fraction": 0.1615,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2025-12-18_1.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2025-12-18_1.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2025-12-18_1.8m_nir.png",
+          "tide_m": 0.63,
+          "tide_state": "low",
+          "tide_station": "Halifax"
         },
         {
           "date": "2023-11-19",
@@ -103,7 +130,10 @@
           "foam_fraction": 0.2293,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-11-19_4.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-11-19_4.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-11-19_4.4m_nir.png",
+          "tide_m": 1.63,
+          "tide_state": "high",
+          "tide_station": "Halifax"
         }
       ]
     },
@@ -117,7 +147,10 @@
           "foam_fraction": 0.8018,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2023-02-27_0.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2023-02-27_0.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2023-02-27_0.3m_nir.png",
+          "tide_m": 1.52,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2024-09-29",
@@ -125,7 +158,10 @@
           "foam_fraction": 0.9565,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2024-09-29_0.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2024-09-29_0.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2024-09-29_0.9m_nir.png",
+          "tide_m": 1.09,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2025-04-02",
@@ -133,7 +169,10 @@
           "foam_fraction": 0.6387,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2025-04-02_1.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2025-04-02_1.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2025-04-02_1.4m_nir.png",
+          "tide_m": 2.14,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2026-03-18",
@@ -141,7 +180,10 @@
           "foam_fraction": 0.72,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2026-03-18_1.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2026-03-18_1.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2026-03-18_1.8m_nir.png",
+          "tide_m": 1.41,
+          "tide_state": "mid",
+          "tide_station": "Liverpool"
         }
       ]
     },
@@ -155,7 +197,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-11-09_0.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-11-09_0.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-11-09_0.3m_nir.png",
+          "tide_m": 0.96,
+          "tide_state": "mid",
+          "tide_station": "Little Harbour"
         },
         {
           "date": "2022-09-02",
@@ -163,7 +208,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-09-02_0.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-09-02_0.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-09-02_0.8m_nir.png",
+          "tide_m": 1.86,
+          "tide_state": "high",
+          "tide_station": "Little Harbour"
         },
         {
           "date": "2022-05-10",
@@ -171,7 +219,10 @@
           "foam_fraction": 1.0,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-05-10_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-05-10_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-05-10_1.2m_nir.png",
+          "tide_m": 0.86,
+          "tide_state": "low",
+          "tide_station": "Little Harbour"
         },
         {
           "date": "2022-02-24",
@@ -179,7 +230,10 @@
           "foam_fraction": 1.0,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-02-24_1.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-02-24_1.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2022-02-24_1.8m_nir.png",
+          "tide_m": 1.13,
+          "tide_state": "mid",
+          "tide_station": "Little Harbour"
         },
         {
           "date": "2024-12-13",
@@ -187,7 +241,10 @@
           "foam_fraction": 0.9271,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2024-12-13_2.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2024-12-13_2.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2024-12-13_2.8m_nir.png",
+          "tide_m": 0.54,
+          "tide_state": "low",
+          "tide_station": "Little Harbour"
         }
       ]
     },
@@ -201,7 +258,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-03_0.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-03_0.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-03_0.5m_nir.png",
+          "tide_m": 1.0,
+          "tide_state": "mid",
+          "tide_station": "Halifax"
         },
         {
           "date": "2025-03-15",
@@ -209,7 +269,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2025-03-15_0.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2025-03-15_0.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2025-03-15_0.9m_nir.png",
+          "tide_m": 1.29,
+          "tide_state": "mid",
+          "tide_station": "Halifax"
         },
         {
           "date": "2026-02-28",
@@ -217,7 +280,10 @@
           "foam_fraction": 1.0,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-02-28_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-02-28_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-02-28_1.0m_nir.png",
+          "tide_m": 0.32,
+          "tide_state": "low",
+          "tide_station": "Halifax"
         },
         {
           "date": "2026-03-18",
@@ -225,7 +291,10 @@
           "foam_fraction": 0.1851,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-18_2.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-18_2.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2026-03-18_2.3m_nir.png",
+          "tide_m": 0.74,
+          "tide_state": "mid",
+          "tide_station": "Halifax"
         },
         {
           "date": "2023-11-19",
@@ -233,7 +302,10 @@
           "foam_fraction": 0.5935,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-11-19_3.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-11-19_3.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-11-19_3.7m_nir.png",
+          "tide_m": 1.63,
+          "tide_state": "high",
+          "tide_station": "Halifax"
         }
       ]
     },
@@ -247,7 +319,10 @@
           "foam_fraction": 0.6212,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-06-21_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-06-21_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-06-21_0.4m_nir.png",
+          "tide_m": 1.31,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2024-07-21",
@@ -255,7 +330,10 @@
           "foam_fraction": 0.6466,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-07-21_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-07-21_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-07-21_0.7m_nir.png",
+          "tide_m": 1.34,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2026-03-10",
@@ -263,7 +341,10 @@
           "foam_fraction": 0.6323,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2026-03-10_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2026-03-10_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2026-03-10_1.0m_nir.png",
+          "tide_m": 1.4,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-09-05",
@@ -271,7 +352,10 @@
           "foam_fraction": 0.3059,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-09-05_1.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-09-05_1.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-09-05_1.9m_nir.png",
+          "tide_m": 1.92,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-11-19",
@@ -279,7 +363,10 @@
           "foam_fraction": 0.1567,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-11-19_3.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-11-19_3.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-11-19_3.5m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         }
       ]
     },
@@ -293,7 +380,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2022-04-11_0.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2022-04-11_0.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2022-04-11_0.3m_nir.png",
+          "tide_m": 3.75,
+          "tide_state": "mid",
+          "tide_station": "Digby"
         },
         {
           "date": "2024-04-15",
@@ -301,7 +391,10 @@
           "foam_fraction": 0.9334,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2024-04-15_0.6m_rgb.png",
-          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2024-04-15_0.6m_nir.png"
+          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2024-04-15_0.6m_nir.png",
+          "tide_m": 1.79,
+          "tide_state": "low",
+          "tide_station": "Digby"
         }
       ]
     },
@@ -315,7 +408,10 @@
           "foam_fraction": 0.7328,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2024-06-21_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2024-06-21_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2024-06-21_0.4m_nir.png",
+          "tide_m": 1.31,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2024-07-21",
@@ -323,7 +419,10 @@
           "foam_fraction": 0.4732,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2024-07-21_0.6m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2024-07-21_0.6m_nir.png"
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2024-07-21_0.6m_nir.png",
+          "tide_m": 1.34,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2025-12-18",
@@ -331,7 +430,10 @@
           "foam_fraction": 0.4812,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2025-12-18_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2025-12-18_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2025-12-18_1.2m_nir.png",
+          "tide_m": 1.13,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-09-05",
@@ -339,7 +441,10 @@
           "foam_fraction": 0.1407,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2023-09-05_1.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2023-09-05_1.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2023-09-05_1.7m_nir.png",
+          "tide_m": 1.92,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         }
       ]
     },
@@ -353,7 +458,10 @@
           "foam_fraction": 0.8204,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-06-21_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-06-21_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-06-21_0.4m_nir.png",
+          "tide_m": 1.31,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2024-07-21",
@@ -361,7 +469,10 @@
           "foam_fraction": 0.6466,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-07-21_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-07-21_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2024-07-21_0.7m_nir.png",
+          "tide_m": 1.34,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2026-03-10",
@@ -369,7 +480,10 @@
           "foam_fraction": 0.6323,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2026-03-10_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2026-03-10_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2026-03-10_1.0m_nir.png",
+          "tide_m": 1.4,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2022-09-10",
@@ -377,7 +491,10 @@
           "foam_fraction": 0.5699,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-09-10_1.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-09-10_1.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-09-10_1.7m_nir.png",
+          "tide_m": 1.29,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-11-19",
@@ -385,7 +502,10 @@
           "foam_fraction": 0.336,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2023-11-19_3.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2023-11-19_3.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2023-11-19_3.5m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         }
       ]
     },
@@ -399,7 +519,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2023-08-13_0.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2023-08-13_0.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2023-08-13_0.2m_nir.png",
+          "tide_m": 0.52,
+          "tide_state": "low",
+          "tide_station": "Ingonish Beach"
         },
         {
           "date": "2025-03-15",
@@ -407,7 +530,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2025-03-15_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2025-03-15_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2025-03-15_1.0m_nir.png",
+          "tide_m": 1.07,
+          "tide_state": "high",
+          "tide_station": "Ingonish Beach"
         },
         {
           "date": "2022-04-25",
@@ -415,7 +541,10 @@
           "foam_fraction": 0.2708,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2022-04-25_1.1m_rgb.png",
-          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2022-04-25_1.1m_nir.png"
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2022-04-25_1.1m_nir.png",
+          "tide_m": 0.68,
+          "tide_state": "low",
+          "tide_station": "Ingonish Beach"
         },
         {
           "date": "2021-11-01",
@@ -423,7 +552,10 @@
           "foam_fraction": 0.28,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2021-11-01_1.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2021-11-01_1.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2021-11-01_1.9m_nir.png",
+          "tide_m": 0.49,
+          "tide_state": "low",
+          "tide_station": "Ingonish Beach"
         }
       ]
     },
@@ -437,7 +569,10 @@
           "foam_fraction": 0.5631,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-09-21_0.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-09-21_0.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-09-21_0.5m_nir.png",
+          "tide_m": 0.84,
+          "tide_state": "mid",
+          "tide_station": "Louisbourg"
         },
         {
           "date": "2023-09-22",
@@ -445,7 +580,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-09-22_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-09-22_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-09-22_0.7m_nir.png",
+          "tide_m": 1.0,
+          "tide_state": "high",
+          "tide_station": "Louisbourg"
         },
         {
           "date": "2023-08-28",
@@ -453,7 +591,10 @@
           "foam_fraction": 0.8486,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-08-28_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-08-28_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2023-08-28_1.0m_nir.png",
+          "tide_m": 0.38,
+          "tide_state": "low",
+          "tide_station": "Louisbourg"
         },
         {
           "date": "2025-04-29",
@@ -461,7 +602,10 @@
           "foam_fraction": 0.579,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-04-29_1.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-04-29_1.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-04-29_1.7m_nir.png",
+          "tide_m": 1.13,
+          "tide_state": "high",
+          "tide_station": "Louisbourg"
         }
       ]
     },
@@ -475,7 +619,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-07-28_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-07-28_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-07-28_0.4m_nir.png",
+          "tide_m": 1.8,
+          "tide_state": "high",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2023-07-14",
@@ -483,7 +630,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-07-14_0.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-07-14_0.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-07-14_0.5m_nir.png",
+          "tide_m": 0.65,
+          "tide_state": "low",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2026-03-10",
@@ -491,7 +641,10 @@
           "foam_fraction": 0.9436,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2026-03-10_1.1m_rgb.png",
-          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2026-03-10_1.1m_nir.png"
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2026-03-10_1.1m_nir.png",
+          "tide_m": 1.2,
+          "tide_state": "high",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2022-06-19",
@@ -499,7 +652,10 @@
           "foam_fraction": 0.5842,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2022-06-19_1.6m_rgb.png",
-          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2022-06-19_1.6m_nir.png"
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2022-06-19_1.6m_nir.png",
+          "tide_m": 1.73,
+          "tide_state": "high",
+          "tide_station": "Chezzetcook Inlet"
         },
         {
           "date": "2023-11-19",
@@ -507,7 +663,10 @@
           "foam_fraction": 0.7235,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-11-19_3.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-11-19_3.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2023-11-19_3.2m_nir.png",
+          "tide_m": 1.5,
+          "tide_state": "high",
+          "tide_station": "Chezzetcook Inlet"
         }
       ]
     },
@@ -521,7 +680,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2023-08-23_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2023-08-23_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2023-08-23_0.4m_nir.png",
+          "tide_m": 1.04,
+          "tide_state": "high",
+          "tide_station": "Fourchu"
         },
         {
           "date": "2022-10-22",
@@ -529,7 +691,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2022-10-22_0.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2022-10-22_0.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2022-10-22_0.8m_nir.png",
+          "tide_m": 0.4,
+          "tide_state": "low",
+          "tide_station": "Fourchu"
         },
         {
           "date": "2025-06-03",
@@ -537,7 +702,10 @@
           "foam_fraction": 0.9562,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-06-03_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-06-03_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-06-03_1.2m_nir.png",
+          "tide_m": 0.88,
+          "tide_state": "mid",
+          "tide_station": "Fourchu"
         },
         {
           "date": "2025-04-29",
@@ -545,7 +713,10 @@
           "foam_fraction": 0.6653,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-04-29_1.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-04-29_1.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2025-04-29_1.7m_nir.png",
+          "tide_m": 1.06,
+          "tide_state": "high",
+          "tide_station": "Fourchu"
         }
       ]
     },
@@ -559,7 +730,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2025-12-28_0.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2025-12-28_0.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2025-12-28_0.3m_nir.png",
+          "tide_m": 1.08,
+          "tide_state": "mid",
+          "tide_station": "Chester"
         },
         {
           "date": "2024-02-27",
@@ -567,7 +741,10 @@
           "foam_fraction": 1.0,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2024-02-27_0.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2024-02-27_0.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2024-02-27_0.5m_nir.png",
+          "tide_m": 1.79,
+          "tide_state": "high",
+          "tide_station": "Chester"
         },
         {
           "date": "2022-09-10",
@@ -575,7 +752,10 @@
           "foam_fraction": 0.1484,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2022-09-10_1.1m_rgb.png",
-          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2022-09-10_1.1m_nir.png"
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2022-09-10_1.1m_nir.png",
+          "tide_m": 1.24,
+          "tide_state": "mid",
+          "tide_station": "Chester"
         },
         {
           "date": "2023-11-19",
@@ -583,7 +763,10 @@
           "foam_fraction": 0.2953,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2023-11-19_2.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2023-11-19_2.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2023-11-19_2.2m_nir.png",
+          "tide_m": 1.8,
+          "tide_state": "high",
+          "tide_station": "Chester"
         }
       ]
     },
@@ -597,7 +780,10 @@
           "foam_fraction": 1.0,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/seaside/seaside_2024-06-21_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/seaside/seaside_2024-06-21_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2024-06-21_0.4m_nir.png",
+          "tide_m": 1.31,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2025-07-01",
@@ -605,7 +791,10 @@
           "foam_fraction": 0.438,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/seaside/seaside_2025-07-01_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-07-01_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-07-01_0.7m_nir.png",
+          "tide_m": 1.58,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2025-12-18",
@@ -613,7 +802,10 @@
           "foam_fraction": 0.1702,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/seaside/seaside_2025-12-18_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-12-18_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-12-18_1.2m_nir.png",
+          "tide_m": 1.13,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-09-05",
@@ -621,7 +813,10 @@
           "foam_fraction": 0.0074,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/seaside/seaside_2023-09-05_1.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-09-05_1.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-09-05_1.7m_nir.png",
+          "tide_m": 1.92,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-11-19",
@@ -629,7 +824,10 @@
           "foam_fraction": 0.0862,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/seaside/seaside_2023-11-19_3.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-11-19_3.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-11-19_3.2m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         }
       ]
     },
@@ -643,7 +841,10 @@
           "foam_fraction": 0.6494,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-24_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-24_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-24_0.4m_nir.png",
+          "tide_m": 0.58,
+          "tide_state": "low",
+          "tide_station": "Riverport"
         },
         {
           "date": "2024-07-21",
@@ -651,7 +852,10 @@
           "foam_fraction": 0.9585,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2024-07-21_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2024-07-21_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2024-07-21_0.7m_nir.png",
+          "tide_m": 1.34,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
         },
         {
           "date": "2025-10-01",
@@ -659,7 +863,10 @@
           "foam_fraction": 0.9071,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-10-01_1.2m_rgb.png",
-          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-10-01_1.2m_nir.png"
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-10-01_1.2m_nir.png",
+          "tide_m": 1.29,
+          "tide_state": "low",
+          "tide_station": "Riverport"
         },
         {
           "date": "2025-04-02",
@@ -667,7 +874,10 @@
           "foam_fraction": 0.2667,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-02_1.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-02_1.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-02_1.9m_nir.png",
+          "tide_m": 2.0,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         },
         {
           "date": "2023-11-19",
@@ -675,7 +885,10 @@
           "foam_fraction": 0.3721,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2023-11-19_3.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2023-11-19_3.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2023-11-19_3.4m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
         }
       ]
     },
@@ -689,7 +902,10 @@
           "foam_fraction": 0.6238,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/summerville/summerville_2023-02-27_0.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-02-27_0.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-02-27_0.5m_nir.png",
+          "tide_m": 1.52,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2025-10-24",
@@ -697,7 +913,10 @@
           "foam_fraction": 0.8751,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/summerville/summerville_2025-10-24_0.6m_rgb.png",
-          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-10-24_0.6m_nir.png"
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-10-24_0.6m_nir.png",
+          "tide_m": 2.02,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2024-09-29",
@@ -705,7 +924,10 @@
           "foam_fraction": 0.3755,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/summerville/summerville_2024-09-29_1.0m_rgb.png",
-          "nir_path": "pipeline/data/gallery/summerville/summerville_2024-09-29_1.0m_nir.png"
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2024-09-29_1.0m_nir.png",
+          "tide_m": 1.09,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2025-04-02",
@@ -713,7 +935,9 @@
           "foam_fraction": 0.9167,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/summerville/summerville_2025-04-02_1.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-04-02_1.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-04-02_1.5m_nir.png",
+          "tide_state": "high",
+          "tide_m": 2.14
         },
         {
           "date": "2023-11-19",
@@ -721,7 +945,10 @@
           "foam_fraction": 0.0762,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/summerville/summerville_2023-11-19_2.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-11-19_2.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-11-19_2.5m_nir.png",
+          "tide_m": 2.13,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
         }
       ]
     },
@@ -735,7 +962,9 @@
           "foam_fraction": 0.4086,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-04-24_0.4m_rgb.png",
-          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-04-24_0.4m_nir.png"
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-04-24_0.4m_nir.png",
+          "tide_state": "low",
+          "tide_m": 0.86
         },
         {
           "date": "2025-06-21",
@@ -743,7 +972,10 @@
           "foam_fraction": 0.5519,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-06-21_0.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-06-21_0.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-06-21_0.9m_nir.png",
+          "tide_m": 0.7,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2025-10-01",
@@ -751,7 +983,10 @@
           "foam_fraction": 0.428,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-10-01_1.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-10-01_1.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-10-01_1.3m_nir.png",
+          "tide_m": 1.4,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
         },
         {
           "date": "2022-09-10",
@@ -759,7 +994,9 @@
           "foam_fraction": 0.4609,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/western-head/western-head_2022-09-10_1.8m_rgb.png",
-          "nir_path": "pipeline/data/gallery/western-head/western-head_2022-09-10_1.8m_nir.png"
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2022-09-10_1.8m_nir.png",
+          "tide_state": "mid",
+          "tide_m": 1.12
         },
         {
           "date": "2023-11-19",
@@ -767,7 +1004,9 @@
           "foam_fraction": 0.5839,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/western-head/western-head_2023-11-19_3.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/western-head/western-head_2023-11-19_3.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2023-11-19_3.7m_nir.png",
+          "tide_state": "high",
+          "tide_m": 2.13
         }
       ]
     },
@@ -781,7 +1020,9 @@
           "foam_fraction": 0.7531,
           "bin_label": "flat",
           "rgb_path": "pipeline/data/gallery/white-point/white-point_2025-04-24_0.3m_rgb.png",
-          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-04-24_0.3m_nir.png"
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-04-24_0.3m_nir.png",
+          "tide_state": "low",
+          "tide_m": 0.44
         },
         {
           "date": "2025-08-02",
@@ -789,7 +1030,9 @@
           "foam_fraction": 0.8335,
           "bin_label": "small",
           "rgb_path": "pipeline/data/gallery/white-point/white-point_2025-08-02_0.7m_rgb.png",
-          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-08-02_0.7m_nir.png"
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-08-02_0.7m_nir.png",
+          "tide_state": "mid",
+          "tide_m": 1.14
         },
         {
           "date": "2022-09-10",
@@ -797,7 +1040,10 @@
           "foam_fraction": 0.5415,
           "bin_label": "moderate",
           "rgb_path": "pipeline/data/gallery/white-point/white-point_2022-09-10_1.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/white-point/white-point_2022-09-10_1.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2022-09-10_1.5m_nir.png",
+          "tide_m": 1.26,
+          "tide_state": "mid",
+          "tide_station": "Port Mouton"
         },
         {
           "date": "2026-03-18",
@@ -805,7 +1051,10 @@
           "foam_fraction": 0.193,
           "bin_label": "big",
           "rgb_path": "pipeline/data/gallery/white-point/white-point_2026-03-18_1.9m_rgb.png",
-          "nir_path": "pipeline/data/gallery/white-point/white-point_2026-03-18_1.9m_nir.png"
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2026-03-18_1.9m_nir.png",
+          "tide_m": 1.03,
+          "tide_state": "mid",
+          "tide_station": "Port Mouton"
         },
         {
           "date": "2023-11-19",
@@ -813,7 +1062,9 @@
           "foam_fraction": 0.4283,
           "bin_label": "storm",
           "rgb_path": "pipeline/data/gallery/white-point/white-point_2023-11-19_2.5m_rgb.png",
-          "nir_path": "pipeline/data/gallery/white-point/white-point_2023-11-19_2.5m_nir.png"
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2023-11-19_2.5m_nir.png",
+          "tide_state": "high",
+          "tide_m": 1.69
         }
       ]
     }

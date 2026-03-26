@@ -1,1 +1,19 @@
-{"slug":"ingonish","name":"Ingonish Beach","swell_profile":null,"foam_summary":{"scenes_processed":53,"segments_processed":27,"total_detections":897,"errors":0,"scenes_with_foam":48,"date_range":{"start":"2021-10-07","end":"2026-03-10"}}}
+{
+  "slug": "ingonish",
+  "name": "Ingonish Beach",
+  "swell_profile": null,
+  "foam_summary": {
+    "scenes_processed": 53,
+    "segments_processed": 27,
+    "total_detections": 897,
+    "errors": 0,
+    "scenes_with_foam": 48,
+    "date_range": {
+      "start": "2021-10-07",
+      "end": "2026-03-10"
+    }
+  },
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left",
+  "wannasurf_experience": "All surfers"
+}

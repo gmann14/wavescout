@@ -1,1 +1,21 @@
-{"name":"Kennington Cove","slug":"kennington-cove","region":"nova-scotia","bbox":[-60.00,45.88,-59.95,45.92],"point":{"lat":45.90,"lon":-59.975},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{
+  "name": "Kennington Cove",
+  "slug": "kennington-cove",
+  "region": "nova-scotia",
+  "bbox": [
+    -60.085499999999996,
+    45.8565,
+    -60.0355,
+    45.8965
+  ],
+  "point": {
+    "lat": 45.8765,
+    "lon": -60.0605
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

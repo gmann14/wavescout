@@ -299,8 +299,8 @@ export default function MapView() {
       : [];
 
   return (
-    <div className="relative flex-1">
-      <div ref={mapContainer} className="absolute inset-0" />
+    <div className="relative flex-1" style={{ minHeight: 0 }}>
+      <div ref={mapContainer} className="absolute inset-0" style={{ width: "100%", height: "100%" }} />
 
       {/* Legend */}
       <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur border border-navy-700 rounded-lg p-3 text-xs space-y-1.5 z-10 hidden sm:block">

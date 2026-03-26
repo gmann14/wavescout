@@ -1,1 +1,19 @@
-{"slug":"kennington-cove","name":"Kennington Cove","swell_profile":null,"foam_summary":{"scenes_processed":77,"segments_processed":16,"total_detections":1196,"errors":0,"scenes_with_foam":75,"date_range":{"start":"2021-10-02","end":"2026-03-10"}}}
+{
+  "slug": "kennington-cove",
+  "name": "Kennington Cove",
+  "swell_profile": null,
+  "foam_summary": {
+    "scenes_processed": 77,
+    "segments_processed": 16,
+    "total_detections": 1196,
+    "errors": 0,
+    "scenes_with_foam": 75,
+    "date_range": {
+      "start": "2021-10-02",
+      "end": "2026-03-10"
+    }
+  },
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left",
+  "wannasurf_experience": "All surfers"
+}

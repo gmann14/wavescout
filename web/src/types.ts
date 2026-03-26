@@ -73,6 +73,9 @@ export interface GalleryScene {
   bin_label: string;
   rgb_path: string | null;
   nir_path: string | null;
+  tide_m?: number;
+  tide_state?: string;
+  tide_station?: string;
 }
 
 export interface GallerySpot {

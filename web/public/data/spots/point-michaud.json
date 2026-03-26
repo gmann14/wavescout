@@ -1,1 +1,19 @@
-{"slug":"point-michaud","name":"Point Michaud","swell_profile":null,"foam_summary":{"scenes_processed":102,"segments_processed":12,"total_detections":1146,"errors":0,"scenes_with_foam":98,"date_range":{"start":"2021-10-02","end":"2026-03-20"}}}
+{
+  "slug": "point-michaud",
+  "name": "Point Michaud",
+  "swell_profile": null,
+  "foam_summary": {
+    "scenes_processed": 102,
+    "segments_processed": 12,
+    "total_detections": 1146,
+    "errors": 0,
+    "scenes_with_foam": 98,
+    "date_range": {
+      "start": "2021-10-02",
+      "end": "2026-03-20"
+    }
+  },
+  "wannasurf_type": "Beach-break",
+  "wannasurf_direction": "Right and left",
+  "wannasurf_experience": "All surfers"
+}

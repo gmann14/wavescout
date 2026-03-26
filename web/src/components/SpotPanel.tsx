@@ -72,7 +72,7 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
       />
 
       {/* Panel */}
-      <div className="fixed bottom-0 left-0 right-0 lg:top-0 lg:right-auto lg:left-auto lg:w-96 z-40 max-h-[80vh] lg:max-h-full lg:h-full overflow-y-auto bg-navy-900 border-t lg:border-t-0 lg:border-l border-navy-700 rounded-t-2xl lg:rounded-none">
+      <div className="fixed bottom-0 left-0 right-0 lg:top-12 lg:right-auto lg:left-auto lg:w-96 z-40 max-h-[80vh] lg:max-h-[calc(100vh-3rem)] lg:h-auto overflow-y-auto bg-[#0f1629] border-t lg:border-t-0 lg:border-l border-[#1e2d4d] rounded-t-2xl lg:rounded-none">
         {/* Header */}
         <div className="sticky top-0 bg-navy-900/95 backdrop-blur border-b border-navy-700 px-4 py-3 flex items-start justify-between z-10">
           <div>

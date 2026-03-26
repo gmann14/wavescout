@@ -1,1 +1,21 @@
-{"name":"Point Michaud","slug":"point-michaud","region":"nova-scotia","bbox":[-60.42,45.63,-60.36,45.68],"point":{"lat":45.654,"lon":-60.399},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{
+  "name": "Point Michaud",
+  "slug": "point-michaud",
+  "region": "nova-scotia",
+  "bbox": [
+    -60.704499999999996,
+    45.568099999999994,
+    -60.6545,
+    45.6081
+  ],
+  "point": {
+    "lat": 45.5881,
+    "lon": -60.6795
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

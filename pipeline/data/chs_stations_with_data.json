@@ -1,0 +1,2374 @@
+[
+  {
+    "id": "5cebf1df3d0f4a073c4bbc0d",
+    "name": "North Head",
+    "lat": 44.763118,
+    "lng": -66.749,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc0f",
+    "name": "Welshpool",
+    "lat": 44.888903,
+    "lng": -66.957557,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc11",
+    "name": "Wilsons Beach",
+    "lat": 44.93183,
+    "lng": -66.940664,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc15",
+    "name": "Letite Harbour",
+    "lat": 45.055804,
+    "lng": -66.864833,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc1b",
+    "name": "West Dipper Harbour",
+    "lat": 45.09284,
+    "lng": -66.418731,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc1d",
+    "name": "Partridge Island",
+    "lat": 45.241166,
+    "lng": -66.052274,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc24",
+    "name": "Saint John",
+    "lat": 45.254596,
+    "lng": -66.06004,
+    "series": [
+      "wlo",
+      "wl1",
+      "wl2",
+      "wl3",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc26",
+    "name": "Kennebecasis Bay",
+    "lat": 45.393261,
+    "lng": -66.000923,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc28",
+    "name": "Evandale",
+    "lat": 45.591594,
+    "lng": -66.028695,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc2a",
+    "name": "Upper Gagetown",
+    "lat": 45.847241,
+    "lng": -66.234799,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc2c",
+    "name": "Fredericton",
+    "lat": 45.966423,
+    "lng": -66.65197,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc2e",
+    "name": "St Martins",
+    "lat": 45.35517,
+    "lng": -65.531886,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc30",
+    "name": "Herring Cove",
+    "lat": 45.574668,
+    "lng": -64.965629,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc32",
+    "name": "Cape Enrage",
+    "lat": 45.593584,
+    "lng": -64.780225,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc34",
+    "name": "Grindstone Island",
+    "lat": 45.72187,
+    "lng": -64.621207,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc36",
+    "name": "Hopewell Cape",
+    "lat": 45.860104,
+    "lng": -64.57907,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc38",
+    "name": "Belliveau Village",
+    "lat": 45.937102,
+    "lng": -64.619739,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc3a",
+    "name": "Dover",
+    "lat": 45.992446,
+    "lng": -64.686416,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc40",
+    "name": "Pecks Point",
+    "lat": 45.741838,
+    "lng": -64.479898,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc44",
+    "name": "Joggins",
+    "lat": 45.660547,
+    "lng": -64.488192,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc46",
+    "name": "Cape Capstan",
+    "lat": 45.474004,
+    "lng": -64.853811,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc48",
+    "name": "West Advocate",
+    "lat": 45.345678,
+    "lng": -64.816617,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc4a",
+    "name": "Advocate",
+    "lat": 45.331982,
+    "lng": -64.775448,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc4c",
+    "name": "Cape d'Or",
+    "lat": 45.290438,
+    "lng": -64.774936,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc4e",
+    "name": "Port Greville",
+    "lat": 45.404321,
+    "lng": -64.541522,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc50",
+    "name": "Diligent River",
+    "lat": 45.390396,
+    "lng": -64.454776,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc52",
+    "name": "Cape Sharp",
+    "lat": 45.364449,
+    "lng": -64.391893,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc54",
+    "name": "Parrsboro",
+    "lat": 45.3899678,
+    "lng": -64.3186504,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc56",
+    "name": "Five Islands",
+    "lat": 45.379434,
+    "lng": -64.12989,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc58",
+    "name": "Burntcoat Head",
+    "lat": 45.311475,
+    "lng": -63.805688,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc5a",
+    "name": "Outer Wood Island",
+    "lat": 44.606836,
+    "lng": -66.818208,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc5e",
+    "name": "Hantsport",
+    "lat": 45.066886,
+    "lng": -64.170122,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc60",
+    "name": "Cape Blomidon",
+    "lat": 45.30484,
+    "lng": -64.349067,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc62",
+    "name": "Scots Bay",
+    "lat": 45.315444,
+    "lng": -64.440747,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc64",
+    "name": "Baxters Harbour",
+    "lat": 45.230788,
+    "lng": -64.514883,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc66",
+    "name": "Ile Haute",
+    "lat": 45.253894,
+    "lng": -64.990928,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc68",
+    "name": "Margaretsville",
+    "lat": 45.048773,
+    "lng": -65.062969,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc6a",
+    "name": "Parkers Cove",
+    "lat": 44.813683,
+    "lng": -65.538394,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc6c",
+    "name": "Digby",
+    "lat": 44.626561,
+    "lng": -65.753687,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc6e",
+    "name": "Culloden",
+    "lat": 44.665805,
+    "lng": -65.831633,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc70",
+    "name": "Grand Eddy",
+    "lat": 44.39592,
+    "lng": -66.204866,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc72",
+    "name": "Trout Cove",
+    "lat": 44.551317,
+    "lng": -66.032085,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc74",
+    "name": "Sandy Cove",
+    "lat": 44.498851,
+    "lng": -66.098584,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc76",
+    "name": "East Sandy Cove",
+    "lat": 44.487013,
+    "lng": -66.084873,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc78",
+    "name": "Tiverton",
+    "lat": 44.380189,
+    "lng": -66.213845,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc7a",
+    "name": "Tiverton (Boars Head)",
+    "lat": 44.404224,
+    "lng": -66.214794,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc7c",
+    "name": "Westport",
+    "lat": 44.263641,
+    "lng": -66.350064,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc7e",
+    "name": "Lighthouse Cove",
+    "lat": 44.24963,
+    "lng": -66.392209,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc82",
+    "name": "Church Point",
+    "lat": 44.345634,
+    "lng": -66.118497,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc84",
+    "name": "Meteghan",
+    "lat": 44.193113,
+    "lng": -66.166268,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc86",
+    "name": "Port Maitland",
+    "lat": 43.985999,
+    "lng": -66.159098,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc8d",
+    "name": "Yarmouth",
+    "lat": 43.832311,
+    "lng": -66.124968,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc8f",
+    "name": "Pinkney Point",
+    "lat": 43.704021,
+    "lng": -66.055683,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc91",
+    "name": "Lower Wedgeport",
+    "lat": 43.712299,
+    "lng": -65.984139,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc93",
+    "name": "Tusket",
+    "lat": 43.852062,
+    "lng": -65.975042,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc95",
+    "name": "Abrams River",
+    "lat": 43.824506,
+    "lng": -65.935217,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc97",
+    "name": "Abbotts Harbour",
+    "lat": 43.663818,
+    "lng": -65.824022,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc99",
+    "name": "Lower East Pubnico",
+    "lat": 43.630445,
+    "lng": -65.771242,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc9b",
+    "name": "Woods Harbour",
+    "lat": 43.529406,
+    "lng": -65.739946,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc9d",
+    "name": "Flat Island",
+    "lat": 43.509749,
+    "lng": -66.002756,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbc9f",
+    "name": "Seal Island",
+    "lat": 43.409734,
+    "lng": -66.020097,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbca1",
+    "name": "Clarks Harbour",
+    "lat": 43.444829,
+    "lng": -65.634434,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbca3",
+    "name": "Swims Point",
+    "lat": 43.433419,
+    "lng": -65.631869,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbca5",
+    "name": "Barrington Passage",
+    "lat": 43.525632,
+    "lng": -65.607207,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbca7",
+    "name": "Upper Port la Tour",
+    "lat": 43.505894,
+    "lng": -65.469347,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbca9",
+    "name": "Shelburne",
+    "lat": 43.753636,
+    "lng": -65.320292,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcab",
+    "name": "Lockeport",
+    "lat": 43.701539,
+    "lng": -65.107167,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcad",
+    "name": "Port Mouton",
+    "lat": 43.921621,
+    "lng": -64.841138,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcaf",
+    "name": "Liverpool",
+    "lat": 44.048996,
+    "lng": -64.69442,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcb1",
+    "name": "Lunenburg",
+    "lat": 44.375468,
+    "lng": -64.307098,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcb3",
+    "name": "Mill Cove",
+    "lat": 44.580148,
+    "lng": -64.052082,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcb5",
+    "name": "Boutiliers Point",
+    "lat": 44.656852,
+    "lng": -63.94656,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcb7",
+    "name": "Cliff Cove",
+    "lat": 44.511767,
+    "lng": -63.937469,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcb9",
+    "name": "Sambro Harbour",
+    "lat": 44.478153,
+    "lng": -63.599156,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcbb",
+    "name": "Halifax",
+    "lat": 44.65914,
+    "lng": -63.583386,
+    "series": [
+      "wlp",
+      "wlp-hilo",
+      "dvc1",
+      "dvc1-calc"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcbd",
+    "name": "Chezzetcook Inlet",
+    "lat": 44.71092,
+    "lng": -63.236669,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcbf",
+    "name": "Salmon River Bridge",
+    "lat": 44.778633,
+    "lng": -63.042147,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcc1",
+    "name": "Murphys Cove",
+    "lat": 44.785651,
+    "lng": -62.761954,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcc3",
+    "name": "Tomlee Bay",
+    "lat": 44.836431,
+    "lng": -62.587022,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcc5",
+    "name": "Sheet Harbour",
+    "lat": 44.903,
+    "lng": -62.5036,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcc7",
+    "name": "West Newdy Quoddy",
+    "lat": 44.904092,
+    "lng": -62.349648,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcc9",
+    "name": "Ecum Secum",
+    "lat": 44.966012,
+    "lng": -62.137565,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbccb",
+    "name": "Liscomb Harbour",
+    "lat": 45.023824,
+    "lng": -61.996742,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbccd",
+    "name": "Sonora",
+    "lat": 45.057346,
+    "lng": -61.904549,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbccf",
+    "name": "Sherbrooke",
+    "lat": 45.133931,
+    "lng": -61.983345,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcd1",
+    "name": "Port Bickerton",
+    "lat": 45.105369,
+    "lng": -61.723156,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcd3",
+    "name": "Isaacs Harbour",
+    "lat": 45.179911,
+    "lng": -61.659633,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcd5",
+    "name": "Larrys River",
+    "lat": 45.217684,
+    "lng": -61.373621,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcd7",
+    "name": "Whitehead",
+    "lat": 45.240412,
+    "lng": -61.188736,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcd9",
+    "name": "Sable Island/Sable, \u00c3\u017dle de",
+    "lat": 43.959157,
+    "lng": -59.794781,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1df3d0f4a073c4bbcdb",
+    "name": "Canso Harbour",
+    "lat": 45.338236,
+    "lng": -60.995406,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe4d",
+    "name": "Seal Cove",
+    "lat": 44.648709,
+    "lng": -66.839677,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe51",
+    "name": "Gannet Rock",
+    "lat": 44.510712,
+    "lng": -66.781717,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe5d",
+    "name": "East Quoddy Head",
+    "lat": 44.958056,
+    "lng": -66.900556,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe61",
+    "name": "McMaster Island",
+    "lat": 45.054307,
+    "lng": -66.930853,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe63",
+    "name": "Matthews Cove",
+    "lat": 45.052007,
+    "lng": -66.894529,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe65",
+    "name": "Letang Harbour",
+    "lat": 45.084553,
+    "lng": -66.783714,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe67",
+    "name": "Long Island",
+    "lat": 45.149561,
+    "lng": -66.961084,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe69",
+    "name": "Blacks Harbour",
+    "lat": 45.047841,
+    "lng": -66.807898,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe6b",
+    "name": "Beaver Harbour",
+    "lat": 45.06835,
+    "lng": -66.739534,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe6d",
+    "name": "Musquash Harbour",
+    "lat": 45.148535,
+    "lng": -66.257932,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe6f",
+    "name": "Lorneville",
+    "lat": 45.192742,
+    "lng": -66.14824,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe73",
+    "name": "Macdonald Point",
+    "lat": 45.71881,
+    "lng": -66.04758,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe75",
+    "name": "Cambridge Narrows",
+    "lat": 45.829482,
+    "lng": -65.95297,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe77",
+    "name": "Newcastle Creek",
+    "lat": 46.056492,
+    "lng": -66.002698,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe79",
+    "name": "Spencers Island",
+    "lat": 45.35476,
+    "lng": -64.710035,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe7d",
+    "name": "Bunker Island Wharf",
+    "lat": 43.818936,
+    "lng": -66.136363,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe7f",
+    "name": "Bunker Island Light",
+    "lat": 43.812291,
+    "lng": -66.143235,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe81",
+    "name": "Kellys Cove",
+    "lat": 43.783271,
+    "lng": -66.131679,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe83",
+    "name": "Wedgeport",
+    "lat": 43.71704,
+    "lng": -65.983089,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe85",
+    "name": "West Head",
+    "lat": 43.459567,
+    "lng": -65.653437,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe87",
+    "name": "Ingomar",
+    "lat": 43.563155,
+    "lng": -65.363373,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe89",
+    "name": "Sandy Point",
+    "lat": 43.695318,
+    "lng": -65.324184,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe8b",
+    "name": "Bridgewater",
+    "lat": 44.371741,
+    "lng": -64.505517,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe8d",
+    "name": "Riverport",
+    "lat": 44.289312,
+    "lng": -64.345007,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe8f",
+    "name": "Owls Head",
+    "lat": 44.521816,
+    "lng": -64.00538,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe91",
+    "name": "Blandford",
+    "lat": 44.494691,
+    "lng": -64.11229,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe93",
+    "name": "Hubbards",
+    "lat": 44.637327,
+    "lng": -64.059586,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe95",
+    "name": "Indian Harbour",
+    "lat": 44.514837,
+    "lng": -63.937238,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe97",
+    "name": "Prospect",
+    "lat": 44.468951,
+    "lng": -63.783677,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe99",
+    "name": "Little Harbour",
+    "lat": 44.708858,
+    "lng": -62.841551,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe9b",
+    "name": "Spry Harbour",
+    "lat": 44.837741,
+    "lng": -62.614059,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe9d",
+    "name": "Port Dufferin",
+    "lat": 44.89582,
+    "lng": -62.375197,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbe9f",
+    "name": "Marie Joseph",
+    "lat": 44.965562,
+    "lng": -62.079311,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbea6",
+    "name": "Port Hawkesbury",
+    "lat": 45.614417,
+    "lng": -61.365637,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbea8",
+    "name": "Fourchu",
+    "lat": 45.71712,
+    "lng": -60.245189,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e03d0f4a073c4bbeaa",
+    "name": "Big Bras D'Or",
+    "lat": 46.281566,
+    "lng": -60.424734,
+    "series": [
+      "wlp",
+      "wlp-hilo",
+      "wcsp1",
+      "wcdp1",
+      "wcp1-events"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbeac",
+    "name": "Neils Harbour",
+    "lat": 46.806867,
+    "lng": -60.320471,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbeae",
+    "name": "Johnstown",
+    "lat": 45.79297,
+    "lng": -60.739103,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbef9",
+    "name": "Cheticamp",
+    "lat": 46.625175,
+    "lng": -61.016557,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbefb",
+    "name": "Belle Cote Breakwater",
+    "lat": 46.42772,
+    "lng": -61.088565,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbefd",
+    "name": "Montague",
+    "lat": 46.164725,
+    "lng": -62.646332,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbeff",
+    "name": "Richibucto",
+    "lat": 46.68032,
+    "lng": -64.86042,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e13d0f4a073c4bbf01",
+    "name": "Skinners Pond",
+    "lat": 46.964224,
+    "lng": -64.122878,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bbfac",
+    "name": "Bedford Institute",
+    "lat": 44.682262,
+    "lng": -63.613239,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bbfb2",
+    "name": "Cribbeans Point",
+    "lat": 45.755204,
+    "lng": -61.896344,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc0dc",
+    "name": "Hatfield Point",
+    "lat": 45.613801,
+    "lng": -65.912438,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc10a",
+    "name": "Sand Point",
+    "lat": 45.521378,
+    "lng": -61.263584,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc10c",
+    "name": "Port Hastings",
+    "lat": 45.64615,
+    "lng": -61.405665,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc10e",
+    "name": "Point Tupper",
+    "lat": 45.595606,
+    "lng": -61.363328,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc110",
+    "name": "Arichat",
+    "lat": 45.5104757,
+    "lng": -61.01769383,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc112",
+    "name": "Petit De Grat",
+    "lat": 45.506907,
+    "lng": -60.961596,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc114",
+    "name": "Cannes",
+    "lat": 45.636331,
+    "lng": -60.959515,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc116",
+    "name": "St Peters Bay",
+    "lat": 45.652431,
+    "lng": -60.869506,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc118",
+    "name": "Louisbourg",
+    "lat": 45.916903,
+    "lng": -59.971018,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc11c",
+    "name": "Sydney",
+    "lat": 46.141358,
+    "lng": -60.199803,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc123",
+    "name": "North Sydney",
+    "lat": 46.20897,
+    "lng": -60.245314,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e23d0f4a073c4bc125",
+    "name": "Table Head",
+    "lat": 46.323534,
+    "lng": -60.360073,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc127",
+    "name": "Duffus Point",
+    "lat": 46.281566,
+    "lng": -60.424734,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc129",
+    "name": "Black Rock Point",
+    "lat": 46.305169,
+    "lng": -60.392998,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc12d",
+    "name": "Ingonish Beach",
+    "lat": 46.629842,
+    "lng": -60.389685,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc12f",
+    "name": "Dingwall",
+    "lat": 46.902499,
+    "lng": -60.457949,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1f1",
+    "name": "La Pointe",
+    "lat": 46.603101,
+    "lng": -61.0526,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1f3",
+    "name": "Margaree Trailer",
+    "lat": 46.440193,
+    "lng": -61.11288,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1f5",
+    "name": "Margaree Harbour",
+    "lat": 46.4424,
+    "lng": -61.112103,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1f7",
+    "name": "East Margaree Bridge",
+    "lat": 46.39729,
+    "lng": -61.078761,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1f9",
+    "name": "Broad Cove Marsh",
+    "lat": 46.300635,
+    "lng": -61.257343,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1fb",
+    "name": "Port Hood",
+    "lat": 46.027909,
+    "lng": -61.545014,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1fd",
+    "name": "Aulds Cove",
+    "lat": 45.648343,
+    "lng": -61.435526,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc1ff",
+    "name": "Cape Jack",
+    "lat": 45.683753,
+    "lng": -61.574802,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc201",
+    "name": "Antigonish Harbour",
+    "lat": 45.672456,
+    "lng": -61.907064,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc203",
+    "name": "Ballantynes Cove",
+    "lat": 45.858721,
+    "lng": -61.918052,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc205",
+    "name": "Arisaig",
+    "lat": 45.7619714,
+    "lng": -62.1716137,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc207",
+    "name": "Merigomish",
+    "lat": 45.648764,
+    "lng": -62.448885,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc209",
+    "name": "Pictou",
+    "lat": 45.6740806,
+    "lng": -62.7033375,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc20b",
+    "name": "Pictou Island",
+    "lat": 45.802557,
+    "lng": -62.585592,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc20d",
+    "name": "Caribou",
+    "lat": 45.73928,
+    "lng": -62.688116,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc20f",
+    "name": "Souris",
+    "lat": 46.349625,
+    "lng": -62.251762,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc211",
+    "name": "Georgetown",
+    "lat": 46.17951,
+    "lng": -62.531618,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc213",
+    "name": "Graham Pond",
+    "lat": 46.095961,
+    "lng": -62.453698,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc215",
+    "name": "Murray Harbour",
+    "lat": 46.005478,
+    "lng": -62.523515,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc217",
+    "name": "Wood Islands",
+    "lat": 45.952878,
+    "lng": -62.749395,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc219",
+    "name": "Prim Point",
+    "lat": 46.056251,
+    "lng": -63.030217,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc21f",
+    "name": "Charlottetown",
+    "lat": 46.23012108,
+    "lng": -63.1221766,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc221",
+    "name": "Canoe Cove",
+    "lat": 46.149224,
+    "lng": -63.303736,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc223",
+    "name": "Victoria, PEI",
+    "lat": 46.212623,
+    "lng": -63.489466,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc225",
+    "name": "Port Borden",
+    "lat": 46.246127,
+    "lng": -63.700721,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc227",
+    "name": "Summerside",
+    "lat": 46.386486,
+    "lng": -63.789649,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc229",
+    "name": "Skinners Cove",
+    "lat": 45.79447,
+    "lng": -63.04467,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc22b",
+    "name": "Malagash",
+    "lat": 45.77520205,
+    "lng": -63.2961563,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc22d",
+    "name": "Cape Cliff",
+    "lat": 45.876731,
+    "lng": -63.480512,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc22f",
+    "name": "Pugwash",
+    "lat": 45.8483972,
+    "lng": -63.663297,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc231",
+    "name": "Tidnish",
+    "lat": 45.997582,
+    "lng": -64.007441,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc233",
+    "name": "Port Elgin",
+    "lat": 46.051875,
+    "lng": -64.082768,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc235",
+    "name": "Cape Tormentine",
+    "lat": 46.134676,
+    "lng": -63.776757,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc237",
+    "name": "Cap Pel\u00e9",
+    "lat": 46.235841,
+    "lng": -64.26127,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc23e",
+    "name": "Shediac Bay",
+    "lat": 46.22689722,
+    "lng": -64.54510278,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc240",
+    "name": "Cap de Caissie",
+    "lat": 46.312812,
+    "lng": -64.509737,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc242",
+    "name": "Cocagne",
+    "lat": 46.3380696,
+    "lng": -64.61814202,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc244",
+    "name": "Saint Thomas De Kent",
+    "lat": 46.447615,
+    "lng": -64.636837,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc246",
+    "name": "Richibucto Cape",
+    "lat": 46.67454025,
+    "lng": -64.7125534,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc248",
+    "name": "Richibucto Bar",
+    "lat": 46.710852,
+    "lng": -64.791113,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc24a",
+    "name": "Pointe Sapin",
+    "lat": 46.9628154,
+    "lng": -64.8300883,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc24c",
+    "name": "Cape Egmont",
+    "lat": 46.408225,
+    "lng": -64.133638,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc24e",
+    "name": "West Point",
+    "lat": 46.620079,
+    "lng": -64.371788,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc250",
+    "name": "Miminegash",
+    "lat": 46.88011,
+    "lng": -64.234435,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc254",
+    "name": "Tignish",
+    "lat": 46.950947,
+    "lng": -63.9938431,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc256",
+    "name": "Alberton",
+    "lat": 46.7951034,
+    "lng": -64.0582548,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc258",
+    "name": "Goodwood River",
+    "lat": 46.616799,
+    "lng": -63.916607,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc25a",
+    "name": "Malpeque",
+    "lat": 46.523993,
+    "lng": -63.696637,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc25c",
+    "name": "Rustico",
+    "lat": 46.4560018,
+    "lng": -63.2940585,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc25e",
+    "name": "Crowbush Cove",
+    "lat": 46.4269503,
+    "lng": -62.8399476,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc260",
+    "name": "St Peters Bay",
+    "lat": 46.43862,
+    "lng": -62.73313,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc262",
+    "name": "Naufrage",
+    "lat": 46.468428,
+    "lng": -62.417173,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc264",
+    "name": "North Lake Harbour",
+    "lat": 46.4669804,
+    "lng": -62.06881902,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5cebf1e33d0f4a073c4bc29f",
+    "name": "Newcastle",
+    "lat": 46.998039,
+    "lng": -65.561618,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064ce0fdc4b9b4be65e4",
+    "name": "Havre Boucher",
+    "lat": 45.68962,
+    "lng": -61.527238,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064ce0fdc4b9b4be6602",
+    "name": "Covehead",
+    "lat": 46.429035,
+    "lng": -63.146052,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064de0fdc4b9b4be6674",
+    "name": "Mahone Harbour",
+    "lat": 44.447429,
+    "lng": -64.373975,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064de0fdc4b9b4be667d",
+    "name": "Goldboro",
+    "lat": 45.180778,
+    "lng": -61.652261,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064de0fdc4b9b4be667f",
+    "name": "St Peters Inlet",
+    "lat": 45.661123,
+    "lng": -60.874447,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064de0fdc4b9b4be6683",
+    "name": "Baddeck",
+    "lat": 46.100254,
+    "lng": -60.747687,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064ee0fdc4b9b4be671a",
+    "name": "Public Landing",
+    "lat": 45.405682,
+    "lng": -66.195982,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064fe0fdc4b9b4be6922",
+    "name": "Five Fathom Hole",
+    "lat": 45.186598,
+    "lng": -66.257278,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd3064fe0fdc4b9b4be6b08",
+    "name": "Eskasoni",
+    "lat": 45.955825,
+    "lng": -60.586051,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd30650e0fdc4b9b4be6b71",
+    "name": "Iona",
+    "lat": 45.956781,
+    "lng": -60.793964,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd30650e0fdc4b9b4be6bcd",
+    "name": "Dundee",
+    "lat": 45.699744,
+    "lng": -61.090416,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd30650e0fdc4b9b4be6c46",
+    "name": "Digby Ferry Wharf",
+    "lat": 44.65984,
+    "lng": -65.75677,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd30650e0fdc4b9b4be6d40",
+    "name": "Chester",
+    "lat": 44.536383,
+    "lng": -64.242787,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "5dd30650e0fdc4b9b4be6d8f",
+    "name": "Penny Lane",
+    "lat": 46.29864,
+    "lng": -60.399749,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  },
+  {
+    "id": "64b6e5ec8027cb190816a0c0",
+    "name": "Pointe-du-Ch\u00eane",
+    "lat": 46.24061389,
+    "lng": -64.53000556,
+    "series": [
+      "wlo",
+      "wlp",
+      "wlp-hilo",
+      "wlf"
+    ]
+  },
+  {
+    "id": "664e56e70d43e44e47427864",
+    "name": "Seal Islands Bridge",
+    "lat": 46.2366,
+    "lng": -60.5002,
+    "series": [
+      "wlp",
+      "wlp-hilo"
+    ]
+  }
+]

@@ -1,0 +1,122 @@
+{
+  "lawrencetown-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 11.6,
+    "has_wlp": true
+  },
+  "cow-bay": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 14.0,
+    "has_wlp": true
+  },
+  "martinique-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 8.7,
+    "has_wlp": true
+  },
+  "snapjaw": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 9.9,
+    "has_wlp": true
+  },
+  "rafuse-island": {
+    "station_id": "5dd30650e0fdc4b9b4be6d40",
+    "station_name": "Chester",
+    "distance_km": 9.0,
+    "has_wlp": true
+  },
+  "hell-point": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 8.6,
+    "has_wlp": true
+  },
+  "hirtles-beach": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 6.4,
+    "has_wlp": true
+  },
+  "gaff-point": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 6.2,
+    "has_wlp": true
+  },
+  "seaside": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 5.0,
+    "has_wlp": true
+  },
+  "white-point": {
+    "station_id": "5cebf1df3d0f4a073c4bbcad",
+    "station_name": "Port Mouton",
+    "distance_km": 9.3,
+    "has_wlp": true
+  },
+  "western-head": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 8.8,
+    "has_wlp": true
+  },
+  "cherry-hill": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 17.3,
+    "has_wlp": true
+  },
+  "point-michaud": {
+    "station_id": "5cebf1e03d0f4a073c4bbea8",
+    "station_name": "Fourchu",
+    "distance_km": 13.9,
+    "has_wlp": true
+  },
+  "clam-harbour": {
+    "station_id": "5cebf1e03d0f4a073c4bbe99",
+    "station_name": "Little Harbour",
+    "distance_km": 3.8,
+    "has_wlp": true
+  },
+  "summerville": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 4.6,
+    "has_wlp": true
+  },
+  "kennington-cove": {
+    "station_id": "5cebf1e23d0f4a073c4bc118",
+    "station_name": "Louisbourg",
+    "distance_km": 1.9,
+    "has_wlp": true
+  },
+  "ingonish": {
+    "station_id": "5cebf1e33d0f4a073c4bc12d",
+    "station_name": "Ingonish Beach",
+    "distance_km": 2.4,
+    "has_wlp": true
+  },
+  "mavillette": {
+    "station_id": "5cebf1df3d0f4a073c4bbc86",
+    "station_name": "Port Maitland",
+    "distance_km": 10.2,
+    "has_wlp": true
+  },
+  "broad-cove": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 9.9,
+    "has_wlp": true
+  },
+  "gullivers-cove": {
+    "station_id": "5cebf1df3d0f4a073c4bbc6c",
+    "station_name": "Digby",
+    "distance_km": 2.9,
+    "has_wlp": true
+  }
+}
