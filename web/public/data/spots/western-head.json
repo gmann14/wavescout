@@ -1,1 +1,18 @@
-{"slug":"western-head","name":"Western Head","swell_profile":null,"foam_summary":{"scenes_processed":62,"segments_processed":2,"total_detections":124,"errors":0,"scenes_with_foam":56,"date_range":{"start":"2021-11-04","end":"2026-03-18"}}}
+{
+  "slug": "western-head",
+  "name": "Western Head",
+  "swell_profile": null,
+  "foam_summary": {
+    "scenes_processed": 62,
+    "segments_processed": 2,
+    "total_detections": 124,
+    "errors": 0,
+    "scenes_with_foam": 56,
+    "date_range": {
+      "start": "2021-11-04",
+      "end": "2026-03-18"
+    }
+  },
+  "surfline_url": "https://www.surfline.com/surf-report/western-head/584204204e65fad6a77094ce",
+  "surfline_id": "584204204e65fad6a77094ce"
+}

@@ -40,5 +40,7 @@
   },
   "wannasurf_type": "Reef-rocky",
   "wannasurf_direction": "Right and left",
-  "wannasurf_experience": "Experienced surfers"
+  "wannasurf_experience": "Experienced surfers",
+  "surfline_url": "https://www.surfline.com/surf-report/the-moose/584204204e65fad6a77094cb",
+  "surfline_id": "584204204e65fad6a77094cb"
 }

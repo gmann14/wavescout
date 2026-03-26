@@ -15,5 +15,7 @@
   },
   "wannasurf_type": "Beach-break",
   "wannasurf_direction": "Right and left",
-  "wannasurf_experience": "Experienced surfers"
+  "wannasurf_experience": "Experienced surfers",
+  "surfline_url": "https://www.surfline.com/surf-report/white-point/640a3948606c459c16aefb85",
+  "surfline_id": "640a3948606c459c16aefb85"
 }

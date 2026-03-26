@@ -15,7 +15,9 @@
         "swell_window": "S/SE, works in most swell sizes",
         "notes": "Most popular NS surf spot. Consistent beach break. Known reference point.",
         "confidence": "high",
-        "source": "well-known"
+        "source": "well-known",
+        "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-beach/584204204e65fad6a77094cf",
+        "surfline_id": "584204204e65fad6a77094cf"
       },
       "geometry": {
         "type": "Point",
@@ -36,7 +38,9 @@
         "confidence": "high",
         "source": "well-known",
         "break_type": "Reef-rocky",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/the-moose/584204204e65fad6a77094cb",
+        "surfline_id": "584204204e65fad6a77094cb"
       },
       "geometry": {
         "type": "Point",
@@ -57,7 +61,9 @@
         "confidence": "high",
         "source": "well-known",
         "break_type": "Beach-break",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/martinique/5842041f4e65fad6a7708db0",
+        "surfline_id": "5842041f4e65fad6a7708db0"
       },
       "geometry": {
         "type": "Point",
@@ -135,7 +141,9 @@
         "confidence": "medium",
         "source": "graham-local-knowledge",
         "break_type": "Beach-break",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/hirtles/584204204e65fad6a7709abd",
+        "surfline_id": "584204204e65fad6a7709abd"
       },
       "geometry": {
         "type": "Point",
@@ -194,7 +202,9 @@
         "confidence": "high",
         "source": "public-surfline-stormrider",
         "break_type": "Beach-break",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/white-point/640a3948606c459c16aefb85",
+        "surfline_id": "640a3948606c459c16aefb85"
       },
       "geometry": {
         "type": "Point",
@@ -213,7 +223,9 @@
         "swell_window": "good groundswell",
         "notes": "Reef and pointbreak near Liverpool. More power than White Point.",
         "confidence": "high",
-        "source": "public-stormrider"
+        "source": "public-stormrider",
+        "surfline_url": "https://www.surfline.com/surf-report/western-head/584204204e65fad6a77094ce",
+        "surfline_id": "584204204e65fad6a77094ce"
       },
       "geometry": {
         "type": "Point",
@@ -234,7 +246,9 @@
         "confidence": "high",
         "source": "public-stormrider",
         "break_type": "Beach-break",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/cherry-hill/584204204e65fad6a7709abe",
+        "surfline_id": "584204204e65fad6a7709abe"
       },
       "geometry": {
         "type": "Point",
@@ -375,7 +389,9 @@
         "confidence": "low",
         "source": "public-nomadsurfers",
         "break_type": "Reef-rocky",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/broad-cove/640a394cb6d769299e4f9039",
+        "surfline_id": "640a394cb6d769299e4f9039"
       },
       "geometry": {
         "type": "Point",
