@@ -8,3 +8,4 @@ pipeline/data/coastline/ns_coastline.geojson
 pipeline/data/coastline/ns_roads_utm.json
 pipeline/data/thumbnails/
 pipeline/data/gallery/*/*.png
+test-map.html
