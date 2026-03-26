@@ -107,7 +107,12 @@
   - ✅ snapjaw: 738 | ✅ summerville: 739 | ✅ cherry-hill: 711
   - ✅ seaside: 582 | ✅ gaff-point: 528 | ✅ hell-point: 166 | ✅ western-head: 124
   - Total: 16,898 foam detections across 16 spots
-- [ ] Run remaining 4 spots: broad-cove, gullivers-cove, ingonish, mavillette
+- [x] Run remaining foam spots: broad-cove, gullivers-cove, ingonish ran during gallery generation (19 total spots now)
+- [x] `15_generate_gallery_images.py` — gallery thumbnails for web viewer
+  - Picks up to 5 representative scenes per spot across swell bins (flat/small/moderate/big/storm)
+  - Selects highest foam fraction per bin for visual interest
+  - Generates RGB + NIR thumbnails (800px) via GEE
+  - 172 images across 19 spots, gallery manifest at pipeline/data/gallery/manifest.json
 - [ ] Cross-spot comparison: same dates across all spots
 - [ ] Validate profiles against known spot behavior
 - [ ] Extend to full NS coastline (16,939 exposed segments from geometry scoring)
@@ -118,11 +123,13 @@
 - [ ] Map view (Nova Scotia) with all spots
 - [ ] Detail panel with score explanation
 - [ ] Confirmed vs candidate styling
-- [ ] **Satellite image gallery per spot** — show 3-5 scenes at different swell heights (flat → moderate → big). Users can visually verify foam/wave patterns. Use scripts 06/07 to generate thumbnails, pick representative scenes from each swell bin.
+- [x] **Satellite image gallery per spot** — `15_generate_gallery_images.py` built. 172 images across 19 spots (RGB + NIR per scene, 5 swell bins). Gallery manifest ready for web viewer consumption.
 - [ ] **RGB/NIR toggle** — each thumbnail switchable between true-color (RGB) and NIR composite. People aren't used to NIR so they need the familiar view as reference.
 - [ ] **Spot pins on imagery** — overlay pin/marker on satellite thumbnails showing exact detected break locations (from coastline segments with highest foam fraction). Users see "the break is HERE" on the image, not just a score.
 - [ ] Swell height + foam score overlay on each thumbnail
 - [ ] Cross-spot same-date comparison view
+- [ ] **"How It Works" / Methodology page** — render docs/METHODOLOGY.md as a web page. Detection factors, confidence scoring, limitations, how to read evidence. Transparency builds trust with surfers.
+- [ ] **Algorithm Experiments page** — lighter version of docs/ALGORITHM-EXPERIMENTS.md for power users. Show what's coming (swell line detection, modular weights, etc.)
 
 ## Infra / Config
 - GitHub: `gmann14/wavescout`
