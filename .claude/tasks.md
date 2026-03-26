@@ -1,7 +1,7 @@
 # WaveScout — Tasks
 
 > Source of truth for project status. Updated after every work session.
-> Last updated: 2026-03-25 (Phase 2.5: full multi-spot foam detection pipeline running)
+> Last updated: 2026-03-26 (Phase 2.5: 16/20 spots foam-detected, 4 remaining)
 
 ## Phase 1: Feasibility Prototype ✅ COMPLETE — GO decision made
 
@@ -100,10 +100,14 @@
 
 ### Remaining
 - [x] Run full Lawrencetown archive — **DONE** (120 scenes, 2,708 detections, 23 profiles)
-- [ ] Run all other spots (8 known + 11 public) — **IN PROGRESS** in tmux `wavescout` session (`~/.tmux/sock`)
-  - Queue: cow-bay → martinique → snapjaw → rafuse-island → hell-point → hirtles → gaff-point → seaside
-  - 11 public spots queued after: white-point, western-head, cherry-hill, point-michaud, clam-harbour, summerville, kennington-cove, ingonish, mavillette, broad-cove, gullivers-cove
-  - Est. 12-16hrs total runtime
+- [x] Run all other spots — **16/20 DONE** (agent completed overnight Mar 25-26)
+  - ✅ lawrencetown-beach: 2,708 | ✅ clam-harbour: 3,112 | ✅ martinique-beach: 1,408
+  - ✅ cow-bay: 1,306 | ✅ kennington-cove: 1,196 | ✅ point-michaud: 1,146
+  - ✅ white-point: 1,026 | ✅ hirtles-beach: 767 | ✅ rafuse-island: 741
+  - ✅ snapjaw: 738 | ✅ summerville: 739 | ✅ cherry-hill: 711
+  - ✅ seaside: 582 | ✅ gaff-point: 528 | ✅ hell-point: 166 | ✅ western-head: 124
+  - Total: 16,898 foam detections across 16 spots
+- [ ] Run remaining 4 spots: broad-cove, gullivers-cove, ingonish, mavillette
 - [ ] Cross-spot comparison: same dates across all spots
 - [ ] Validate profiles against known spot behavior
 - [ ] Extend to full NS coastline (16,939 exposed segments from geometry scoring)
@@ -119,9 +123,10 @@
 - GitHub: `gmann14/wavescout`
 - GEE Project: `seotakeoff` (via .env)
 - Python 3.12 venv
-- 12 git commits total
+- 14 git commits total (as of Mar 26)
 - No web deployment yet (pipeline-only project for now)
 
 ## Blockers
-1. **Waiting on Graham's spot pins** — South Shore NS locations with type/characteristics
+1. ~~Waiting on Graham's spot pins~~ — ✅ DONE (6 South Shore spots pinned Mar 25)
 2. No cloud Supabase yet — local dev only until free tier opens up
+3. 4 remaining spots need foam detection runs (broad-cove, gullivers-cove, ingonish, mavillette) — likely GEE auth issue during overnight run
