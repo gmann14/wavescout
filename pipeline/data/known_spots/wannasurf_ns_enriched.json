@@ -62,14 +62,26 @@
     "wannasurf_slug": "dennis_beach",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": ""
+    "experience": "",
+    "note": "New Brunswick, not Nova Scotia"
   },
   {
     "name": "Eastern Brook",
     "wannasurf_slug": "eastern_brook",
     "type": "Reef-rocky",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 45.22,
+    "lng": -61.55,
+    "coords_source": "estimated_from_description",
+    "alt_name": "The Falls",
+    "quality": "Normal",
+    "bottom": "Flat rocks",
+    "power": "Fun",
+    "good_swell_dir": "South, SouthEast, East",
+    "swell_range": "1m - 2.5m",
+    "best_tide": "Mid tide, rising and falling",
+    "note": "Near Larrys River/Torbay Provincial Park, Guysborough. Possibly only ever surfed by one person."
   },
   {
     "name": "Fisherman's Reserve",
@@ -86,7 +98,14 @@
     "wannasurf_slug": "forevers",
     "type": "Point-break",
     "direction": "",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "lat": 44.49,
+    "lng": -63.92,
+    "coords_source": "estimated_peggys_cove_area",
+    "alt_name": "Infinities",
+    "quality": "Totally Epic (claimed)",
+    "good_swell_dir": "SouthWest, South, SouthEast",
+    "note": "Possibly mythical. Near Peggys Cove, Chebucto Peninsula. Claims: longest wave on east seaboard, 300-500m rides. Good candidate for satellite verification/debunking."
   },
   {
     "name": "Hirtles",
@@ -103,7 +122,8 @@
     "wannasurf_slug": "icicles",
     "type": "Reef-rocky",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "note": "New Brunswick, not Nova Scotia"
   },
   {
     "name": "Ingonish Beach",
@@ -120,7 +140,18 @@
     "wannasurf_slug": "juicy_s",
     "type": "Rivermouth",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 45.13,
+    "lng": -61.74,
+    "coords_source": "estimated_new_harbour",
+    "alt_name": "New Harbour",
+    "bottom": "Sandy",
+    "power": "Fast, Powerful",
+    "good_swell_dir": "South, SouthEast",
+    "good_wind_dir": "North, NorthWest",
+    "swell_range": "1.0-1.5m starts, holds to 2m+",
+    "best_tide": "Low and mid tide, falling",
+    "note": "Rivermouth at New Harbour near Country Harbour. Tidal river narrows to channel, jacks up waves. Best fall/hurricane season. No crowds. Water super warm 70s-80s F in summer from tidal river."
   },
   {
     "name": "Kennington Cove",
@@ -167,14 +198,39 @@
     "wannasurf_slug": "left_point",
     "type": "Point-break",
     "direction": "Left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 44.649,
+    "lng": -63.335,
+    "coords_source": "estimated_lawrencetown_headland",
+    "alt_name": "The Point (Lawrencetown)",
+    "quality": "Regional Classic",
+    "bottom": "Boulders",
+    "power": "Powerful",
+    "good_swell_dir": "NorthEast",
+    "good_wind_dir": "NorthEast",
+    "swell_range": "3.0-5.0m (sometimes breaks)",
+    "best_tide": "Low and mid tide",
+    "wave_length": "50-150m normal, 150-300m good day",
+    "note": "Left point break at east end of Lawrencetown Beach. Boulders, powerful, barrels. Needs big swell. No channel, dangerous exit. Empty."
   },
   {
     "name": "Martinique",
     "wannasurf_slug": "martinique",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "Beginners wave"
+    "experience": "Beginners wave",
+    "lat": 44.6833,
+    "lng": -63.1333,
+    "coords_source": "existing_db",
+    "quality": "Sloppy",
+    "bottom": "Sandy",
+    "power": "Ordinary, Fun",
+    "good_swell_dir": "SouthWest, South, SouthEast",
+    "good_wind_dir": "North, NorthWest, NorthEast",
+    "swell_range": "1m - 2m+",
+    "best_tide": "All tides",
+    "frequency": "150 days/year",
+    "note": "Very consistent beginner spot. Semi points off rocks on L/R of first beach. Works before/after big swell when other spots flat. 25 min from Lawrencetown."
   },
   {
     "name": "Meadows Point",
@@ -221,14 +277,39 @@
     "wannasurf_slug": "point_pleasant_beach_park",
     "type": "",
     "direction": "",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 44.6199,
+    "lng": -63.5626,
+    "coords_source": "graham_local_knowledge",
+    "quality": "Normal",
+    "bottom": "Sandy",
+    "power": "Ordinary, Fun, Powerless",
+    "good_swell_dir": "South",
+    "good_wind_dir": "North, NorthWest, West, SouthWest",
+    "swell_range": "1.5m - 5m",
+    "best_tide": "All tides, rising preferred",
+    "wave_length": "150-300m",
+    "note": "Closest surf spot to Halifax downtown. Breaks off old military bunkers at south end of Point Pleasant Park. Never foggy like Lawrencetown. Empty lineups."
   },
   {
     "name": "Pubnico Beach",
     "wannasurf_slug": "pubnico_beach",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 43.58,
+    "lng": -65.63,
+    "coords_source": "estimated_clarks_harbour",
+    "alt_name": "Forbes Point",
+    "quality": "Regional Classic",
+    "bottom": "Sandy with rock",
+    "power": "Fast, Powerful",
+    "good_swell_dir": "NorthEast",
+    "swell_range": "1m - 2m+",
+    "best_tide": "Low and mid tide, rising",
+    "frequency": "Regular",
+    "wave_length": "50-150m normal, 150-300m good day",
+    "note": "Near Clarks Harbour/Barrington, southwestern NS. Forbes Point Road. Empty, isolated, beautiful. Hurricane season best (Aug-Nov)."
   },
   {
     "name": "Rissers",
@@ -245,7 +326,19 @@
     "wannasurf_slug": "rudy_s",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 44.65,
+    "lng": -63.27,
+    "coords_source": "estimated_past_fishermans_reserve",
+    "quality": "Sloppy",
+    "bottom": "Sandy",
+    "power": "Powerless",
+    "good_swell_dir": "SouthEast, East, NorthEast",
+    "good_wind_dir": "NorthWest, West",
+    "swell_range": "2.5m - 4m+",
+    "best_tide": "All tides, rising and falling",
+    "wave_length": "50-150m normal, 150-300m good day",
+    "note": "Past Lawrencetown and Fishermans Reserve. Cove with inside and outside break. Paddle >20min or boat. Empty."
   },
   {
     "name": "Sable Island",
@@ -272,7 +365,20 @@
     "wannasurf_slug": "the_juice",
     "type": "Rivermouth",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "lat": 45.13,
+    "lng": -61.73,
+    "coords_source": "estimated_new_harbour_beach",
+    "alt_name": "New Harbour Beach (memorial for Justin Avery)",
+    "quality": "Normal",
+    "bottom": "Sandy with rock",
+    "power": "Fast",
+    "good_swell_dir": "SouthWest, South",
+    "good_wind_dir": "North, NorthEast",
+    "swell_range": "1.0-1.5m starts, holds to 2.5m+",
+    "best_tide": "Low and mid tide, falling",
+    "wave_length": "50-150m",
+    "note": "Named for Justin Avery (18, killed by car). Near Country Harbour rivermouth. Same area as Juicys but distinct break. 3.5hrs from Halifax. Always empty."
   },
   {
     "name": "The Meadows",
@@ -299,6 +405,7 @@
     "wannasurf_slug": "zaluds",
     "type": "Beach-break",
     "direction": "Right and left",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "note": "New Brunswick, not Nova Scotia"
   }
 ]
