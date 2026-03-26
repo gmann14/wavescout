@@ -1,0 +1,247 @@
+{
+  "cherry_hill": {
+    "info": "Don't drive all the way down the road behind the dune - it wrecks the beach. Park your car and walk down.",
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Powerless",
+    "normal_length": "Don't know",
+    "good_day_length": "Short (< 50m)"
+  },
+  "cow_bay_-_moose_rocks": {
+    "info": "Nice view of the break from the parking. Fast wave. Mostly shortboarders but bring your longboard on smaller days.",
+    "frequency": "Regular",
+    "wave_type": "Reef-rocky",
+    "bottom": "Boulders",
+    "power": "Powerful",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rocks, Localism"
+  },
+  "eastern_brook": {
+    "info": "The gate is always open but on the off chance it is closed there is a spot on the other side of the road for parking. The locals look at you like you have three heads but they are really friendly. Great camping at Salsman Provincial Park a few miles down the road.",
+    "frequency": "Regular",
+    "wave_type": "Reef-rocky",
+    "bottom": "Flat rocks",
+    "power": "Fun",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Long (150 to 300m)",
+    "dangers": "Rocks"
+  },
+  "fisherman_s_reserve": {
+    "info": "Just 30 minutes drive from downtown Halifax.",
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Point-break",
+    "direction": "Right",
+    "bottom": "Boulders",
+    "power": "Hollow, Fast, Powerful",
+    "normal_length": "Long (150 to 300m)",
+    "good_day_length": "Very Long (300 to 500m)",
+    "dangers": "Rocks"
+  },
+  "forevers": {
+    "info": "Forevers aka Infinities is arguably THE longest and best wave on the eastern seaboard of North America. Located near Peggy's Cove, famous for its lighthouse and crazy waves.",
+    "frequency": "Don't know",
+    "wave_type": "Point-break",
+    "power": "Hollow, Fast, Powerful, Fun",
+    "normal_length": "Very Long (300 to 500m)",
+    "good_day_length": "Exceptional (>500m)",
+    "dangers": "Rocks"
+  },
+  "hirtles": {
+    "info": "Located in the beautiful community of Kingsburg (if you have to ask how much the cottages cost... you don't want to know). The beach is massive (1km) and clean, white sand.",
+    "frequency": "Sometimes break",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Short (< 50m)"
+  },
+  "ingonish_beach": {
+    "info": "Typical beach break that will close out on larger swells. Because of location, doesn't break all that often, but after a Nor'Easter or Hurricane will sure to be working.",
+    "frequency": "Sometimes break",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Fast, Powerful, Ordinary, Fun",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Long (150 to 300m)",
+    "dangers": "Sharks"
+  },
+  "Kennington_Cove": {
+    "info": "Inside the Federal Park so keep it safe and clean.",
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Powerful",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow"
+  },
+  "killaz": {
+    "info": "Good place to go if every other place is closing out. Little wind and really clear water.",
+    "frequency": "Sometimes break",
+    "wave_type": "Reef-rocky",
+    "bottom": "Flat rocks",
+    "power": "Powerless",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Short (< 50m)",
+    "dangers": "Rocks"
+  },
+  "lawrencetown": {
+    "info": "L-Town is decent break with cold water. Waves break at the point and at the beach anywhere between 1.0m+. A magnet for waves \u2014 can be head high or over at 1.4m with a good period because of the bottom contours. The right is slow and short on most days but can get exceptionally long. The left can barrel. Water gets warm in summer similar to NJ. If the waves are weak check out Martinique 25 min down the road \u2014 it's cleaner there on sloppy days.",
+    "frequency": "Don't know",
+    "wave_type": "Point-break",
+    "direction": "Right",
+    "bottom": "Flat rocks with sand",
+    "power": "Ordinary, Fun",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Normal (50 to 150m)"
+  },
+  "lawrencetown_plan_b": {
+    "info": "Used for learning when not comfortable with big surf at L-Town. Waves are smaller and easier to handle. Some rocks on the left side and a river mouth on the right side. Seaweed gathers on the left side.",
+    "frequency": "Regular",
+    "wave_type": "Sand-bar",
+    "bottom": "Sandy with rock",
+    "power": "Fun",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow"
+  },
+  "left_point": {
+    "info": "Pretty small pocket to take off in. Some barrels on take off, then slows up so you can hit it. Sometimes the offshore wind can be heavy. If you fall on the drop you'll be pulled quickly into the rocks. No real channel \u2014 getting out can be brutal on a big day. You got a choice of getting in through the closed out beach or negotiate the rocks and rip on the point. Whatever \u2014 both choices suck.",
+    "frequency": "Sometimes break",
+    "wave_type": "Point-break",
+    "direction": "Left",
+    "bottom": "Boulders",
+    "power": "Powerful",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Long (150 to 300m)",
+    "dangers": "Rocks"
+  },
+  "martinique": {
+    "info": "Works well before and after big swell has passed. Usually picks up anything at all \u2014 when other spots are flat as a lake, this should still be surfable. Semi points coming off the little rocks on left and right side of the first beach by the parking lot, but for better beach break walk down the beach until you find a peak you like.",
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Ordinary, Fun",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Short (< 50m)"
+  },
+  "point_michaud": {
+    "info": "Probably one of the best places to ever learn to surf. Sandy bottom, easy paddles, and harmless waves.",
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Hollow, Fun",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Long (150 to 300m)"
+  },
+  "point_pleasant_beach_park": {
+    "info": "Watch out for the few city chargers that surf this place regularly. Make sure you shower afterwards.",
+    "frequency": "Regular",
+    "bottom": "Sandy",
+    "power": "Ordinary, Fun, Powerless",
+    "normal_length": "Long (150 to 300m)"
+  },
+  "pubnico_beach": {
+    "info": "One can find steep fast breaks, excellent right and left point breaks, along with offshore reef and shoal breaks all along the southeast coast, making Nova Scotia's largely untapped surfing opportunities prime for colonization. Best season August to late November when numerous hurricanes and tropical storms pound the southern coast. Water temperatures can reach 20\u00b0C (low 70s\u00b0F). Wetsuits 4/3 full suit suggested. Hard pressed to find any crowds.",
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy with rock",
+    "power": "Fast, Powerful",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Long (150 to 300m)"
+  },
+  "Rissers": {
+    "info": "Fun Wave! Very sharky! Watch out for locals!",
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy with rock",
+    "power": "Hollow",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow, Rocks, Localism, Sharks"
+  },
+  "sable_island": {
+    "info": "Bring Shark Repellent. Anchor your boat on the leeward side of the island, hop ashore. To get around and find the best peak, either 'borrow' an ATV off the Scientists at the research base, or hop on any of the hundreds of wild horses.",
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Hollow, Fast, Powerful",
+    "normal_length": "Normal (50 to 150m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow, Sharks"
+  },
+  "the_juice": {
+    "info": "Named The Juice for Justin Avery, an 18 year old sponge head that was tragically hit by a car and killed. He was an aspiring jazz musician, rock climber, and sponge boarder. This was his favourite spot.",
+    "frequency": "Sometimes break",
+    "wave_type": "Rivermouth",
+    "bottom": "Sandy with rock",
+    "power": "Fast",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow"
+  },
+  "juicy_s": {
+    "info": "Park in the abandon store parking lot and paddle across the river or go around the corner and you will see a dirt road to your right. Take that road for about 50m, park in the field and walk over the dune.",
+    "frequency": "Sometimes break",
+    "wave_type": "Rivermouth",
+    "bottom": "Sandy",
+    "power": "Fast, Powerful",
+    "normal_length": "Short (< 50m)",
+    "good_day_length": "Normal (50 to 150m)",
+    "dangers": "Rips / undertow"
+  },
+  "Andrews_Head": {
+    "frequency": "Regular",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy with rock",
+    "power": "Fun"
+  },
+  "Blueberry_Bay": {
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Point-break",
+    "bottom": "Sandy with rock",
+    "power": "Hollow, Fast, Powerful"
+  },
+  "Meadows_point": {
+    "frequency": "Regular",
+    "wave_type": "Point-break",
+    "direction": "Left",
+    "bottom": "Sandy with rock",
+    "power": "Powerful"
+  },
+  "Minutes": {
+    "frequency": "Regular",
+    "wave_type": "Reef-rocky",
+    "bottom": "Boulders",
+    "power": "Hollow, Fast, Powerful"
+  },
+  "osbourne": {
+    "wave_type": "Point-break",
+    "direction": "Right",
+    "power": "Powerful"
+  },
+  "The_Meadows": {
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy",
+    "power": "Fun"
+  },
+  "White_Point": {
+    "frequency": "Very consistent (150 day/year)",
+    "wave_type": "Beach-break",
+    "bottom": "Sandy with rock",
+    "power": "Hollow, Fast, Powerful, Fun"
+  },
+  "Broad_Cove": {
+    "frequency": "Regular",
+    "wave_type": "Reef-rocky",
+    "bottom": "Boulders",
+    "power": "Fast, Powerful"
+  },
+  "Seals": {
+    "wave_type": "Beach-break",
+    "bottom": "Sandy with rock",
+    "power": "Powerful"
+  }
+}
