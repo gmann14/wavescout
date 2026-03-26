@@ -1,0 +1,2638 @@
+[
+  {
+    "id": "5842041f4e65fad6a7708b2d",
+    "name": "Ha'Ena Bay (Cannons/Tunnels)",
+    "lat": 22.225,
+    "lon": -159.567,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "GUN",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b2c",
+    "name": "Hanalei Bay",
+    "lat": 22.216,
+    "lon": -159.502,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "GUN",
+      "FISH"
+    ]
+  },
+  {
+    "id": "640f37d874a71b18f7294fe3",
+    "name": "Kauapea Beach",
+    "lat": 22.2242,
+    "lon": -159.4098,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b2f",
+    "name": "Anahola Bay",
+    "lat": 22.148,
+    "lon": -159.301,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5a9db1d0a7eda2001a6aad6b",
+    "name": "Kealia",
+    "lat": 22.096150401123737,
+    "lon": -159.30328433528325,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f37ef326c179b795b7627",
+    "name": "Kalapaki Beach",
+    "lat": 21.9600952,
+    "lon": -159.35027,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f37e374a71b7f86295289",
+    "name": "Shipwrecks",
+    "lat": 21.874,
+    "lon": -159.4372,
+    "subregion": "North Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708df3",
+    "name": "Mana Point",
+    "lat": 22.013,
+    "lon": -159.785,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "FUNBOARD",
+      "LONGBOARD",
+      "GUN",
+      "TOW",
+      "SUP",
+      "SKIMMING",
+      "BODYBOARD",
+      "BODYSURFING",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e12",
+    "name": "Kamalino, Niihau",
+    "lat": 21.812,
+    "lon": -160.246,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED",
+      "PRO"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b31",
+    "name": "Pakala",
+    "lat": 21.936,
+    "lon": -159.652,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708df1",
+    "name": "Polihale",
+    "lat": 22.101,
+    "lon": -159.747,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "FUNBOARD",
+      "LONGBOARD",
+      "GUN",
+      "TOW",
+      "SUP",
+      "SKIMMING",
+      "BODYBOARD",
+      "BODYSURFING",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "584204214e65fad6a7709bde",
+    "name": "PKs/Centers",
+    "lat": 21.880277061272192,
+    "lon": -159.47478,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED",
+      "PRO"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b30",
+    "name": "Poipu Outer Reef",
+    "lat": 21.872,
+    "lon": -159.462,
+    "subregion": "South Kauai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b3b",
+    "name": "Kaena Point",
+    "lat": 21.576,
+    "lon": -158.282,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "GUN",
+      "TOW",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708df8",
+    "name": "Mokuleia",
+    "lat": 21.586,
+    "lon": -158.191,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED",
+      "PRO"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708df5",
+    "name": "Hale'iwa",
+    "lat": 21.597,
+    "lon": -158.109,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a7709057",
+    "name": "Pua'ena Point",
+    "lat": 21.604,
+    "lon": -158.109,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "GUN",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708898",
+    "name": "Laniakea",
+    "lat": 21.62,
+    "lon": -158.088,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SUP"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708896",
+    "name": "Hultin's",
+    "lat": 21.622,
+    "lon": -158.087,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708897",
+    "name": "Jocko's",
+    "lat": 21.623,
+    "lon": -158.085,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708899",
+    "name": "Chun's",
+    "lat": 21.625,
+    "lon": -158.083,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708895",
+    "name": "Waimea Bay",
+    "lat": 21.643,
+    "lon": -158.067,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708893",
+    "name": "Log Cabins",
+    "lat": 21.65870453806827,
+    "lon": -158.06058,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "BODYSURFING",
+      "GUN",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708892",
+    "name": "Rockpile",
+    "lat": 21.662,
+    "lon": -158.057,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708894",
+    "name": "Off The Wall",
+    "lat": 21.66203493640557,
+    "lon": -158.05495,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708891",
+    "name": "Backdoor",
+    "lat": 21.665,
+    "lon": -158.054,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708890",
+    "name": "Pipeline",
+    "lat": 21.66522,
+    "lon": -158.0526,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 3,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "653b83b84f42f85b45263e14",
+    "name": "Ehukai Beach Park",
+    "lat": 21.66558,
+    "lon": -158.05185,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "6542334204e69116d57b4d9e",
+    "name": "Pupukea",
+    "lat": 21.66771,
+    "lon": -158.04967,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a770888f",
+    "name": "Chambers",
+    "lat": 21.668,
+    "lon": -158.05,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a770888e",
+    "name": "Rocky Point",
+    "lat": 21.670550036401,
+    "lon": -158.0482,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 3,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a770888d",
+    "name": "Sunset Beach",
+    "lat": 21.679,
+    "lon": -158.042,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "GUN"
+    ]
+  },
+  {
+    "id": "644307ceabaf74e0cd52271f",
+    "name": "Freddieland",
+    "lat": 21.682872,
+    "lon": -158.03326,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708df4",
+    "name": "Velzyland",
+    "lat": 21.685,
+    "lon": -158.033,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708df2",
+    "name": "Turtle Bay West",
+    "lat": 21.705402859819525,
+    "lon": -158.00333,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a7709218",
+    "name": "Turtle Bay East",
+    "lat": 21.707393337051556,
+    "lon": -157.99598,
+    "subregion": "North Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dfb",
+    "name": "Kahuku",
+    "lat": 21.679,
+    "lon": -157.935,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "GUN",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "6418e2caa34c33681818a7a9",
+    "name": "Laie Beach Park",
+    "lat": 21.6312,
+    "lon": -157.921,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708dfa",
+    "name": "Crouching Lion",
+    "lat": 21.566,
+    "lon": -157.861,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5c3fc10b1135b1000195fa99",
+    "name": "North Beach",
+    "lat": 21.45582460919004,
+    "lon": -157.74447,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "60428c564d813d3a2bb40d2c",
+    "name": "Castles",
+    "lat": 21.420918,
+    "lon": -157.74242,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "6418dc67a34c3349c417505f",
+    "name": "Kailua",
+    "lat": 21.41,
+    "lon": -157.74,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708df7",
+    "name": "Popoia Island Kailua",
+    "lat": 21.401,
+    "lon": -157.718,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "6418e2be970272062987bc46",
+    "name": "Lanikai Beach",
+    "lat": 21.393,
+    "lon": -157.7151,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b3c",
+    "name": "Makapu'u",
+    "lat": 21.31110306220024,
+    "lon": -157.6590697786346,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708df6",
+    "name": "Sandy Beach",
+    "lat": 21.284,
+    "lon": -157.673,
+    "subregion": "Windward Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dfe",
+    "name": "Barbers Point",
+    "lat": 21.295,
+    "lon": -158.107,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "GUN",
+      "TOW",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "601b20b05f02a99e8973f5b7",
+    "name": "White Plains Beach",
+    "lat": 21.3023,
+    "lon": -158.0454,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708e00",
+    "name": "Ewa Beach",
+    "lat": 21.302,
+    "lon": -158.002,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e30",
+    "name": "Sand Island",
+    "lat": 21.299,
+    "lon": -157.875,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "68acb8de6d6fe8c89c97b761",
+    "name": "Point Panic",
+    "lat": 21.29001,
+    "lon": -157.86177,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5a983b55ab43c7001a4129d9",
+    "name": "Kewalos",
+    "lat": 21.287874987990282,
+    "lon": -157.8591,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 3,
+    "abilityLevels": [
+      "ADVANCED",
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a770889c",
+    "name": "Ala Moana Beach Park",
+    "lat": 21.286357895152136,
+    "lon": -157.8515,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b42",
+    "name": "Ala Moana Bowls",
+    "lat": 21.281416779283845,
+    "lon": -157.8457,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b39",
+    "name": "Rockpiles",
+    "lat": 21.280537020769913,
+    "lon": -157.84107,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b38",
+    "name": "Kaiser's",
+    "lat": 21.277,
+    "lon": -157.841,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b3a",
+    "name": "Four's",
+    "lat": 21.2745,
+    "lon": -157.8395,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b3d",
+    "name": "Three's",
+    "lat": 21.276618032562773,
+    "lon": -157.83386,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b32",
+    "name": "Populars",
+    "lat": 21.272,
+    "lon": -157.832,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b35",
+    "name": "Canoes",
+    "lat": 21.27394674233747,
+    "lon": -157.82777,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a7709148",
+    "name": "Waikiki Beach",
+    "lat": 21.274598513189574,
+    "lon": -157.82678,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b36",
+    "name": "Queen's",
+    "lat": 21.273658410008455,
+    "lon": -157.8263,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 4,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "6335eab2d305aa6b0692cd5f",
+    "name": "The Wall",
+    "lat": 21.271082,
+    "lon": -157.82401,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b33",
+    "name": "Publics",
+    "lat": 21.26841992117695,
+    "lon": -157.82329,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5a987de6a7eda2001a6aa93b",
+    "name": "Waikiki - Kapiolani Park",
+    "lat": 21.267080507181625,
+    "lon": -157.82360360082407,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "6335ed3996ac630a21de90d7",
+    "name": "Old Man's",
+    "lat": 21.25996,
+    "lon": -157.82482,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "6335ebea693c3404e2a7b850",
+    "name": "Tongg's",
+    "lat": 21.25696,
+    "lon": -157.82366,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a77088a2",
+    "name": "Diamond Head",
+    "lat": 21.252,
+    "lon": -157.805,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708b34",
+    "name": "Black Point",
+    "lat": 21.25460513357954,
+    "lon": -157.79432,
+    "subregion": "South Shore Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dfc",
+    "name": "Yokohama Bay / Keawa\u2019ula",
+    "lat": 21.544,
+    "lon": -158.243,
+    "subregion": "West Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "SKIMMING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dfd",
+    "name": "Makaha",
+    "lat": 21.475,
+    "lon": -158.227,
+    "subregion": "West Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dff",
+    "name": "Ma'ili",
+    "lat": 21.417,
+    "lon": -158.185,
+    "subregion": "West Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "601b285ce17c8b3c17b65e2c",
+    "name": "Tracks",
+    "lat": 21.3596,
+    "lon": -158.133,
+    "subregion": "West Side Oahu",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "FUNBOARD",
+      "LONGBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e05",
+    "name": "Kepuhi Bay",
+    "lat": 21.189,
+    "lon": -157.249,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e13",
+    "name": "Halena Beach",
+    "lat": 21.085,
+    "lon": -157.245,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e03",
+    "name": "Kawa",
+    "lat": 21.201,
+    "lon": -157.152,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "GUN",
+      "KITEBOARD",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e01",
+    "name": "Kaunakakai (The Wharf)",
+    "lat": 21.079,
+    "lon": -157.031,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e04",
+    "name": "Kalaupapa",
+    "lat": 21.198,
+    "lon": -156.984,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e02",
+    "name": "Halawa Bay",
+    "lat": 21.159,
+    "lon": -156.736,
+    "subregion": "Molokai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708de7",
+    "name": "Honokohau Bay",
+    "lat": 21.024,
+    "lon": -156.61,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "6418dc919a43c4dc6136f3cc",
+    "name": "Windmills",
+    "lat": 21.0239,
+    "lon": -156.628,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de4",
+    "name": "Honolua Bay",
+    "lat": 21.018,
+    "lon": -156.641,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "6418dd1193265b016717814b",
+    "name": "Little Makaha",
+    "lat": 20.9972,
+    "lon": -156.668,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f37b743c1fbf8fd4386a1",
+    "name": "S Turns",
+    "lat": 20.9673218,
+    "lon": -156.68296,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de3",
+    "name": "Rainbows",
+    "lat": 20.948,
+    "lon": -156.693,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "6328ea2e553788088a2ebfdd",
+    "name": "Ka'anapali Point",
+    "lat": 20.917672,
+    "lon": -156.69711,
+    "subregion": "Upper Westside Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b37",
+    "name": "Lahaina Harbor - Breakwall",
+    "lat": 20.869,
+    "lon": -156.679,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "640f37c26d5ecc82715b1e36",
+    "name": "Launiupoko",
+    "lat": 20.84204,
+    "lon": -156.65284,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de0",
+    "name": "Olowalu",
+    "lat": 20.808,
+    "lon": -156.624,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "64bbf6d76914b76a8170b24d",
+    "name": "Ukumehame",
+    "lat": 20.795589300073612,
+    "lon": -156.58179,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708da5",
+    "name": "Ma'alaea Harbor",
+    "lat": 20.791,
+    "lon": -156.509,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708de1",
+    "name": "The Cove",
+    "lat": 20.728,
+    "lon": -156.453,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD",
+      "SUP"
+    ]
+  },
+  {
+    "id": "640f37ab326c174fb15b6718",
+    "name": "Oneuli Beach",
+    "lat": 20.6412,
+    "lon": -156.4462,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b2a",
+    "name": "Little Beach",
+    "lat": 20.63474,
+    "lon": -156.45211,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING",
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "640f37a038476ebadad58891",
+    "name": "Makena Beach",
+    "lat": 20.632583,
+    "lon": -156.44906,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708b2b",
+    "name": "Dumps",
+    "lat": 20.613,
+    "lon": -156.438,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708de2",
+    "name": "La Perouse Bay",
+    "lat": 20.591,
+    "lon": -156.415,
+    "subregion": "Southwest Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "6328ed0ed05d38031be2733c",
+    "name": "Waiehu Beach",
+    "lat": 20.917024,
+    "lon": -156.49129,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de6",
+    "name": "Kahului Harbor",
+    "lat": 20.904,
+    "lon": -156.463,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708de5",
+    "name": "Kanaha",
+    "lat": 20.905,
+    "lon": -156.442,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a770999d",
+    "name": "Tavares Bay",
+    "lat": 20.922,
+    "lon": -156.374,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de8",
+    "name": "Ho'okipa",
+    "lat": 20.936,
+    "lon": -156.359,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING",
+      "GUN",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "6418dd176478f05439f99dad",
+    "name": "Pavilions",
+    "lat": 20.9374,
+    "lon": -156.356,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708de9",
+    "name": "Peahi (Jaws)",
+    "lat": 20.945,
+    "lon": -156.298,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "GUN",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708deb",
+    "name": "Honomanu Bay",
+    "lat": 20.866,
+    "lon": -156.166,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dea",
+    "name": "Hana Bay",
+    "lat": 20.76,
+    "lon": -155.983,
+    "subregion": "North Maui",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a770889e",
+    "name": "Kawaihae",
+    "lat": 20.029,
+    "lon": -155.831,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SUP"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708def",
+    "name": "Hapuna Bay",
+    "lat": 19.993,
+    "lon": -155.827,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING",
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708ded",
+    "name": "Pinetrees",
+    "lat": 19.695,
+    "lon": -156.046,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SUP"
+    ]
+  },
+  {
+    "id": "62edbf02cd146e464e382b97",
+    "name": "Honokohau Beach",
+    "lat": 19.67443,
+    "lon": -156.02707,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5e502d5939f578f30180d591",
+    "name": "Kaiwi Point",
+    "lat": 19.658207410571208,
+    "lon": -156.03269406981858,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "63054c33457a151d9cc7d44e",
+    "name": "Old Kona Airport",
+    "lat": 19.643194,
+    "lon": -156.01492,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5e5034d3e3517f024160d922",
+    "name": "Honl's",
+    "lat": 19.628229345976486,
+    "lon": -155.98827,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a770889d",
+    "name": "Banyans",
+    "lat": 19.606,
+    "lon": -155.978,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5e5033c97818a8bcb2976f75",
+    "name": "Lyman's",
+    "lat": 19.602998314865218,
+    "lon": -155.97515,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FISH",
+      "LONGBOARD",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dee",
+    "name": "Magic Sands Beach",
+    "lat": 19.594,
+    "lon": -155.973,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 1,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e19",
+    "name": "Kahalu'u Bay",
+    "lat": 19.581,
+    "lon": -155.969,
+    "subregion": "Kona Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 2,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "SUP"
+    ]
+  },
+  {
+    "id": "640f37cd43c1fb0add438b4e",
+    "name": "Pohue Bay Beach",
+    "lat": 19.0106,
+    "lon": -155.7974,
+    "subregion": "South Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "5842041f4e65fad6a7708df0",
+    "name": "South Point",
+    "lat": 18.91,
+    "lon": -155.678,
+    "subregion": "South Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "GUN",
+      "TOW"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e15",
+    "name": "Kolekole",
+    "lat": 19.884,
+    "lon": -155.117,
+    "subregion": "Hilo Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "BODYSURFING",
+      "BODYBOARD",
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708dec",
+    "name": "Honoli'i",
+    "lat": 19.756,
+    "lon": -155.09,
+    "subregion": "Hilo Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "SUP",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e16",
+    "name": "Pohoiki",
+    "lat": 19.456,
+    "lon": -154.842,
+    "subregion": "Hilo Hawaii",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "GUN"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e07",
+    "name": "Pohakuloa",
+    "lat": 20.931,
+    "lon": -156.997,
+    "subregion": "Lanai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e06",
+    "name": "Kaiolohia Bay/Shipwreck Beach",
+    "lat": 20.918,
+    "lon": -156.901,
+    "subregion": "Lanai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD",
+      "KITEBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e18",
+    "name": "Lopa Beach",
+    "lat": 20.804,
+    "lon": -156.807,
+    "subregion": "Lanai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "BEGINNER",
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "FUNBOARD",
+      "LONGBOARD",
+      "FISH",
+      "BODYBOARD"
+    ]
+  },
+  {
+    "id": "5842041f4e65fad6a7708e14",
+    "name": "Manele Bay",
+    "lat": 20.736,
+    "lon": -156.894,
+    "subregion": "Lanai",
+    "timezone": "Pacific/Honolulu",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD",
+      "BODYBOARD",
+      "SKIMMING",
+      "BODYSURFING"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a77099ac",
+    "name": "Laulii",
+    "lat": -13.858,
+    "lon": -171.687,
+    "subregion": "Samoa North",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099a8",
+    "name": "Tiavea Bay",
+    "lat": -13.97,
+    "lon": -171.467,
+    "subregion": "Samoa North",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "640f38b5d19c665d44793afa",
+    "name": "Poloa Bay",
+    "lat": -14.3156,
+    "lon": -170.837,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38aa43c1fb536243bce6",
+    "name": "Amanave Bay",
+    "lat": -14.3274,
+    "lon": -170.833,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f394543c1fb16b543de65",
+    "name": "Nua",
+    "lat": -14.3307,
+    "lon": -170.81,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38c0326c176fcc5ba58c",
+    "name": "Asili Point",
+    "lat": -14.3359,
+    "lon": -170.798,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f39197966c352326a23f6",
+    "name": "Sliding Rock",
+    "lat": -14.3593,
+    "lon": -170.783,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38cb355469b8fabf8fe4",
+    "name": "Nu'uuli",
+    "lat": -14.3203,
+    "lon": -170.697,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f393ad19c66f0bb795818",
+    "name": "Faganeanea",
+    "lat": -14.3043,
+    "lon": -170.687,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38d6d19c6670fc7942a0",
+    "name": "Fatuuli Rock",
+    "lat": -14.2988,
+    "lon": -170.675,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38e13554693e74bf9531",
+    "name": "Coral Heads",
+    "lat": -14.2913,
+    "lon": -170.675,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38ecd19c667b73794775",
+    "name": "Lauli'ituai",
+    "lat": -14.2914,
+    "lon": -170.652,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38f874a71bf66a29909d",
+    "name": "Liea Point",
+    "lat": -14.282,
+    "lon": -170.608,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f390235546950babf9c6d",
+    "name": "Amouli",
+    "lat": -14.2767,
+    "lon": -170.581,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f392443c1fb0f4243d802",
+    "name": "Alao",
+    "lat": -14.2601,
+    "lon": -170.559,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f392f74a71bfa38299c9a",
+    "name": "Tula",
+    "lat": -14.2513,
+    "lon": -170.563,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f390dd19c669b25794e95",
+    "name": "Aunu'u",
+    "lat": -14.287,
+    "lon": -170.564,
+    "subregion": "Tutuila",
+    "timezone": "Pacific/Samoa",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b4",
+    "name": "The Leap",
+    "lat": -13.667,
+    "lon": -172.648,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b6",
+    "name": "Salailua Right",
+    "lat": -13.716,
+    "lon": -172.6,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b5",
+    "name": "Salailua Left",
+    "lat": -13.718,
+    "lon": -172.599,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b7",
+    "name": "Aganoa",
+    "lat": -13.776,
+    "lon": -172.288,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f369e7966c39e5c69950a",
+    "name": "Matareva Beach",
+    "lat": -13.9912,
+    "lon": -171.9329,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b8",
+    "name": "Salamumu",
+    "lat": -13.998,
+    "lon": -171.922,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f36887966c346f669902a",
+    "name": "Special K",
+    "lat": -14.0175,
+    "lon": -171.873,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f369374a71b77392906b5",
+    "name": "Pebbles",
+    "lat": -14.0072,
+    "lon": -171.848,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b1",
+    "name": "Coconuts",
+    "lat": -14.022,
+    "lon": -171.795,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE",
+      "ADVANCED"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a77099ba",
+    "name": "Inner Siumu",
+    "lat": -14.018,
+    "lon": -171.787,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099bf",
+    "name": "Outer Siumu",
+    "lat": -14.024,
+    "lon": -171.784,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099af",
+    "name": "Boulders",
+    "lat": -14.04,
+    "lon": -171.772,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a77099bb",
+    "name": "Nu'usafee Island Lefts (Devils Island)",
+    "lat": -14.053,
+    "lon": -171.692,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f38947966c3fa706a061e",
+    "name": "Nu'usafee Island Rights (Devils Island)",
+    "lat": -14.0504,
+    "lon": -171.69,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099ad",
+    "name": "Salani Right",
+    "lat": -14.043,
+    "lon": -171.617,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "640f367cd19c66f13d78bafe",
+    "name": "SoloSolos",
+    "lat": -13.8691,
+    "lon": -171.641,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "584204204e65fad6a77099b0",
+    "name": "Salani Left",
+    "lat": -14.044,
+    "lon": -171.612,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [
+      "INTERMEDIATE"
+    ],
+    "boardTypes": [
+      "SHORTBOARD"
+    ]
+  },
+  {
+    "id": "584204204e65fad6a77099b9",
+    "name": "Aufaga Village",
+    "lat": -14.044,
+    "lon": -171.523,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  },
+  {
+    "id": "640f367138476e7217d543f6",
+    "name": "Waterfalls",
+    "lat": -13.8617,
+    "lon": -171.665,
+    "subregion": "Samoa South",
+    "timezone": "Pacific/Apia",
+    "cameras": 0,
+    "abilityLevels": [],
+    "boardTypes": []
+  }
+]
