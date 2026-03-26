@@ -22,8 +22,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -63.3417,
-          44.6375
+          -63.343,
+          44.643
         ]
       }
     },
@@ -45,8 +45,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -63.4296,
-          44.6139
+          -63.43175,
+          44.61383
         ]
       }
     },
@@ -68,8 +68,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -63.1333,
-          44.6833
+          -63.13179,
+          44.6899
         ]
       }
     },
@@ -148,8 +148,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -64.2721,
-          44.265
+          -64.272,
+          44.261
         ]
       }
     },
@@ -209,8 +209,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -64.7345,
-          43.9553
+          -64.7352,
+          43.9643
         ]
       }
     },
@@ -230,8 +230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -64.6617,
-          43.9733
+          -64.68,
+          43.985
         ]
       }
     },
@@ -253,8 +253,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -64.5169,
-          44.1386
+          -64.509,
+          44.139
         ]
       }
     },
@@ -269,13 +269,15 @@
         "confidence": "high",
         "source": "public-surfline-stormrider",
         "break_type": "Beach-break",
-        "break_direction": "Right and left"
+        "break_direction": "Right and left",
+        "surfline_url": "https://www.surfline.com/surf-report/point-michaud/584204204e65fad6a77094d0",
+        "surfline_id": "584204204e65fad6a77094d0"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -60.6795,
-          45.5881
+          -60.68454,
+          45.5846
         ]
       }
     },
@@ -396,8 +398,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -64.4701,
-          44.1772
+          -64.4743,
+          44.1775
         ]
       }
     },

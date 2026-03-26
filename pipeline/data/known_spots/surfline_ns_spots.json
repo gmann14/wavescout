@@ -1,98 +1,110 @@
 [
   {
     "name": "The Moose",
-    "href": "/surf-report/the-moose/584204204e65fad6a77094cb",
-    "slug": "the-moose",
+    "lat": 44.61383,
+    "lng": -63.43175,
     "id": "584204204e65fad6a77094cb"
   },
   {
-    "name": "Minutes",
-    "href": "/surf-report/minutes/5842041f4e65fad6a7708dbb",
-    "slug": "minutes",
-    "id": "5842041f4e65fad6a7708dbb"
-  },
-  {
     "name": "Osbourne",
-    "href": "/surf-report/osbourne/5842041f4e65fad6a7708db2",
-    "slug": "osbourne",
+    "lat": 44.61774,
+    "lng": -63.417031,
     "id": "5842041f4e65fad6a7708db2"
   },
   {
+    "name": "Minutes",
+    "lat": 44.632158,
+    "lng": -63.415339,
+    "id": "5842041f4e65fad6a7708dbb"
+  },
+  {
     "name": "Lawrencetown Point",
-    "href": "/surf-report/lawrencetown-point/584204204e65fad6a77096b0",
-    "slug": "lawrencetown-point",
+    "lat": 44.64182,
+    "lng": -63.35122,
     "id": "584204204e65fad6a77096b0"
   },
   {
     "name": "Lawrencetown Beach",
-    "href": "/surf-report/lawrencetown-beach/584204204e65fad6a77094cf",
-    "slug": "lawrencetown-beach",
+    "lat": 44.643,
+    "lng": -63.343,
     "id": "584204204e65fad6a77094cf"
   },
   {
     "name": "Left Point",
-    "href": "/surf-report/left-point/584204204e65fad6a77096b5",
-    "slug": "left-point",
+    "lat": 44.639,
+    "lng": -63.325,
     "id": "584204204e65fad6a77096b5"
   },
   {
-    "name": "The Cove",
-    "href": "/surf-report/the-cove/5842041f4e65fad6a7708daf",
-    "slug": "the-cove",
-    "id": "5842041f4e65fad6a7708daf"
-  },
-  {
     "name": "Right Point",
-    "href": "/surf-report/right-point/5842041f4e65fad6a7708db1",
-    "slug": "right-point",
+    "lat": 44.657329,
+    "lng": -63.25684,
     "id": "5842041f4e65fad6a7708db1"
   },
   {
+    "name": "The Cove",
+    "lat": 44.66404,
+    "lng": -63.25845,
+    "id": "5842041f4e65fad6a7708daf"
+  },
+  {
     "name": "Martinique",
-    "href": "/surf-report/martinique/5842041f4e65fad6a7708db0",
-    "slug": "martinique",
+    "lat": 44.6899,
+    "lng": -63.13179,
     "id": "5842041f4e65fad6a7708db0"
   },
   {
     "name": "Clam Harbour Beach",
-    "href": "/surf-report/clam-harbour-beach/640a394a99dd44e492018c12",
-    "slug": "clam-harbour-beach",
+    "lat": 44.721,
+    "lng": -62.8856,
     "id": "640a394a99dd44e492018c12"
   },
   {
     "name": "Hirtles",
-    "href": "/surf-report/hirtles/584204204e65fad6a7709abd",
-    "slug": "hirtles",
+    "lat": 44.261,
+    "lng": -64.272,
     "id": "584204204e65fad6a7709abd"
   },
   {
     "name": "Broad Cove",
-    "href": "/surf-report/broad-cove/640a394cb6d769299e4f9039",
-    "slug": "broad-cove",
+    "lat": 44.1775,
+    "lng": -64.4743,
     "id": "640a394cb6d769299e4f9039"
   },
   {
     "name": "Cherry Hill",
-    "href": "/surf-report/cherry-hill/584204204e65fad6a7709abe",
-    "slug": "cherry-hill",
+    "lat": 44.139,
+    "lng": -64.509,
     "id": "584204204e65fad6a7709abe"
   },
   {
     "name": "Western Head",
-    "href": "/surf-report/western-head/584204204e65fad6a77094ce",
-    "slug": "western-head",
+    "lat": 43.985,
+    "lng": -64.68,
     "id": "584204204e65fad6a77094ce"
   },
   {
     "name": "White Point",
-    "href": "/surf-report/white-point/640a3948606c459c16aefb85",
-    "slug": "white-point",
+    "lat": 43.9643,
+    "lng": -64.7352,
     "id": "640a3948606c459c16aefb85"
   },
   {
     "name": "Summerville",
-    "href": "/surf-report/summerville/584204204e65fad6a77094cc",
-    "slug": "summerville",
+    "lat": 43.9469,
+    "lng": -64.8153,
     "id": "584204204e65fad6a77094cc"
+  },
+  {
+    "name": "Mavillette Beach",
+    "lat": 44.0839,
+    "lng": -66.1911,
+    "id": "640a394eb6d769d1114f90cf"
+  },
+  {
+    "name": "Point Michaud",
+    "lat": 45.5846,
+    "lng": -60.68454,
+    "id": "584204204e65fad6a77094d0"
   }
 ]
