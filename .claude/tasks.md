@@ -118,7 +118,8 @@
 - [ ] Map view (Nova Scotia) with all spots
 - [ ] Detail panel with score explanation
 - [ ] Confirmed vs candidate styling
-- [ ] **Satellite image gallery per spot** — show 3-5 NIR composite thumbnails at different swell heights (flat → moderate → big). Users can visually verify foam/wave patterns. Use scripts 06/07 to generate thumbnails, pick representative scenes from each swell bin.
+- [ ] **Satellite image gallery per spot** — show 3-5 scenes at different swell heights (flat → moderate → big). Users can visually verify foam/wave patterns. Use scripts 06/07 to generate thumbnails, pick representative scenes from each swell bin.
+- [ ] **RGB/NIR toggle** — each thumbnail switchable between true-color (RGB) and NIR composite. People aren't used to NIR so they need the familiar view as reference.
 - [ ] Swell height + foam score overlay on each thumbnail
 - [ ] Cross-spot same-date comparison view
 
