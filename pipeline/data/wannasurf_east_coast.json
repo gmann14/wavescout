@@ -9,7 +9,9 @@
     "swell_direction": null,
     "swell_size": "and holds up to",
     "bottom": "Sandy with rock",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Antlers_beach",
@@ -21,7 +23,9 @@
     "swell_direction": "North, East, NorthEast",
     "swell_size": "Less than 1m / 3ft and holds up to 2m+ / 6ft+",
     "bottom": "Sandy with rock",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Banc_de_Pabos",
@@ -33,7 +37,9 @@
     "swell_direction": "SouthWest, South, SouthEast",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
     "bottom": "Sandy with rock",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Blueberry_Bay",
@@ -45,7 +51,9 @@
     "swell_direction": null,
     "swell_size": "Less than 1m / 3ft and holds up to 5m / 16 ft and over",
     "bottom": "Sandy with rock",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Broad_Cove",
@@ -57,7 +65,9 @@
     "swell_direction": null,
     "swell_size": "and holds up to",
     "bottom": "Boulders",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Cape_Lumiere",
@@ -69,7 +79,9 @@
     "swell_direction": null,
     "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
     "bottom": "Sandy",
-    "experience": "Beginners wave"
+    "experience": "Beginners wave",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "cherry_hill",
@@ -81,7 +93,9 @@
     "swell_direction": "SouthWest",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
     "bottom": "Sandy",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "cow_bay_-_moose_rocks",
@@ -93,7 +107,12 @@
     "swell_direction": "SouthWest, South",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 3m+ / 10ft+",
     "bottom": "Boulders",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [
+      "By biggest Bollocks\n,",
+      "By oldhamcan@netscape.net\n,"
+    ],
+    "comment_count": 2
   },
   {
     "slug": "dennis_beach",
@@ -105,7 +124,11 @@
     "swell_direction": "South",
     "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
     "bottom": "Sandy",
-    "experience": null
+    "experience": null,
+    "comments": [
+      "By aaron.budd@medavie.bluecross.ca\n,"
+    ],
+    "comment_count": 1
   },
   {
     "slug": "eastern_brook",
@@ -117,7 +140,9 @@
     "swell_direction": "South, SouthEast, East",
     "swell_size": "Less than 1m / 3ft and holds up to 2.5m+ / 8ft+",
     "bottom": "Flat rocks",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "fisherman_s_reserve",
@@ -129,7 +154,13 @@
     "swell_direction": "North, NorthWest",
     "swell_size": "1.5m-2m /5ft-6ft and holds up to 4m+ / 12ft",
     "bottom": "Boulders",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By mellow surfer\n,",
+      "By Drunken Fisherman!\n,",
+      "By Drunke fisherman\n,"
+    ],
+    "comment_count": 3
   },
   {
     "slug": "forevers",
@@ -141,7 +172,11 @@
     "swell_direction": "SouthWest, South, SouthEast",
     "swell_size": "and holds up to",
     "bottom": null,
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [
+      "By The surf Police\n,"
+    ],
+    "comment_count": 1
   },
   {
     "slug": "Habitat__67_-_Montreal",
@@ -153,7 +188,9 @@
     "swell_direction": "Don't know",
     "swell_size": "1.5m-2m /5ft-6ft and holds up to 2m+ / 6ft+",
     "bottom": "Flat rocks",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "hirtles",
@@ -165,7 +202,9 @@
     "swell_direction": null,
     "swell_size": "Less than 1m / 3ft and holds up to 4m+ / 12ft",
     "bottom": "Sandy",
-    "experience": "Beginners wave"
+    "experience": "Beginners wave",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "icicles",
@@ -177,7 +216,9 @@
     "swell_direction": "South",
     "swell_size": "Less than 1m / 3ft and holds up to 1m+ / 3ft+",
     "bottom": "Flat rocks",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "ingonish_beach",
@@ -189,7 +230,14 @@
     "swell_direction": "North, East, NorthEast",
     "swell_size": "Less than 1m / 3ft and holds up to 3m+ / 10ft+",
     "bottom": "Sandy",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By chris@cowleylawcorp.ca\n,",
+      "By chris@cowleylawcorp.ca\n,",
+      "By chris@cowleylawcorp.ca\n,",
+      "By combat surfer\n,"
+    ],
+    "comment_count": 4
   },
   {
     "slug": "juicy_s",
@@ -201,7 +249,9 @@
     "swell_direction": "South, SouthEast",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
     "bottom": "Sandy",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Kennington_Cove",
@@ -213,7 +263,9 @@
     "swell_direction": "SouthEast",
     "swell_size": "Don't know and holds up to Don't know",
     "bottom": "Sandy",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "killaz",
@@ -225,7 +277,12 @@
     "swell_direction": "North, NorthEast",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
     "bottom": "Flat rocks",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By Chris Sabados (the designer guy, hello!)\n,",
+      "By the real mike\n,"
+    ],
+    "comment_count": 2
   },
   {
     "slug": "lawrencetown",
@@ -237,7 +294,13 @@
     "swell_direction": "South, SouthEast, East",
     "swell_size": "1.0m-1.5m / 3ft-5ft and holds up to 2m+ / 6ft+",
     "bottom": "Flat rocks with sand",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By kevin_blaine@hotmail.com\n,",
+      "By oldhamcan@netscape.net\n,",
+      "By oldhamcan@netscape.net\n,"
+    ],
+    "comment_count": 3
   },
   {
     "slug": "lawrencetown_-_plan_b",
@@ -249,7 +312,11 @@
     "swell_direction": "South, SouthEast, East",
     "swell_size": "Less than 1m / 3ft and holds up to Don't know",
     "bottom": "Sandy with rock",
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By the surf police\n,"
+    ],
+    "comment_count": 1
   },
   {
     "slug": "Left_Point",
@@ -265,7 +332,11 @@
     "swell_direction": "SouthWest, South, SouthEast",
     "swell_size": "Less than 1m / 3ft and holds up to 2m+ / 6ft+",
     "bottom": "Sandy",
-    "experience": "Beginners wave"
+    "experience": "Beginners wave",
+    "comments": [
+      "By oldhamcan@netscape.net\n,"
+    ],
+    "comment_count": 1
   },
   {
     "slug": "Meadows_point",
@@ -277,7 +348,9 @@
     "swell_direction": null,
     "swell_size": "and holds up to",
     "bottom": "Sandy with rock",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Minutes",
@@ -289,7 +362,9 @@
     "swell_direction": null,
     "swell_size": "Less than 1m / 3ft and holds up to 5m / 16 ft and over",
     "bottom": "Boulders",
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "osbourne",
@@ -301,7 +376,9 @@
     "swell_direction": null,
     "swell_size": "and holds up to",
     "bottom": null,
-    "experience": "Experienced surfers"
+    "experience": "Experienced surfers",
+    "comments": [],
+    "comment_count": 0
   },
   {
     "slug": "Point_Michaud",
@@ -329,7 +406,13 @@
     "swell_direction": "SouthEast, East, NorthEast",
     "swell_size": "2.5m-3m / 8ft-10ft and holds up to 4m+ / 12ft",
     "bottom": null,
-    "experience": "All surfers"
+    "experience": "All surfers",
+    "comments": [
+      "By east coast kid\n,",
+      "By Lance Eugene Moore\n,",
+      "By someone smarter\n,"
+    ],
+    "comment_count": 3
   },
   {
     "slug": "Sable_Island",
@@ -345,6 +428,8 @@
     "swell_direction": null,
     "swell_size": "and holds up to",
     "bottom": "Sandy with rock",
-    "experience": null
+    "experience": null,
+    "comments": [],
+    "comment_count": 0
   }
 ]

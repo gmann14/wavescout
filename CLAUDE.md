@@ -6,15 +6,15 @@ Surf discovery tool using satellite imagery (Sentinel-2), coastline geometry, an
 ## Current Status
 - **Phase 1: Feasibility** ✅ PASSED — NIR-based foam detection confirmed viable
 - **Phase 2: Geometry Scoring** ✅ DONE — 16,939 exposed segments scored, known spots rank 88-94th percentile
-- **Phase 2.5: NIR Foam Detection** ← CURRENT PHASE
-- **Phase 3: Static Web Viewer** — not started
+- **Phase 2.5: NIR Foam Detection** ✅ DONE — 16,898 detections across 20 spots
+- **Phase 3: Static Web Viewer** ✅ BUILT — Next.js app in web/
 
 ## Tech Stack
 - Python 3.12 + venv
 - Google Earth Engine (GEE) via `earthengine-api`
 - Open-Meteo Marine + Weather APIs
 - PIL/numpy for image processing
-- No web framework yet (pipeline-only)
+- Next.js 15 + Mapbox GL + Recharts (web viewer in web/)
 
 ## Key Technical Findings
 - **NIR (B8) is the best band for foam detection** — water absorbs (black), foam reflects (bright white)
@@ -39,8 +39,11 @@ pipeline/
     ns_known_spots.geojson
 docs/
   SPEC.md           — full product spec
-web/
-  index.html        — static feasibility viewer
+web/                — Phase 3 Next.js web viewer (pnpm)
+  src/app/          — Next.js App Router pages (/, /methodology, /about)
+  src/components/   — React components (MapView, SpotPanel, SwellChart, etc.)
+  public/data/      — optimized static data (built by build_web_data.py)
+  public/gallery/   — satellite thumbnails (gitignored, regenerate with build_web_data.py)
 research/           — background research docs
 FEASIBILITY-STATUS.md — feasibility findings and GO decision
 ```
@@ -59,16 +62,25 @@ FEASIBILITY-STATUS.md — feasibility findings and GO decision
 12. `12_calibrate.py` — validate against 14 known spots
 13. `13_detect_foam_nir.py` — NIR foam detection per segment per scene (GEE server-side)
 14. `14_build_swell_profiles.py` — swell-response profiles from foam detections
+15. `15_generate_gallery_images.py` — satellite gallery thumbnails (RGB + NIR)
+- `build_web_data.py` — builds optimized static data for web viewer
 
 ## Commands
 ```bash
+# Pipeline
 source venv/bin/activate
 python3 pipeline/scripts/<script>.py [args]
+
+# Web viewer
+cd web && pnpm dev    # dev server at localhost:3000
+cd web && pnpm build  # production build
+python3 pipeline/scripts/build_web_data.py  # rebuild web data from pipeline
 ```
 
 ## Environment
 - `.env` with GEE_PROJECT=seotakeoff
 - GEE auth via `earthengine authenticate`
+- `web/.env.local` with NEXT_PUBLIC_MAPBOX_TOKEN (for map)
 
 ## Conventions
 - All scripts write provenance manifests

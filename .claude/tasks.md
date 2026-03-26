@@ -1,7 +1,7 @@
 # WaveScout — Tasks
 
 > Source of truth for project status. Updated after every work session.
-> Last updated: 2026-03-26 (Phase 2.5: 16/20 spots foam-detected, 4 remaining)
+> Last updated: 2026-03-26 (Phase 3 web viewer built)
 
 ## Phase 1: Feasibility Prototype ✅ COMPLETE — GO decision made
 
@@ -119,17 +119,30 @@
 - [ ] Merge geometry scores + NIR evidence + conditions into unified spot ranking
 - [ ] Generate `spots.geojson` output bundle for web viewer
 
-## Phase 3: Web Viewer — not started
-- [ ] Map view (Nova Scotia) with all spots
-- [ ] Detail panel with score explanation
-- [ ] Confirmed vs candidate styling
-- [x] **Satellite image gallery per spot** — `15_generate_gallery_images.py` built. 172 images across 19 spots (RGB + NIR per scene, 5 swell bins). Gallery manifest ready for web viewer consumption.
-- [ ] **RGB/NIR toggle** — each thumbnail switchable between true-color (RGB) and NIR composite. People aren't used to NIR so they need the familiar view as reference.
-- [ ] **Spot pins on imagery** — overlay pin/marker on satellite thumbnails showing exact detected break locations (from coastline segments with highest foam fraction). Users see "the break is HERE" on the image, not just a score.
-- [ ] Swell height + foam score overlay on each thumbnail
+## Phase 3: Web Viewer ✅ BUILT
+- [x] Next.js 15 app in `web/` — App Router, TypeScript, Tailwind CSS, Mapbox GL
+- [x] **Map page** — full-screen dark Mapbox map centered on NS coast
+  - Three-tier markers: verified spots (20, teal pins), high-scoring candidates (2,420 >60, orange dots), all scored segments (6,650 >40, gray dots visible on zoom)
+  - Color-coded by score, clustered at zoom, labels for verified spots
+  - Segment hover popups (ID, score, rank)
+- [x] **Spot detail panel** — slide-up mobile, sidebar desktop
+  - Spot metadata (name, type, source, confidence badge)
+  - Foam detection stats (total observations, satellite passes)
+  - Swell response profile chart (Recharts bar chart: foam% vs swell bins)
+  - Turn-on threshold, optimal range, blow-out point metrics
+  - Satellite image gallery with RGB/NIR toggle, swell height + foam score overlay
+- [x] **Methodology page** (`/methodology`) — renders docs/METHODOLOGY.md with styled markdown
+- [x] **About page** (`/about`) — project info, pipeline steps, data sources, credits
+- [x] `pipeline/scripts/build_web_data.py` — builds optimized static data from pipeline outputs
+  - spots.json (10KB), segments-high.json (607KB), segments-all.json (856KB)
+  - Per-spot detail files with aggregated swell profiles
+  - Gallery manifest + image copying
+- [x] Dark ocean theme (navy/teal/orange), mobile-first responsive
+- [x] Build passes clean (`pnpm build`)
+- [ ] **Mapbox token needed** — set NEXT_PUBLIC_MAPBOX_TOKEN in web/.env.local
 - [ ] Cross-spot same-date comparison view
-- [ ] **"How It Works" / Methodology page** — render docs/METHODOLOGY.md as a web page. Detection factors, confidence scoring, limitations, how to read evidence. Transparency builds trust with surfers.
-- [ ] **Algorithm Experiments page** — lighter version of docs/ALGORITHM-EXPERIMENTS.md for power users. Show what's coming (swell line detection, modular weights, etc.)
+- [ ] Spot pins overlaid on satellite imagery
+- [ ] Algorithm Experiments page
 
 ## Infra / Config
 - GitHub: `gmann14/wavescout`
