@@ -16,7 +16,23 @@
         "source": "well-known",
         "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-beach/584204204e65fad6a77094cf",
         "surfline_id": "584204204e65fad6a77094cf",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "experience": "All surfers",
+        "wannasurf_slug": "lawrencetown",
+        "description": "L-Town is decent break with cold water. Waves break at the point and at the beach anywhere between 1.0m+. A magnet for waves \u2014 can be head high or over at 1.4m with a good period because of the bottom contours. The right is slow and short on most days but can get exceptionally long. The left can barrel. Water gets warm in summer similar to NJ. If the waves are weak check out Martinique 25 min down the road \u2014 it's cleaner there on sloppy days.",
+        "wave_type": "Point-break",
+        "bottom": "Flat rocks with sand",
+        "power": "Ordinary, Fun",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -32,11 +48,26 @@
         "slug": "cow-bay",
         "name": "Cow Bay",
         "source": "well-known",
-        "surfline_url": "https://www.surfline.com/surf-report/the-moose/584204204e65fad6a77094cb",
+        "surfline_url": "https://www.surfline.com/surf-report/cow-bay/584204204e65fad6a77094cb",
         "surfline_id": "584204204e65fad6a77094cb",
         "break_type": "Reef-rocky",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "cow_bay_-_moose_rocks",
+        "description": "Nice view of the break from the parking. Fast wave. Mostly shortboarders but bring your longboard on smaller days.",
+        "hazards": "Rocks, Localism",
+        "wave_type": "Reef-rocky",
+        "bottom": "Boulders",
+        "power": "Powerful",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -52,11 +83,25 @@
         "slug": "martinique-beach",
         "name": "Martinique Beach",
         "source": "well-known",
-        "surfline_url": "https://www.surfline.com/surf-report/martinique/5842041f4e65fad6a7708db0",
+        "surfline_url": "https://www.surfline.com/surf-report/martinique-beach/5842041f4e65fad6a7708db0",
         "surfline_id": "5842041f4e65fad6a7708db0",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "Beginners wave",
+        "wannasurf_slug": "martinique",
+        "description": "Works well before and after big swell has passed. Usually picks up anything at all \u2014 when other spots are flat as a lake, this should still be surfable. Semi points coming off the little rocks on left and right side of the first beach by the parking lot, but for better beach break walk down the beach until you find a peak you like.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Ordinary, Fun",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -72,7 +117,24 @@
         "slug": "snapjaw",
         "name": "Snapjaw",
         "source": "graham-local-knowledge",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "experience": "All surfers",
+        "wannasurf_slug": "Rissers",
+        "description": "Fun Wave! Very sharky! Watch out for locals!",
+        "hazards": "Rips / undertow, Rocks, Localism, Sharks",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Hollow",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "foam-detection",
+          "graham-local",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -88,7 +150,12 @@
         "slug": "rafuse-island",
         "name": "Rafuse Island",
         "source": "graham-local-knowledge",
-        "tier": 1
+        "tier": 1,
+        "sources": [
+          "foam-detection",
+          "graham-local"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -104,7 +171,22 @@
         "slug": "hell-point",
         "name": "Hell Point",
         "source": "graham-local-knowledge",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "experience": "Beginners wave",
+        "wannasurf_slug": "hirtles",
+        "description": "Located in the beautiful community of Kingsburg (if you have to ask how much the cottages cost... you don't want to know). The beach is massive (1km) and clean, white sand.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "foam-detection",
+          "graham-local",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -120,11 +202,25 @@
         "slug": "hirtles-beach",
         "name": "Hirtle's Beach",
         "source": "graham-local-knowledge",
-        "surfline_url": "https://www.surfline.com/surf-report/hirtles/584204204e65fad6a7709abd",
+        "surfline_url": "https://www.surfline.com/surf-report/hirtles-beach/584204204e65fad6a7709abd",
         "surfline_id": "584204204e65fad6a7709abd",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "Beginners wave",
+        "wannasurf_slug": "hirtles",
+        "description": "Located in the beautiful community of Kingsburg (if you have to ask how much the cottages cost... you don't want to know). The beach is massive (1km) and clean, white sand.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "foam-detection",
+          "graham-local",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 4
       }
     },
     {
@@ -140,7 +236,25 @@
         "slug": "gaff-point",
         "name": "Gaff Point",
         "source": "graham-local-knowledge",
-        "tier": 1
+        "tier": 1,
+        "surfline_id": "584204204e65fad6a7709abd",
+        "surfline_url": "https://www.surfline.com/surf-report/gaff-point/584204204e65fad6a7709abd",
+        "break_type": "Beach-break",
+        "break_direction": "Right and left",
+        "experience": "Beginners wave",
+        "wannasurf_slug": "hirtles",
+        "description": "Located in the beautiful community of Kingsburg (if you have to ask how much the cottages cost... you don't want to know). The beach is massive (1km) and clean, white sand.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "foam-detection",
+          "graham-local",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 4
       }
     },
     {
@@ -156,7 +270,12 @@
         "slug": "seaside",
         "name": "Seaside",
         "source": "graham-local-knowledge",
-        "tier": 1
+        "tier": 1,
+        "sources": [
+          "foam-detection",
+          "graham-local"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -176,7 +295,18 @@
         "surfline_id": "640a3948606c459c16aefb85",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "White_Point",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Hollow, Fast, Powerful, Fun",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -194,7 +324,12 @@
         "source": "public-stormrider",
         "surfline_url": "https://www.surfline.com/surf-report/western-head/584204204e65fad6a77094ce",
         "surfline_id": "584204204e65fad6a77094ce",
-        "tier": 1
+        "tier": 1,
+        "sources": [
+          "foam-detection",
+          "surfline"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -214,7 +349,21 @@
         "surfline_id": "584204204e65fad6a7709abe",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "All surfers",
+        "wannasurf_slug": "cherry_hill",
+        "description": "Don't drive all the way down the road behind the dune - it wrecks the beach. Park your car and walk down.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Powerless",
+        "normal_ride_length": "Don't know",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -234,7 +383,21 @@
         "surfline_id": "584204204e65fad6a77094d0",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "All surfers",
+        "wannasurf_slug": "point_michaud",
+        "description": "Probably one of the best places to ever learn to surf. Sandy bottom, easy paddles, and harmless waves.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Hollow, Fun",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -250,7 +413,14 @@
         "slug": "clam-harbour",
         "name": "Clam Harbour Beach",
         "source": "public-nomadsurfers",
-        "tier": 1
+        "tier": 1,
+        "surfline_id": "640a394a99dd44e492018c12",
+        "surfline_url": "https://www.surfline.com/surf-report/clam-harbour/640a394a99dd44e492018c12",
+        "sources": [
+          "foam-detection",
+          "surfline"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -266,7 +436,11 @@
         "slug": "summerville",
         "name": "Summerville Beach",
         "source": "public-nomadsurfers",
-        "tier": 1
+        "tier": 1,
+        "sources": [
+          "foam-detection"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -284,7 +458,21 @@
         "source": "public-stormrider",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "All surfers",
+        "wannasurf_slug": "Kennington_Cove",
+        "description": "Inside the Federal Park so keep it safe and clean.",
+        "hazards": "Rips / undertow",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Powerful",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "foam-detection",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -302,7 +490,21 @@
         "source": "public-stormrider",
         "break_type": "Beach-break",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "All surfers",
+        "wannasurf_slug": "ingonish_beach",
+        "description": "Typical beach break that will close out on larger swells. Because of location, doesn't break all that often, but after a Nor'Easter or Hurricane will sure to be working.",
+        "hazards": "Sharks",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Fast, Powerful, Ordinary, Fun",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "foam-detection",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -318,7 +520,14 @@
         "slug": "mavillette",
         "name": "Mavillette Beach",
         "source": "public-nomadsurfers",
-        "tier": 1
+        "tier": 1,
+        "surfline_id": "640a394eb6d769d1114f90cf",
+        "surfline_url": "https://www.surfline.com/surf-report/mavillette/640a394eb6d769d1114f90cf",
+        "sources": [
+          "foam-detection",
+          "surfline"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -338,7 +547,18 @@
         "surfline_id": "640a394cb6d769299e4f9039",
         "break_type": "Reef-rocky",
         "break_direction": "Right and left",
-        "tier": 1
+        "tier": 1,
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "Broad_Cove",
+        "wave_type": "Reef-rocky",
+        "bottom": "Boulders",
+        "power": "Fast, Powerful",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -354,7 +574,11 @@
         "slug": "gullivers-cove",
         "name": "Gullivers Cove",
         "source": "public-nomadsurfers",
-        "tier": 1
+        "tier": 1,
+        "sources": [
+          "foam-detection"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -372,7 +596,23 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/lawrencetown-point/584204204e65fad6a77096b0",
         "surfline_id": "584204204e65fad6a77096b0",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "experience": "All surfers",
+        "wannasurf_slug": "lawrencetown",
+        "description": "L-Town is decent break with cold water. Waves break at the point and at the beach anywhere between 1.0m+. A magnet for waves \u2014 can be head high or over at 1.4m with a good period because of the bottom contours. The right is slow and short on most days but can get exceptionally long. The left can barrel. Water gets warm in summer similar to NJ. If the waves are weak check out Martinique 25 min down the road \u2014 it's cleaner there on sloppy days.",
+        "wave_type": "Point-break",
+        "bottom": "Flat rocks with sand",
+        "power": "Ordinary, Fun",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -390,7 +630,24 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/left-point/584204204e65fad6a77096b5",
         "surfline_id": "584204204e65fad6a77096b5",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Left",
+        "experience": "All surfers",
+        "wannasurf_slug": "left_point",
+        "description": "Pretty small pocket to take off in. Some barrels on take off, then slows up so you can hit it. Sometimes the offshore wind can be heavy. If you fall on the drop you'll be pulled quickly into the rocks. No real channel \u2014 getting out can be brutal on a big day. You got a choice of getting in through the closed out beach or negotiate the rocks and rip on the point. Whatever \u2014 both choices suck.",
+        "hazards": "Rocks",
+        "wave_type": "Point-break",
+        "bottom": "Boulders",
+        "power": "Powerful",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -408,7 +665,24 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/right-point/5842041f4e65fad6a7708db1",
         "surfline_id": "5842041f4e65fad6a7708db1",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "experience": "All surfers",
+        "wannasurf_slug": "fisherman_s_reserve",
+        "description": "Just 30 minutes drive from downtown Halifax.",
+        "hazards": "Rocks",
+        "wave_type": "Point-break",
+        "bottom": "Boulders",
+        "power": "Hollow, Fast, Powerful",
+        "normal_ride_length": "Long (150 to 300m)",
+        "good_day_ride_length": "Very Long (300 to 500m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -426,7 +700,24 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/the-cove/5842041f4e65fad6a7708daf",
         "surfline_id": "5842041f4e65fad6a7708daf",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "experience": "All surfers",
+        "wannasurf_slug": "fisherman_s_reserve",
+        "description": "Just 30 minutes drive from downtown Halifax.",
+        "hazards": "Rocks",
+        "wave_type": "Point-break",
+        "bottom": "Boulders",
+        "power": "Hollow, Fast, Powerful",
+        "normal_ride_length": "Long (150 to 300m)",
+        "good_day_ride_length": "Very Long (300 to 500m)",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -444,7 +735,20 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/minutes/5842041f4e65fad6a7708dbb",
         "surfline_id": "5842041f4e65fad6a7708dbb",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Reef-rocky",
+        "break_direction": "Right and left",
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "Minutes",
+        "wave_type": "Reef-rocky",
+        "bottom": "Boulders",
+        "power": "Hollow, Fast, Powerful",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -462,7 +766,19 @@
         "source": "surfline",
         "surfline_url": "https://www.surfline.com/surf-report/osbourne/5842041f4e65fad6a7708db2",
         "surfline_id": "5842041f4e65fad6a7708db2",
-        "tier": 1
+        "tier": 1,
+        "break_type": "Point-break",
+        "break_direction": "Right",
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "osbourne",
+        "wave_type": "Point-break",
+        "power": "Powerful",
+        "sources": [
+          "foam-detection",
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 3
       }
     },
     {
@@ -481,7 +797,16 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "All surfers",
+        "wannasurf_slug": "Andrews_Head",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Fun",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -500,7 +825,16 @@
         "break_type": "Point-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "Blueberry_Bay",
+        "wave_type": "Point-break",
+        "bottom": "Sandy with rock",
+        "power": "Hollow, Fast, Powerful",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -519,7 +853,20 @@
         "break_type": "Reef-rocky",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": "Near Larrys River/Torbay Provincial Park, Guysborough. Possibly only ever surfed by one person."
+        "note": "Near Larrys River/Torbay Provincial Park, Guysborough. Possibly only ever surfed by one person.",
+        "experience": "All surfers",
+        "wannasurf_slug": "eastern_brook",
+        "description": "The gate is always open but on the off chance it is closed there is a spot on the other side of the road for parking. The locals look at you like you have three heads but they are really friendly. Great camping at Salsman Provincial Park a few miles down the road.",
+        "hazards": "Rocks",
+        "wave_type": "Reef-rocky",
+        "bottom": "Flat rocks",
+        "power": "Fun",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -538,7 +885,23 @@
         "break_type": "Point-break",
         "break_direction": "Right",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "surfline_id": "5842041f4e65fad6a7708db1",
+        "surfline_url": "https://www.surfline.com/surf-report/fishermans-reserve/5842041f4e65fad6a7708db1",
+        "experience": "All surfers",
+        "wannasurf_slug": "fisherman_s_reserve",
+        "description": "Just 30 minutes drive from downtown Halifax.",
+        "hazards": "Rocks",
+        "wave_type": "Point-break",
+        "bottom": "Boulders",
+        "power": "Hollow, Fast, Powerful",
+        "normal_ride_length": "Long (150 to 300m)",
+        "good_day_ride_length": "Very Long (300 to 500m)",
+        "sources": [
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -557,7 +920,21 @@
         "break_type": "Point-break",
         "break_direction": "",
         "tier": 2,
-        "note": "Possibly mythical. Near Peggys Cove, Chebucto Peninsula. Claims: longest wave on east seaboard, 300-500m rides. Good candidate for satellite verification/debunking."
+        "note": "Possibly mythical. Near Peggys Cove, Chebucto Peninsula. Claims: longest wave on east seaboard, 300-500m rides. Good candidate for satellite verification/debunking.",
+        "notes": " POSSIBLY MYTHICAL - local surfers suspect this spot may not exist or is heavily exaggerated.",
+        "trust_level": "low",
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "forevers",
+        "description": "Forevers aka Infinities is arguably THE longest and best wave on the eastern seaboard of North America. Located near Peggy's Cove, famous for its lighthouse and crazy waves.",
+        "hazards": "Rocks",
+        "wave_type": "Point-break",
+        "power": "Hollow, Fast, Powerful, Fun",
+        "normal_ride_length": "Very Long (300 to 500m)",
+        "good_day_ride_length": "Exceptional (>500m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -576,7 +953,20 @@
         "break_type": "Rivermouth",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": "Rivermouth at New Harbour near Country Harbour. Tidal river narrows to channel, jacks up waves. Best fall/hurricane season. No crowds. Water super warm 70s-80s F in summer from tidal river."
+        "note": "Rivermouth at New Harbour near Country Harbour. Tidal river narrows to channel, jacks up waves. Best fall/hurricane season. No crowds. Water super warm 70s-80s F in summer from tidal river.",
+        "experience": "All surfers",
+        "wannasurf_slug": "juicy_s",
+        "description": "Park in the abandon store parking lot and paddle across the river or go around the corner and you will see a dirt road to your right. Take that road for about 50m, park in the field and walk over the dune.",
+        "hazards": "Rips / undertow",
+        "wave_type": "Rivermouth",
+        "bottom": "Sandy",
+        "power": "Fast, Powerful",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -595,7 +985,23 @@
         "break_type": "Reef-rocky",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "surfline_id": "5842041f4e65fad6a7708db1",
+        "surfline_url": "https://www.surfline.com/surf-report/killaz/5842041f4e65fad6a7708db1",
+        "experience": "All surfers",
+        "wannasurf_slug": "killaz",
+        "description": "Good place to go if every other place is closing out. Little wind and really clear water.",
+        "hazards": "Rocks",
+        "wave_type": "Reef-rocky",
+        "bottom": "Flat rocks",
+        "power": "Powerless",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Short (< 50m)",
+        "sources": [
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -614,7 +1020,16 @@
         "break_type": "Point-break",
         "break_direction": "Left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "Experienced surfers",
+        "wannasurf_slug": "Meadows_point",
+        "wave_type": "Point-break",
+        "bottom": "Sandy with rock",
+        "power": "Powerful",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -633,7 +1048,17 @@
         "break_type": "",
         "break_direction": "",
         "tier": 2,
-        "note": "Closest surf spot to Halifax downtown. Breaks off old military bunkers at south end of Point Pleasant Park. Never foggy like Lawrencetown. Empty lineups."
+        "note": "Closest surf spot to Halifax downtown. Breaks off old military bunkers at south end of Point Pleasant Park. Never foggy like Lawrencetown. Empty lineups.",
+        "experience": "All surfers",
+        "wannasurf_slug": "point_pleasant_beach_park",
+        "description": "Watch out for the few city chargers that surf this place regularly. Make sure you shower afterwards.",
+        "bottom": "Sandy",
+        "power": "Ordinary, Fun, Powerless",
+        "normal_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -652,7 +1077,19 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": "Near Clarks Harbour/Barrington, southwestern NS. Forbes Point Road. Empty, isolated, beautiful. Hurricane season best (Aug-Nov)."
+        "note": "Near Clarks Harbour/Barrington, southwestern NS. Forbes Point Road. Empty, isolated, beautiful. Hurricane season best (Aug-Nov).",
+        "experience": "All surfers",
+        "wannasurf_slug": "pubnico_beach",
+        "description": "One can find steep fast breaks, excellent right and left point breaks, along with offshore reef and shoal breaks all along the southeast coast, making Nova Scotia's largely untapped surfing opportunities prime for colonization. Best season August to late November when numerous hurricanes and tropical storms pound the southern coast. Water temperatures can reach 20\u00b0C (low 70s\u00b0F). Wetsuits 4/3 full suit suggested. Hard pressed to find any crowds.",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Fast, Powerful",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Long (150 to 300m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -671,7 +1108,20 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "All surfers",
+        "wannasurf_slug": "Rissers",
+        "description": "Fun Wave! Very sharky! Watch out for locals!",
+        "hazards": "Rips / undertow, Rocks, Localism, Sharks",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Hollow",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -690,7 +1140,16 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": "Past Lawrencetown and Fishermans Reserve. Cove with inside and outside break. Paddle >20min or boat. Empty."
+        "note": "Past Lawrencetown and Fishermans Reserve. Cove with inside and outside break. Paddle >20min or boat. Empty.",
+        "surfline_id": "5842041f4e65fad6a7708db1",
+        "surfline_url": "https://www.surfline.com/surf-report/rudys/5842041f4e65fad6a7708db1",
+        "experience": "All surfers",
+        "wannasurf_slug": "rudy_s",
+        "sources": [
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -709,7 +1168,20 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "Pros or kamikaze only",
+        "wannasurf_slug": "sable_island",
+        "description": "Bring Shark Repellent. Anchor your boat on the leeward side of the island, hop ashore. To get around and find the best peak, either 'borrow' an ATV off the Scientists at the research base, or hop on any of the hundreds of wild horses.",
+        "hazards": "Rips / undertow, Sharks",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Hollow, Fast, Powerful",
+        "normal_ride_length": "Normal (50 to 150m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -728,7 +1200,18 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "surfline_id": "5842041f4e65fad6a7708db1",
+        "surfline_url": "https://www.surfline.com/surf-report/seals/5842041f4e65fad6a7708db1",
+        "wannasurf_slug": "Seals",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy with rock",
+        "power": "Powerful",
+        "sources": [
+          "surfline",
+          "wannasurf"
+        ],
+        "source_count": 2
       }
     },
     {
@@ -747,7 +1230,20 @@
         "break_type": "Rivermouth",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": "Named for Justin Avery (18, killed by car). Near Country Harbour rivermouth. Same area as Juicys but distinct break. 3.5hrs from Halifax. Always empty."
+        "note": "Named for Justin Avery (18, killed by car). Near Country Harbour rivermouth. Same area as Juicys but distinct break. 3.5hrs from Halifax. Always empty.",
+        "experience": "All surfers",
+        "wannasurf_slug": "the_juice",
+        "description": "Named The Juice for Justin Avery, an 18 year old sponge head that was tragically hit by a car and killed. He was an aspiring jazz musician, rock climber, and sponge boarder. This was his favourite spot.",
+        "hazards": "Rips / undertow",
+        "wave_type": "Rivermouth",
+        "bottom": "Sandy with rock",
+        "power": "Fast",
+        "normal_ride_length": "Short (< 50m)",
+        "good_day_ride_length": "Normal (50 to 150m)",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     },
     {
@@ -766,7 +1262,16 @@
         "break_type": "Beach-break",
         "break_direction": "Right and left",
         "tier": 2,
-        "note": ""
+        "note": "",
+        "experience": "All surfers",
+        "wannasurf_slug": "The_Meadows",
+        "wave_type": "Beach-break",
+        "bottom": "Sandy",
+        "power": "Fun",
+        "sources": [
+          "wannasurf"
+        ],
+        "source_count": 1
       }
     }
   ]
