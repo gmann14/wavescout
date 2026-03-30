@@ -109,11 +109,18 @@ export default function MapWrapper() {
           setSelectedSpot({
             name: props.name,
             slug: props.slug,
-            score: props.score,
-            type: props.type,
-            lat: props.lat,
-            lng: props.lng,
-          } as SpotProperties);
+            type: props.type || "",
+            swell_window: props.swell_window || "",
+            notes: props.notes || "",
+            confidence: props.confidence || "low",
+            source: props.source || "",
+            foam_summary: props.foam_summary
+              ? JSON.parse(props.foam_summary)
+              : null,
+            has_swell_profile:
+              props.has_swell_profile === true ||
+              props.has_swell_profile === "true",
+          });
         });
 
         map.on("mouseenter", "spots-dot", () => {
@@ -133,15 +140,10 @@ export default function MapWrapper() {
     };
   }, [mounted]);
 
-  const spotGallery: GalleryScene[] = [];
-  if (selectedSpot && gallery) {
-    // gallery.spots is an array, find by slug
-    const spots = Array.isArray(gallery.spots) ? gallery.spots : Object.values(gallery.spots || {});
-    const spotEntry = spots.find((s: any) => s.slug === selectedSpot.slug);
-    if (spotEntry?.scenes) {
-      spotGallery.push(...spotEntry.scenes);
-    }
-  }
+  const spotGallery: GalleryScene[] =
+    selectedSpot && gallery
+      ? gallery.spots.find((s) => s.slug === selectedSpot.slug)?.scenes ?? []
+      : [];
 
   if (!mounted) {
     return (

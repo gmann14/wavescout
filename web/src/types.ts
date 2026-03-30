@@ -36,6 +36,16 @@ export interface SegmentProperties {
   orientation?: number;
   exposure_arc?: number;
   rank?: number;
+  // Composite ranking fields (from 20_rank_segments.py)
+  composite_score?: number;
+  confidence?: number;
+  foam_component?: number;
+  profile_component?: number;
+  geometry_component?: number;
+  foam_obs_count?: number;
+  turn_on_threshold?: number;
+  optimal_swell?: string;
+  primary_direction?: string;
 }
 
 export type SegmentsGeoJSON = FeatureCollection<Point, SegmentProperties>;
@@ -69,13 +79,19 @@ export interface SpotDetail {
 export interface GalleryScene {
   date: string;
   swell_height_m: number;
+  swell_period_s?: number;
+  swell_direction_deg?: number;
+  cloud_pct?: number;
   foam_fraction: number;
+  quality_score?: number;
+  wave_energy?: number;
   bin_label: string;
   rgb_path: string | null;
   nir_path: string | null;
-  tide_m?: number;
-  tide_state?: string;
-  tide_station?: string;
+  annotated_rgb_path?: string | null;
+  annotated_nir_path?: string | null;
+  tide_m?: number | null;
+  tide_state?: string | null;
 }
 
 export interface GallerySpot {
@@ -86,4 +102,56 @@ export interface GallerySpot {
 
 export interface GalleryManifest {
   spots: GallerySpot[];
+}
+
+// --- Atlas types ---
+
+import type { Polygon } from "geojson";
+
+export interface AtlasSectionProperties {
+  section_id: string;
+  centroid_lat: number;
+  centroid_lon: number;
+  mean_score: number;
+  max_score: number;
+  segment_count: number;
+  segment_ids: string[];
+  coastline_length_m: number;
+}
+
+export type AtlasSectionsGeoJSON = FeatureCollection<
+  Polygon,
+  AtlasSectionProperties
+>;
+
+export interface AtlasGallerySection {
+  section_id: string;
+  section_name: string;
+  slug: string;
+  mean_score: number;
+  max_score: number;
+  segment_count: number;
+  segment_ids: string[];
+  coastline_length_m: number;
+  scenes: GalleryScene[];
+}
+
+export interface AtlasGalleryManifest {
+  sections: AtlasGallerySection[];
+}
+
+// --- Break flag types ---
+
+export type BreakType = 'point' | 'beach' | 'reef' | 'unknown';
+export type ConfidenceLevel = 'certain' | 'likely' | 'maybe';
+
+export interface BreakFlag {
+  id: string;
+  section_id: string;
+  lat: number;
+  lon: number;
+  note: string;
+  break_type: BreakType;
+  confidence: ConfidenceLevel;
+  flagged_at: string;
 }

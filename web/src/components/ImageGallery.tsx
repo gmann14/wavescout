@@ -2,7 +2,22 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { GalleryScene } from "@/types";
+
+function directionLabel(deg: number | undefined | null): string {
+  if (deg == null) return "";
+  const dirs = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  return dirs[Math.round(deg / 22.5) % 16];
+}
+
+function tideEmoji(state: string | undefined | null): string {
+  if (!state) return "";
+  if (state === "high") return "⬆️";
+  if (state === "low") return "⬇️";
+  if (state === "mid") return "↔️";
+  return "";
+}
 
 interface Props {
   scenes: GalleryScene[];
@@ -10,7 +25,13 @@ interface Props {
 
 export default function ImageGallery({ scenes }: Props) {
   const [nirMode, setNirMode] = useState(false);
+  const [showBreaks, setShowBreaks] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Check if any scene has annotated images
+  const hasAnnotations = scenes.some(
+    (s) => s.annotated_rgb_path || s.annotated_nir_path
+  );
 
   const openLightbox = useCallback((index: number) => {
     setLightboxIndex(index);
@@ -38,6 +59,7 @@ export default function ImageGallery({ scenes }: Props) {
       else if (e.key === "ArrowLeft") goPrev();
       else if (e.key === "Escape") closeLightbox();
       else if (e.key === "n" || e.key === "N") setNirMode((m) => !m);
+      else if (e.key === "b" || e.key === "B") setShowBreaks((b) => !b);
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
@@ -54,8 +76,8 @@ export default function ImageGallery({ scenes }: Props) {
   const lightboxScene = lightboxIndex !== null ? scenes[lightboxIndex] : null;
   const lightboxPath = lightboxScene
     ? nirMode
-      ? lightboxScene.nir_path
-      : lightboxScene.rgb_path
+      ? (showBreaks && lightboxScene.annotated_nir_path) || lightboxScene.nir_path
+      : (showBreaks && lightboxScene.annotated_rgb_path) || lightboxScene.rgb_path
     : null;
 
   return (
@@ -64,24 +86,40 @@ export default function ImageGallery({ scenes }: Props) {
         <h4 className="text-sm font-medium text-slate-300">
           Satellite Gallery
         </h4>
-        <button
-          onClick={() => setNirMode(!nirMode)}
-          className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
-            nirMode
-              ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
-              : "bg-[#162038] border-[#1e2d4d] text-slate-400 hover:text-slate-300"
-          }`}
-        >
-          {nirMode ? "NIR" : "RGB"}
-        </button>
+        <div className="flex items-center gap-2">
+          {hasAnnotations && (
+            <button
+              onClick={() => setShowBreaks(!showBreaks)}
+              className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                showBreaks
+                  ? "bg-orange-500/20 border-orange-500/40 text-orange-400"
+                  : "bg-[#162038] border-[#1e2d4d] text-slate-400 hover:text-slate-300"
+              }`}
+            >
+              Breaks
+            </button>
+          )}
+          <button
+            onClick={() => setNirMode(!nirMode)}
+            className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+              nirMode
+                ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
+                : "bg-[#162038] border-[#1e2d4d] text-slate-400 hover:text-slate-300"
+            }`}
+          >
+            {nirMode ? "NIR" : "RGB"}
+          </button>
+        </div>
       </div>
       <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
         {scenes.map((scene, i) => {
-          const path = nirMode ? scene.nir_path : scene.rgb_path;
+          const cleanPath = nirMode ? scene.nir_path : scene.rgb_path;
+          const annotatedPath = nirMode ? scene.annotated_nir_path : scene.annotated_rgb_path;
+          const path = (showBreaks && annotatedPath) || cleanPath;
           if (!path) return null;
           return (
             <div
-              key={`${scene.date}-${nirMode}`}
+              key={`${scene.date}-${nirMode}-${showBreaks}`}
               className="flex-shrink-0 w-40 rounded-lg overflow-hidden bg-[#162038] border border-[#1e2d4d] cursor-pointer hover:border-teal-500/50 transition-colors"
               onClick={() => openLightbox(i)}
             >
@@ -94,15 +132,15 @@ export default function ImageGallery({ scenes }: Props) {
                   sizes="160px"
                 />
               </div>
-              <div className="p-2 text-xs">
-                <div className="text-slate-300">{scene.date}</div>
-                <div className="flex justify-between text-slate-500">
-                  <span>{scene.swell_height_m.toFixed(1)}m swell</span>
-                  <span>{Math.round(scene.foam_fraction * 100)}% foam</span>
+              <div className="p-2 text-xs space-y-0.5">
+                <div className="text-slate-300 font-medium">{scene.date}</div>
+                <div className="flex justify-between text-slate-400">
+                  <span>{(scene.swell_height_m ?? 0).toFixed(1)}m {scene.swell_direction_deg != null ? directionLabel(scene.swell_direction_deg) : ''}</span>
+                  <span>{scene.swell_period_s ? `${scene.swell_period_s.toFixed(0)}s` : ''}</span>
                 </div>
                 {scene.tide_state && scene.tide_state !== 'unknown' && (
-                  <div className="text-slate-500 mt-0.5">
-                    🌊 {scene.tide_state} tide{scene.tide_m != null ? ` (${scene.tide_m.toFixed(1)}m)` : ''}
+                  <div className="text-slate-500">
+                    <span>{tideEmoji(scene.tide_state)} {scene.tide_state}{scene.tide_m != null ? ` ${scene.tide_m.toFixed(1)}m` : ''}</span>
                   </div>
                 )}
               </div>
@@ -151,9 +189,11 @@ export default function ImageGallery({ scenes }: Props) {
               <div>
                 <span className="text-white font-medium">{lightboxScene.date}</span>
                 <span className="text-slate-400 mx-3">|</span>
-                <span className="text-teal-400">{lightboxScene.swell_height_m.toFixed(1)}m swell</span>
-                <span className="text-slate-400 mx-3">|</span>
-                <span className="text-orange-400">{Math.round(lightboxScene.foam_fraction * 100)}% foam</span>
+                <span className="text-teal-400">
+                  {(lightboxScene.swell_height_m ?? 0).toFixed(1)}m
+                  {lightboxScene.swell_direction_deg != null ? ` ${directionLabel(lightboxScene.swell_direction_deg)}` : ''}
+                  {lightboxScene.swell_period_s ? ` @ ${lightboxScene.swell_period_s.toFixed(0)}s` : ''}
+                </span>
                 {lightboxScene.tide_state && lightboxScene.tide_state !== 'unknown' && (
                   <>
                     <span className="text-slate-400 mx-3">|</span>
@@ -164,6 +204,28 @@ export default function ImageGallery({ scenes }: Props) {
                 )}
               </div>
               <div className="flex items-center gap-3">
+                <Link
+                  href={`/compare?date=${lightboxScene.date}`}
+                  className="text-xs px-3 py-1 rounded-full border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Compare date
+                </Link>
+                {hasAnnotations && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowBreaks(!showBreaks);
+                    }}
+                    className={`text-xs px-3 py-1 rounded-full border ${
+                      showBreaks
+                        ? "bg-orange-500/20 border-orange-500/40 text-orange-400"
+                        : "border-slate-600 text-slate-300"
+                    }`}
+                  >
+                    Breaks
+                  </button>
+                )}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();

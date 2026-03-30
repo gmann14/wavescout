@@ -8,4 +8,18 @@ pipeline/data/coastline/ns_coastline.geojson
 pipeline/data/coastline/ns_roads_utm.json
 pipeline/data/thumbnails/
 pipeline/data/gallery/*/*.png
+pipeline/data/atlas/gallery/
+pipeline/logs/
 test-map.html
+
+# Satellite images — too large for git (~350MB), regenerate with build_web_data.py
+web/public/data/gallery/
+web/public/data/spots/**/*.png
+
+# Large generated data — regenerable from pipeline scripts
+pipeline/data/coastline/ns_ranked_segments.geojson
+pipeline/data/coastline/ns_scored_segments.geojson
+pipeline/data/atlas/ns_atlas_sections.geojson
+web/public/data/segments-high.json
+web/public/data/segments-all.json
+web/public/data/atlas/sections.json

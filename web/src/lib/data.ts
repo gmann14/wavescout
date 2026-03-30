@@ -3,6 +3,8 @@ import type {
   SegmentsGeoJSON,
   SpotDetail,
   GalleryManifest,
+  AtlasSectionsGeoJSON,
+  AtlasGalleryManifest,
 } from "@/types";
 
 const DATA_BASE = "/data";
@@ -29,5 +31,15 @@ export async function loadSpotDetail(slug: string): Promise<SpotDetail> {
 
 export async function loadGallery(): Promise<GalleryManifest> {
   const res = await fetch(`${DATA_BASE}/gallery.json`);
+  return res.json();
+}
+
+export async function loadAtlasSections(): Promise<AtlasSectionsGeoJSON> {
+  const res = await fetch(`${DATA_BASE}/atlas/sections.json`);
+  return res.json();
+}
+
+export async function loadAtlasGallery(): Promise<AtlasGalleryManifest> {
+  const res = await fetch(`${DATA_BASE}/atlas/gallery.json`);
   return res.json();
 }

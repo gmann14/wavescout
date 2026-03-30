@@ -16,6 +16,26 @@ export const metadata: Metadata = {
   title: "WaveScout — Surf Discovery from Space",
   description:
     "Satellite-based surf spot discovery for Nova Scotia. Using Sentinel-2 imagery and coastline geometry to find where waves break.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://wavescout.vercel.app"
+  ),
+  openGraph: {
+    title: "WaveScout — Surf Discovery from Space",
+    description:
+      "Satellite-based surf spot discovery for Nova Scotia. Sentinel-2 imagery, coastline geometry, and ocean conditions.",
+    siteName: "WaveScout",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WaveScout — Surf Discovery from Space",
+    description:
+      "Satellite-based surf spot discovery for Nova Scotia.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

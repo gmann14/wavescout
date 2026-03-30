@@ -22,10 +22,17 @@ const NS_CENTER: [number, number] = [-63.0, 44.7];
 const NS_ZOOM = 6.5;
 
 function getScoreColor(score: number): string {
-  if (score >= 80) return "#14b8a6"; // teal-500
-  if (score >= 70) return "#2dd4bf"; // teal-400
-  if (score >= 60) return "#fb923c"; // orange-400
-  return "#64748b"; // slate-500
+  if (score >= 80) return "#14b8a6"; // bright teal — confirmed break
+  if (score >= 60) return "#fb923c"; // orange — strong candidate
+  if (score >= 40) return "#eab308"; // yellow — moderate potential
+  if (score >= 20) return "#64748b"; // gray — low signal
+  return "#475569"; // dim gray — minimal evidence
+}
+
+function getConfidenceBadge(confidence: number | undefined): string {
+  if (confidence === 3) return '<span style="color:#22c55e">Satellite verified</span>';
+  if (confidence === 2) return '<span style="color:#eab308">Partial data</span>';
+  return '<span style="color:#94a3b8">Geometry only</span>';
 }
 
 export default function MapView() {
@@ -147,10 +154,10 @@ export default function MapView() {
             "interpolate",
             ["linear"],
             ["get", "score"],
-            60, "#64748b",
-            70, "#fb923c",
-            80, "#2dd4bf",
-            90, "#14b8a6",
+            20, "#475569",  // dim gray — minimal evidence
+            40, "#eab308",  // yellow — moderate potential
+            60, "#fb923c",  // orange — strong candidate
+            80, "#14b8a6",  // bright teal — confirmed break
           ],
           "circle-opacity": [
             "interpolate",
@@ -259,13 +266,31 @@ export default function MapView() {
         const geom = e.features[0].geometry;
         if (!props || geom.type !== "Point") return;
 
+        const displayScore = props.composite_score ?? props.score;
+        const confidence = typeof props.confidence === "number" ? props.confidence : undefined;
+        const foamComponent = typeof props.foam_component === "number" ? props.foam_component : undefined;
+        const profileComponent = typeof props.profile_component === "number" ? props.profile_component : undefined;
+
+        let detailHtml = "";
+        if (foamComponent != null && foamComponent > 0) {
+          detailHtml += `<div>Foam: ${foamComponent.toFixed(1)}/40</div>`;
+        }
+        if (profileComponent != null && profileComponent > 0) {
+          detailHtml += `<div>Profile: ${profileComponent.toFixed(1)}/25</div>`;
+        }
+        if (props.primary_direction) {
+          detailHtml += `<div>Dir: ${props.primary_direction}</div>`;
+        }
+
         segPopup
           .setLngLat(geom.coordinates as [number, number])
           .setHTML(
             `<div class="text-xs">
-              <div class="font-medium" style="color:${getScoreColor(props.score)}">${props.id}</div>
-              <div>Score: ${props.score}/100</div>
+              <div class="font-medium" style="color:${getScoreColor(displayScore)}">${props.id}</div>
+              <div>Score: ${displayScore}/100</div>
+              <div>${getConfidenceBadge(confidence)}</div>
               ${props.rank ? `<div>Rank: #${props.rank}</div>` : ""}
+              ${detailHtml}
             </div>`
           )
           .addTo(m);

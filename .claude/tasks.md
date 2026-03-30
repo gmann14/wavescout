@@ -1,7 +1,7 @@
 # WaveScout — Tasks
 
 > Source of truth for project status. Updated after every work session.
-> Last updated: 2026-03-26 (Phase 3 web viewer built)
+> Last updated: 2026-03-30 (break pins, atlas labeling, compare view, unified ranking, 5 specs)
 
 ## Phase 1: Feasibility Prototype ✅ COMPLETE — GO decision made
 
@@ -98,6 +98,20 @@
 - Swell 0.88-0.92m → foam 0.30-0.67 (active breaking) ✅
 - Profiles: turn-on at 0.28-0.42m, optimal 0.5-1.0m, directional from S/SE/E ✅
 
+### v2 Pipeline Updates (2026-03-26) ✅ DONE
+- [x] **SCL quality metrics** added to `13_detect_foam_nir.py`:
+  - `cloud_pct`, `shadow_pct`, `snow_land_pct`, `valid_pct`, `quality_score` per scene
+  - Quality score: cloud 40% + valid 30% + snow 20% + shadow 10% (0-100)
+  - Metrics attached to every detection record for easy filtering
+  - `scene_quality` array in manifest + quality summary in `summary.quality`
+  - Thresholds: discard <40, usable >=60, high >=80
+- [x] **Overpass time fix**: Open-Meteo index corrected from 11 → 15 UTC (NS overpass is ~15:00 UTC / 11 AM AST)
+- [x] **`--all-spots` flag**: processes all configs in `pipeline/configs/` sequentially with summary table
+- [x] **22 new spot configs** generated (42 total: 20 existing + 22 new):
+  - Tier 1 (foam-verified): lawrencetown-point, left-point, right-point, the-cove, minutes, osbourne
+  - Tier 2 (WannaSurf/Surfline): andrews-head, blueberry-bay, eastern-brook, fishermans-reserve, forevers, juicys, killaz, meadows-point, point-pleasant-beach-park, pubnico-beach, rissers, rudys, sable-island, seals, the-juice, the-meadows
+- [x] Verified: `--help` parses correctly, `--limit 3` test produces quality metrics in manifest (qs=99.9 for Lawrencetown clear days)
+
 ### Remaining
 - [x] Run full Lawrencetown archive — **DONE** (120 scenes, 2,708 detections, 23 profiles)
 - [x] Run all other spots — **16/20 DONE** (agent completed overnight Mar 25-26)
@@ -109,15 +123,42 @@
   - Total: 16,898 foam detections across 16 spots
 - [x] Run remaining foam spots: broad-cove, gullivers-cove, ingonish ran during gallery generation (19 total spots now)
 - [x] `15_generate_gallery_images.py` — gallery thumbnails for web viewer
-  - Picks up to 5 representative scenes per spot across swell bins (flat/small/moderate/big/storm)
-  - Selects highest foam fraction per bin for visual interest
-  - Generates RGB + NIR thumbnails (800px) via GEE
-  - 172 images across 19 spots, gallery manifest at pipeline/data/gallery/manifest.json
+  - **v2 (2026-03-27):** 12 swell bins (glass→xxl), QS≥90, winter scenes included
+  - Picks best scene per swell bin (highest foam fraction + quality score)
+  - Generates RGB + NIR thumbnails (800px fixed width) via GEE
+  - CHS tide API integration: tide_m + tide_state per scene at overpass time (~15:00 UTC)
+  - Swell direction + period metadata per scene
+  - **436 images across 31 spots** (248 scenes), manifest at pipeline/data/gallery/manifest.json
+  - Top spots: Clam Harbour 11 scenes (0.3→4.3m), 10 spots with 10 scenes each
+  - Winter scenes included (best swell = winter storms, human can distinguish foam from snow)
 - [ ] Cross-spot comparison: same dates across all spots
 - [ ] Validate profiles against known spot behavior
 - [ ] Extend to full NS coastline (16,939 exposed segments from geometry scoring)
 - [ ] Merge geometry scores + NIR evidence + conditions into unified spot ranking
 - [ ] Generate `spots.geojson` output bundle for web viewer
+
+## Phase 2.7: Coastline Visual Atlas — ✅ COMPLETE (2026-03-28)
+**Goal:** Comprehensive visual atlas of entire surfable NS coastline for manual spot discovery
+**Result:** 2,839 sections tiled (~3km each), atlas browser UI at `/atlas`
+
+### What was built
+- [x] `17_tile_coastline.py` — tiles NS coastline into ~3km sections (2,839 sections, 16,605 segments covered)
+- [x] `18_generate_atlas_fast.py` — generates gallery images for atlas sections across swell conditions
+- [x] `build_atlas_web_data.py` — builds atlas static data for web viewer
+- [x] `AtlasMap.tsx` + `AtlasSectionPanel.tsx` — atlas browser UI with map navigation
+- [x] `/atlas` page in Next.js app — functional coastline browser
+
+### Key Decisions (2026-03-27)
+- NS surfable coastline is 1000km+ (not 200-300km as initially estimated)
+- Manual human verification at 10m/pixel IS viable — Graham can identify breaks at this resolution
+- Foam % alone insufficient for automated spot discovery (can't distinguish snow/cloud/foam reliably)
+- **Phase 1 = browsable atlas** (manual discovery tool), **Phase 2 = algorithm experiments** with human labels as ground truth
+
+### Remaining
+- [x] Labeling UI: "Flag potential break" button with coordinate picker + notes
+- [x] Export flagged locations as JSON with section metadata
+- [ ] Full coast image coverage (many sections may still lack gallery images)
+- [ ] Progressive loading for large atlas datasets
 
 ## Phase 3: Web Viewer ✅ BUILT
 - [x] Next.js 15 app in `web/` — App Router, TypeScript, Tailwind CSS, Mapbox GL
@@ -140,18 +181,67 @@
 - [x] Dark ocean theme (navy/teal/orange), mobile-first responsive
 - [x] Build passes clean (`pnpm build`)
 - [ ] **Mapbox token needed** — set NEXT_PUBLIC_MAPBOX_TOKEN in web/.env.local
-- [ ] Cross-spot same-date comparison view
-- [ ] Spot pins overlaid on satellite imagery
+- [x] **ImageGallery.tsx** updated — cards show swell direction label, period, tide state emoji + level
+- [x] **Lightbox overlay** shows swell direction + period (e.g. "2.1m SSW @ 8s")
+- [x] Cross-spot same-date comparison view — `/compare` page with swell/spot filters
+- [x] Break pin annotations on gallery images — `19_annotate_gallery.py` + Breaks toggle in UI
 - [ ] Algorithm Experiments page
+- [x] Coastline atlas browser (section-based navigation) — `/atlas` page
 
 ## Infra / Config
 - GitHub: `gmann14/wavescout`
 - GEE Project: `seotakeoff` (via .env)
 - Python 3.12 venv
-- 14 git commits total (as of Mar 26)
+- 20+ git commits (as of Mar 30)
 - No web deployment yet (pipeline-only project for now)
+
+## Spot Data Changes (2026-03-27)
+- **Cow Bay → The Moose**: Renamed to match Surfline (same coords 44.61383, -63.43175). "Cow Bay" kept as alias. Surfline ID `584204204e65fad6a77094cb`.
+- **Forevers removed** from spots.json (42→41 spots). Flagged as possibly mythical.
+- **3 Cow Bay area breaks confirmed**: The Moose (reef), Osbourne (point, 44.61774, -63.417031), Minutes (44.632158, -63.415339)
+- **Broad Cove area coords confirmed**: Broad Cove (44.17665, -64.47789), Artie's (44.16778, -64.47716), Bullfield (44.17041, -64.47671)
+
+## Spot Finder — Honest Assessment (2026-03-27)
+
+### What Sentinel-2 (10m/pixel) CAN do:
+- Coastline-scale energy monitoring (more white along shore = more energy)
+- Confirm known spots active on a given day
+- Condition visualization at known locations
+- Long-term trends (erosion, sandbar shifts)
+
+### What it CANNOT do (with foam % alone):
+- Automated spot discovery (can't distinguish foam from snow/cloud/sand reliably)
+- Break type classification at pixel level
+- See individual waves (1-3 pixels per break)
+
+### Multi-layer approach needed for spot finding:
+1. **Differential foam maps** — subtract flat-day from swell-day, real breaks light up consistently
+2. **Temporal stacking** — 20+ high-swell scenes, real breaks = same pixels repeatedly
+3. **Swell-direction response** — real breaks only fire on specific directions
+4. **Spatial pattern recognition** — point breaks = curved lines, beach = parallel bars
+5. **Coastline geometry + bathymetry** — exposure, seafloor slope
+
+### Current strategy: Visual Atlas first (manual browsing), then algorithm experiments with human labels as ground truth.
+
+## Phase 4: Unified Ranking + Deployment — PLANNED
+**Specs written:** See `.claude/SPEC-*.md` for detailed implementation plans.
+
+- [x] **Unified spot ranking** — `20_rank_segments.py` computes composite 0-100 score (geometry 35pts + foam 40pts + profile 25pts). 374 segments with foam, 42 with full profiles. Known spots rank 88-100th percentile. Map updated with composite color coding + confidence badges.
+- [ ] **Deployment** — Vercel for static hosting, Cloudflare R2 for image CDN, GitHub Actions CI/CD. Spec: `SPEC-deployment.md`
+
+## Phase 5: Algorithm Experiments — PLANNED
+- [ ] **Differential foam maps** — subtract flat-day from swell-day imagery
+- [ ] **Temporal stacking** — aggregate 20+ high-swell scenes, persistent foam = real breaks
+- [ ] **Swell-direction response** — compare foam maps across direction bins
+- [ ] **Spatial pattern recognition** — point breaks = curved lines, beach = parallel bars
+- [ ] **Ensemble scoring** — combine all signals with human labels as ground truth
+- [ ] Full spec: `SPEC-algorithm-experiments.md`
+
+## Phase 6: Data Quality Improvements — PLANNED
+- [ ] **Cliff foam filter** — DEM-based coastline classification (beach/cliff/headland). Spec: `SPEC-cliff-foam-filter.md`
+- [ ] **Bathymetry integration** — GEBCO nearshore slope for geometry scoring (fills skipped 20pt component). Spec: `SPEC-bathymetry-integration.md`
 
 ## Blockers
 1. ~~Waiting on Graham's spot pins~~ — ✅ DONE (6 South Shore spots pinned Mar 25)
 2. No cloud Supabase yet — local dev only until free tier opens up
-3. 4 remaining spots need foam detection runs (broad-cove, gullivers-cove, ingonish, mavillette) — likely GEE auth issue during overnight run
+3. ~~4 remaining spots need foam detection runs~~ — All spots processed (31 with gallery data)

@@ -1,1 +1,1 @@
-{"slug": "hell-point", "swell_profile": null}
+{"slug":"hell-point","name":"Hell Point","swell_profile":null,"foam_summary":{"scenes_processed":100,"segments_processed":8,"total_detections":166,"errors":0,"scenes_with_foam":27,"date_range":{"start":"2021-10-10","end":"2026-03-18"},"quality":{"scenes_high_quality":84,"scenes_usable":100,"scenes_discarded":0,"mean_quality_score":93.1}}}

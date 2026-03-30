@@ -38,6 +38,7 @@ yarn-error.log*
 
 # gallery images (regenerate with pipeline/scripts/build_web_data.py)
 /public/gallery/
+/public/atlas-gallery/
 
 # vercel
 .vercel

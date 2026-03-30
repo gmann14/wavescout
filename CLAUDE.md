@@ -7,7 +7,9 @@ Surf discovery tool using satellite imagery (Sentinel-2), coastline geometry, an
 - **Phase 1: Feasibility** ✅ PASSED — NIR-based foam detection confirmed viable
 - **Phase 2: Geometry Scoring** ✅ DONE — 16,939 exposed segments scored, known spots rank 88-94th percentile
 - **Phase 2.5: NIR Foam Detection** ✅ DONE — 16,898 detections across 20 spots
-- **Phase 3: Static Web Viewer** ✅ BUILT — Next.js app in web/
+- **Phase 2.7: Coastline Atlas** ✅ DONE — 2,839 sections tiled, atlas browser at /atlas
+- **Phase 3: Static Web Viewer** ✅ BUILT — Next.js app in web/ (/, /atlas, /compare, /methodology, /about)
+- **Phase 3.5: Unified Ranking** ✅ DONE — composite scoring (geometry + foam + profile), 374 segments with foam data
 
 ## Tech Stack
 - Python 3.12 + venv
@@ -28,19 +30,21 @@ Surf discovery tool using satellite imagery (Sentinel-2), coastline geometry, an
 ```
 pipeline/
   configs/          — spot config JSON files (bbox, coordinates)
-  scripts/          — numbered pipeline scripts (01-14)
+  scripts/          — numbered pipeline scripts (01-20)
   data/
     manifests/      — scene inventories, conditions, export manifests
     reviews/        — CSV review sheets for manual labeling
     thumbnails/     — generated PNG thumbnails (RGB + band composites)
     coastline/      — cached OSM coastline data
     known_spots/    — known NS surf spots
+    gallery/        — spot gallery images (RGB + NIR thumbnails)
+    atlas/          — coastline atlas sections + images
     calibration_report.json
     ns_known_spots.geojson
 docs/
   SPEC.md           — full product spec
 web/                — Phase 3 Next.js web viewer (pnpm)
-  src/app/          — Next.js App Router pages (/, /methodology, /about)
+  src/app/          — Next.js App Router pages (/, /atlas, /compare, /methodology, /about)
   src/components/   — React components (MapView, SpotPanel, SwellChart, etc.)
   public/data/      — optimized static data (built by build_web_data.py)
   public/gallery/   — satellite thumbnails (gitignored, regenerate with build_web_data.py)
@@ -63,7 +67,13 @@ FEASIBILITY-STATUS.md — feasibility findings and GO decision
 13. `13_detect_foam_nir.py` — NIR foam detection per segment per scene (GEE server-side)
 14. `14_build_swell_profiles.py` — swell-response profiles from foam detections
 15. `15_generate_gallery_images.py` — satellite gallery thumbnails (RGB + NIR)
+16. `16_generate_gallery_fast.py` — v2 gallery (12 swell bins, QS≥90, tide/direction metadata)
+17. `17_tile_coastline.py` — tile NS coastline into ~3km atlas sections
+18. `18_generate_atlas_fast.py` — atlas section gallery images across swell conditions
+19. `19_annotate_gallery.py` — Pillow-based break pin annotations on gallery images
+20. `20_rank_segments.py` — unified composite scoring (geometry + foam + profile)
 - `build_web_data.py` — builds optimized static data for web viewer
+- `build_atlas_web_data.py` — builds atlas static data for web viewer
 
 ## Commands
 ```bash

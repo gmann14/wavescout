@@ -1,11 +1,12 @@
 # WaveScout Product Spec
 
 *Drafted: 2026-03-23*  
-*Last updated: 2026-03-23*  
-*Status: Working spec*
+*Last updated: 2026-03-30*
+*Status: Working spec — feasibility passed, pipeline + web viewer operational*
 
 ### Revision Notes
 
+- 2026-03-30: Status update — all phases through 2.7 complete. Atlas browser built. Product direction shifted toward visual atlas for manual spot discovery, with algorithm experiments planned as Phase 5.
 - 2026-03-23: Reframed around a feasibility gate, narrowed MVP to a static Nova Scotia explorer, and added provenance-first processing guidance.
 
 ---

@@ -1,9 +1,1 @@
-{
-  "slug": "hirtles-beach",
-  "swell_profile": null,
-  "wannasurf_type": "Beach-break",
-  "wannasurf_direction": "Right and left",
-  "wannasurf_experience": "Beginners wave",
-  "surfline_url": "https://www.surfline.com/surf-report/hirtles/584204204e65fad6a7709abd",
-  "surfline_id": "584204204e65fad6a7709abd"
-}
+{"slug":"hirtles-beach","name":"Hirtle's Beach","swell_profile":null,"foam_summary":{"scenes_processed":77,"segments_processed":18,"total_detections":767,"errors":0,"scenes_with_foam":66,"date_range":{"start":"2021-10-10","end":"2026-03-18"},"quality":{"scenes_high_quality":69,"scenes_usable":77,"scenes_discarded":0,"mean_quality_score":95.3}}}

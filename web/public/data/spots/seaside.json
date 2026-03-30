@@ -1,1 +1,1 @@
-{"slug": "seaside", "swell_profile": null}
+{"slug":"seaside","name":"Seaside","swell_profile":null,"foam_summary":{"scenes_processed":60,"segments_processed":10,"total_detections":582,"errors":0,"scenes_with_foam":52,"date_range":{"start":"2021-11-09","end":"2026-03-10"},"quality":{"scenes_high_quality":57,"scenes_usable":60,"scenes_discarded":0,"mean_quality_score":97.2}}}

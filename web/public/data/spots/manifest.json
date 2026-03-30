@@ -1,0 +1,1276 @@
+{
+  "script": "15_generate_gallery_images.py",
+  "run_id": "49fb105caa1e",
+  "generated_at_utc": "2026-03-27T16:12:37.118933+00:00",
+  "code_version": "b7f2437",
+  "parameters": {
+    "image_width_px": 1200,
+    "swell_bins": {
+      "flat": "0.0-0.5m",
+      "small": "0.5-1.0m",
+      "moderate": "1.0-1.5m",
+      "big": "1.5-2.5m",
+      "storm": "2.5-99.0m"
+    },
+    "limit_per_spot": 10
+  },
+  "spots": [
+    {
+      "spot_name": "Lawrencetown Beach",
+      "slug": "lawrencetown-beach",
+      "scenes": [
+        {
+          "date": "2025-11-03",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.3282,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2025-11-03_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2025-11-03_0.5m_nir.png"
+        },
+        {
+          "date": "2023-03-19",
+          "swell_height_m": 0.94,
+          "foam_fraction": 0.4871,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-03-19_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2023-03-19_0.9m_nir.png"
+        },
+        {
+          "date": "2024-05-29",
+          "swell_height_m": 1.42,
+          "foam_fraction": 0.2607,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2024-05-29_1.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2024-05-29_1.4m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.62,
+          "foam_fraction": 0.2662,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2022-09-10_1.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-beach/lawrencetown-beach_2022-09-10_1.6m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Broad Cove",
+      "slug": "broad-cove",
+      "scenes": [
+        {
+          "date": "2022-06-07",
+          "swell_height_m": 0.4,
+          "foam_fraction": 0.2014,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-06-07_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-06-07_0.4m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.76,
+          "foam_fraction": 0.2231,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-02-12_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-02-12_0.8m_nir.png"
+        },
+        {
+          "date": "2024-09-29",
+          "swell_height_m": 1.22,
+          "foam_fraction": 0.1496,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2024-09-29_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2024-09-29_1.2m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.96,
+          "foam_fraction": 0.2364,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-09-10_2.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2022-09-10_2.0m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.16,
+          "foam_fraction": 0.335,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-11-19_3.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/broad-cove/broad-cove_2023-11-19_3.2m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Cherry Hill",
+      "slug": "cherry-hill",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.34,
+          "foam_fraction": 0.3341,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2025-04-24_0.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2025-04-24_0.3m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.72,
+          "foam_fraction": 0.3178,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2022-02-12_0.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2022-02-12_0.7m_nir.png"
+        },
+        {
+          "date": "2024-10-09",
+          "swell_height_m": 1.02,
+          "foam_fraction": 0.1508,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2024-10-09_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2024-10-09_1.0m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 1.8,
+          "foam_fraction": 0.2896,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2023-11-19_1.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cherry-hill/cherry-hill_2023-11-19_1.8m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Clam Harbour Beach",
+      "slug": "clam-harbour",
+      "scenes": [
+        {
+          "date": "2023-02-02",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.6124,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-02-02_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-02-02_0.5m_nir.png"
+        },
+        {
+          "date": "2023-09-27",
+          "swell_height_m": 0.58,
+          "foam_fraction": 0.9547,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-09-27_0.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-09-27_0.6m_nir.png"
+        },
+        {
+          "date": "2025-06-21",
+          "swell_height_m": 1.24,
+          "foam_fraction": 0.847,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2025-06-21_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2025-06-21_1.2m_nir.png"
+        },
+        {
+          "date": "2024-12-13",
+          "swell_height_m": 2.34,
+          "foam_fraction": 0.6737,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2024-12-13_2.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2024-12-13_2.3m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 4.28,
+          "foam_fraction": 0.3127,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-11-19_4.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/clam-harbour/clam-harbour_2023-11-19_4.3m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Cow Bay (Osbourne)",
+      "slug": "cow-bay",
+      "scenes": [
+        {
+          "date": "2023-02-09",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.244,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-02-09_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-02-09_0.5m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.82,
+          "foam_fraction": 0.4299,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2022-02-12_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2022-02-12_0.8m_nir.png"
+        },
+        {
+          "date": "2021-11-09",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.1088,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2021-11-09_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2021-11-09_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.62,
+          "foam_fraction": 0.2205,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2022-09-10_1.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2022-09-10_1.6m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.5,
+          "foam_fraction": 0.2455,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-11-19_3.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/cow-bay/cow-bay_2023-11-19_3.5m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Gaff Point",
+      "slug": "gaff-point",
+      "scenes": [
+        {
+          "date": "2024-06-21",
+          "swell_height_m": 0.36,
+          "foam_fraction": 0.3081,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-06-21_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2024-06-21_0.4m_nir.png"
+        },
+        {
+          "date": "2022-09-25",
+          "swell_height_m": 0.94,
+          "foam_fraction": 0.3044,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2022-09-25_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2022-09-25_0.9m_nir.png"
+        },
+        {
+          "date": "2025-12-18",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.3909,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2025-12-18_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2025-12-18_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.88,
+          "foam_fraction": 0.2132,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2022-09-10_1.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2022-09-10_1.9m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.18,
+          "foam_fraction": 0.1567,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-11-19_3.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gaff-point/gaff-point_2023-11-19_3.2m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Gullivers Cove",
+      "slug": "gullivers-cove",
+      "scenes": [
+        {
+          "date": "2021-10-13",
+          "swell_height_m": 0.08,
+          "foam_fraction": 0.8509,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2021-10-13_0.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2021-10-13_0.1m_nir.png"
+        },
+        {
+          "date": "2022-11-29",
+          "swell_height_m": 0.5,
+          "foam_fraction": 0.4688,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2022-11-29_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/gullivers-cove/gullivers-cove_2022-11-29_0.5m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Hell Point",
+      "slug": "hell-point",
+      "scenes": [
+        {
+          "date": "2024-10-29",
+          "swell_height_m": 0.38,
+          "foam_fraction": 0.1965,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2024-10-29_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2024-10-29_0.4m_nir.png"
+        },
+        {
+          "date": "2025-12-18",
+          "swell_height_m": 0.96,
+          "foam_fraction": 0.3138,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2025-12-18_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2025-12-18_1.0m_nir.png"
+        },
+        {
+          "date": "2022-11-29",
+          "swell_height_m": 1.12,
+          "foam_fraction": 0.1906,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2022-11-29_1.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2022-11-29_1.1m_nir.png"
+        },
+        {
+          "date": "2023-09-05",
+          "swell_height_m": 1.74,
+          "foam_fraction": 0.0669,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/hell-point/hell-point_2023-09-05_1.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hell-point/hell-point_2023-09-05_1.7m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Hirtle's Beach",
+      "slug": "hirtles-beach",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.4562,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2025-04-24_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2025-04-24_0.5m_nir.png"
+        },
+        {
+          "date": "2022-07-07",
+          "swell_height_m": 0.6,
+          "foam_fraction": 0.2486,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-07-07_0.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-07-07_0.6m_nir.png"
+        },
+        {
+          "date": "2025-12-18",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.3122,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2025-12-18_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2025-12-18_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.88,
+          "foam_fraction": 0.3083,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-09-10_1.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2022-09-10_1.9m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.18,
+          "foam_fraction": 0.1039,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2023-11-19_3.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/hirtles-beach/hirtles-beach_2023-11-19_3.2m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Ingonish Beach",
+      "slug": "ingonish",
+      "scenes": [
+        {
+          "date": "2025-07-23",
+          "swell_height_m": 0.2,
+          "foam_fraction": 0.9481,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2025-07-23_0.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2025-07-23_0.2m_nir.png"
+        },
+        {
+          "date": "2025-03-15",
+          "swell_height_m": 0.9,
+          "foam_fraction": 0.7694,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2025-03-15_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2025-03-15_0.9m_nir.png"
+        },
+        {
+          "date": "2022-04-25",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.1305,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2022-04-25_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2022-04-25_1.0m_nir.png"
+        },
+        {
+          "date": "2021-11-01",
+          "swell_height_m": 1.54,
+          "foam_fraction": 0.1435,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/ingonish/ingonish_2021-11-01_1.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/ingonish/ingonish_2021-11-01_1.5m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Kennington Cove",
+      "slug": "kennington-cove",
+      "scenes": [
+        {
+          "date": "2025-08-04",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.6394,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-08-04_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-08-04_0.5m_nir.png"
+        },
+        {
+          "date": "2022-07-31",
+          "swell_height_m": 0.66,
+          "foam_fraction": 0.2767,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2022-07-31_0.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2022-07-31_0.7m_nir.png"
+        },
+        {
+          "date": "2025-12-30",
+          "swell_height_m": 1.16,
+          "foam_fraction": 0.1671,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-12-30_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-12-30_1.2m_nir.png"
+        },
+        {
+          "date": "2025-04-29",
+          "swell_height_m": 1.54,
+          "foam_fraction": 0.1662,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-04-29_1.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/kennington-cove/kennington-cove_2025-04-29_1.5m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Martinique Beach",
+      "slug": "martinique-beach",
+      "scenes": [
+        {
+          "date": "2024-06-21",
+          "swell_height_m": 0.42,
+          "foam_fraction": 0.365,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2024-06-21_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2024-06-21_0.4m_nir.png"
+        },
+        {
+          "date": "2025-06-21",
+          "swell_height_m": 0.94,
+          "foam_fraction": 0.721,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-06-21_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-06-21_0.9m_nir.png"
+        },
+        {
+          "date": "2025-12-18",
+          "swell_height_m": 1.06,
+          "foam_fraction": 0.441,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-12-18_1.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2025-12-18_1.1m_nir.png"
+        },
+        {
+          "date": "2022-06-19",
+          "swell_height_m": 1.72,
+          "foam_fraction": 0.4185,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2022-06-19_1.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/martinique-beach/martinique-beach_2022-06-19_1.7m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Point Michaud",
+      "slug": "point-michaud",
+      "scenes": [
+        {
+          "date": "2022-06-04",
+          "swell_height_m": 0.22,
+          "foam_fraction": 0.5304,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2022-06-04_0.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2022-06-04_0.2m_nir.png"
+        },
+        {
+          "date": "2024-08-24",
+          "swell_height_m": 0.56,
+          "foam_fraction": 0.788,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2024-08-24_0.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2024-08-24_0.6m_nir.png"
+        },
+        {
+          "date": "2024-04-21",
+          "swell_height_m": 1.14,
+          "foam_fraction": 0.3074,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/point-michaud/point-michaud_2024-04-21_1.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/point-michaud/point-michaud_2024-04-21_1.1m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Rafuse Island",
+      "slug": "rafuse-island",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.34,
+          "foam_fraction": 0.2528,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2025-04-24_0.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2025-04-24_0.3m_nir.png"
+        },
+        {
+          "date": "2021-12-04",
+          "swell_height_m": 0.64,
+          "foam_fraction": 0.1961,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2021-12-04_0.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2021-12-04_0.6m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.2,
+          "foam_fraction": 0.0989,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2022-09-10_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2022-09-10_1.2m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 1.9,
+          "foam_fraction": 0.1301,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2023-11-19_1.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/rafuse-island/rafuse-island_2023-11-19_1.9m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Seaside",
+      "slug": "seaside",
+      "scenes": [
+        {
+          "date": "2024-06-21",
+          "swell_height_m": 0.38,
+          "foam_fraction": 1.0,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/seaside/seaside_2024-06-21_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2024-06-21_0.4m_nir.png",
+          "tide_m": 1.31,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2025-07-01",
+          "swell_height_m": 0.72,
+          "foam_fraction": 0.438,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/seaside/seaside_2025-07-01_0.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-07-01_0.7m_nir.png",
+          "tide_m": 1.58,
+          "tide_state": "high",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2025-12-18",
+          "swell_height_m": 1.2,
+          "foam_fraction": 0.1702,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/seaside/seaside_2025-12-18_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2025-12-18_1.2m_nir.png",
+          "tide_m": 1.13,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2023-09-05",
+          "swell_height_m": 1.74,
+          "foam_fraction": 0.0074,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/seaside/seaside_2023-09-05_1.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-09-05_1.7m_nir.png",
+          "tide_m": 1.92,
+          "tide_state": "high",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.24,
+          "foam_fraction": 0.0862,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/seaside/seaside_2023-11-19_3.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/seaside/seaside_2023-11-19_3.2m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
+        }
+      ]
+    },
+    {
+      "spot_name": "Snapjaw",
+      "slug": "snapjaw",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.4,
+          "foam_fraction": 0.6494,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-24_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-24_0.4m_nir.png",
+          "tide_m": 0.58,
+          "tide_state": "low",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2024-07-21",
+          "swell_height_m": 0.66,
+          "foam_fraction": 0.9585,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2024-07-21_0.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2024-07-21_0.7m_nir.png",
+          "tide_m": 1.34,
+          "tide_state": "mid",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2025-10-01",
+          "swell_height_m": 1.16,
+          "foam_fraction": 0.9071,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-10-01_1.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-10-01_1.2m_nir.png",
+          "tide_m": 1.29,
+          "tide_state": "low",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2025-04-02",
+          "swell_height_m": 1.88,
+          "foam_fraction": 0.2667,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-02_1.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2025-04-02_1.9m_nir.png",
+          "tide_m": 2.0,
+          "tide_state": "high",
+          "tide_station": "Riverport"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.44,
+          "foam_fraction": 0.3721,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/snapjaw/snapjaw_2023-11-19_3.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/snapjaw/snapjaw_2023-11-19_3.4m_nir.png",
+          "tide_m": 1.83,
+          "tide_state": "high",
+          "tide_station": "Riverport"
+        }
+      ]
+    },
+    {
+      "spot_name": "Summerville Beach",
+      "slug": "summerville",
+      "scenes": [
+        {
+          "date": "2023-02-27",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.6238,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/summerville/summerville_2023-02-27_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-02-27_0.5m_nir.png",
+          "tide_m": 1.52,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
+        },
+        {
+          "date": "2025-10-24",
+          "swell_height_m": 0.56,
+          "foam_fraction": 0.8751,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/summerville/summerville_2025-10-24_0.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-10-24_0.6m_nir.png",
+          "tide_m": 2.02,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
+        },
+        {
+          "date": "2024-09-29",
+          "swell_height_m": 1.02,
+          "foam_fraction": 0.3755,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/summerville/summerville_2024-09-29_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2024-09-29_1.0m_nir.png",
+          "tide_m": 1.09,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
+        },
+        {
+          "date": "2025-04-02",
+          "swell_height_m": 1.52,
+          "foam_fraction": 0.9167,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/summerville/summerville_2025-04-02_1.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2025-04-02_1.5m_nir.png",
+          "tide_state": "high",
+          "tide_m": 2.14
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 2.5,
+          "foam_fraction": 0.0762,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/summerville/summerville_2023-11-19_2.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/summerville/summerville_2023-11-19_2.5m_nir.png",
+          "tide_m": 2.13,
+          "tide_state": "high",
+          "tide_station": "Liverpool"
+        }
+      ]
+    },
+    {
+      "spot_name": "Western Head",
+      "slug": "western-head",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.42,
+          "foam_fraction": 0.4086,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-04-24_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-04-24_0.4m_nir.png",
+          "tide_state": "low",
+          "tide_m": 0.86
+        },
+        {
+          "date": "2025-06-21",
+          "swell_height_m": 0.9,
+          "foam_fraction": 0.5519,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-06-21_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-06-21_0.9m_nir.png",
+          "tide_m": 0.7,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
+        },
+        {
+          "date": "2025-10-01",
+          "swell_height_m": 1.28,
+          "foam_fraction": 0.428,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/western-head/western-head_2025-10-01_1.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2025-10-01_1.3m_nir.png",
+          "tide_m": 1.4,
+          "tide_state": "low",
+          "tide_station": "Liverpool"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.76,
+          "foam_fraction": 0.4609,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/western-head/western-head_2022-09-10_1.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2022-09-10_1.8m_nir.png",
+          "tide_state": "mid",
+          "tide_m": 1.12
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.66,
+          "foam_fraction": 0.5839,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/western-head/western-head_2023-11-19_3.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/western-head/western-head_2023-11-19_3.7m_nir.png",
+          "tide_state": "high",
+          "tide_m": 2.13
+        }
+      ]
+    },
+    {
+      "spot_name": "White Point Beach",
+      "slug": "white-point",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.32,
+          "foam_fraction": 0.7531,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/white-point/white-point_2025-04-24_0.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-04-24_0.3m_nir.png",
+          "tide_state": "low",
+          "tide_m": 0.44
+        },
+        {
+          "date": "2025-08-02",
+          "swell_height_m": 0.74,
+          "foam_fraction": 0.8335,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/white-point/white-point_2025-08-02_0.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2025-08-02_0.7m_nir.png",
+          "tide_state": "mid",
+          "tide_m": 1.14
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.46,
+          "foam_fraction": 0.5415,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/white-point/white-point_2022-09-10_1.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2022-09-10_1.5m_nir.png",
+          "tide_m": 1.26,
+          "tide_state": "mid",
+          "tide_station": "Port Mouton"
+        },
+        {
+          "date": "2026-03-18",
+          "swell_height_m": 1.92,
+          "foam_fraction": 0.193,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/white-point/white-point_2026-03-18_1.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2026-03-18_1.9m_nir.png",
+          "tide_m": 1.03,
+          "tide_state": "mid",
+          "tide_station": "Port Mouton"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 2.5,
+          "foam_fraction": 0.4283,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/white-point/white-point_2023-11-19_2.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/white-point/white-point_2023-11-19_2.5m_nir.png",
+          "tide_state": "high",
+          "tide_m": 1.69
+        }
+      ]
+    },
+    {
+      "spot_name": "Andrews Head",
+      "slug": "andrews-head",
+      "scenes": [
+        {
+          "date": "2022-11-04",
+          "swell_height_m": 0.42,
+          "foam_fraction": 0.2316,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-11-04_0.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-11-04_0.4m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.78,
+          "foam_fraction": 0.3306,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-02-12_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-02-12_0.8m_nir.png"
+        },
+        {
+          "date": "2024-05-07",
+          "swell_height_m": 1.02,
+          "foam_fraction": 0.2466,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/andrews-head/andrews-head_2024-05-07_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/andrews-head/andrews-head_2024-05-07_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 2.22,
+          "foam_fraction": 0.2015,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-09-10_2.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/andrews-head/andrews-head_2022-09-10_2.2m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.82,
+          "foam_fraction": 0.358,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/andrews-head/andrews-head_2023-11-19_3.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/andrews-head/andrews-head_2023-11-19_3.8m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Blueberry Bay",
+      "slug": "blueberry-bay",
+      "scenes": [
+        {
+          "date": "2022-06-07",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.2703,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-06-07_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-06-07_0.5m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.78,
+          "foam_fraction": 0.3306,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-02-12_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-02-12_0.8m_nir.png"
+        },
+        {
+          "date": "2025-10-01",
+          "swell_height_m": 1.42,
+          "foam_fraction": 0.2161,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2025-10-01_1.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2025-10-01_1.4m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 2.22,
+          "foam_fraction": 0.2015,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-09-10_2.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2022-09-10_2.2m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.82,
+          "foam_fraction": 0.2435,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2023-11-19_3.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/blueberry-bay/blueberry-bay_2023-11-19_3.8m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Fishermans Reserve",
+      "slug": "fishermans-reserve",
+      "scenes": [
+        {
+          "date": "2025-11-23",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.2805,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2025-11-23_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2025-11-23_0.5m_nir.png"
+        },
+        {
+          "date": "2022-11-21",
+          "swell_height_m": 0.86,
+          "foam_fraction": 0.2866,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2022-11-21_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2022-11-21_0.9m_nir.png"
+        },
+        {
+          "date": "2026-03-10",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.7459,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2026-03-10_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2026-03-10_1.0m_nir.png"
+        },
+        {
+          "date": "2024-05-29",
+          "swell_height_m": 1.68,
+          "foam_fraction": 0.1591,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2024-05-29_1.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2024-05-29_1.7m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 4.12,
+          "foam_fraction": 0.2744,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2023-11-19_4.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/fishermans-reserve/fishermans-reserve_2023-11-19_4.1m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Forevers",
+      "slug": "forevers",
+      "scenes": [
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.2845,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/forevers/forevers_2022-02-12_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/forevers/forevers_2022-02-12_0.5m_nir.png"
+        },
+        {
+          "date": "2026-03-10",
+          "swell_height_m": 0.92,
+          "foam_fraction": 0.5385,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/forevers/forevers_2026-03-10_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/forevers/forevers_2026-03-10_0.9m_nir.png"
+        },
+        {
+          "date": "2023-03-19",
+          "swell_height_m": 1.14,
+          "foam_fraction": 0.2263,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/forevers/forevers_2023-03-19_1.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/forevers/forevers_2023-03-19_1.1m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.64,
+          "foam_fraction": 0.1838,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/forevers/forevers_2022-09-10_1.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/forevers/forevers_2022-09-10_1.6m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.6,
+          "foam_fraction": 0.3164,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/forevers/forevers_2023-11-19_3.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/forevers/forevers_2023-11-19_3.6m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Killaz",
+      "slug": "killaz",
+      "scenes": [
+        {
+          "date": "2024-09-11",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.234,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/killaz/killaz_2024-09-11_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/killaz/killaz_2024-09-11_0.5m_nir.png"
+        },
+        {
+          "date": "2022-11-21",
+          "swell_height_m": 0.86,
+          "foam_fraction": 0.2402,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/killaz/killaz_2022-11-21_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/killaz/killaz_2022-11-21_0.9m_nir.png"
+        },
+        {
+          "date": "2026-03-10",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.8081,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/killaz/killaz_2026-03-10_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/killaz/killaz_2026-03-10_1.0m_nir.png"
+        },
+        {
+          "date": "2024-05-29",
+          "swell_height_m": 1.68,
+          "foam_fraction": 0.1894,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/killaz/killaz_2024-05-29_1.7m_rgb.png",
+          "nir_path": "pipeline/data/gallery/killaz/killaz_2024-05-29_1.7m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 4.12,
+          "foam_fraction": 0.3067,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/killaz/killaz_2023-11-19_4.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/killaz/killaz_2023-11-19_4.1m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Lawrencetown Point",
+      "slug": "lawrencetown-point",
+      "scenes": [
+        {
+          "date": "2025-11-03",
+          "swell_height_m": 0.48,
+          "foam_fraction": 0.3282,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2025-11-03_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2025-11-03_0.5m_nir.png"
+        },
+        {
+          "date": "2026-03-10",
+          "swell_height_m": 0.86,
+          "foam_fraction": 0.4851,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2026-03-10_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2026-03-10_0.9m_nir.png"
+        },
+        {
+          "date": "2024-05-29",
+          "swell_height_m": 1.42,
+          "foam_fraction": 0.2607,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2024-05-29_1.4m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2024-05-29_1.4m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.62,
+          "foam_fraction": 0.2449,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2022-09-10_1.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2022-09-10_1.6m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.5,
+          "foam_fraction": 0.6262,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2023-11-19_3.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/lawrencetown-point/lawrencetown-point_2023-11-19_3.5m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Left Point",
+      "slug": "left-point",
+      "scenes": [
+        {
+          "date": "2024-09-11",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.4043,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/left-point/left-point_2024-09-11_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/left-point/left-point_2024-09-11_0.5m_nir.png"
+        },
+        {
+          "date": "2022-07-04",
+          "swell_height_m": 0.86,
+          "foam_fraction": 0.7577,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/left-point/left-point_2022-07-04_0.9m_rgb.png",
+          "nir_path": "pipeline/data/gallery/left-point/left-point_2022-07-04_0.9m_nir.png"
+        },
+        {
+          "date": "2026-03-10",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.6895,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/left-point/left-point_2026-03-10_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/left-point/left-point_2026-03-10_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 1.8,
+          "foam_fraction": 0.2667,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/left-point/left-point_2022-09-10_1.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/left-point/left-point_2022-09-10_1.8m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 4.12,
+          "foam_fraction": 0.8678,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/left-point/left-point_2023-11-19_4.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/left-point/left-point_2023-11-19_4.1m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Mavillette Beach",
+      "slug": "mavillette",
+      "scenes": [
+        {
+          "date": "2024-08-25",
+          "swell_height_m": 0.28,
+          "foam_fraction": 0.9572,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/mavillette/mavillette_2024-08-25_0.3m_rgb.png",
+          "nir_path": "pipeline/data/gallery/mavillette/mavillette_2024-08-25_0.3m_nir.png"
+        },
+        {
+          "date": "2024-07-14",
+          "swell_height_m": 0.78,
+          "foam_fraction": 0.8471,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/mavillette/mavillette_2024-07-14_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/mavillette/mavillette_2024-07-14_0.8m_nir.png"
+        },
+        {
+          "date": "2022-07-20",
+          "swell_height_m": 1.12,
+          "foam_fraction": 0.7655,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/mavillette/mavillette_2022-07-20_1.1m_rgb.png",
+          "nir_path": "pipeline/data/gallery/mavillette/mavillette_2022-07-20_1.1m_nir.png"
+        },
+        {
+          "date": "2022-06-10",
+          "swell_height_m": 1.58,
+          "foam_fraction": 0.7484,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/mavillette/mavillette_2022-06-10_1.6m_rgb.png",
+          "nir_path": "pipeline/data/gallery/mavillette/mavillette_2022-06-10_1.6m_nir.png"
+        }
+      ]
+    },
+    {
+      "spot_name": "Meadows Point",
+      "slug": "meadows-point",
+      "scenes": [
+        {
+          "date": "2025-04-24",
+          "swell_height_m": 0.46,
+          "foam_fraction": 0.2098,
+          "bin_label": "flat",
+          "rgb_path": "pipeline/data/gallery/meadows-point/meadows-point_2025-04-24_0.5m_rgb.png",
+          "nir_path": "pipeline/data/gallery/meadows-point/meadows-point_2025-04-24_0.5m_nir.png"
+        },
+        {
+          "date": "2022-02-12",
+          "swell_height_m": 0.78,
+          "foam_fraction": 0.2777,
+          "bin_label": "small",
+          "rgb_path": "pipeline/data/gallery/meadows-point/meadows-point_2022-02-12_0.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/meadows-point/meadows-point_2022-02-12_0.8m_nir.png"
+        },
+        {
+          "date": "2024-06-16",
+          "swell_height_m": 1.04,
+          "foam_fraction": 0.1691,
+          "bin_label": "moderate",
+          "rgb_path": "pipeline/data/gallery/meadows-point/meadows-point_2024-06-16_1.0m_rgb.png",
+          "nir_path": "pipeline/data/gallery/meadows-point/meadows-point_2024-06-16_1.0m_nir.png"
+        },
+        {
+          "date": "2022-09-10",
+          "swell_height_m": 2.22,
+          "foam_fraction": 0.1972,
+          "bin_label": "big",
+          "rgb_path": "pipeline/data/gallery/meadows-point/meadows-point_2022-09-10_2.2m_rgb.png",
+          "nir_path": "pipeline/data/gallery/meadows-point/meadows-point_2022-09-10_2.2m_nir.png"
+        },
+        {
+          "date": "2023-11-19",
+          "swell_height_m": 3.82,
+          "foam_fraction": 0.3082,
+          "bin_label": "storm",
+          "rgb_path": "pipeline/data/gallery/meadows-point/meadows-point_2023-11-19_3.8m_rgb.png",
+          "nir_path": "pipeline/data/gallery/meadows-point/meadows-point_2023-11-19_3.8m_nir.png"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_spots": 28,
+    "spots_processed_this_run": 1,
+    "total_images_generated": 10
+  }
+}
