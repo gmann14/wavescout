@@ -118,5 +118,191 @@
     "station_name": "Digby",
     "distance_km": 2.9,
     "has_wlp": true
+  },
+  "andrews-head": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 10.7,
+    "has_wlp": true
+  },
+  "blueberry-bay": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 9.2,
+    "has_wlp": true
+  },
+  "clam-harbour-beach": {
+    "station_id": "5cebf1e03d0f4a073c4bbe99",
+    "station_name": "Little Harbour",
+    "distance_km": 3.8,
+    "has_wlp": true
+  },
+  "eastern-brook": {
+    "station_id": "5dd3064de0fdc4b9b4be667d",
+    "station_name": "Goldboro",
+    "distance_km": 9.1,
+    "has_wlp": true
+  },
+  "fisherman-s-reserve": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 8.0,
+    "has_wlp": true
+  },
+  "hirtle-s-beach": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 6.4,
+    "has_wlp": true
+  },
+  "ingonish-beach": {
+    "station_id": "5cebf1e33d0f4a073c4bc12d",
+    "station_name": "Ingonish Beach",
+    "distance_km": 2.4,
+    "has_wlp": true
+  },
+  "juicy-s": {
+    "station_id": "5cebf1df3d0f4a073c4bbcd1",
+    "station_name": "Port Bickerton",
+    "distance_km": 3.0,
+    "has_wlp": true
+  },
+  "killaz": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 2.2,
+    "has_wlp": true
+  },
+  "lawrencetown-point": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 6.8,
+    "has_wlp": true
+  },
+  "left-point": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 4.7,
+    "has_wlp": true
+  },
+  "mavillette-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbc86",
+    "station_name": "Port Maitland",
+    "distance_km": 10.2,
+    "has_wlp": true
+  },
+  "meadows-point": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 5.1,
+    "has_wlp": true
+  },
+  "minutes": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 5.7,
+    "has_wlp": true
+  },
+  "osbourne": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 5.2,
+    "has_wlp": true
+  },
+  "point-pleasant-beach-park": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbb",
+    "station_name": "Halifax",
+    "distance_km": 4.7,
+    "has_wlp": true
+  },
+  "pubnico-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbca5",
+    "station_name": "Barrington Passage",
+    "distance_km": 6.3,
+    "has_wlp": true
+  },
+  "right-point": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 2.8,
+    "has_wlp": true
+  },
+  "rissers": {
+    "station_id": "5cebf1e03d0f4a073c4bbe8d",
+    "station_name": "Riverport",
+    "distance_km": 9.3,
+    "has_wlp": true
+  },
+  "rudy-s": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 8.0,
+    "has_wlp": true
+  },
+  "sable-island": {
+    "station_id": "5cebf1df3d0f4a073c4bbcd9",
+    "station_name": "Sable Island/Sable, \u00c3\u017dle de",
+    "distance_km": 7.3,
+    "has_wlp": true
+  },
+  "seals": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 4.0,
+    "has_wlp": true
+  },
+  "summerville-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 4.6,
+    "has_wlp": true
+  },
+  "the-cove": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 3.5,
+    "has_wlp": true
+  },
+  "the-juice": {
+    "station_id": "5cebf1e03d0f4a073c4bbea8",
+    "station_name": "Fourchu",
+    "distance_km": 2.8,
+    "has_wlp": true
+  },
+  "the-meadows": {
+    "station_id": "5cebf1df3d0f4a073c4bbcaf",
+    "station_name": "Liverpool",
+    "distance_km": 4.7,
+    "has_wlp": true
+  },
+  "the-moose": {
+    "station_id": "5dd3064de0fdc4b9b4be6679",
+    "station_name": "Eastern Passage",
+    "distance_km": 4.1,
+    "has_wlp": true
+  },
+  "white-point-beach": {
+    "station_id": "5cebf1df3d0f4a073c4bbcad",
+    "station_name": "Port Mouton",
+    "distance_km": 9.3,
+    "has_wlp": true
+  },
+  "fishermans-reserve": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 8.0,
+    "has_wlp": true
+  },
+  "rudys": {
+    "station_id": "5cebf1df3d0f4a073c4bbcbd",
+    "station_name": "Chezzetcook Inlet",
+    "distance_km": 8.0,
+    "has_wlp": true
+  },
+  "juicys": {
+    "station_id": "5cebf1df3d0f4a073c4bbcd1",
+    "station_name": "Port Bickerton",
+    "distance_km": 3.0,
+    "has_wlp": true
   }
 }

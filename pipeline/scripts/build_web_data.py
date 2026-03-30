@@ -50,23 +50,38 @@ def build_segments():
     """Convert 16,939 LineString segments to lightweight centroid points.
 
     Full segments file is 21MB — too big for web. We create:
-    1. segments-high.json: segments scoring >60 (centroid points with metadata)
-    2. segments-all.json: segments scoring >40 (centroid points, minimal metadata)
+    1. segments-high.json: high-scoring segments (centroid points with metadata)
+    2. segments-all.json: moderate+ segments (centroid points, minimal metadata)
+
+    Prefers ns_ranked_segments.geojson (composite scores) when available,
+    falls back to ns_scored_segments.geojson (geometry-only).
     """
-    src = PIPELINE_DATA / "coastline" / "ns_scored_segments.geojson"
+    ranked_src = PIPELINE_DATA / "coastline" / "ns_ranked_segments.geojson"
+    scored_src = PIPELINE_DATA / "coastline" / "ns_scored_segments.geojson"
+
+    use_ranked = ranked_src.exists()
+    src = ranked_src if use_ranked else scored_src
+    source_label = "ranked (composite)" if use_ranked else "scored (geometry-only)"
+    print(f"  Using {source_label} segments from {src.name}")
+
     with open(src) as f:
         data = json.load(f)
 
     high_features = []
     all_features = []
 
+    # Thresholds: use composite_score when available, else total_score
+    high_threshold = 50 if use_ranked else 60
+    all_threshold = 30 if use_ranked else 40
+
     for feat in data["features"]:
         props = feat["properties"]
-        score = props["total_score"]
+        # composite_score from ranked, total_score from scored
+        score = props.get("composite_score") or props.get("total_score", 0)
         centroid = [props["centroid_lon"], props["centroid_lat"]]
 
-        if score > 40:
-            minimal = {
+        if score > all_threshold:
+            minimal: dict = {
                 "type": "Feature",
                 "properties": {
                     "id": props["segment_id"],
@@ -76,22 +91,35 @@ def build_segments():
             }
             all_features.append(minimal)
 
-        if score > 60:
-            detailed = {
+        if score > high_threshold:
+            detailed: dict = {
                 "type": "Feature",
                 "properties": {
                     "id": props["segment_id"],
                     "score": score,
-                    "swell_exposure": props["swell_exposure_score"],
-                    "geometry_score": props["geometry_score"],
-                    "bathymetry": props["bathymetry_score"],
-                    "access": props["road_access_score"],
-                    "orientation": props["orientation_deg"],
-                    "exposure_arc": props["exposure_arc_deg"],
-                    "rank": props["rank"],
+                    "swell_exposure": props.get("swell_exposure_score"),
+                    "geometry_score": props.get("geometry_score"),
+                    "bathymetry": props.get("bathymetry_score"),
+                    "access": props.get("road_access_score"),
+                    "orientation": props.get("orientation_deg"),
+                    "exposure_arc": props.get("exposure_arc_deg"),
+                    "rank": props.get("rank"),
                 },
                 "geometry": {"type": "Point", "coordinates": centroid},
             }
+
+            # Add composite ranking fields when available
+            if use_ranked:
+                detailed["properties"]["composite_score"] = props.get("composite_score")
+                detailed["properties"]["confidence"] = props.get("confidence")
+                detailed["properties"]["foam_component"] = props.get("foam_component")
+                detailed["properties"]["profile_component"] = props.get("profile_component")
+                detailed["properties"]["geometry_component"] = props.get("geometry_component")
+                detailed["properties"]["foam_obs_count"] = props.get("foam_obs_count")
+                detailed["properties"]["turn_on_threshold"] = props.get("turn_on_threshold")
+                detailed["properties"]["optimal_swell"] = props.get("optimal_swell")
+                detailed["properties"]["primary_direction"] = props.get("primary_direction")
+
             high_features.append(detailed)
 
     high_out = WEB_DATA / "segments-high.json"
@@ -105,8 +133,8 @@ def build_segments():
     with open(all_out, "w") as f:
         json.dump(all_geojson, f, separators=(",", ":"))
 
-    print(f"  segments-high.json: {len(high_features)} segments (>60), {high_out.stat().st_size / 1024:.1f}KB")
-    print(f"  segments-all.json: {len(all_features)} segments (>40), {all_out.stat().st_size / 1024:.1f}KB")
+    print(f"  segments-high.json: {len(high_features)} segments (>{high_threshold}), {high_out.stat().st_size / 1024:.1f}KB")
+    print(f"  segments-all.json: {len(all_features)} segments (>{all_threshold}), {all_out.stat().st_size / 1024:.1f}KB")
 
 
 def build_spot_details():
@@ -223,8 +251,12 @@ def build_gallery():
         spot_gallery_dir.mkdir(parents=True, exist_ok=True)
 
         for scene in spot["scenes"]:
-            for key in ("rgb_path", "nir_path"):
-                src_path = ROOT / scene[key]
+            for key in ("rgb_path", "nir_path", "annotated_rgb_path", "annotated_nir_path"):
+                src_val = scene.get(key)
+                if not src_val:
+                    scene[key] = None
+                    continue
+                src_path = ROOT / src_val
                 if src_path.exists():
                     dst = spot_gallery_dir / src_path.name
                     shutil.copy2(src_path, dst)

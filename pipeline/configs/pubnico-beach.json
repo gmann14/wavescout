@@ -1,0 +1,16 @@
+{
+  "name": "Pubnico Beach",
+  "slug": "pubnico-beach",
+  "region": "nova-scotia",
+  "bbox": [-65.6550, 43.5650, -65.6050, 43.5950],
+  "point": {
+    "lat": 43.5800,
+    "lon": -65.6300
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

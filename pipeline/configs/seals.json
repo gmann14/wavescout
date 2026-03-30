@@ -1,0 +1,16 @@
+{
+  "name": "Seals",
+  "slug": "seals",
+  "region": "nova-scotia",
+  "bbox": [-63.2674, 44.6574, -63.2374, 44.6774],
+  "point": {
+    "lat": 44.6674,
+    "lon": -63.2524
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

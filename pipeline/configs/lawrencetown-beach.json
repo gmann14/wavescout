@@ -2,11 +2,15 @@
   "name": "Lawrencetown Beach",
   "slug": "lawrencetown-beach",
   "region": "nova-scotia",
-  "bbox": [-63.40, 44.62, -63.30, 44.66],
+  "bbox": [-63.36, 44.633, -63.33, 44.653],
   "point": {
-    "lat": 44.6375,
-    "lon": -63.3417
+    "lat": 44.643,
+    "lon": -63.343
   },
+  "breaks": [
+    {"name": "LT Beach", "lat": 44.643, "lon": -63.343, "type": "beach"},
+    {"name": "LT Point", "lat": 44.6418, "lon": -63.3512, "type": "point"}
+  ],
   "date_range": {
     "start": "2017-01-01"
   },

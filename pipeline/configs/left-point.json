@@ -1,0 +1,16 @@
+{
+  "name": "Left Point",
+  "slug": "left-point",
+  "region": "nova-scotia",
+  "bbox": [-63.3400, 44.6290, -63.3100, 44.6490],
+  "point": {
+    "lat": 44.6390,
+    "lon": -63.3250
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

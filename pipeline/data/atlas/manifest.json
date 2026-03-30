@@ -1,0 +1,18 @@
+{
+  "script": "17_tile_coastline.py",
+  "run_id": "77ed3df76b82",
+  "generated_at_utc": "2026-03-28T04:44:48.447703+00:00",
+  "code_version": "bc68dac",
+  "parameters": {
+    "section_length_m": 3000,
+    "segments_per_section": 6,
+    "overlap_segments": 1,
+    "min_segment_score": 40,
+    "bbox_padding_deg": 0.003
+  },
+  "summary": {
+    "total_sections": 2839,
+    "total_segments_covered": 16605,
+    "mean_section_score": 44.8
+  }
+}

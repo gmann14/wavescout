@@ -1,0 +1,16 @@
+{
+  "name": "Blueberry Bay",
+  "slug": "blueberry-bay",
+  "region": "nova-scotia",
+  "bbox": [-64.6072, 44.0508, -64.5572, 44.0808],
+  "point": {
+    "lat": 44.0658,
+    "lon": -64.5822
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

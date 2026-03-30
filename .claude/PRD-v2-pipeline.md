@@ -216,3 +216,32 @@ Spots reviewed (March 26, 2026):
 ---
 
 *Written March 26, 2026 by Alfred based on Graham's manual validation session.*
+
+---
+
+## v2.5 Updates (2026-03-27)
+
+### Gallery Expansion — COMPLETE
+- **12 swell bins** (was 5): glass, flat, small-, small, small+, moderate, moderate+, big, big+, storm, storm+, xxl
+- **QS threshold lowered to 90** (was 95): captures high-energy scenes with slight cloud cover
+- **Winter scenes included**: Removed Dec-Mar exclusion + snow_land_pct filter. Best swell comes in winter; human can visually distinguish foam from snow at 10m.
+- **CHS tide integration**: predicted tide at Sentinel-2 overpass time (~15:00 UTC) per scene
+- **Swell direction + period**: metadata per scene, shown in UI lightbox and cards
+- **Result**: 31 spots, 248 scenes, 436 images (up from 19 spots, ~85 scenes)
+
+### Spot Data Corrections
+- Cow Bay → The Moose (matches Surfline naming, same coords)
+- Forevers removed (possibly mythical)
+- Broad Cove area 3 spots confirmed with precise coords
+
+### Product Direction Pivot
+Graham identified fundamental limitation: foam % alone cannot reliably distinguish foam/snow/cloud at 10m for automated spot discovery. 
+
+**New strategy: Visual Atlas → Algorithm Experiments**
+1. Tile entire NS coastline (~1000km+, ~300-400 sections at ~3km)
+2. Pull 10-15 scenes per section across swell height/direction/period
+3. Build browsable viewer for manual spot discovery
+4. Use human labels as ground truth for algorithm development
+5. Multi-layer scoring: temporal stacking + swell-direction response + spatial patterns + geometry
+
+The atlas itself has standalone value as a comprehensive visual record of NS coast conditions.

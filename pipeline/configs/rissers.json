@@ -1,0 +1,16 @@
+{
+  "name": "Rissers",
+  "slug": "rissers",
+  "region": "nova-scotia",
+  "bbox": [-64.4522, 44.2147, -64.4022, 44.2447],
+  "point": {
+    "lat": 44.2297,
+    "lon": -64.4272
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

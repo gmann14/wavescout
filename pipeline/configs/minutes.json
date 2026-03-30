@@ -1,0 +1,16 @@
+{
+  "name": "Minutes",
+  "slug": "minutes",
+  "region": "nova-scotia",
+  "bbox": [-63.4303, 44.6222, -63.4003, 44.6422],
+  "point": {
+    "lat": 44.6322,
+    "lon": -63.4153
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

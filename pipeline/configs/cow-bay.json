@@ -12,6 +12,11 @@
     "lat": 44.6139,
     "lon": -63.4296
   },
+  "breaks": [
+    {"name": "The Moose", "lat": 44.61383, "lon": -63.43175, "type": "reef"},
+    {"name": "Osbourne", "lat": 44.61774, "lon": -63.417031, "type": "point"},
+    {"name": "Minutes", "lat": 44.632158, "lon": -63.415339, "type": "beach"}
+  ],
   "date_range": {
     "start": "2017-01-01"
   },

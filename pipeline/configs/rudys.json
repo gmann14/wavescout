@@ -1,0 +1,16 @@
+{
+  "name": "Rudys",
+  "slug": "rudys",
+  "region": "nova-scotia",
+  "bbox": [-63.2850, 44.6400, -63.2550, 44.6600],
+  "point": {
+    "lat": 44.6500,
+    "lon": -63.2700
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

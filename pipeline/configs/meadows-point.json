@@ -1,0 +1,16 @@
+{
+  "name": "Meadows Point",
+  "slug": "meadows-point",
+  "region": "nova-scotia",
+  "bbox": [-64.6571, 44.0442, -64.6071, 44.0742],
+  "point": {
+    "lat": 44.0592,
+    "lon": -64.6321
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

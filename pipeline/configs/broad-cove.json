@@ -12,6 +12,11 @@
     "lat": 44.1772,
     "lon": -64.4701
   },
+  "breaks": [
+    {"name": "Broad Cove", "lat": 44.1772, "lon": -64.4701, "type": "beach"},
+    {"name": "Arties", "lat": 44.1830, "lon": -64.4620, "type": "point"},
+    {"name": "Bullfield", "lat": 44.1710, "lon": -64.4760, "type": "reef"}
+  ],
   "date_range": {
     "start": "2017-01-01"
   },

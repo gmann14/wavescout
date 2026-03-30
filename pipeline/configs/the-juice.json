@@ -1,0 +1,16 @@
+{
+  "name": "The Juice",
+  "slug": "the-juice",
+  "region": "nova-scotia",
+  "bbox": [-61.7550, 45.1150, -61.7050, 45.1450],
+  "point": {
+    "lat": 45.1300,
+    "lon": -61.7300
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

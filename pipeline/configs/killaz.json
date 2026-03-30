@@ -1,0 +1,16 @@
+{
+  "name": "Killaz",
+  "slug": "killaz",
+  "region": "nova-scotia",
+  "bbox": [-63.2794, 44.6429, -63.2494, 44.6629],
+  "point": {
+    "lat": 44.6529,
+    "lon": -63.2644
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

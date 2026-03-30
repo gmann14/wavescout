@@ -1,0 +1,20 @@
+{
+  "name": "Lawrencetown Point",
+  "slug": "lawrencetown-point",
+  "region": "nova-scotia",
+  "bbox": [-63.3662, 44.6318, -63.3362, 44.6518],
+  "point": {
+    "lat": 44.6418,
+    "lon": -63.3512
+  },
+  "breaks": [
+    {"name": "LT Point", "lat": 44.6418, "lon": -63.3512, "type": "point"},
+    {"name": "LT Beach", "lat": 44.643, "lon": -63.343, "type": "beach"}
+  ],
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

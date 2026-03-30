@@ -1,0 +1,16 @@
+{
+  "name": "The Meadows",
+  "slug": "the-meadows",
+  "region": "nova-scotia",
+  "bbox": [-64.6622, 44.0428, -64.6122, 44.0728],
+  "point": {
+    "lat": 44.0578,
+    "lon": -64.6372
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

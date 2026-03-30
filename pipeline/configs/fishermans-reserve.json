@@ -1,0 +1,16 @@
+{
+  "name": "Fishermans Reserve",
+  "slug": "fishermans-reserve",
+  "region": "nova-scotia",
+  "bbox": [-63.2894, 44.6381, -63.2594, 44.6581],
+  "point": {
+    "lat": 44.6481,
+    "lon": -63.2744
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

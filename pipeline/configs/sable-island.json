@@ -1,0 +1,16 @@
+{
+  "name": "Sable Island",
+  "slug": "sable-island",
+  "region": "nova-scotia",
+  "bbox": [-59.9510, 43.9038, -59.8010, 43.9538],
+  "point": {
+    "lat": 43.9288,
+    "lon": -59.8760
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

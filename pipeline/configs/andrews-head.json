@@ -1,0 +1,16 @@
+{
+  "name": "Andrews Head",
+  "slug": "andrews-head",
+  "region": "nova-scotia",
+  "bbox": [-64.5886, 44.0530, -64.5386, 44.0830],
+  "point": {
+    "lat": 44.0680,
+    "lon": -64.5636
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

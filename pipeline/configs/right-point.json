@@ -1,0 +1,16 @@
+{
+  "name": "Right Point",
+  "slug": "right-point",
+  "region": "nova-scotia",
+  "bbox": [-63.2718, 44.6473, -63.2418, 44.6673],
+  "point": {
+    "lat": 44.6573,
+    "lon": -63.2568
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

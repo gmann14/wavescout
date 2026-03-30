@@ -1,0 +1,16 @@
+{
+  "name": "The Cove",
+  "slug": "the-cove",
+  "region": "nova-scotia",
+  "bbox": [-63.2735, 44.6540, -63.2435, 44.6740],
+  "point": {
+    "lat": 44.6640,
+    "lon": -63.2585
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Osbourne",
+  "slug": "osbourne",
+  "region": "nova-scotia",
+  "bbox": [-63.4320, 44.6077, -63.4020, 44.6277],
+  "point": {
+    "lat": 44.6177,
+    "lon": -63.4170
+  },
+  "breaks": [
+    {"name": "The Moose", "lat": 44.61383, "lon": -63.43175, "type": "reef"},
+    {"name": "Osbourne", "lat": 44.61774, "lon": -63.417031, "type": "point"}
+  ],
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

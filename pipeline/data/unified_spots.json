@@ -46,7 +46,7 @@
       },
       "properties": {
         "slug": "cow-bay",
-        "name": "Cow Bay",
+        "name": "The Moose",
         "source": "well-known",
         "surfline_url": "https://www.surfline.com/surf-report/cow-bay/584204204e65fad6a77094cb",
         "surfline_id": "584204204e65fad6a77094cb",
@@ -67,7 +67,10 @@
           "surfline",
           "wannasurf"
         ],
-        "source_count": 3
+        "source_count": 3,
+        "aliases": [
+          "Cow Bay"
+        ]
       }
     },
     {

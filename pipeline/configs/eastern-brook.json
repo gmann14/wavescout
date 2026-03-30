@@ -1,0 +1,16 @@
+{
+  "name": "Eastern Brook",
+  "slug": "eastern-brook",
+  "region": "nova-scotia",
+  "bbox": [-61.5750, 45.2050, -61.5250, 45.2350],
+  "point": {
+    "lat": 45.2200,
+    "lon": -61.5500
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

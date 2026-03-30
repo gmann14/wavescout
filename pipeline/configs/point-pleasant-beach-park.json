@@ -1,0 +1,16 @@
+{
+  "name": "Point Pleasant Beach Park",
+  "slug": "point-pleasant-beach-park",
+  "region": "nova-scotia",
+  "bbox": [-63.5726, 44.6124, -63.5526, 44.6274],
+  "point": {
+    "lat": 44.6199,
+    "lon": -63.5626
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}

@@ -11,6 +11,13 @@ Computes per-segment per-scene foam metrics:
   - mean_nir: average NIR in buffer
   - max_nir: peak NIR in buffer
 
+Also computes per-scene SCL quality metrics:
+  - cloud_pct: % of AOI pixels classified as cloud (SCL 8, 9, 10)
+  - shadow_pct: % of AOI pixels classified as cloud shadow (SCL 3)
+  - snow_land_pct: % of non-water AOI pixels classified as snow (SCL 11)
+  - valid_pct: % of AOI pixels with actual data (non-nodata)
+  - quality_score: composite 0-100 (cloud 40%, valid 30%, snow 20%, shadow 10%)
+
 Pairs each observation with marine conditions from Open-Meteo.
 
 Output: pipeline/data/manifests/<slug>_foam_detections.json
@@ -19,6 +26,7 @@ Usage:
     python3 pipeline/scripts/13_detect_foam_nir.py
     python3 pipeline/scripts/13_detect_foam_nir.py --config pipeline/configs/cow-bay.json
     python3 pipeline/scripts/13_detect_foam_nir.py --limit 10  # test with 10 scenes
+    python3 pipeline/scripts/13_detect_foam_nir.py --all-spots  # process all configs
 """
 
 from __future__ import annotations
@@ -69,6 +77,20 @@ GEE_PAUSE_S = 0.3
 
 # Open-Meteo rate limit: pause between API calls (seconds)
 METEO_PAUSE_S = 0.25
+
+# SCL class constants
+SCL_NO_DATA = 0
+SCL_CLOUD_SHADOW = 3
+SCL_WATER = 6
+SCL_CLOUD_MEDIUM = 8
+SCL_CLOUD_HIGH = 9
+SCL_THIN_CIRRUS = 10
+SCL_SNOW_ICE = 11
+
+# Quality score minimum thresholds
+QUALITY_DISCARD_THRESHOLD = 40   # < 40 → discard from statistics
+QUALITY_USABLE_THRESHOLD = 60    # >= 60 → usable for analysis
+QUALITY_HIGH_THRESHOLD = 80      # >= 80 → high quality (preferred for gallery)
 
 
 # ---------------------------------------------------------------------------
@@ -175,6 +197,142 @@ def get_clear_scene_dates(bbox: list[float], max_cloud: float, min_date: str) ->
     return dates
 
 
+def get_scl_quality_metrics(date: str, bbox: list[float]) -> dict:
+    """Compute SCL-based scene quality metrics for a single date over the AOI.
+
+    Calculates:
+      - cloud_pct: % of AOI pixels classified as cloud (SCL 8, 9, 10)
+      - shadow_pct: % of AOI pixels classified as cloud shadow (SCL 3)
+      - snow_land_pct: % of non-water AOI pixels classified as snow (SCL 11)
+      - valid_pct: % of pixels with actual data (SCL != 0)
+      - quality_score: composite 0-100
+
+    Quality score weighting:
+      cloud 40% + valid 30% + snow 20% + shadow 10%
+
+    Args:
+        date: YYYY-MM-DD string.
+        bbox: [west, south, east, north] bounding box.
+
+    Returns:
+        Dict with quality metrics. Returns degraded defaults on error.
+    """
+    import ee
+
+    default_metrics = {
+        "cloud_pct": None,
+        "shadow_pct": None,
+        "snow_land_pct": None,
+        "valid_pct": None,
+        "quality_score": None,
+    }
+
+    try:
+        roi = ee.Geometry.Rectangle(bbox)
+
+        collection = (
+            ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
+            .filterBounds(roi)
+            .filterDate(date, ee.Date(date).advance(1, "day"))
+            .filter(ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", MAX_CLOUD_PERCENT))
+            .sort("CLOUDY_PIXEL_PERCENTAGE")
+        )
+
+        count = collection.size().getInfo()
+        if count == 0:
+            return default_metrics
+
+        image = collection.first()
+        scl = image.select("SCL")
+
+        # Total pixel count in AOI (includes nodata=0)
+        total_stats = scl.gte(0).reduceRegion(
+            reducer=ee.Reducer.count(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+        total_pixels = total_stats.get("SCL", 0)
+
+        if not total_pixels:
+            return default_metrics
+
+        # Valid pixels: SCL != 0 (not nodata/swath edge)
+        valid_mask = scl.neq(SCL_NO_DATA)
+        valid_stats = valid_mask.reduceRegion(
+            reducer=ee.Reducer.sum(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+        valid_pixels = valid_stats.get("SCL", 0)
+        valid_pct = (valid_pixels / total_pixels) * 100 if total_pixels else 0
+
+        # Cloud pixels: SCL 8, 9, 10 (medium cloud, high cloud, thin cirrus)
+        cloud_mask = scl.eq(SCL_CLOUD_MEDIUM).Or(scl.eq(SCL_CLOUD_HIGH)).Or(scl.eq(SCL_THIN_CIRRUS))
+        cloud_stats = cloud_mask.reduceRegion(
+            reducer=ee.Reducer.sum(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+        cloud_pixels = cloud_stats.get("SCL", 0)
+        cloud_pct = (cloud_pixels / total_pixels) * 100 if total_pixels else 0
+
+        # Shadow pixels: SCL 3 (cloud shadow)
+        shadow_mask = scl.eq(SCL_CLOUD_SHADOW)
+        shadow_stats = shadow_mask.reduceRegion(
+            reducer=ee.Reducer.sum(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+        shadow_pixels = shadow_stats.get("SCL", 0)
+        shadow_pct = (shadow_pixels / total_pixels) * 100 if total_pixels else 0
+
+        # Snow on land: SCL 11 pixels that are NOT water (SCL 6)
+        # i.e., snow-classified pixels outside water areas
+        snow_land_mask = scl.eq(SCL_SNOW_ICE).And(scl.neq(SCL_WATER))
+        non_water_mask = scl.neq(SCL_WATER).And(scl.neq(SCL_NO_DATA))
+
+        snow_land_stats = snow_land_mask.reduceRegion(
+            reducer=ee.Reducer.sum(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+        non_water_stats = non_water_mask.reduceRegion(
+            reducer=ee.Reducer.sum(),
+            geometry=roi,
+            scale=PIXEL_SIZE_M,
+            maxPixels=1e8,
+        ).getInfo()
+
+        snow_land_pixels = snow_land_stats.get("SCL", 0)
+        non_water_pixels = non_water_stats.get("SCL", 1)  # avoid div-by-zero
+        snow_land_pct = (snow_land_pixels / non_water_pixels) * 100 if non_water_pixels else 0
+
+        # Composite quality score (0-100)
+        # Higher is better. Each component contributes its max weight when clean.
+        cloud_score = (1.0 - min(cloud_pct / 100.0, 1.0)) * 40.0
+        valid_score = min(valid_pct / 100.0, 1.0) * 30.0
+        snow_score = (1.0 - min(snow_land_pct / 100.0, 1.0)) * 20.0
+        shadow_score = (1.0 - min(shadow_pct / 100.0, 1.0)) * 10.0
+        quality_score = cloud_score + valid_score + snow_score + shadow_score
+
+        return {
+            "cloud_pct": round(cloud_pct, 2),
+            "shadow_pct": round(shadow_pct, 2),
+            "snow_land_pct": round(snow_land_pct, 2),
+            "valid_pct": round(valid_pct, 2),
+            "quality_score": round(quality_score, 1),
+        }
+
+    except Exception as exc:
+        print(f"  [WARN] SCL quality metrics failed for {date}: {exc}")
+        return default_metrics
+
+
 def extract_foam_metrics(
     date: str, segment_buffer: object, bbox: list[float]
 ) -> dict | None:
@@ -263,7 +421,9 @@ def extract_foam_metrics(
 
 
 def get_marine_conditions_for_date(lat: float, lon: float, date: str) -> dict:
-    """Fetch marine conditions from Open-Meteo for a specific date at ~11 UTC.
+    """Fetch marine conditions from Open-Meteo for a specific date at ~15 UTC.
+
+    Sentinel-2 overpass for Nova Scotia is ~15:00 UTC (11:00 AM AST).
 
     Returns dict with swell_height_m, swell_period_s, swell_direction_deg.
     """
@@ -300,8 +460,8 @@ def get_marine_conditions_for_date(lat: float, lon: float, date: str) -> dict:
             "wave_height_m": None,
         }
 
-    # Sentinel-2 overpass at ~11 UTC
-    idx = min(11, len(times) - 1)
+    # Sentinel-2 overpass at ~15 UTC (11:00 AM AST = 15:00 UTC)
+    idx = min(15, len(times) - 1)
 
     return {
         "swell_height_m": hourly.get("swell_wave_height", [None])[idx],
@@ -312,64 +472,15 @@ def get_marine_conditions_for_date(lat: float, lon: float, date: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Main
+# Single-spot processing
 # ---------------------------------------------------------------------------
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="NIR foam detection per coastline segment across Sentinel-2 archive."
-    )
-    parser.add_argument(
-        "--config",
-        type=Path,
-        default=DEFAULT_CONFIG_PATH,
-        help=f"Path to spot config JSON. Default: {DEFAULT_CONFIG_PATH}",
-    )
-    parser.add_argument(
-        "--limit",
-        type=int,
-        help="Max number of scenes to process (for testing). Default: all.",
-    )
-    parser.add_argument(
-        "--nir-threshold",
-        type=int,
-        default=NIR_FOAM_THRESHOLD,
-        help=f"NIR threshold for foam detection. Default: {NIR_FOAM_THRESHOLD}",
-    )
-    parser.add_argument(
-        "--buffer-m",
-        type=int,
-        default=BUFFER_DISTANCE_M,
-        help=f"Nearshore buffer distance in meters. Default: {BUFFER_DISTANCE_M}",
-    )
-    parser.add_argument(
-        "--skip-conditions",
-        action="store_true",
-        help="Skip Open-Meteo conditions lookup (faster for testing).",
-    )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        help="Override output path.",
-    )
-    parser.add_argument(
-        "--project",
-        help="GEE cloud project ID. Default: GEE_PROJECT env var.",
-    )
-    return parser.parse_args()
+def process_spot(config: dict, args: argparse.Namespace) -> dict:
+    """Process foam detection for a single spot config.
 
+    Returns the output payload dict.
+    """
+    import ee
 
-def main() -> None:
-    args = parse_args()
-
-    global NIR_FOAM_THRESHOLD, BUFFER_DISTANCE_M
-    NIR_FOAM_THRESHOLD = args.nir_threshold
-    BUFFER_DISTANCE_M = args.buffer_m
-
-    print("=" * 60)
-    print("Phase 2.5: NIR Foam Detection")
-    print("=" * 60)
-
-    config = load_region_config(args.config)
     slug = config["slug"]
     bbox = config["bbox"]
     point = config.get("point", {})
@@ -386,13 +497,9 @@ def main() -> None:
     print(f"Segments in bbox: {len(segments)}")
 
     if not segments:
-        print("ERROR: No segments found in bbox. Check your config bbox against ns_segments.geojson.")
-        sys.exit(1)
-
-    # Initialize GEE
-    print("\nInitializing Google Earth Engine...")
-    init_gee(args.project)
-    import ee
+        print("WARNING: No segments found in bbox. Check your config bbox against ns_segments.geojson.")
+        # Return empty manifest rather than exiting — allows --all-spots to continue
+        return _build_empty_payload(config, slug, bbox, lat, lon)
 
     # Get clear scene dates
     print(f"Querying clear scenes (post-{MIN_DATE}, <{MAX_CLOUD_PERCENT}% cloud)...")
@@ -404,8 +511,8 @@ def main() -> None:
         print(f"Limited to first {args.limit} scenes")
 
     if not scene_dates:
-        print("ERROR: No clear scenes found. Check GEE access and date range.")
-        sys.exit(1)
+        print("WARNING: No clear scenes found.")
+        return _build_empty_payload(config, slug, bbox, lat, lon)
 
     # Pre-build seaward buffers for each segment (reused across all scenes)
     print("\nBuilding seaward buffers for each segment...")
@@ -427,6 +534,8 @@ def main() -> None:
 
     detections: list[dict] = []
     conditions_cache: dict[str, dict] = {}
+    quality_cache: dict[str, dict] = {}
+    scene_quality_summary: list[dict] = []
     errors = 0
 
     for i, date in enumerate(scene_dates):
@@ -435,13 +544,27 @@ def main() -> None:
             conditions_cache[date] = get_marine_conditions_for_date(lat, lon, date)
             time.sleep(METEO_PAUSE_S)
 
+        # Compute SCL quality metrics for this scene (once per date)
+        if date not in quality_cache:
+            quality_cache[date] = get_scl_quality_metrics(date, bbox)
+            time.sleep(GEE_PAUSE_S)
+
         conditions = conditions_cache.get(date, {})
+        quality = quality_cache[date]
         swell_h = conditions.get("swell_height_m")
         swell_p = conditions.get("swell_period_s")
         swell_d = conditions.get("swell_direction_deg")
 
+        qs = quality.get("quality_score")
         swell_str = f"{swell_h}m" if swell_h is not None else "N/A"
-        print(f"[{i + 1}/{len(scene_dates)}] {date} (swell: {swell_str})")
+        qs_str = f"qs={qs:.0f}" if qs is not None else "qs=?"
+        print(f"[{i + 1}/{len(scene_dates)}] {date} (swell: {swell_str}, {qs_str}, cloud={quality.get('cloud_pct')}%, valid={quality.get('valid_pct')}%)")
+
+        # Record scene-level quality entry
+        scene_quality_summary.append({
+            "date": date,
+            **quality,
+        })
 
         for j, (feat, buffer_geom) in enumerate(segment_buffers):
             seg_id = feat["properties"]["segment_id"]
@@ -463,6 +586,12 @@ def main() -> None:
                 "swell_period_s": swell_p,
                 "swell_direction_deg": swell_d,
                 "wave_height_m": conditions.get("wave_height_m"),
+                # SCL quality metrics (scene-level, repeated per detection for easy filtering)
+                "cloud_pct": quality.get("cloud_pct"),
+                "shadow_pct": quality.get("shadow_pct"),
+                "snow_land_pct": quality.get("snow_land_pct"),
+                "valid_pct": quality.get("valid_pct"),
+                "quality_score": quality.get("quality_score"),
                 **metrics,
             }
             detections.append(detection)
@@ -505,31 +634,213 @@ def main() -> None:
                 "start": scene_dates[0] if scene_dates else None,
                 "end": scene_dates[-1] if scene_dates else None,
             },
+            "quality": {
+                "scenes_high_quality": sum(
+                    1 for q in scene_quality_summary
+                    if (q.get("quality_score") or 0) >= QUALITY_HIGH_THRESHOLD
+                ),
+                "scenes_usable": sum(
+                    1 for q in scene_quality_summary
+                    if (q.get("quality_score") or 0) >= QUALITY_USABLE_THRESHOLD
+                ),
+                "scenes_discarded": sum(
+                    1 for q in scene_quality_summary
+                    if (q.get("quality_score") or 0) < QUALITY_DISCARD_THRESHOLD
+                ),
+                "mean_quality_score": (
+                    round(
+                        sum(q["quality_score"] for q in scene_quality_summary if q.get("quality_score") is not None)
+                        / max(1, sum(1 for q in scene_quality_summary if q.get("quality_score") is not None)),
+                        1,
+                    )
+                    if scene_quality_summary else None
+                ),
+            },
         },
+        "scene_quality": scene_quality_summary,
         "detections": detections,
     }
 
     write_json(output_path, payload)
-
-    print(f"\n{'=' * 60}")
-    print(f"RESULTS")
-    print(f"{'=' * 60}")
-    print(f"Scenes processed: {len(scene_dates)}")
-    print(f"Segments processed: {len(segment_buffers)}")
-    print(f"Total detections: {len(detections)}")
-    print(f"Errors: {errors}")
-
-    if detections:
-        foam_fracs = [d["foam_fraction"] for d in detections]
-        print(f"\nFoam fraction stats:")
-        print(f"  Min:  {min(foam_fracs):.4f}")
-        print(f"  Max:  {max(foam_fracs):.4f}")
-        print(f"  Mean: {sum(foam_fracs) / len(foam_fracs):.4f}")
-
-        foamy = [d for d in detections if d["foam_fraction"] > 0.05]
-        print(f"\nDetections with foam_fraction > 0.05: {len(foamy)}")
-
     print(f"\nManifest saved to {output_path}")
+    return payload
+
+
+def _build_empty_payload(config: dict, slug: str, bbox: list, lat, lon) -> dict:
+    """Build an empty result payload for spots with no segments or scenes."""
+    run_id = generate_run_id()
+    return {
+        "script": "13_detect_foam_nir.py",
+        "run_id": run_id,
+        "generated_at_utc": now_utc_iso(),
+        "code_version": get_code_version(),
+        "config": {
+            "spot": config["name"],
+            "slug": slug,
+            "bbox": bbox,
+            "point": {"lat": lat, "lon": lon},
+        },
+        "parameters": {},
+        "summary": {
+            "scenes_processed": 0,
+            "segments_processed": 0,
+            "total_detections": 0,
+            "errors": 0,
+            "scenes_with_foam": 0,
+            "date_range": {"start": None, "end": None},
+            "quality": {
+                "scenes_high_quality": 0,
+                "scenes_usable": 0,
+                "scenes_discarded": 0,
+                "mean_quality_score": None,
+            },
+        },
+        "scene_quality": [],
+        "detections": [],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="NIR foam detection per coastline segment across Sentinel-2 archive."
+    )
+
+    spot_group = parser.add_mutually_exclusive_group()
+    spot_group.add_argument(
+        "--config",
+        type=Path,
+        default=DEFAULT_CONFIG_PATH,
+        help=f"Path to spot config JSON. Default: {DEFAULT_CONFIG_PATH}",
+    )
+    spot_group.add_argument(
+        "--all-spots",
+        action="store_true",
+        help="Process ALL config files in pipeline/configs/ sequentially.",
+    )
+
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="Max number of scenes to process per spot (for testing). Default: all.",
+    )
+    parser.add_argument(
+        "--nir-threshold",
+        type=int,
+        default=NIR_FOAM_THRESHOLD,
+        help=f"NIR threshold for foam detection. Default: {NIR_FOAM_THRESHOLD}",
+    )
+    parser.add_argument(
+        "--buffer-m",
+        type=int,
+        default=BUFFER_DISTANCE_M,
+        help=f"Nearshore buffer distance in meters. Default: {BUFFER_DISTANCE_M}",
+    )
+    parser.add_argument(
+        "--skip-conditions",
+        action="store_true",
+        help="Skip Open-Meteo conditions lookup (faster for testing).",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="Override output path (ignored when --all-spots is set).",
+    )
+    parser.add_argument(
+        "--project",
+        help="GEE cloud project ID. Default: GEE_PROJECT env var.",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+
+    global NIR_FOAM_THRESHOLD, BUFFER_DISTANCE_M
+    NIR_FOAM_THRESHOLD = args.nir_threshold
+    BUFFER_DISTANCE_M = args.buffer_m
+
+    # Initialize GEE once (shared across all spots)
+    print("=" * 60)
+    print("Phase 2.5: NIR Foam Detection")
+    print("=" * 60)
+    print("\nInitializing Google Earth Engine...")
+    init_gee(args.project)
+
+    # Determine which configs to process
+    if args.all_spots:
+        configs_dir = Path(__file__).resolve().parents[1] / "configs"
+        config_paths = sorted(configs_dir.glob("*.json"))
+        if not config_paths:
+            print(f"ERROR: No config files found in {configs_dir}")
+            sys.exit(1)
+        print(f"All-spots mode: found {len(config_paths)} configs")
+        if args.output:
+            print("WARNING: --output is ignored in --all-spots mode")
+    else:
+        config_paths = [args.config]
+
+    all_results: list[dict] = []
+    failed_spots: list[str] = []
+
+    for config_path in config_paths:
+        print(f"\n{'=' * 60}")
+        print(f"Processing: {config_path.name}")
+        print("=" * 60)
+
+        try:
+            config = load_region_config(config_path)
+        except Exception as exc:
+            print(f"ERROR loading config {config_path}: {exc}")
+            failed_spots.append(str(config_path))
+            continue
+
+        try:
+            payload = process_spot(config, args)
+            all_results.append({
+                "slug": config["slug"],
+                "name": config["name"],
+                "scenes_processed": payload["summary"]["scenes_processed"],
+                "total_detections": payload["summary"]["total_detections"],
+                "mean_quality_score": payload["summary"]["quality"].get("mean_quality_score"),
+            })
+        except Exception as exc:
+            print(f"ERROR processing {config.get('slug', config_path.name)}: {exc}")
+            failed_spots.append(str(config_path))
+
+    # Print summary for --all-spots runs
+    if args.all_spots:
+        print(f"\n{'=' * 60}")
+        print("ALL-SPOTS SUMMARY")
+        print("=" * 60)
+        print(f"{'Spot':<35} {'Scenes':>8} {'Detections':>12} {'Avg Quality':>12}")
+        print("-" * 60)
+        for r in all_results:
+            qs = f"{r['mean_quality_score']:.1f}" if r["mean_quality_score"] is not None else "N/A"
+            print(f"{r['name']:<35} {r['scenes_processed']:>8} {r['total_detections']:>12} {qs:>12}")
+        if failed_spots:
+            print(f"\nFailed ({len(failed_spots)}):")
+            for s in failed_spots:
+                print(f"  - {s}")
+        total_detections = sum(r["total_detections"] for r in all_results)
+        print(f"\nTotal: {len(all_results)} spots, {total_detections} detections, {len(failed_spots)} failures")
+    else:
+        # Single-spot mode: print results summary inline
+        if all_results:
+            r = all_results[0]
+            slug = config_paths[0].stem
+            payload_summary = all_results[0]
+
+            print(f"\n{'=' * 60}")
+            print(f"RESULTS")
+            print(f"{'=' * 60}")
+            print(f"Scenes processed:  {r['scenes_processed']}")
+            print(f"Total detections:  {r['total_detections']}")
+            qs = r.get("mean_quality_score")
+            if qs is not None:
+                print(f"Mean quality score: {qs:.1f}")
 
 
 if __name__ == "__main__":

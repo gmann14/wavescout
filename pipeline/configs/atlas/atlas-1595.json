@@ -1,0 +1,35 @@
+{
+  "name": "Atlas Section atlas-1595",
+  "slug": "atlas-1595",
+  "region": "nova-scotia",
+  "bbox": [
+    -62.944285,
+    46.328773,
+    -62.91695,
+    46.343264
+  ],
+  "point": {
+    "lat": 46.336785,
+    "lon": -62.933653
+  },
+  "date_range": {
+    "start": "2021-10-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_atlas"
+  },
+  "atlas_metadata": {
+    "mean_score": 63.9,
+    "max_score": 77.7,
+    "segment_count": 6,
+    "segment_ids": [
+      "ns-seg-14926",
+      "ns-seg-14927",
+      "ns-seg-14928",
+      "ns-seg-14929",
+      "ns-seg-14930",
+      "ns-seg-14931"
+    ],
+    "coastline_length_m": 2915.0
+  }
+}

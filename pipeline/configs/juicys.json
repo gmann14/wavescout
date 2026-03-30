@@ -1,0 +1,16 @@
+{
+  "name": "Juicys",
+  "slug": "juicys",
+  "region": "nova-scotia",
+  "bbox": [-61.7650, 45.1150, -61.7150, 45.1450],
+  "point": {
+    "lat": 45.1300,
+    "lon": -61.7400
+  },
+  "date_range": {
+    "start": "2017-01-01"
+  },
+  "export": {
+    "drive_folder": "wavescout_samples"
+  }
+}
