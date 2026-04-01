@@ -2,6 +2,11 @@ venv/
 __pycache__/
 *.pyc
 .env
+.DS_Store
+
+# Claude Code internal files (memory, tasks, specs)
+.claude/
+CLAUDE.md
 
 # Large cached data (re-downloadable from Overpass/GEBCO)
 pipeline/data/coastline/ns_coastline.geojson
