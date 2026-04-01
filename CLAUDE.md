@@ -82,10 +82,30 @@ source venv/bin/activate
 python3 pipeline/scripts/<script>.py [args]
 
 # Web viewer
-cd web && pnpm dev    # dev server at localhost:3000
-cd web && pnpm build  # production build
+cd web && pnpm install  # install dependencies (needed after clean checkout)
+cd web && pnpm dev      # dev server at localhost:3000
+cd web && pnpm build    # production build
 python3 pipeline/scripts/build_web_data.py  # rebuild web data from pipeline
 ```
+
+## Disk Space & Regenerable Files
+
+The repo can grow large due to generated data. These files are **safe to delete** and quick to restore:
+
+| Path | ~Size | How to restore |
+|---|---|---|
+| `web/node_modules/` | 572M | `cd web && pnpm install` (~30 sec) |
+| `web/.next/` | 331M | Auto-created by `pnpm dev` or `pnpm build` |
+| `web/public/gallery/` | 334M | `python3 pipeline/scripts/build_web_data.py` (instant copy from pipeline) |
+| `web/public/data/gallery/` | 269M | `python3 pipeline/scripts/build_web_data.py` (instant copy from pipeline) |
+| `pipeline/data/coastline/ns_roads_utm.json` | 66M | Auto-downloaded by script 10 from OSM (~2-5 min) |
+
+**Do NOT delete** — these take hours to regenerate via GEE:
+- `pipeline/data/gallery/` (1,824 PNGs, source of truth for web gallery)
+- `pipeline/data/manifests/` (foam detection results)
+- `pipeline/data/coastline/ns_scored_segments.geojson` and `ns_segments.geojson` (tracked in git)
+
+**Dependency chain:** Pipeline gallery (slow GEE) → `build_web_data.py` (instant) → web/public/ files
 
 ## Environment
 - `.env` with GEE_PROJECT=seotakeoff
