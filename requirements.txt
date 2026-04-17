@@ -8,6 +8,7 @@ numpy
 pandas
 requests
 matplotlib
+pytest
 
 # ML (Phase 2+)
 torch

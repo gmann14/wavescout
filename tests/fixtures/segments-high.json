@@ -1,0 +1,51 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ns-seg-03842",
+        "verification_status": "candidate",
+        "publication_status": "public_coarse",
+        "surf_potential_score": 84.1,
+        "evidence_confidence_level": 2,
+        "evidence_confidence_label": "moderate",
+        "quality_status": "usable",
+        "score_components": {
+          "geometry": 28.0,
+          "foam": 34.91,
+          "profile": 0.0
+        },
+        "foam_obs_count": 236,
+        "turn_on_threshold_m": null,
+        "optimal_swell_range": null,
+        "primary_direction": null,
+        "explanation": {
+          "summary": "Promising coarse-public candidate with strong geometry and imagery support.",
+          "score_components": {
+            "geometry": 28.0,
+            "foam": 34.91,
+            "profile": 0.0
+          },
+          "highlights": [
+            "Strong swell exposure",
+            "Repeated imagery activity"
+          ],
+          "caveats": [
+            "Profile incomplete"
+          ],
+          "provenance": {
+            "run_id": "20bedc0157f3",
+            "generated_at_utc": "2026-04-17T18:00:00Z",
+            "code_version": "360d954",
+            "config_version": "unknown"
+          }
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.354, 44.642]
+      }
+    }
+  ]
+}

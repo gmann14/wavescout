@@ -149,6 +149,12 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
             </div>
           )}
 
+          {!loading && !detail && (
+            <div className="bg-navy-800 rounded-lg p-3 text-sm text-slate-400">
+              Detailed metrics are not available for this location yet.
+            </div>
+          )}
+
           {/* Swell profile */}
           {detail?.swell_profile && (
             <div>

@@ -1,0 +1,21 @@
+{
+  "dataset_id": "ns-2026-04-17-a",
+  "region": "Nova Scotia",
+  "status": "draft",
+  "run_id": "20bedc0157f3",
+  "generated_at_utc": "2026-04-17T18:00:00Z",
+  "code_version": "360d954",
+  "config_version": "unknown",
+  "source_manifests": {
+    "ranking": "pipeline/data/manifests/unified_ranking_manifest.json",
+    "gallery": "pipeline/data/gallery/manifest.json"
+  },
+  "artifacts": {
+    "spots": "/data/spots.json",
+    "segments_high": "/data/segments-high.json",
+    "segments_all": "/data/segments-all.json",
+    "gallery": "/data/gallery.json",
+    "atlas_sections": "/data/atlas/sections.json",
+    "atlas_gallery": "/data/atlas/gallery.json"
+  }
+}

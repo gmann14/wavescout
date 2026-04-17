@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lawrencetown Beach",
+        "slug": "lawrencetown-beach",
+        "break_type": "beach",
+        "verification_status": "confirmed",
+        "publication_status": "public_named",
+        "source_summary": "well-known",
+        "short_summary": "Consistent Nova Scotia beach break reference spot.",
+        "surf_potential_score": 92.1,
+        "evidence_confidence_level": 3,
+        "evidence_confidence_label": "high",
+        "gallery_available": true,
+        "swell_profile_available": true,
+        "quality_status": "usable",
+        "foam_summary": {
+          "scenes_processed": 120,
+          "segments_processed": 6,
+          "total_detections": 707,
+          "errors": 0,
+          "scenes_with_foam": 116,
+          "date_range": {
+            "start": "2021-10-07",
+            "end": "2026-03-18"
+          }
+        },
+        "explanation": {
+          "summary": "Repeated usable imagery evidence at a known public beach break.",
+          "score_components": {
+            "geometry": 28.0,
+            "foam": 34.9,
+            "profile": 21.0
+          },
+          "highlights": [
+            "Known reference spot",
+            "Repeated usable imagery evidence"
+          ],
+          "caveats": [
+            "Resolution remains coarse"
+          ],
+          "provenance": {
+            "run_id": "20bedc0157f3",
+            "generated_at_utc": "2026-04-17T18:00:00Z",
+            "code_version": "360d954",
+            "config_version": "unknown"
+          }
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.3417, 44.6375]
+      }
+    }
+  ]
+}

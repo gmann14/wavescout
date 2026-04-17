@@ -54,3 +54,10 @@ The normative frontend behavior docs are:
 - [docs/UI-STATES.md](../docs/UI-STATES.md)
 - [docs/DATA-CONTRACTS.md](../docs/DATA-CONTRACTS.md)
 - [docs/PUBLIC-OUTPUT-POLICY.md](../docs/PUBLIC-OUTPUT-POLICY.md)
+
+Initial frontend test commands:
+
+```bash
+pnpm test
+pnpm test:e2e
+```

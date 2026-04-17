@@ -95,6 +95,14 @@ python3 pipeline/scripts/build_atlas_web_data.py
 
 There is not yet a complete automated test harness for the pipeline and web app. The required red/green test plan is defined in [docs/ROADMAP.md](docs/ROADMAP.md) and should be treated as delivery work, not optional cleanup.
 
+Initial test commands:
+
+```bash
+pytest
+cd web && pnpm test
+cd web && pnpm test:e2e
+```
+
 ## Notes
 
 - `web/public/data/methodology.md` is the web-served copy of [docs/METHODOLOGY.md](docs/METHODOLOGY.md) and should stay in sync.

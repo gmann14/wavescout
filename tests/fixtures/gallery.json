@@ -1,0 +1,35 @@
+{
+  "run_id": "5579e0e8463b",
+  "generated_at_utc": "2026-04-17T18:00:00Z",
+  "code_version": "360d954",
+  "parameters": {
+    "min_quality_score": 90
+  },
+  "spots": [
+    {
+      "spot_name": "Lawrencetown Beach",
+      "slug": "lawrencetown-beach",
+      "publication_status": "public_named",
+      "scenes": [
+        {
+          "date": "2026-03-18",
+          "scene_id": "lawrencetown-beach:2026-03-18",
+          "quality_status": "usable",
+          "quality_score": 96.8,
+          "swell_height_m": 2.36,
+          "swell_period_s": 9.05,
+          "swell_direction_deg": 172,
+          "cloud_pct": 4.92,
+          "foam_fraction": 0.31,
+          "bin_label": "big+",
+          "rgb_path": "/gallery/lawrencetown-beach/example_rgb.png",
+          "nir_path": "/gallery/lawrencetown-beach/example_nir.png"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_spots": 1,
+    "total_images": 2
+  }
+}
