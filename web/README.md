@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WaveScout Web App
 
-## Getting Started
+This is the static Next.js viewer for WaveScout.
 
-First, run the development server:
+## What It Contains
+
+- `Map` for confirmed spots and candidate segments
+- `Atlas` for systematic coastline browsing
+- `Compare` for same-date cross-spot inspection
+- markdown-driven `How It Works`
+- static `About`
+
+The app reads generated files from `web/public/data/`. It does not query Google Earth Engine directly.
+
+## Local Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.local.example .env.local
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Required environment variable:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `NEXT_PUBLIC_MAPBOX_TOKEN`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production Build
 
-## Learn More
+```bash
+pnpm build
+pnpm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Data Dependency
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Refresh the static payloads from the pipeline with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+python3 ../pipeline/scripts/build_web_data.py
+python3 ../pipeline/scripts/build_atlas_web_data.py
+```
 
-## Deploy on Vercel
+## Testing Direction
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The frontend test plan is defined in [docs/ROADMAP.md](../docs/ROADMAP.md). The key missing coverage areas are:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- component states
+- navigation smoke tests
+- map/detail UX regression checks
+- compare-page date integrity
+
+The normative frontend behavior docs are:
+
+- [docs/UI-STATES.md](../docs/UI-STATES.md)
+- [docs/DATA-CONTRACTS.md](../docs/DATA-CONTRACTS.md)
+- [docs/PUBLIC-OUTPUT-POLICY.md](../docs/PUBLIC-OUTPUT-POLICY.md)

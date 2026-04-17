@@ -1,54 +1,63 @@
 # WaveScout
 
-Surf discovery from satellite imagery. WaveScout uses Sentinel-2 satellite data, coastline geometry, and ocean conditions to find and rank candidate surf zones along Nova Scotia's coast.
+WaveScout is a Nova Scotia surf-discovery project built from precomputed satellite evidence, coastline geometry, and ocean context. The repo contains two main surfaces:
 
-**Live demo:** [wavescout.vercel.app](https://wavescout.vercel.app) (coming soon)
+- a Python pipeline that produces ranked coastline artifacts and image galleries
+- a static Next.js viewer that explores those artifacts on a map, in an atlas, and in same-date comparisons
 
-## What It Does
+## Current Status
 
-WaveScout analyzes 1,000+ km of Nova Scotia coastline to identify where waves are likely breaking — and why. The pipeline:
+As of 2026-04-17:
 
-1. **Segments the coastline** into ~16,900 sections (~500m each) and scores them on geometry: swell exposure, coastal complexity, and road access
-2. **Detects foam/whitewater** from Sentinel-2 NIR imagery across years of satellite passes — water absorbs NIR (appears black), foam reflects it (bright white)
-3. **Builds swell-response profiles** per segment: at what swell height does it turn on? What direction? When does it blow out?
-4. **Ranks everything** with a composite score combining geometry (35%), foam evidence (40%), and swell profile quality (25%)
+- feasibility work is complete enough to justify continuing with imagery-assisted discovery
+- the repo contains pipeline scripts through ranking and web-data export
+- the web app exists locally and renders precomputed Nova Scotia data
+- the remaining work is product hardening: contamination handling, clearer score semantics, UX polish, and automated tests
 
-The result: 374 segments with foam data, 42 with full swell profiles, and known surf spots consistently ranking in the 88-100th percentile.
+The canonical planning docs are:
 
-## Web Viewer
+- [docs/SPEC.md](docs/SPEC.md)
+- [docs/ROADMAP.md](docs/ROADMAP.md)
+- [docs/IMPLEMENTATION-BACKLOG.md](docs/IMPLEMENTATION-BACKLOG.md)
+- [docs/IMPLEMENTATION-KICKOFF.md](docs/IMPLEMENTATION-KICKOFF.md)
+- [docs/MIGRATION-STRATEGY.md](docs/MIGRATION-STRATEGY.md)
+- [docs/DATA-CONTRACTS.md](docs/DATA-CONTRACTS.md)
+- [docs/UI-STATES.md](docs/UI-STATES.md)
+- [docs/PUBLIC-OUTPUT-POLICY.md](docs/PUBLIC-OUTPUT-POLICY.md)
+- [docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md)
+- [docs/TRACEABILITY.md](docs/TRACEABILITY.md)
+- [docs/METHODOLOGY.md](docs/METHODOLOGY.md)
+- [FEASIBILITY-STATUS.md](FEASIBILITY-STATUS.md)
 
-A Next.js app for exploring results interactively:
+## Product Definition
 
-- **Map** — dark Mapbox map with three tiers: verified spots (teal), high-scoring candidates (orange), and all scored segments (gray on zoom)
-- **Spot detail** — satellite gallery (RGB + NIR), swell-response charts, foam stats, tide/direction metadata
-- **Atlas** — browse the entire surfable coastline in ~3km sections with satellite imagery across swell conditions
-- **Compare** — cross-spot same-date comparison to see how different spots respond to the same swell
+The MVP is a static Nova Scotia explorer, not a live forecasting product.
 
-Pages: `/` (map), `/atlas`, `/compare`, `/methodology`, `/about`
+Users should be able to:
 
-## Key Technical Findings
+- inspect confirmed spots and candidate coastline segments on a map
+- understand why a location is ranked the way it is
+- review satellite evidence and caveats
+- compare locations on the same acquisition date
+- browse the coastline atlas without triggering new processing jobs
 
-- **NIR (B8) is the best band for foam detection** — far better contrast than true-color RGB
-- **Moderate swell (1.6-2.0m) shows the clearest break patterns** — storm days are too blown out
-- **Different spots have different swell thresholds** — there's no single "waves are breaking" cutoff
-- **10m resolution can detect foam presence and extent** but not individual wave shapes
-- **Open-Meteo swell data starts Oct 2021** for Nova Scotia; earlier scenes lack swell context
+The MVP should not claim that a spot is good, safe, accessible, or working today.
 
-## Project Structure
+## Repo Structure
 
-```
+```text
 pipeline/
-  scripts/          20 numbered pipeline scripts (01-20) + build scripts
-  configs/          spot + atlas section configs (JSON)
-  data/             manifests, coastline data, gallery images, foam detections
+  configs/          region, spot, and atlas config JSON
+  scripts/          numbered pipeline stages plus web-data builders
+  data/             generated manifests, coastline artifacts, galleries, atlas outputs
 docs/
-  SPEC.md           full product spec
-  METHODOLOGY.md    detection methodology explainer
-  PRODUCT-VISION.md broader product direction
-web/                Next.js 15 app (Mapbox GL, Recharts, Tailwind)
-  src/app/          App Router pages
-  src/components/   React components
-  public/data/      optimized static data (built from pipeline)
+  SPEC.md           product and UX source of truth
+  ROADMAP.md        ordered implementation plan with red/green TDD stages
+  METHODOLOGY.md    user-facing explanation of how the evidence works
+web/
+  src/app/          Next.js routes
+  src/components/   viewer components
+  public/data/      generated static payloads consumed by the web app
 ```
 
 ## Setup
@@ -62,60 +71,32 @@ pip install -r requirements.txt
 earthengine authenticate
 ```
 
-Requires a Google Earth Engine account and project. Set `GEE_PROJECT` in `.env`.
+Set `GEE_PROJECT` in `.env`.
 
-### Web Viewer
+### Web
 
 ```bash
 cd web
 pnpm install
-cp .env.local.example .env.local   # add your Mapbox token
-pnpm dev                           # localhost:3000
+cp .env.local.example .env.local
+pnpm dev
 ```
 
-### Rebuilding Web Data from Pipeline
+Set `NEXT_PUBLIC_MAPBOX_TOKEN` in `web/.env.local`.
+
+### Rebuild Web Data
 
 ```bash
-python3 pipeline/scripts/build_web_data.py        # spots, segments, gallery
-python3 pipeline/scripts/build_atlas_web_data.py   # atlas sections
+python3 pipeline/scripts/build_web_data.py
+python3 pipeline/scripts/build_atlas_web_data.py
 ```
 
-## Tech Stack
+## Testing Status
 
-- **Pipeline:** Python 3.12, Google Earth Engine (`earthengine-api`), Open-Meteo Marine + Weather APIs, PIL/numpy
-- **Web:** Next.js 15, TypeScript, Tailwind CSS, Mapbox GL JS, Recharts
-- **Data:** Sentinel-2 L2A imagery (10m resolution), OSM coastline geometry, Open-Meteo hindcast swell/wind
+There is not yet a complete automated test harness for the pipeline and web app. The required red/green test plan is defined in [docs/ROADMAP.md](docs/ROADMAP.md) and should be treated as delivery work, not optional cleanup.
 
-## Pipeline Scripts
+## Notes
 
-| # | Script | What It Does |
-|---|--------|-------------|
-| 01 | `test_gee_access.py` | Scene inventory for a spot |
-| 02 | `export_sample_images.py` | Export GeoTIFFs to Google Drive |
-| 03 | `check_conditions.py` | Open-Meteo marine + weather lookup |
-| 04 | `run_feasibility.py` | Orchestrate 01+03 across spots |
-| 05 | `generate_review_sheet.py` | CSV review sheets for manual labeling |
-| 06 | `generate_thumbnails.py` | True-color PNGs from GEE |
-| 07 | `generate_band_composites.py` | NIR, SWIR, NDWI composites |
-| 10 | `segment_coastline.py` | OSM coastline to 500m scored segments |
-| 11 | `score_geometry.py` | Geometry scoring 0-100 |
-| 12 | `calibrate.py` | Validate against 14 known spots |
-| 13 | `detect_foam_nir.py` | NIR foam detection per segment per scene |
-| 14 | `build_swell_profiles.py` | Swell-response profiles from foam data |
-| 15-16 | `generate_gallery_*.py` | Satellite gallery thumbnails (RGB + NIR) |
-| 17-18 | `tile_coastline.py` / `generate_atlas_fast.py` | Coastline atlas sections + images |
-| 19 | `annotate_gallery.py` | Break pin annotations on gallery images |
-| 20 | `rank_segments.py` | Unified composite scoring |
-
-## Status
-
-Active development. Current focus areas:
-- Deployment to Vercel
-- Algorithm experiments (differential foam maps, temporal stacking, spatial pattern recognition)
-- Data quality improvements (cliff/foam filtering, bathymetry integration)
-
-See [docs/SPEC.md](docs/SPEC.md) for the full product spec and [docs/METHODOLOGY.md](docs/METHODOLOGY.md) for how the detection pipeline works.
-
-## License
-
-All rights reserved.
+- `web/public/data/methodology.md` is the web-served copy of [docs/METHODOLOGY.md](docs/METHODOLOGY.md) and should stay in sync.
+- Generated pipeline data can be large; prefer rebuilding derived web assets rather than duplicating them.
+- Treat any precise counts in generated artifacts as snapshots, not product promises.

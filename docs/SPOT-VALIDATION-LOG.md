@@ -2,6 +2,8 @@
 
 > Manual validation notes from Graham reviewing satellite gallery images.
 > Used to calibrate the foam detection algorithm and swell response profiles.
+> This is a raw observation log, not the canonical product spec or roadmap.
+> Use it to identify failure modes and calibration examples, then translate those into tracked work in [ROADMAP.md](ROADMAP.md).
 
 ---
 
@@ -22,8 +24,6 @@
 - Point breaks need different foam thresholds than beach breaks (lower foam % can still indicate active breaking)
 - Swell turn-on threshold for Snapjaw: ~3.0m+ (high for NS)
 - Consider break type (point vs beach vs reef) as a weighting factor in scoring
-
----
 
 ---
 

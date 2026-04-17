@@ -1,64 +1,48 @@
 # WaveScout Product Vision
 
-*Updated: March 25, 2026*
+*Updated: 2026-04-17*  
+*Status: Long-range direction, not the binding MVP plan*
 
-## Core Mission
-Find surf spots that MIGHT work based on satellite imagery, coastline geometry, and bathymetry data. The original goal: identify candidate spots in Nova Scotia, then expand to anywhere.
+## Why This Exists
 
-## Target Users
-- NS surfers exploring beyond the known breaks
-- Traveling surfers researching unfamiliar coastlines
-- Surf explorers who want evidence, not just word-of-mouth
+WaveScout exists to make surf discovery less dependent on rumor, luck, and fragmented local knowledge. The long-term goal is not to replace surf judgment. The goal is to make coastal evidence legible enough that a user can decide what is worth checking.
 
-## Feature Map
+## Long-Range Outcome
 
-### 1. Spot Database (WannaSurf but better)
-- List all known spots with conditions, break type, swell direction, experience level
-- Rich filtering: by break type, swell direction, size range, experience level, distance
-- Community data: photos, comments, local knowledge summaries
-- Source: WannaSurf scrape + Surfline + Stormrider + local knowledge + user submissions
+In its mature form, WaveScout should help a user move through three layers of understanding:
 
-### 2. Spot Finder (core differentiator)
-- "Find spots near me that might work"
-- Uses satellite-detected foam evidence + coastline geometry + bathymetry scoring
-- Per-segment swell-response profiles: turn-on threshold, optimal range, blow-out point
-- Suggestions ranked by evidence strength with uncertainty shown
-- Works NS first, expandable to any coastline with Sentinel-2 coverage
+1. `Where should I look?`
+2. `Why does this coastline look promising?`
+3. `What evidence supports that idea, and how reliable is it?`
 
-### 3. Satellite Evidence Viewer
-- View satellite imagery of any spot under different conditions
-- Compare flat day vs swell day (NIR band shows foam as bright white)
-- Historical evidence browser: "this segment showed foam on X dates"
-- Educational: help people understand what the data shows
+## Product Principles
 
-### 4. Conditions Integration (Phase 5+)
-- Match good spots with current/forecast swell + wind + tide
-- "These spots should be working right now" based on profiles
-- Not a forecasting tool — a discovery tool that shows when to check
+- Evidence before hype.
+- Discovery before forecasting.
+- Static, reproducible artifacts before dynamic complexity.
+- Candidate segments before precise secret-spot exposure.
+- Clear uncertainty instead of fake precision.
 
-### 5. Community
-- Submit new spots
-- Upload photos with conditions
-- Comments and local knowledge
-- Verify/correct satellite detections ("yes this breaks" / "no this is just whitewater on rocks")
-- Rate spots
+## What Success Looks Like
 
-## Design Principles
-- Mobile-first (surfers check on their phones)
-- Evidence-first: show why a segment is ranked, don't hide behind scores
-- Fast and intuitive
-- Beautiful map-centric UI
-- Start NS, design for global
+WaveScout is successful if a user can:
 
-## Data Pipeline
-1. Coastline segmentation (16,939 NS segments scored)
-2. NIR foam detection across time series (120 scenes per spot)
-3. Swell-response profile generation per segment
-4. Cross-validation with known spot data (WannaSurf, local knowledge)
-5. Confidence scoring: geometry + satellite evidence + community confirmation
+- browse an unfamiliar coast quickly
+- separate strong candidates from obvious dead ends
+- inspect supporting imagery and context without reading research code
+- understand what is known, what is inferred, and what is still uncertain
 
-## What Makes This Different
-- WannaSurf/Surfline only list KNOWN spots submitted by users
-- WaveScout discovers CANDIDATE spots from satellite evidence
-- Shows the "why" with real data, not just "trust me bro"
-- Evidence is reproducible and traceable to specific scenes/dates
+## Future Capability Areas
+
+These are directionally interesting, but they are not MVP commitments:
+
+- forecast overlays built on historically observed response patterns
+- break-type classification and more structured spot summaries
+- community review and moderation
+- generalized region processing outside Nova Scotia
+- richer access and safety context
+- more advanced spatial or temporal evidence models
+
+## Boundaries
+
+The vision should guide prioritization, but it must not override the release discipline in [SPEC.md](SPEC.md) or the staged execution plan in [ROADMAP.md](ROADMAP.md).

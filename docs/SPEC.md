@@ -1,690 +1,354 @@
 # WaveScout Product Spec
 
-*Drafted: 2026-03-23*  
-*Last updated: 2026-03-30*
-*Status: Working spec — feasibility passed, pipeline + web viewer operational*
+*Updated: 2026-04-17*  
+*Status: Source of truth for MVP scope, UX/UI requirements, and release criteria*
 
-### Revision Notes
+## Purpose
 
-- 2026-03-30: Status update — all phases through 2.7 complete. Atlas browser built. Product direction shifted toward visual atlas for manual spot discovery, with algorithm experiments planned as Phase 5.
-- 2026-03-23: Reframed around a feasibility gate, narrowed MVP to a static Nova Scotia explorer, and added provenance-first processing guidance.
+This document defines the WaveScout MVP and near-term product requirements. It is intentionally stricter than brainstorm docs. If a statement here conflicts with a vision or research doc, this document wins.
 
----
+Normative companion docs:
 
-## Overview
+- [DATA-CONTRACTS.md](DATA-CONTRACTS.md)
+- [UI-STATES.md](UI-STATES.md)
+- [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md)
+- [RELEASE-CHECKLIST.md](RELEASE-CHECKLIST.md)
+- [TRACEABILITY.md](TRACEABILITY.md)
 
-WaveScout is a surf discovery tool that analyzes coastline geometry, coarse bathymetry, and satellite imagery to identify candidate surf zones and explain why they may work.
+## Current State
 
-The project starts with Nova Scotia. The first goal is not "find hidden spots everywhere." The first goal is to prove that the pipeline can recover signal at known spots and rank plausible candidate coastline segments above obvious non-spots.
+The repo already contains:
 
-This spec is intentionally stage-gated. The core technical risk is still unresolved: whether Sentinel-2 imagery provides a reliable enough surf signal to be useful for this product.
+- a Nova Scotia-oriented processing pipeline with scripts through segmentation, geometry scoring, foam detection, swell profiling, ranking, and static web-data export
+- a static Next.js viewer with `Map`, `Atlas`, `Compare`, `How It Works`, and `About` pages
+- manual validation notes showing that Sentinel-2 imagery can contribute useful evidence at some known spots
 
----
+The repo does not yet have MVP-quality guarantees for:
+
+- contamination handling across clouds, snow, shadows, swath edges, and low-tide sand
+- consistent score semantics across all docs and UI surfaces
+- automated regression coverage for pipeline outputs and viewer behavior
+- clear release-grade UX states for loading, empty, error, and low-confidence evidence
 
 ## Product Thesis
 
-Discovering surf spots is slow, local, and inconsistent. Existing tools mostly help with forecasted conditions for already-known breaks. WaveScout aims to help with the earlier part of the problem:
+Surf discovery is under-served. Existing surf tools are strongest once a break is already known. WaveScout fills the earlier step: identify coastline segments worth checking, show the evidence, and make uncertainty explicit.
 
-- find coastline segments worth investigating
-- explain what evidence supports that ranking
-- correlate observed surf signal with historical conditions when possible
+WaveScout is:
 
-WaveScout is an exploration tool, not a guarantee that a spot is good, accessible, or safe.
+- an evidence-driven discovery tool
+- static-data-first
+- Nova Scotia-first
+- provenance-oriented
 
----
+WaveScout is not:
 
-## Users
+- a live surf forecast
+- a guarantee of safety, access, or quality
+- a secret-spot precision pin-dropper
 
-Primary users:
+## Primary User Jobs
 
-- Nova Scotia surfers exploring beyond the best-known breaks
-- traveling surfers researching unfamiliar coastlines
-- technically curious surf explorers who want evidence, not just spot names
+### Local Explorer
 
-Secondary users:
+Needs to answer:
 
-- coastal researchers
-- geospatial and ocean-data hobbyists
+- what unfamiliar coastline segments are worth checking
+- why the system thinks they are promising
+- how much evidence is behind that claim
 
----
+### Traveling Researcher
 
-## Product Principles
+Needs to answer:
 
-1. Evidence before confidence. The app should show why a segment is ranked, not hide behind a black-box score.
-2. Feasibility before platform. Do not build a large web product before validating the imagery signal.
-3. Heuristics before ML. Start with transparent scoring and calibration. Add learned models only after the label quality is good enough.
-4. Static results first. MVP serves precomputed regions only.
-5. Provenance matters. Every score must be traceable to a processing run, data inputs, and config version.
+- which known or candidate locations match the swell context they care about
+- how exposed each area is
+- what the satellite record actually shows
 
----
+### Technical Reviewer
 
-## Feasibility Gate
+Needs to answer:
 
-Before committing to a full product MVP, the project must answer one question:
-
-**Can Sentinel-2 imagery contribute useful surf evidence at known Nova Scotia spots?**
-
-### Feasibility Success Criteria
-
-WaveScout passes the feasibility gate if all of the following are true:
-
-1. At least 3 known Nova Scotia spots show manually recognizable breaking-wave or white-water signal in a meaningful subset of clear Sentinel-2 scenes.
-2. Retrieved marine conditions for those scenes are directionally consistent with what those spots are expected to work on.
-3. The same review method can distinguish at least some known spots from obvious non-surf coastline.
-4. The result can be reproduced from scripts and checked-in config, not only manual ad hoc exploration.
-
-The feasibility bar is intentionally lower than "recover all known spots." The current 14-spot seed set is for calibration, but some spots may be too sheltered, too small, or too ambiguous to show useful signal at 10 m resolution. Early success means recovering a meaningful subset, not perfect recall.
-
-If the feasibility gate fails, the project does **not** stop. It pivots to a geometry-first product:
-
-- rank coastline segments using exposure, coastal shape, bathymetry, and access
-- use imagery as supporting context only
-- defer image-based surf detection and conditions correlation to a later phase
-
----
-
-## Current Prototype Scope
-
-The repository currently supports an early Phase 1 prototype:
-
-- load a checked-in region config
-- test Google Earth Engine access
-- inspect Sentinel-2 scene availability for a configured spot
-- export sample images for manual review
-- query historical marine conditions for selected image dates
-- write JSON manifests for each prototype step
-
-Checked-in calibration data currently includes **14** Nova Scotia known spots in `pipeline/data/ns_known_spots.geojson`.
-
-Expected usage of that seed set:
-
-- a smaller subset should be used for feasibility review, prioritizing exposed and visually legible spots
-- the full 14 can still be used later for calibration and sanity checks
-
-This is enough to validate feasibility. It is not yet a general coastline-processing pipeline.
-
----
+- what data sources were used
+- what run produced the result
+- how reproducible the score and images are
 
 ## MVP Definition
 
-MVP means a usable, static Nova Scotia explorer built on precomputed data.
+The MVP is a static Nova Scotia atlas and spot viewer built from precomputed data.
 
 ### MVP Includes
 
-1. **Preprocessed Nova Scotia dataset**
-   - coastline segmented into candidate sections
-   - confirmed known spots included as reference entries
-   - candidate sections ranked by a transparent heuristic score
+1. Ranked Nova Scotia coastline outputs with provenance.
+2. A map view for browsing confirmed spots and candidate segments.
+3. A detail experience that explains score, evidence, and caveats.
+4. An atlas for section-by-section browsing of the coastline.
+5. A compare view for same-date cross-spot inspection.
+6. Methodology and about pages written for non-specialist users.
 
-2. **Static web map**
-   - Nova Scotia only
-   - confirmed vs candidate markers or segments
-   - filter by score band and evidence availability
+### MVP Excludes
 
-3. **Spot or segment detail panel**
-   - score and explanation
-   - sample satellite observations when available
-   - basic conditions summary when enough observations exist
-   - coarse bathymetry and exposure summary
-   - nearest road distance or access estimate, if available
+- live forecast recommendations
+- user-triggered reprocessing from the browser
+- crowdsourced moderation systems
+- exact tide claims
+- community spot submissions as a release dependency
+- global self-serve processing
 
-4. **Reproducible processing pipeline**
-   - config-driven run for Nova Scotia
-   - outputs GeoJSON plus run metadata
-   - reruns produce a new processing record, not silent overwrites
+## Product Vocabulary
 
-### MVP Does Not Include
+These terms must be used consistently across docs and UI:
 
-- live "working today" forecasts
-- user-triggered processing from the web UI
-- mobile app
-- exact tide prediction
-- automatic naming of secret or user-contributed spots
-- global any-coastline support as a polished workflow
-- ML-based spot classification as a requirement
+- `confirmed spot`: a known surf location included as a reference entry
+- `candidate segment`: a coastline segment or grouped section that scores as promising but is not publicly confirmed
+- `atlas section`: a larger coastline browsing unit used by the atlas
+- `surf potential score`: how promising the location looks
+- `evidence confidence`: how strong the supporting data is
+- `observation`: one scene-location pairing with derived evidence
 
----
+Do not collapse `surf potential score` and `evidence confidence` into one unlabeled confidence number.
 
-## Non-Goals for This Spec
+Additional required fields:
 
-The following may happen later, but they are not gating MVP:
+- `verification_status`: whether the entity is confirmed, candidate, or rejected
+- `publication_status`: whether the entity is `public_named`, `public_coarse`, or `internal_only`
 
-- training a multi-input CNN
-- high-resolution commercial imagery
-- crowd verification and moderation systems
-- forecasting based on future swell conditions
-- support for every coastline through a polished self-serve CLI
+These concepts must stay separate.
 
----
+## UX/UI Requirements
 
-## Success Metrics
+### Global Navigation
 
-### Feasibility Metrics
+The global nav must expose:
 
-- known-spot recovery rate on the seed set
-- number of manually validated surf-signal scenes at known spots
-- precision of candidate ranking versus obvious non-surf coastline in sampled reviews
+- `Map`
+- `Atlas`
+- `Compare`
+- `How It Works`
+- `About`
 
-### MVP Metrics
+Requirements:
 
-- at least one Nova Scotia dataset processed end to end with reproducible outputs
-- map loads and renders static results without server-side recomputation
-- every displayed candidate has an explanation payload
-- known reference spots are not systematically ranked below poor candidates
+- the active route is visually distinct
+- navigation works on desktop and mobile
+- the region label remains obvious: Nova Scotia only for MVP
 
----
+### Map Page
 
-## User Experience
+Primary user goal: quickly find promising areas and inspect why they rank highly.
 
-### Web Viewer (MVP)
+Required behavior:
 
-The web viewer serves precomputed results only.
+- default viewport loads Nova Scotia without requiring user input
+- confirmed spots and candidate segments use clearly different visual treatments
+- the legend or nearby copy explains what each color/state means
+- selecting a feature opens a detail panel without losing map context
+- map interactions must remain usable with the detail panel open on mobile and desktop
 
-- region selector can start with a single option: `Nova Scotia`
-- user browses map and detail views
-- no background job creation
-- no map-drawing interface
+Required states:
 
-### Developer Workflow
+- loading state while map data is being fetched
+- missing-token state with a clear operator-facing error
+- empty-data state if a dataset is unavailable
+- low-confidence presentation for geometry-only or sparse-evidence results
 
-The developer workflow is config-driven, not fully self-serve yet.
+Non-interactive context-only layers are allowed for map density and orientation, but they are exempt from the full detail payload requirement as long as they are not selectable.
 
-- start with a checked-in region config for Nova Scotia
-- later add a bounding-box based CLI for other coastlines
-- document assumptions and dataset prerequisites clearly
+### Detail Panel
 
----
+The detail panel is a core product surface. It must answer four questions in under 15 seconds:
 
-## Ethics and Release Policy
+1. What is this location?
+2. Why is it ranked this way?
+3. What evidence supports the ranking?
+4. What should the user be cautious about?
 
-This is a product requirement, not a side note.
+Required sections:
 
-Default MVP policy:
+- label and type: confirmed spot or candidate segment
+- short summary in plain English
+- surf potential score
+- evidence confidence
+- key signals
+- key caveats
+- satellite gallery or explicit `no gallery available` state
+- swell-response summary only when the entity is profile-eligible
+- provenance reference to the dataset or run
 
-- confirmed public spots can be shown directly
-- candidate discoveries should be displayed as coastline segments, not hyper-precise "secret reef" pins
-- public outputs should round or coarsen exact coordinates where appropriate
-- the site should include a takedown or report mechanism
-- the UI should emphasize access, safety, and uncertainty
+The panel must never imply certainty when evidence is weak.
 
-This policy can be tightened later if the output proves too sensitive.
+`when enough observations exist` is now defined by [DATA-CONTRACTS.md](DATA-CONTRACTS.md):
 
----
+- at least `30` clean observations
+- at least `3` non-empty swell bins
+- completed profile build status
 
-## Data Sources and Constraints
+### Atlas Page
 
-### Sentinel-2 via Google Earth Engine
+Primary user goal: browse the coastline systematically rather than hunt individual pins.
 
-Primary use:
+Requirements:
 
-- visual evidence of white water, breaking patterns, and coastal context
+- atlas sections are visually distinct and selectable
+- the panel for an atlas section summarizes section-level context before showing imagery
+- the atlas must explain that it is a browsing tool, not a list of confirmed breaks
+- users can move through adjacent sections without losing orientation
 
-Important constraints:
+### Compare Page
 
-- 10 m resolution may be too coarse for many breaks
-- revisit cadence plus cloud cover severely limits usable observations
-- scene-level cloud percentage is not enough; per-pixel masking is required
+Primary user goal: see how different spots respond to the same satellite pass.
 
-### Open-Meteo Marine API
+Requirements:
 
-Primary use:
+- date selection is obvious
+- the page explains why same-date comparison matters
+- missing imagery or incomplete condition data is called out directly
+- same-date results must not mix scenes from different acquisitions
 
-- hourly marine conditions near observation time
-- wave height, wave direction, wave period
-- swell components and coarse sea-level context fields
+Default compare inclusion is now defined as dates with at least `3` unique public spots with compare-eligible scenes. Direct date links may show sparser sets, but they must be labeled as sparse comparison.
 
-Important constraint:
+### How It Works Page
 
-- nearshore accuracy is limited
-- if used, the relevant field is Open-Meteo Marine's hourly sea-level value and should be treated only as coarse sea-level context
-- the returned sea-level field is **not** a substitute for a local tide table
-- this data is suitable for coarse correlation, not exact break prediction
+This page is user education, not an internal notebook dump.
 
-### Open-Meteo Weather API
+Requirements:
 
-Chosen weather source for MVP wind fields.
+- explain the method in plain language
+- explain what the system can and cannot infer
+- define contamination and uncertainty clearly
+- avoid hardcoding fragile numeric claims unless they are intentionally versioned snapshots
 
-Use it for:
+### About Page
 
-- hourly wind speed near capture time
-- hourly wind direction near capture time
+Requirements:
 
-This keeps marine and weather joins explicit and avoids overloading the marine endpoint.
+- explain the mission and release boundaries
+- emphasize safety, access, and uncertainty
+- avoid overclaiming what the system can prove
 
-### GEBCO Bathymetry
+## UX Copy Rules
 
-Primary use:
+UI copy must:
 
-- shelf gradient
-- large offshore features
-- coarse exposure context
+- prefer `shows evidence of breaking waves` over `is a great wave`
+- prefer `works best in observed scenes around` over `works at`
+- prefer `coarse sea-level context` over `tide`
+- use `candidate` for unverified discoveries
 
-Important constraint:
+UI copy must not:
 
-- too coarse for resolving individual sandbars, channels, or small reefs
+- imply that a candidate is definitely surfable
+- imply current conditions unless the view is explicitly historical
+- imply exact local tide knowledge from coarse data
 
-### Known Spot Seed Data
+## Accessibility Requirements
 
-Current checked-in calibration set:
+MVP is not complete without these:
 
-- `pipeline/data/ns_known_spots.geojson`
-- **14** confirmed Nova Scotia spots
+- all interactive controls reachable by keyboard
+- visible focus states
+- non-color cues for confirmed vs candidate vs low-confidence states
+- alt text or accessible labels for gallery controls and map-adjacent actions
+- text contrast that remains readable on the dark map-driven UI
 
-This seed set is for calibration and evaluation. It is too small and too noisy to justify a production ML classifier by itself.
+## Data and Scoring Requirements
 
-### Roads / Coastline Geometry
+### Data Sources
 
-Likely sources:
+MVP relies on:
 
-- OSM or Overture-derived coastline and road data
+- Sentinel-2 imagery via Google Earth Engine
+- Open-Meteo marine and weather context
+- coarse bathymetry such as GEBCO
+- coastline and road geometry
+- a checked-in known-spot reference set
 
-Used for:
+### Data Constraints
 
-- coastline segmentation
-- access heuristics
-- harbor and developed-waterfront filtering
+The product must explicitly acknowledge:
 
----
+- 10 m imagery is coarse
+- nearshore marine data is approximate
+- cloud and surface contamination are material risks
+- candidate output must be less precise than confirmed public spot output where sensitivity matters
 
-## Product Architecture
+### Scoring Contract
 
-```text
-Data Sources
-  Sentinel-2 imagery
-  Marine conditions
-  Weather conditions
-  GEBCO bathymetry
-  Coastline + roads
-  Known spots seed set
+Every displayed location must expose:
 
-        |
-        v
+- surf potential score
+- evidence confidence
+- score components or explanation highlights
+- caveats
 
-Processing Run
-  region config
-  date bounds
-  feature config
-  scoring weights
-  code version
+Every selectable public entity must also expose:
 
-        |
-        v
+- verification status
+- publication status
+- provenance
 
-Derived Artifacts
-  coastline segments
-  candidate sections
-  satellite observations
-  spot or segment scores
-  static output bundle
+At minimum the explanation payload must support:
 
-        |
-        v
+- summary
+- score components
+- highlights
+- caveats
+- provenance fields
 
-Delivery
-  static GeoJSON
-  optional database load
-  static web viewer
-```
+## Pipeline Requirements
 
----
+### Output Bundle
 
-## Analysis Approach
+The portable output bundle for the web app must include:
 
-### Stage 1: Coastline Segmentation
+- `dataset-manifest.json`
+- ranked location GeoJSON or equivalent JSON payload
+- detail payloads for confirmed spots and candidate segments
+- gallery metadata when imagery exists
+- run manifest with code version, config version, generation time, and source metadata
 
-For the target region:
+### Provenance
 
-- extract exposed coastline
-- segment into fixed-length coastal sections
-- exclude obvious non-target areas where possible:
-  - harbors
-  - docks
-  - inland water
-  - heavily urban waterfront
+Each promoted dataset must be traceable to:
 
-Initial segment length should be treated as a tunable parameter. `500m` is a starting point, not a hard requirement.
+- a processing run id
+- input config
+- code revision, or the literal string `unknown`
+- generation timestamp
+- source dataset versions where practical
 
-To reduce boundary effects, segmentation should use overlap or sliding windows. A reasonable starting point is `500m` segments with `250m` stride, then merge or suppress near-duplicate candidates downstream.
+### Promotion Model
 
-### Stage 2: Transparent Geometry Heuristics
+Processing runs are immutable records. Promotion to `current dataset` must be explicit. Rebuilds must not silently overwrite the promoted dataset without a new manifest.
 
-Compute features such as:
+Public entities must also satisfy [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md). In particular:
 
-- coastal orientation
-- exposure to dominant swell windows
-- bay or headland geometry
-- nearby river mouths
-- offshore island or reef context
-- coarse bathymetric slope
-- proximity to roads or trails
+- local/private references default to `internal_only`
+- candidates default to `public_coarse`
+- public named output is not implied by confirmation alone
 
-This stage should produce a cheap filter and a human-readable explanation.
+## Release Criteria
 
-### Stage 3: Imagery Evidence
+MVP is ready only when all of the following are true:
 
-For the most plausible candidate segments and known calibration spots:
+1. The promoted Nova Scotia dataset can be reproduced from checked-in configs and documented commands.
+2. Every selectable public map or atlas item has an explanation payload.
+3. The UI distinguishes confirmed spots from candidate segments without relying on color alone.
+4. Loading, empty, and error states exist for the map, detail panel, atlas, and compare pages.
+5. Methodology, README, and product copy agree on scope and limitations.
+6. The payloads conform to [DATA-CONTRACTS.md](DATA-CONTRACTS.md).
+7. Public output conforms to [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md).
+8. The release gate in [RELEASE-CHECKLIST.md](RELEASE-CHECKLIST.md) is complete.
+9. The automated test suite described in [ROADMAP.md](ROADMAP.md) exists and passes on the release branch.
 
-- retrieve clear Sentinel-2 scenes
-- mask clouds and invalid pixels
-- inspect white-water or surf-signal evidence
-- label scenes as:
-  - surf signal present
-  - no surf signal
-  - unclear
+## Near-Term Delivery Priorities
 
-MVP should assume this starts as manual or semi-automated review. A fully automated classifier is optional.
+The next delivery work is:
 
-### Stage 4: Conditions Correlation
+1. establish a real test harness for pipeline and web
+2. harden contamination masking and evidence-quality flags
+3. standardize score semantics and explanation payloads
+4. polish viewer UX states and accessibility
+5. formalize release promotion and deploy checks
 
-For observations labeled `surf signal present`:
-
-- store precise image timestamp
-- join hourly marine conditions near capture time
-- join wind conditions from a weather source if needed
-- optionally store the Open-Meteo hourly sea-level value as coarse tidal context, not exact tide
-
-The product language should say "observed conditions near capture time," not "this spot works on tide X" unless the data quality justifies that claim.
-
-### Stage 5: Scoring
-
-MVP scoring should remain interpretable.
-
-Recommended score components:
-
-- geometry and exposure score
-- bathymetry context score
-- imagery evidence count
-- imagery evidence quality
-- calibration adjustment against known spots
-- optional access modifier
-
-Avoid a single unexplained "AI confidence" number.
-
----
-
-## Scoring Semantics
-
-Two concepts should stay separate:
-
-### Surf Potential Score
-
-How promising the segment looks as a surf location based on all available evidence.
-
-### Evidence Confidence
-
-How strong the supporting data is for that score.
-
-Examples:
-
-- high potential, low evidence: geometry looks excellent but imagery is sparse
-- moderate potential, high evidence: repeated imagery signal but limited bathymetric support
-
-This is clearer than a single blended confidence value.
-
----
-
-## Data Model
-
-The schema should support provenance and reruns.
-
-### `processing_runs`
-
-One row per pipeline execution.
-
-Suggested fields:
-
-- `id`
-- `region`
-- `bbox`
-- `start_date`
-- `end_date`
-- `config_version`
-- `code_version`
-- `created_at`
-- `notes`
-
-### `spots`
-
-Represents confirmed spots or derived candidate segments.
-
-Suggested fields:
-
-- `id`
-- `processing_run_id`
-- `name`
-- `kind` (`confirmed` or `candidate`)
-- `lat`
-- `lng`
-- `segment_geometry`
-- `region`
-- `surf_potential_score`
-- `evidence_confidence`
-- `geometry_score`
-- `bathymetry_score`
-- `imagery_evidence_count`
-- `access_score`
-- `break_type_predicted`
-- `explanation_json`
-- `created_at`
-
-### `satellite_observations`
-
-One row per scene-segment observation.
-
-Suggested fields:
-
-- `id`
-- `processing_run_id`
-- `spot_id`
-- `sentinel_product_id`
-- `image_timestamp`
-- `observation_label` (`present`, `none`, `unclear`)
-- `observation_confidence`
-- `cloud_cover_scene`
-- `marine_conditions_json`
-- `weather_conditions_json`
-- `thumbnail_url`
-- `created_at`
-
-This is intentionally more flexible than locking many fields into top-level columns too early.
-
-### `explanation_json`
-
-This field is a core product surface because users need to understand why something is ranked.
-
-Suggested shape:
-
-```json
-{
-  "summary": "South-facing coastal segment with strong swell exposure and repeated surf-signal observations in clear scenes.",
-  "score_components": {
-    "geometry": 0.82,
-    "bathymetry": 0.55,
-    "imagery_evidence": 0.67,
-    "access": 0.40
-  },
-  "highlights": [
-    "Faces primary S-SE swell window",
-    "Headland geometry may focus energy",
-    "3 of 9 reviewed clear scenes showed surf signal"
-  ],
-  "caveats": [
-    "Bathymetry is coarse",
-    "Wind correlation based on sparse observations"
-  ]
-}
-```
-
----
-
-## Output Contract
-
-The pipeline should emit a portable output bundle for the web viewer.
-
-Minimum output:
-
-- `spots.geojson`
-- optional observation summary JSON for detail panels
-- `run_manifest.json` with:
-  - processing run id
-  - region
-  - data sources used
-  - config version
-  - code commit if available
-  - generation timestamp
-
-This is enough to support static hosting and reproducible reviews.
-
-### Caching and Persistence
-
-The pipeline should not assume remote sources are cheap to re-query on every run.
-
-- scene metadata and derived observation records should be cached locally or in object storage
-- generated thumbnails and review artifacts should be persisted and reused across reruns when source scene ids match
-- reruns should only fetch or export scenes that are new or invalidated by config changes
-- the web viewer should read generated static artifacts, not call GEE directly
-
-### Run Retention Policy
-
-Processing runs are immutable records.
-
-- one run can be marked as the current promoted dataset for a region
-- older runs should be retained for comparison and audit
-- heavy intermediate artifacts can be archived or garbage-collected by policy once a promoted run exists
-- retention policy should distinguish between lightweight metadata, which should be kept, and large imagery artifacts, which may expire
-
----
-
-## Development Phases
-
-### Phase 1: Feasibility Prototype
-
-Goal:
-
-- determine whether Sentinel-2 contributes useful surf evidence at known spots
-
-Deliverables:
-
-- GEE access verified
-- known-spot scene inventory for Lawrencetown and at least 2 additional spots
-- exported imagery samples
-- observation review sheet
-- basic conditions lookup script
-- written go / no-go decision
-
-### Phase 2: Nova Scotia Dataset Builder
-
-Goal:
-
-- produce a reproducible ranked Nova Scotia coastline dataset
-
-Deliverables:
-
-- coastline segmentation
-- geometry and exposure heuristics
-- coarse bathymetry integration
-- candidate ranking
-- calibration report against known spots
-- static output bundle
-
-### Phase 3: Static Web Viewer
-
-Goal:
-
-- browse the Nova Scotia output without rerunning the pipeline
-
-Deliverables:
-
-- map view
-- detail panel
-- score and evidence explanation
-- confirmed vs candidate styling
-
-### Phase 4: Generalized Region Runner
-
-Goal:
-
-- support additional coastlines through a documented developer workflow
-
-Deliverables:
-
-- config or CLI for custom regions
-- clearer input validation
-- documented prerequisites and expected runtime
-
-### Phase 5: Post-MVP Research and Iteration
-
-Examples:
-
-- live forecast overlay
-- user verification
-- ML ranking experiments
-- higher-resolution imagery experiments
-
-Phase 5 is explicitly off the MVP critical path. None of this work should delay shipping a static Nova Scotia viewer.
-
----
-
-## Acceptance Criteria
-
-### Phase 1 Acceptance
-
-- at least 3 known spots reviewed
-- imagery review process documented
-- conditions retrieval working for reviewed scenes
-- explicit recommendation: proceed with imagery-assisted product, or pivot to geometry-first
-
-### MVP Acceptance
-
-- Nova Scotia processed end to end from checked-in config
-- output includes provenance metadata
-- map displays confirmed spots and candidate segments
-- detail panel shows explanation for every displayed item
-- known spots are usable as calibration references and are not silently mixed with candidates
-
----
-
-## Risks and Responses
-
-| Risk | Impact | Response |
-|------|--------|----------|
-| Sentinel-2 is too coarse for reliable surf detection | High | Treat imagery as feasibility-gated evidence, not a guaranteed MVP dependency |
-| Cloud cover leaves too few usable observations | High | Sample over long time windows, prefer evidence confidence over false precision |
-| Nearshore marine data is too coarse for exact break logic | High | Use it only for broad correlation and wording that matches the data quality |
-| Scope grows into a research project before shipping | High | Keep MVP to static NS results plus interpretable heuristics, and keep Phase 5 work off the delivery critical path |
-| Known spot seed data is incomplete or noisy | Medium | Use it for calibration, not ground truth for a complex model |
-| "Secret spot" concerns create backlash | Medium | Publish coarse candidate segments, add reporting path, avoid exact pin drops by default |
-
----
-
-## Implementation Notes for the Current Repo
-
-Current repo alignment:
-
-- `pipeline/scripts/01_test_gee_access.py` — scene inventory for a configured spot
-- `pipeline/scripts/02_export_sample_images.py` — export Sentinel-2 scenes to Drive for review
-- `pipeline/scripts/03_check_conditions.py` — queries both Open-Meteo Marine and Weather APIs, structures output with separate `marine` and `weather` sections per observation
-- `pipeline/scripts/04_run_feasibility.py` — orchestrates 01 and 03 across multiple spot configs, produces a combined manifest with processing-run ID and code version
-- `pipeline/scripts/05_generate_review_sheet.py` — generates CSV review sheets from manifests for manual imagery labeling
-- `pipeline/scripts/_script_utils.py` — shared utilities including `build_run_manifest()` for provenance
-
-Checked-in spot configs:
-
-- `pipeline/configs/lawrencetown.json` (default)
-- `pipeline/configs/cow-bay.json`
-- `pipeline/configs/martinique-beach.json`
-
-Remaining Phase 1 work:
-
-- authenticate GEE and run the full feasibility pipeline across all three spots
-- export and manually review imagery
-- fill in observation review sheets
-- write the go / no-go feasibility decision
-
----
-
-## Open Questions
-
-1. Is imagery evidence strong enough to materially improve ranking beyond geometry and bathymetry alone?
-2. What is the right public coordinate precision for candidate discoveries?
-3. Should the first public release ship only confirmed spots plus candidate segments, with no unnamed spot cards yet?
+The ordered implementation plan, including red/green TDD stages, lives in [ROADMAP.md](ROADMAP.md).

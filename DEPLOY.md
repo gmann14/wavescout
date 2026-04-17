@@ -1,62 +1,59 @@
 # Deploying WaveScout
 
-## Quick Start (15 minutes)
+*Updated: 2026-04-17*
 
-### 1. Vercel Setup
+This document describes how to deploy the current static web viewer. It does not assume a production deployment already exists.
 
-1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-2. Click "Add New Project"
-3. Import `gmann14/wavescout`
-4. Configure:
-   - **Root Directory**: `web`
-   - **Framework**: Next.js (auto-detected)
-   - **Build Command**: `pnpm build` (auto-detected from vercel.json)
-5. Add environment variable:
-   - `NEXT_PUBLIC_MAPBOX_TOKEN` = your Mapbox token (from `web/.env.local`)
-6. Click Deploy
+## Preconditions
 
-Site will be live at `wavescout.vercel.app` within ~2 minutes.
+Before deploying, confirm:
 
-### 2. GitHub Actions CI
+- the promoted dataset has been generated and validated
+- the promoted dataset satisfies [docs/DATA-CONTRACTS.md](docs/DATA-CONTRACTS.md)
+- the public payload satisfies [docs/PUBLIC-OUTPUT-POLICY.md](docs/PUBLIC-OUTPUT-POLICY.md)
+- `web/public/data/` contains the intended static payloads
+- `NEXT_PUBLIC_MAPBOX_TOKEN` is available for the target environment
+- the web app builds locally with `pnpm build`
 
-The CI workflow at `.github/workflows/ci.yml` runs type checking and build on every push to `main` that touches `web/`.
+## Local Validation
 
-Add the Mapbox token to GitHub Secrets:
-1. Go to repo Settings > Secrets and variables > Actions
-2. Add secret: `MAPBOX_TOKEN` = your Mapbox token
+```bash
+cd web
+pnpm install
+pnpm build
+pnpm start
+```
 
-### 3. Mapbox Token Security
+Verify:
 
-In your [Mapbox dashboard](https://account.mapbox.com/):
-1. Go to Access tokens
-2. Edit your token's URL restrictions
-3. Add allowed URLs:
-   - `https://wavescout.vercel.app`
-   - `http://localhost:3000`
-   - (add custom domain later if you register one)
+- the map route loads
+- the atlas route loads
+- the compare route loads
+- the methodology page renders markdown correctly
 
-## What's Configured
+## Vercel Deployment
 
-| File | Purpose |
-|------|---------|
-| `web/vercel.json` | Vercel project config (framework, build commands) |
-| `.github/workflows/ci.yml` | CI: type check + build on push/PR |
-| `web/next.config.ts` | Image optimization, cache headers for gallery/atlas images |
-| `web/public/robots.txt` | Search engine crawling rules |
-| `web/src/app/layout.tsx` | OpenGraph + Twitter meta tags for link sharing |
+If deploying with Vercel:
 
-## Auto-Deploy
+1. Create or select a Vercel project.
+2. Set the root directory to `web`.
+3. Ensure install and build commands are:
+   - `pnpm install --frozen-lockfile`
+   - `pnpm build`
+4. Add `NEXT_PUBLIC_MAPBOX_TOKEN`.
+5. Trigger a deployment.
 
-With Vercel's GitHub integration, every push to `main` auto-deploys. PRs get preview URLs.
+## Post-Deploy Checks
 
-## Custom Domain (Optional)
+After deployment, verify:
 
-1. Register `wavescout.ca` (or similar) at any registrar
-2. In Vercel dashboard: Settings > Domains > Add domain
-3. Add the DNS records Vercel provides at your registrar
-4. Update `NEXT_PUBLIC_SITE_URL` env var in Vercel to your custom domain
-5. Update Mapbox token URL restrictions to include the new domain
+- the deployed build uses the intended static dataset
+- map tiles render
+- gallery image paths resolve
+- route navigation works for `Map`, `Atlas`, `Compare`, `How It Works`, and `About`
+- there are no obvious console or hydration errors
 
-## Image CDN (Later, when needed)
+## Notes
 
-Gallery images (~300MB) are served from `web/public/data/gallery/`. This works fine on Vercel free tier at low traffic. When atlas images grow past 1GB or traffic increases, move to Cloudflare R2. See `.claude/SPEC-deployment.md` for details.
+- `web/vercel.json` contains the Vercel build settings checked into the repo.
+- Deployment should be considered incomplete until [docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md) is complete.
