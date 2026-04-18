@@ -7,7 +7,7 @@ WaveScout is a Nova Scotia surf-discovery project built from precomputed satelli
 
 ## Current Status
 
-As of 2026-04-17:
+As of 2026-04-18:
 
 - feasibility work is complete enough to justify continuing with imagery-assisted discovery
 - the repo contains pipeline scripts through ranking and web-data export
@@ -24,6 +24,7 @@ The canonical planning docs are:
 - [docs/DATA-CONTRACTS.md](docs/DATA-CONTRACTS.md)
 - [docs/UI-STATES.md](docs/UI-STATES.md)
 - [docs/PUBLIC-OUTPUT-POLICY.md](docs/PUBLIC-OUTPUT-POLICY.md)
+- [docs/REVIEW-GATES.md](docs/REVIEW-GATES.md)
 - [docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md)
 - [docs/TRACEABILITY.md](docs/TRACEABILITY.md)
 - [docs/METHODOLOGY.md](docs/METHODOLOGY.md)

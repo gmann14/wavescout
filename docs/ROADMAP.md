@@ -1,6 +1,6 @@
 # WaveScout Roadmap
 
-*Updated: 2026-04-17*  
+*Updated: 2026-04-18*  
 *Status: Ordered implementation plan for hardening the MVP*
 
 ## How To Use This Doc
@@ -15,6 +15,7 @@ Supporting execution docs:
 - [MIGRATION-STRATEGY.md](MIGRATION-STRATEGY.md)
 - [UI-STATES.md](UI-STATES.md)
 - [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md)
+- [REVIEW-GATES.md](REVIEW-GATES.md)
 - [RELEASE-CHECKLIST.md](RELEASE-CHECKLIST.md)
 - [TRACEABILITY.md](TRACEABILITY.md)
 
@@ -23,6 +24,17 @@ Every phase follows the same rule:
 - `Red`: write the failing tests first
 - `Green`: implement the minimum change that makes those tests pass
 - `Refactor`: tighten interfaces, remove duplication, improve copy, and document the result
+
+## Mandatory Review Gates
+
+Implementation must pause at these checkpoints for explicit product evaluation:
+
+1. `Gate A`: contract and public-output review
+2. `Gate B`: core map and detail-panel UX review
+3. `Gate C`: full product consistency review
+4. `Gate D`: release readiness review
+
+See [REVIEW-GATES.md](REVIEW-GATES.md) for pass criteria, evaluation questions, and required review records.
 
 ## Immediate Next Steps
 
@@ -86,6 +98,7 @@ Implement only what is needed to make those tests pass:
 
 - local contributors can run pipeline and frontend tests with documented commands
 - CI can execute those tests without private ad hoc steps
+- `Gate A` inputs are ready for review once contract-affecting payload work exists
 
 ## Phase 2: Evidence Quality Hardening
 
@@ -177,6 +190,7 @@ Implement:
 
 - a user can inspect any item and understand why it appears in the product
 - no core doc uses contradictory score language
+- stop here for `Gate A` before further viewer work if payload semantics changed
 
 ## Phase 4: Viewer UX Hardening
 
@@ -228,6 +242,8 @@ Implement:
 
 - the MVP core flows are understandable without the author narrating them
 - basic accessibility regressions are covered by tests
+- stop here for `Gate B` after the home-page flows are usable
+- stop again for `Gate C` once atlas, compare, and content routes match the same semantics
 
 ## Phase 5: Release And Promotion Discipline
 
@@ -258,6 +274,17 @@ Implement:
 
 - a documented promotion command or script
 - release notes template tied to the promoted run
+
+### Refactor
+
+- remove manual release ambiguity where a script or checklist can enforce the rule
+- ensure review records are linked from the release artifact or PR
+
+### Exit Criteria
+
+- promotion and deployment can be executed from documented steps
+- release evidence is durable enough for `Gate D`
+- stop here for `Gate D` before any release-ready claim
 - build validation in CI
 - release gating against [RELEASE-CHECKLIST.md](RELEASE-CHECKLIST.md)
 - payload policy checks against [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md)

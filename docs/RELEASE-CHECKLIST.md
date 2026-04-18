@@ -1,11 +1,13 @@
 # WaveScout Release Checklist
 
-*Updated: 2026-04-17*  
+*Updated: 2026-04-18*  
 *Status: Required pre-release and promotion gate*
 
 ## Purpose
 
 This checklist must be completed before promoting a dataset or calling the web build release-ready.
+
+This checklist is the execution artifact for `Gate D` in [REVIEW-GATES.md](REVIEW-GATES.md).
 
 ## Stop Conditions
 
@@ -108,6 +110,7 @@ cd web && pnpm test:e2e
 - [SPEC.md](SPEC.md) matches current release rules
 - [DATA-CONTRACTS.md](DATA-CONTRACTS.md) matches actual payloads
 - [UI-STATES.md](UI-STATES.md) matches actual UI behavior
+- [REVIEW-GATES.md](REVIEW-GATES.md) matches the actual signoff flow used during implementation
 - [DEPLOY.md](../DEPLOY.md) matches actual deployment process
 
 ## Sign-Off
@@ -120,3 +123,5 @@ Record before promotion:
 - release reviewer
 - policy reviewer
 - date
+- `Gate D` outcome
+- location of the review record

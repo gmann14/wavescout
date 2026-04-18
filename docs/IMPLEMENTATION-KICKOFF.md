@@ -1,6 +1,6 @@
 # WaveScout Implementation Kickoff
 
-*Updated: 2026-04-17*  
+*Updated: 2026-04-18*  
 *Status: Start-here guide for the first coding cycle*
 
 ## Start Here
@@ -10,6 +10,7 @@ If implementation starts now, begin with:
 1. [ROADMAP.md](ROADMAP.md)
 2. [IMPLEMENTATION-BACKLOG.md](IMPLEMENTATION-BACKLOG.md)
 3. [MIGRATION-STRATEGY.md](MIGRATION-STRATEGY.md)
+4. [REVIEW-GATES.md](REVIEW-GATES.md)
 
 Then execute:
 
@@ -18,6 +19,8 @@ Then execute:
 3. `WS-03`
 
 Do not start UI polish, ranking changes, or new feature work before those three are in flight.
+
+Do not roll straight from one major phase into the next without checking whether a review gate is due.
 
 ## First Branches
 
@@ -79,3 +82,4 @@ Before opening the first implementation PR, confirm:
 - acceptance criteria are copied into the PR description
 - relevant docs are linked in the PR description
 - the PR is not mixing unrelated roadmap phases
+- the next required review gate is known before the PR starts
