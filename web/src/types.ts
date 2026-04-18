@@ -169,6 +169,11 @@ export interface GallerySpot {
 }
 
 export interface GalleryManifest {
+  run_id: string;
+  generated_at_utc: string;
+  code_version: string;
+  parameters: Record<string, unknown>;
+  summary: Record<string, unknown>;
   spots: GallerySpot[];
 }
 
@@ -207,6 +212,7 @@ export interface AtlasGallerySection {
 }
 
 export interface AtlasGalleryManifest {
+  summary?: Record<string, unknown>;
   sections: AtlasGallerySection[];
 }
 

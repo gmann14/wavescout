@@ -145,6 +145,7 @@ export default function AtlasMap() {
   const [minScore, setMinScore] = useState(40);
   const [showSpots, setShowSpots] = useState(true);
   const [sectionCount, setSectionCount] = useState(0);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const { flags, addFlag, removeFlag } = useBreakFlags();
 
@@ -210,7 +211,7 @@ export default function AtlasMap() {
     import("mapbox-gl").then((mapboxgl) => {
       const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
       if (!token) {
-        console.error("Missing NEXT_PUBLIC_MAPBOX_TOKEN");
+        setLoadError("Map token missing. Set NEXT_PUBLIC_MAPBOX_TOKEN to render the map.");
         return;
       }
       mapboxgl.default.accessToken = token;
@@ -228,15 +229,18 @@ export default function AtlasMap() {
       mapRef.current = map;
 
       map.on("load", async () => {
-        let sections, spots, gallery;
+        let sections;
+        let spots;
+        let gallery;
         try {
           [sections, spots, gallery] = await Promise.all([
             loadAtlasSections(),
             loadSpots(),
             loadAtlasGallery(),
           ]);
+          setLoadError(null);
         } catch {
-          // Atlas data might not exist yet — show empty map
+          setLoadError("Atlas data failed to load.");
           [sections, spots, gallery] = [
             { type: "FeatureCollection" as const, features: [] },
             { type: "FeatureCollection" as const, features: [] },
@@ -532,7 +536,7 @@ export default function AtlasMap() {
   if (!mounted) {
     return (
       <div className="absolute inset-0 flex items-center justify-center text-slate-500">
-        Loading atlas...
+        Loading coastline atlas...
       </div>
     );
   }
@@ -551,6 +555,18 @@ export default function AtlasMap() {
           height: "100%",
         }}
       />
+
+      {loadError && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-red-500/30 bg-[#160f17]/95 px-4 py-3 text-sm text-red-100 backdrop-blur">
+          {loadError}
+        </div>
+      )}
+
+      {!loadError && sectionCount === 0 && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-navy-700 bg-[#0f1629]/95 px-4 py-3 text-sm text-slate-300 backdrop-blur">
+          No atlas sections are available for this dataset.
+        </div>
+      )}
 
       {/* Controls panel */}
       <div className="absolute top-4 left-4 bg-[#0f1629]/90 backdrop-blur border border-[#1e2d4d] rounded-lg p-3 z-10 space-y-3">
@@ -593,6 +609,10 @@ export default function AtlasMap() {
           />
           Show verified spots
         </label>
+
+        <p className="max-w-[220px] text-xs leading-relaxed text-slate-400">
+          Atlas sections are browsing units, not confirmed breaks. Use them to scan the coastline before treating anything as a specific surf lead.
+        </p>
 
         {/* Export flags */}
         {flags.length > 0 && (

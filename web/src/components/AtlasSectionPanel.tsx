@@ -255,6 +255,9 @@ export default function AtlasSectionPanel({
 
           {/* Section details */}
           <div className="text-sm text-slate-400 space-y-1">
+            <p className="rounded-lg border border-navy-700 bg-navy-800 px-3 py-2 text-slate-300">
+              Atlas sections are browsing units, not confirmed breaks. Use them to scan coastline context before treating any location as a lead.
+            </p>
             <p>
               <span className="text-slate-500">Coastline:</span>{" "}
               {coastlineKm}km
@@ -386,9 +389,8 @@ export default function AtlasSectionPanel({
           {gallery.length > 0 ? (
             <ImageGallery scenes={gallery} />
           ) : (
-            <div className="text-sm text-slate-500 italic">
-              No satellite imagery generated for this section yet. Run script 18
-              to generate gallery images.
+            <div className="rounded-lg border border-navy-700 bg-navy-800 px-3 py-3 text-sm text-slate-400">
+              No atlas imagery is available for this section yet.
             </div>
           )}
         </div>

@@ -6,6 +6,8 @@ import Image from "next/image";
 import type { GalleryManifest, GalleryScene } from "@/types";
 import { loadGallery } from "@/lib/data";
 
+const DEFAULT_MIN_COMPARE_SPOTS = 3;
+
 /** A scene with its parent spot info attached */
 interface SpotScene {
   spotName: string;
@@ -77,7 +79,7 @@ export default function CompareView() {
   useEffect(() => {
     loadGallery()
       .then(setGallery)
-      .catch(() => setError("Failed to load gallery data."))
+      .catch(() => setError("Comparison data failed to load."))
       .finally(() => setLoading(false));
   }, []);
 
@@ -105,7 +107,7 @@ export default function CompareView() {
     }
 
     // When filtering by a specific date param, include dates with fewer spots
-    const minSpotsForInclusion = dateParam ? 1 : 3;
+    const minSpotsForInclusion = dateParam ? 1 : DEFAULT_MIN_COMPARE_SPOTS;
 
     const dates: ComparisonDate[] = [];
     for (const [date, spotScenes] of byDate) {
@@ -154,7 +156,7 @@ export default function CompareView() {
     }
 
     const swellRange = SWELL_RANGES[swellFilter];
-    const minSpots = SPOT_COUNTS[spotCountFilter]?.min ?? 3;
+    const minSpots = SPOT_COUNTS[spotCountFilter]?.min ?? DEFAULT_MIN_COMPARE_SPOTS;
 
     return comparisonDates.filter((d) => {
       if (d.spotScenes.length < minSpots) return false;
@@ -233,11 +235,21 @@ export default function CompareView() {
       ? lightboxData.spotScene.scene.nir_path
       : lightboxData.spotScene.scene.rgb_path
     : null;
+  const requestedDateResult = dateParam
+    ? comparisonDates.find((d) => d.date === dateParam) ?? null
+    : null;
+  const isSparseDate = Boolean(
+    dateParam &&
+    requestedDateResult &&
+    requestedDateResult.spotScenes.length < DEFAULT_MIN_COMPARE_SPOTS
+  );
+  const hasNoMatchedDate = Boolean(dateParam && !requestedDateResult);
+  const hasNoEligibleComparisons = !dateParam && comparisonDates.length === 0;
 
   return (
     <div>
       {/* Date-specific banner */}
-      {dateParam && (
+      {dateParam && !hasNoMatchedDate && (
         <div className="flex items-center gap-3 mb-6 bg-navy-800 border border-navy-700 rounded-lg px-4 py-3">
           <span className="text-sm text-slate-300">
             Showing spots for{" "}
@@ -251,6 +263,15 @@ export default function CompareView() {
           >
             Show all dates
           </a>
+        </div>
+      )}
+
+      {isSparseDate && requestedDateResult && (
+        <div className="mb-6 rounded-lg border border-orange-500/30 bg-orange-500/10 px-4 py-3 text-sm text-orange-100">
+          <div className="font-medium text-orange-300">Sparse comparison</div>
+          <div>
+            This date has limited coverage and is shown because it was requested directly.
+          </div>
         </div>
       )}
 
@@ -313,16 +334,37 @@ export default function CompareView() {
 
       {/* Summary */}
       {!dateParam && (
-        <p className="text-sm text-slate-500 mb-6">
-          {filteredDates.length} comparison date
-          {filteredDates.length !== 1 ? "s" : ""} found
-          {comparisonDates.length !== filteredDates.length &&
-            ` (of ${comparisonDates.length} total)`}
-        </p>
+        <div className="mb-6 space-y-2">
+          <p className="text-sm text-slate-500">
+            {filteredDates.length} comparison date
+            {filteredDates.length !== 1 ? "s" : ""} found
+            {comparisonDates.length !== filteredDates.length &&
+              ` (of ${comparisonDates.length} total)`}
+          </p>
+          <p className="text-sm text-slate-400">
+            Every comparison card groups scenes from the same acquisition date only.
+          </p>
+        </div>
       )}
 
       {/* Date cards */}
-      {filteredDates.length === 0 ? (
+      {hasNoMatchedDate ? (
+        <div className="rounded-xl border border-navy-700 bg-navy-900 px-6 py-10 text-center">
+          <div className="text-lg font-medium text-white mb-2">
+            No comparison scenes were found for this date.
+          </div>
+          <a
+            href="/compare"
+            className="inline-flex rounded-full border border-slate-600 px-3 py-1.5 text-sm text-slate-300 transition-colors hover:text-white"
+          >
+            Return to all comparisons
+          </a>
+        </div>
+      ) : hasNoEligibleComparisons ? (
+        <div className="rounded-xl border border-navy-700 bg-navy-900 px-6 py-10 text-center text-slate-400">
+          No same-date comparisons are available for this dataset.
+        </div>
+      ) : filteredDates.length === 0 ? (
         <div className="text-center py-12 text-slate-500">
           No comparison dates match these filters. Try broadening your criteria.
         </div>
