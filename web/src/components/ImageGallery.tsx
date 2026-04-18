@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { GalleryScene } from "@/types";
@@ -27,6 +27,8 @@ export default function ImageGallery({ scenes }: Props) {
   const [nirMode, setNirMode] = useState(false);
   const [showBreaks, setShowBreaks] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
 
   // Check if any scene has annotated images
   const hasAnnotations = scenes.some(
@@ -54,6 +56,10 @@ export default function ImageGallery({ scenes }: Props) {
   // Keyboard navigation
   useEffect(() => {
     if (lightboxIndex === null) return;
+    previousActiveElementRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    closeButtonRef.current?.focus();
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") goNext();
       else if (e.key === "ArrowLeft") goPrev();
@@ -62,7 +68,10 @@ export default function ImageGallery({ scenes }: Props) {
       else if (e.key === "b" || e.key === "B") setShowBreaks((b) => !b);
     };
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      previousActiveElementRef.current?.focus();
+    };
   }, [lightboxIndex, goNext, goPrev, closeLightbox]);
 
   if (scenes.length === 0) {
@@ -90,22 +99,24 @@ export default function ImageGallery({ scenes }: Props) {
           {hasAnnotations && (
             <button
               onClick={() => setShowBreaks(!showBreaks)}
+              aria-pressed={showBreaks}
               className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
                 showBreaks
                   ? "bg-orange-500/20 border-orange-500/40 text-orange-400"
                   : "bg-[#162038] border-[#1e2d4d] text-slate-400 hover:text-slate-300"
-              }`}
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1629]`}
             >
               Breaks
             </button>
           )}
           <button
             onClick={() => setNirMode(!nirMode)}
+            aria-pressed={nirMode}
             className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
               nirMode
                 ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
                 : "bg-[#162038] border-[#1e2d4d] text-slate-400 hover:text-slate-300"
-            }`}
+            } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1629]`}
           >
             {nirMode ? "NIR" : "RGB"}
           </button>
@@ -118,10 +129,12 @@ export default function ImageGallery({ scenes }: Props) {
           const path = (showBreaks && annotatedPath) || cleanPath;
           if (!path) return null;
           return (
-            <div
+            <button
               key={`${scene.date}-${nirMode}-${showBreaks}`}
-              className="flex-shrink-0 w-40 rounded-lg overflow-hidden bg-[#162038] border border-[#1e2d4d] cursor-pointer hover:border-teal-500/50 transition-colors"
+              type="button"
+              className="flex-shrink-0 w-40 overflow-hidden rounded-lg border border-[#1e2d4d] bg-[#162038] text-left transition-colors hover:border-teal-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1629]"
               onClick={() => openLightbox(i)}
+              aria-label={`Open gallery image for ${scene.date}`}
             >
               <div className="relative aspect-square">
                 <Image
@@ -140,11 +153,11 @@ export default function ImageGallery({ scenes }: Props) {
                 </div>
                 {scene.tide_state && scene.tide_state !== 'unknown' && (
                   <div className="text-slate-500">
-                    <span>{tideEmoji(scene.tide_state)} {scene.tide_state}{scene.tide_m != null ? ` ${scene.tide_m.toFixed(1)}m` : ''}</span>
+                  <span>{tideEmoji(scene.tide_state)} {scene.tide_state}{scene.tide_m != null ? ` ${scene.tide_m.toFixed(1)}m` : ''}</span>
                   </div>
                 )}
               </div>
-            </div>
+            </button>
           );
         })}
       </div>
@@ -154,22 +167,28 @@ export default function ImageGallery({ scenes }: Props) {
         <div
           className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
           onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Satellite gallery image for ${lightboxScene.date}`}
         >
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl z-10"
+            ref={closeButtonRef}
+            className="absolute top-4 right-4 z-10 rounded px-2 text-3xl text-white/70 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             onClick={closeLightbox}
+            aria-label="Close gallery lightbox"
           >
             ✕
           </button>
 
           {/* Prev */}
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl z-10 px-2"
+            className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded px-2 text-4xl text-white/70 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             onClick={(e) => {
               e.stopPropagation();
               goPrev();
             }}
+            aria-label="Previous gallery image"
           >
             ‹
           </button>
@@ -206,7 +225,7 @@ export default function ImageGallery({ scenes }: Props) {
               <div className="flex items-center gap-3">
                 <Link
                   href={`/compare?date=${lightboxScene.date}`}
-                  className="text-xs px-3 py-1 rounded-full border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition-colors"
+                  className="text-xs px-3 py-1 rounded-full border border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                   onClick={(e) => e.stopPropagation()}
                 >
                   Compare date
@@ -217,11 +236,12 @@ export default function ImageGallery({ scenes }: Props) {
                       e.stopPropagation();
                       setShowBreaks(!showBreaks);
                     }}
+                    aria-pressed={showBreaks}
                     className={`text-xs px-3 py-1 rounded-full border ${
                       showBreaks
                         ? "bg-orange-500/20 border-orange-500/40 text-orange-400"
                         : "border-slate-600 text-slate-300"
-                    }`}
+                    } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black`}
                   >
                     Breaks
                   </button>
@@ -231,11 +251,12 @@ export default function ImageGallery({ scenes }: Props) {
                     e.stopPropagation();
                     setNirMode(!nirMode);
                   }}
+                  aria-pressed={nirMode}
                   className={`text-xs px-3 py-1 rounded-full border ${
                     nirMode
                       ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
                       : "border-slate-600 text-slate-300"
-                  }`}
+                  } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black`}
                 >
                   {nirMode ? "NIR" : "RGB"}
                 </button>
@@ -248,11 +269,12 @@ export default function ImageGallery({ scenes }: Props) {
 
           {/* Next */}
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl z-10 px-2"
+            className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded px-2 text-4xl text-white/70 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             onClick={(e) => {
               e.stopPropagation();
               goNext();
             }}
+            aria-label="Next gallery image"
           >
             ›
           </button>

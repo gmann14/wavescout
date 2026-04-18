@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import SpotPanel from "../SpotPanel";
 import type { GalleryScene, SpotProperties, SpotDetail } from "@/types";
@@ -144,5 +145,17 @@ describe("SpotPanel", () => {
     await waitFor(() => {
       expect(screen.getByText("Detailed metrics are not available for this location yet.")).toBeInTheDocument();
     });
+  });
+
+  it("closes when Escape is pressed", async () => {
+    vi.mocked(loadSpotDetail).mockResolvedValue(mockDetail);
+    const user = userEvent.setup();
+    const onClose = vi.fn();
+
+    render(<SpotPanel spot={mockSpot} gallery={mockGallery} onClose={onClose} />);
+
+    await user.keyboard("{Escape}");
+
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });

@@ -35,7 +35,7 @@ export default function Nav() {
                 active
                   ? "bg-navy-700 text-teal-400"
                   : "text-slate-400 hover:text-slate-200 hover:bg-navy-800"
-              }`}
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900`}
             >
               {link.label}
             </Link>

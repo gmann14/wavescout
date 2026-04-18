@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { SpotProperties, SpotDetail, GalleryScene } from "@/types";
 import { loadSpotDetail } from "@/lib/data";
 import {
@@ -56,6 +56,9 @@ function ScoreBar({
 export default function SpotPanel({ spot, gallery, onClose }: Props) {
   const [detail, setDetail] = useState<SpotDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+  const headingId = useId();
 
   useEffect(() => {
     setLoading(true);
@@ -64,6 +67,25 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
       .catch(() => setDetail(null))
       .finally(() => setLoading(false));
   }, [spot.slug]);
+
+  useEffect(() => {
+    previousActiveElementRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      previousActiveElementRef.current?.focus();
+    };
+  }, [onClose]);
 
   const activeDetail = detail ?? null;
   const summary =
@@ -87,14 +109,20 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
       <div
         className="fixed inset-0 bg-black/40 z-30 lg:hidden"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Panel */}
-      <div className="fixed bottom-0 left-0 right-0 lg:top-12 lg:right-auto lg:left-auto lg:w-96 z-40 max-h-[80vh] lg:max-h-[calc(100vh-3rem)] lg:h-auto overflow-y-auto bg-[#0f1629] border-t lg:border-t-0 lg:border-l border-[#1e2d4d] rounded-t-2xl lg:rounded-none">
+      <div
+        className="fixed bottom-0 left-0 right-0 lg:top-12 lg:right-auto lg:left-auto lg:w-96 z-40 max-h-[80vh] lg:max-h-[calc(100vh-3rem)] lg:h-auto overflow-y-auto bg-[#0f1629] border-t lg:border-t-0 lg:border-l border-[#1e2d4d] rounded-t-2xl lg:rounded-none"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={headingId}
+      >
         {/* Header */}
         <div className="sticky top-0 bg-navy-900/95 backdrop-blur border-b border-navy-700 px-4 py-3 flex items-start justify-between z-10">
           <div>
-            <h2 className="text-lg font-semibold text-white">{spot.name}</h2>
+            <h2 id={headingId} className="text-lg font-semibold text-white">{spot.name}</h2>
             <div className="flex gap-1.5 mt-1">
               <Badge
                 label={formatBreakType(spot.break_type)}
@@ -121,8 +149,9 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
             </div>
           </div>
           <button
+            ref={closeButtonRef}
             onClick={onClose}
-            className="text-slate-500 hover:text-slate-300 p-1"
+            className="rounded p-1 text-slate-500 hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1629]"
             aria-label="Close panel"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
