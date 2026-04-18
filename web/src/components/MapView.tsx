@@ -16,6 +16,7 @@ import {
   loadGallery,
 } from "@/lib/data";
 import { normalizeSpotProperties } from "@/lib/spotData";
+import MapLegend from "./MapLegend";
 import SpotPanel from "./SpotPanel";
 
 // Nova Scotia center
@@ -42,6 +43,8 @@ export default function MapView() {
   const [selectedSpot, setSelectedSpot] = useState<SpotProperties | null>(null);
   const [gallery, setGallery] = useState<GalleryManifest | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [isLoadingData, setIsLoadingData] = useState(true);
   const [stats, setStats] = useState({
     segmentCount: 0,
     highCandidateCount: 0,
@@ -61,7 +64,7 @@ export default function MapView() {
 
     const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
     if (!token) {
-      console.error("Missing NEXT_PUBLIC_MAPBOX_TOKEN");
+      setLoadError("Map token missing. Set NEXT_PUBLIC_MAPBOX_TOKEN to render the map.");
       return;
     }
     mapboxgl.accessToken = token;
@@ -96,102 +99,105 @@ export default function MapView() {
     const abortController = new AbortController();
 
     async function addLayers() {
-      const [spots, segHigh, segAll, galleryData] = await Promise.all([
-        loadSpots(),
-        loadSegmentsHigh(),
-        loadSegmentsAll(),
-        loadGallery(),
-      ]);
+      setIsLoadingData(true);
+      try {
+        const [spots, segHigh, segAll, galleryData] = await Promise.all([
+          loadSpots(),
+          loadSegmentsHigh(),
+          loadSegmentsAll(),
+          loadGallery(),
+        ]);
 
-      if (abortController.signal.aborted) return;
-      setGallery(galleryData);
-      setStats({
-        segmentCount: segAll.features.length,
-        highCandidateCount: segHigh.features.length,
-        spotCount: spots.features.length,
-      });
+        if (abortController.signal.aborted) return;
+        setGallery(galleryData);
+        setStats({
+          segmentCount: segAll.features.length,
+          highCandidateCount: segHigh.features.length,
+          spotCount: spots.features.length,
+        });
+        setLoadError(null);
 
-      // --- Layer 1: All scored segments (>40) - tiny dots ---
-      m.addSource("segments-all", {
-        type: "geojson",
-        data: segAll,
-      });
+        // --- Layer 1: All scored segments (>40) - tiny dots ---
+        m.addSource("segments-all", {
+          type: "geojson",
+          data: segAll,
+        });
 
-      m.addLayer({
-        id: "segments-all",
-        type: "circle",
-        source: "segments-all",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            5, 1,
-            8, 2,
-            12, 4,
-          ],
-          "circle-color": "#334155",
-          "circle-opacity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            5, 0,
-            8, 0.3,
-            10, 0.5,
-          ],
-        },
-      });
+        m.addLayer({
+          id: "segments-all",
+          type: "circle",
+          source: "segments-all",
+          paint: {
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              5, 1,
+              8, 2,
+              12, 4,
+            ],
+            "circle-color": "#334155",
+            "circle-opacity": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              5, 0,
+              8, 0.3,
+              10, 0.5,
+            ],
+          },
+        });
 
-      // --- Layer 2: High-scoring segments (>60) - colored dots ---
-      m.addSource("segments-high", {
-        type: "geojson",
-        data: segHigh,
-      });
+        // --- Layer 2: High-scoring segments (>60) - colored dots ---
+        m.addSource("segments-high", {
+          type: "geojson",
+          data: segHigh,
+        });
 
-      m.addLayer({
-        id: "segments-high",
-        type: "circle",
-        source: "segments-high",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            5, 2,
-            8, 4,
-            12, 6,
-          ],
-          "circle-color": [
-            "interpolate",
-            ["linear"],
-            ["get", "score"],
-            20, "#475569",  // dim gray — minimal evidence
-            40, "#eab308",  // yellow — moderate potential
-            60, "#fb923c",  // orange — strong candidate
-            80, "#14b8a6",  // bright teal — confirmed break
-          ],
-          "circle-opacity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            5, 0.4,
-            8, 0.7,
-            12, 0.9,
-          ],
-          "circle-stroke-width": 1,
-          "circle-stroke-color": "rgba(0,0,0,0.3)",
-        },
-      });
+        m.addLayer({
+          id: "segments-high",
+          type: "circle",
+          source: "segments-high",
+          paint: {
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              5, 2,
+              8, 4,
+              12, 6,
+            ],
+            "circle-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "score"],
+              20, "#475569",
+              40, "#eab308",
+              60, "#fb923c",
+              80, "#14b8a6",
+            ],
+            "circle-opacity": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              5, 0.4,
+              8, 0.7,
+              12, 0.9,
+            ],
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "rgba(0,0,0,0.3)",
+          },
+        });
 
-      // --- Layer 3: Verified spots - prominent pins ---
-      m.addSource("spots", {
-        type: "geojson",
-        data: spots,
-      });
+        // --- Layer 3: Verified spots - prominent pins ---
+        m.addSource("spots", {
+          type: "geojson",
+          data: spots,
+        });
 
       // Outer glow
-      m.addLayer({
-        id: "spots-glow",
+        m.addLayer({
+          id: "spots-glow",
         type: "circle",
         source: "spots",
         paint: {
@@ -200,11 +206,11 @@ export default function MapView() {
           "circle-opacity": 0.15,
           "circle-blur": 1,
         },
-      });
+        });
 
       // Inner dot
-      m.addLayer({
-        id: "spots-dot",
+        m.addLayer({
+          id: "spots-dot",
         type: "circle",
         source: "spots",
         paint: {
@@ -220,11 +226,11 @@ export default function MapView() {
           "circle-stroke-width": 2,
           "circle-stroke-color": "#ffffff",
         },
-      });
+        });
 
       // Spot labels
-      m.addLayer({
-        id: "spots-label",
+        m.addLayer({
+          id: "spots-label",
         type: "symbol",
         source: "spots",
         layout: {
@@ -240,24 +246,24 @@ export default function MapView() {
           "text-halo-color": "#0a0e1a",
           "text-halo-width": 1.5,
         },
-      });
+        });
 
       // --- Click handlers ---
-      m.on("click", "spots-dot", (e) => {
-        if (!e.features?.[0]) return;
-        const props = e.features[0].properties;
-        if (!props) return;
-        handleSpotClick(normalizeSpotProperties(props as Record<string, unknown>));
-      });
+        m.on("click", "spots-dot", (e) => {
+          if (!e.features?.[0]) return;
+          const props = e.features[0].properties;
+          if (!props) return;
+          handleSpotClick(normalizeSpotProperties(props as Record<string, unknown>));
+        });
 
       // Popup on hover for high-scoring segments
-      const segPopup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false,
-        offset: 8,
-      });
+        const segPopup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: false,
+          offset: 8,
+        });
 
-      m.on("mouseenter", "segments-high", (e) => {
+        m.on("mouseenter", "segments-high", (e) => {
         m.getCanvas().style.cursor = "pointer";
         if (!e.features?.[0]) return;
         const props = e.features[0].properties;
@@ -297,20 +303,35 @@ export default function MapView() {
             </div>`
           )
           .addTo(m);
-      });
+        });
 
-      m.on("mouseleave", "segments-high", () => {
-        m.getCanvas().style.cursor = "";
-        segPopup.remove();
-      });
+        m.on("mouseleave", "segments-high", () => {
+          m.getCanvas().style.cursor = "";
+          segPopup.remove();
+        });
 
-      // Cursor for spots
-      m.on("mouseenter", "spots-dot", () => {
-        m.getCanvas().style.cursor = "pointer";
-      });
-      m.on("mouseleave", "spots-dot", () => {
-        m.getCanvas().style.cursor = "";
-      });
+        // Cursor for spots
+        m.on("mouseenter", "spots-dot", () => {
+          m.getCanvas().style.cursor = "pointer";
+        });
+        m.on("mouseleave", "spots-dot", () => {
+          m.getCanvas().style.cursor = "";
+        });
+      } catch (error) {
+        console.error(error);
+        if (!abortController.signal.aborted) {
+          setLoadError("Map data failed to load. Refresh to retry.");
+          setStats({
+            segmentCount: 0,
+            highCandidateCount: 0,
+            spotCount: 0,
+          });
+        }
+      } finally {
+        if (!abortController.signal.aborted) {
+          setIsLoadingData(false);
+        }
+      }
     }
 
     addLayers();
@@ -330,22 +351,29 @@ export default function MapView() {
     <div className="relative flex-1" style={{ minHeight: 0 }}>
       <div ref={mapContainer} className="absolute inset-0" style={{ width: "100%", height: "100%" }} />
 
-      {/* Legend */}
-      <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur border border-navy-700 rounded-lg p-3 text-xs space-y-1.5 z-10 hidden sm:block">
-        <div className="text-slate-400 font-medium mb-1">Legend</div>
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-teal-500 border-2 border-white inline-block" />
-          <span className="text-slate-300">Named spots ({stats.spotCount || "..."})</span>
+      {isLoadingData && !loadError && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-navy-700 bg-navy-900/95 px-4 py-3 text-sm text-slate-300 backdrop-blur">
+          Loading WaveScout dataset...
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-orange-400 inline-block" />
-          <span className="text-slate-300">High-scoring candidates</span>
+      )}
+
+      {loadError && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-red-500/30 bg-[#160f17]/95 px-4 py-3 text-sm text-red-100 backdrop-blur">
+          {loadError}
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-slate-600 inline-block" />
-          <span className="text-slate-300">Scored segments</span>
+      )}
+
+      {!loadError && !isLoadingData && stats.segmentCount === 0 && stats.spotCount === 0 && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-navy-700 bg-navy-900/95 px-4 py-3 text-sm text-slate-300 backdrop-blur">
+          No map data is available for this dataset.
         </div>
-      </div>
+      )}
+
+      <MapLegend
+        spotCount={stats.spotCount}
+        highCandidateCount={stats.highCandidateCount}
+        segmentCount={stats.segmentCount}
+      />
 
       {/* Stats bar */}
       <div className="absolute top-4 left-4 bg-navy-900/90 backdrop-blur border border-navy-700 rounded-lg px-3 py-2 text-xs z-10">
