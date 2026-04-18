@@ -12,6 +12,8 @@ import json
 import shutil
 from pathlib import Path
 
+from _public_dataset import validate_public_dataset, write_dataset_manifest
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 PIPELINE_DATA = ROOT / "pipeline" / "data"
 ATLAS_DATA = PIPELINE_DATA / "atlas"
@@ -29,6 +31,10 @@ def build_sections() -> None:
 
     with open(src) as f:
         data = json.load(f)
+
+    for feature in data.get("features", []):
+        feature.setdefault("properties", {})
+        feature["properties"]["publication_status"] = "public_coarse"
 
     out = WEB_ATLAS / "sections.json"
     with open(out, "w") as f:
@@ -56,10 +62,21 @@ def build_gallery() -> None:
     # Copy images and update paths
     for section in manifest.get("sections", []):
         slug = section["slug"]
+        section["publication_status"] = "public_coarse"
         section_gallery_dir = WEB_ATLAS_GALLERY / slug
         section_gallery_dir.mkdir(parents=True, exist_ok=True)
 
         for scene in section.get("scenes", []):
+            scene["scene_id"] = f"{slug}:{scene['date']}"
+            quality_score = scene.get("quality_score")
+            if quality_score is None:
+                scene["quality_status"] = "degraded"
+            elif quality_score >= 90:
+                scene["quality_status"] = "usable"
+            elif quality_score >= 60:
+                scene["quality_status"] = "degraded"
+            else:
+                scene["quality_status"] = "rejected"
             for key in ("rgb_path", "nir_path"):
                 src_path_str = scene.get(key)
                 if not src_path_str:
@@ -93,6 +110,9 @@ def main() -> None:
     print("Building atlas web data...")
     build_sections()
     build_gallery()
+    manifest_path = write_dataset_manifest()
+    validate_public_dataset(strict=False, require_atlas=True)
+    print(f"  dataset-manifest.json: {manifest_path.stat().st_size / 1024:.1f}KB")
     print("Done!")
 
 
