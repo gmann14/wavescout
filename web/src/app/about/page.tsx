@@ -153,6 +153,29 @@ export default function AboutPage() {
             </p>
           </section>
 
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+              Scope Boundary
+            </h2>
+            <p className="text-slate-400 leading-relaxed">
+              WaveScout is a static discovery tool for Nova Scotia. It helps you
+              inspect precomputed evidence about where waves may break, but it
+              does not provide live forecasts, safety guidance, or access advice.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+              Uncertainty And Safety
+            </h2>
+            <p className="text-slate-400 leading-relaxed">
+              Evidence quality varies by scene coverage, contamination, and data
+              density. A strong score does not mean a break is safe, public,
+              working today, or worth surfing in your conditions. Always verify
+              access, hazards, tides, and local conditions independently.
+            </p>
+          </section>
+
           {/* Footer */}
           <div className="border-t border-navy-700 pt-6 mt-12 text-center text-xs text-slate-600">
             Satellite imagery: Copernicus Sentinel-2 (ESA) via Google Earth
