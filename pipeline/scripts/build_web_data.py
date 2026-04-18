@@ -81,6 +81,22 @@ def _spot_gallery_summaries() -> dict[str, dict]:
     return by_slug
 
 
+def _spot_source_index() -> dict[str, dict]:
+    src = PIPELINE_DATA / "ns_spots.geojson"
+    data = _load_json(src)
+    index: dict[str, dict] = {}
+    for feature in data.get("features", []):
+        slug = feature.get("properties", {}).get("slug")
+        if slug:
+            index[slug] = feature
+    return index
+
+
+def _is_public_spot(feature: dict) -> bool:
+    publication_status = derive_spot_publication_status(feature.get("properties", {}).get("source"))
+    return publication_status != "internal_only"
+
+
 def _spot_explanation(feature: dict, surf_potential_score: float, has_profile: bool) -> dict:
     notes = feature["properties"].get("notes", "")
     return {
@@ -105,6 +121,7 @@ def build_spots():
     """Copy ns_spots.geojson as-is (it's small)."""
     src = PIPELINE_DATA / "ns_spots.geojson"
     data = _load_json(src)
+    data["features"] = [feature for feature in data.get("features", []) if _is_public_spot(feature)]
     gallery_summaries = _spot_gallery_summaries()
 
     # Enrich spots with foam detection summaries and swell profile data
@@ -284,10 +301,13 @@ def build_segments():
 def build_spot_details():
     """Build per-spot detail files combining foam detections + swell profiles."""
     spots_dir = WEB_DATA / "spots"
-    spots_dir.mkdir(exist_ok=True)
+    if spots_dir.exists():
+        shutil.rmtree(spots_dir)
+    spots_dir.mkdir(parents=True, exist_ok=True)
 
     src = PIPELINE_DATA / "ns_spots.geojson"
     spots = _load_json(src)
+    spots["features"] = [feature for feature in spots.get("features", []) if _is_public_spot(feature)]
     gallery_summaries = _spot_gallery_summaries()
 
     for feature in spots["features"]:
@@ -413,11 +433,25 @@ def build_gallery():
         return
 
     manifest = _load_json(manifest_src)
+    spot_index = _spot_source_index()
+
+    if WEB_GALLERY.exists():
+        shutil.rmtree(WEB_GALLERY)
+    WEB_GALLERY.mkdir(parents=True, exist_ok=True)
+
+    public_spots = []
+    total_images = 0
 
     # Copy images to web/public/gallery/
     for spot in manifest["spots"]:
         slug = spot["slug"]
-        spot["publication_status"] = derive_spot_publication_status(spot.get("source"))
+        source_feature = spot_index.get(slug)
+        source = source_feature.get("properties", {}).get("source") if source_feature else spot.get("source")
+        publication_status = derive_spot_publication_status(source)
+        if publication_status == "internal_only":
+            continue
+
+        spot["publication_status"] = publication_status
         spot_gallery_dir = WEB_GALLERY / slug
         spot_gallery_dir.mkdir(parents=True, exist_ok=True)
 
@@ -435,14 +469,21 @@ def build_gallery():
                     shutil.copy2(src_path, dst)
                     # Update path to be web-relative
                     scene[key] = f"/gallery/{slug}/{src_path.name}"
+                    total_images += 1
                 else:
                     scene[key] = None
+
+        public_spots.append(spot)
+
+    manifest["spots"] = public_spots
+    if isinstance(manifest.get("summary"), dict):
+        manifest["summary"]["total_spots"] = len(public_spots)
+        manifest["summary"]["total_images"] = total_images
 
     out = WEB_DATA / "gallery.json"
     with open(out, "w") as f:
         json.dump(manifest, f, separators=(",", ":"))
 
-    total_images = sum(len(s["scenes"]) * 2 for s in manifest["spots"])
     print(f"  gallery.json: {len(manifest['spots'])} spots, ~{total_images} images, {out.stat().st_size / 1024:.1f}KB")
 
 

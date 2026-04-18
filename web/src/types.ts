@@ -1,15 +1,61 @@
 import type { FeatureCollection, Point } from "geojson";
 
+export type VerificationStatus = "confirmed" | "candidate" | "rejected";
+export type PublicationStatus = "public_named" | "public_coarse" | "internal_only";
+export type EvidenceConfidenceLabel = "none" | "low" | "moderate" | "high";
+export type QualityStatus = "usable" | "degraded" | "rejected";
+
+export interface Provenance {
+  run_id: string;
+  generated_at_utc: string;
+  code_version: string;
+  config_version: string;
+}
+
+export interface ScoreComponents {
+  geometry: number;
+  foam: number;
+  profile: number;
+}
+
+export interface Explanation {
+  summary: string;
+  score_components: ScoreComponents;
+  highlights: string[];
+  caveats: string[];
+  provenance: Provenance;
+}
+
+export interface GallerySummary {
+  scene_count: number;
+  usable_scene_count: number;
+  degraded_scene_count: number;
+  latest_scene_date: string | null;
+}
+
 export interface SpotProperties {
   name: string;
   slug: string;
-  type: string;
-  swell_window: string;
-  notes: string;
-  confidence: string;
-  source: string;
+  break_type: string;
+  verification_status: VerificationStatus;
+  publication_status: PublicationStatus;
+  source_summary: string;
+  short_summary: string;
+  swell_window_summary: string;
+  surf_potential_score: number;
+  evidence_confidence_level: number;
+  evidence_confidence_label: EvidenceConfidenceLabel;
+  gallery_available: boolean;
+  swell_profile_available: boolean;
+  quality_status: QualityStatus;
   foam_summary: FoamSummary | null;
-  has_swell_profile: boolean;
+  explanation: Explanation;
+  type?: string;
+  swell_window?: string;
+  notes?: string;
+  confidence?: string;
+  source?: string;
+  has_swell_profile?: boolean;
 }
 
 export interface FoamSummary {
@@ -29,6 +75,13 @@ export type SpotsGeoJSON = FeatureCollection<Point, SpotProperties>;
 export interface SegmentProperties {
   id: string;
   score: number;
+  verification_status?: VerificationStatus;
+  publication_status?: PublicationStatus;
+  surf_potential_score?: number;
+  evidence_confidence_level?: number;
+  evidence_confidence_label?: EvidenceConfidenceLabel;
+  quality_status?: QualityStatus;
+  score_components?: ScoreComponents;
   swell_exposure?: number;
   geometry_score?: number;
   bathymetry?: number;
@@ -44,8 +97,11 @@ export interface SegmentProperties {
   geometry_component?: number;
   foam_obs_count?: number;
   turn_on_threshold?: number;
+  turn_on_threshold_m?: number;
   optimal_swell?: string;
+  optimal_swell_range?: string;
   primary_direction?: string;
+  explanation?: Explanation;
 }
 
 export type SegmentsGeoJSON = FeatureCollection<Point, SegmentProperties>;
@@ -72,18 +128,29 @@ export interface SwellProfile {
 export interface SpotDetail {
   slug: string;
   name: string;
+  verification_status: VerificationStatus;
+  publication_status: PublicationStatus;
+  evidence_confidence_level: number;
+  evidence_confidence_label: EvidenceConfidenceLabel;
+  surf_potential_score: number;
+  quality_status: QualityStatus;
   swell_profile: SwellProfile | null;
   foam_summary: FoamSummary | null;
+  gallery_summary: GallerySummary;
+  provenance: Provenance;
+  explanation: Explanation;
 }
 
 export interface GalleryScene {
   date: string;
+  scene_id: string;
   swell_height_m: number;
   swell_period_s?: number;
   swell_direction_deg?: number;
   cloud_pct?: number;
   foam_fraction: number;
   quality_score?: number;
+  quality_status: QualityStatus;
   wave_energy?: number;
   bin_label: string;
   rgb_path: string | null;
@@ -97,6 +164,7 @@ export interface GalleryScene {
 export interface GallerySpot {
   spot_name: string;
   slug: string;
+  publication_status: PublicationStatus;
   scenes: GalleryScene[];
 }
 
@@ -117,6 +185,7 @@ export interface AtlasSectionProperties {
   segment_count: number;
   segment_ids: string[];
   coastline_length_m: number;
+  publication_status?: PublicationStatus;
 }
 
 export type AtlasSectionsGeoJSON = FeatureCollection<
@@ -133,6 +202,7 @@ export interface AtlasGallerySection {
   segment_count: number;
   segment_ids: string[];
   coastline_length_m: number;
+  publication_status?: PublicationStatus;
   scenes: GalleryScene[];
 }
 

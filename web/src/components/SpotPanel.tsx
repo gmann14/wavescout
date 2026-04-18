@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import type { SpotProperties, SpotDetail, GalleryScene } from "@/types";
 import { loadSpotDetail } from "@/lib/data";
+import {
+  formatBreakType,
+  formatEvidenceLabel,
+  formatVerificationStatus,
+} from "@/lib/spotData";
 import SwellChart from "./SwellChart";
 import ImageGallery from "./ImageGallery";
 
@@ -60,8 +65,21 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
       .finally(() => setLoading(false));
   }, [spot.slug]);
 
-  const isConfirmed =
-    spot.confidence === "high" || spot.confidence === "medium";
+  const activeDetail = detail ?? null;
+  const summary =
+    activeDetail?.explanation.summary ||
+    spot.explanation.summary ||
+    spot.short_summary;
+  const highlights = activeDetail?.explanation.highlights ?? spot.explanation.highlights;
+  const caveats = activeDetail?.explanation.caveats ?? spot.explanation.caveats;
+  const surfPotentialScore = activeDetail?.surf_potential_score ?? spot.surf_potential_score;
+  const evidenceLabel =
+    activeDetail?.evidence_confidence_label ?? spot.evidence_confidence_label;
+  const verificationStatus =
+    activeDetail?.verification_status ?? spot.verification_status;
+  const foamSummary = activeDetail?.foam_summary ?? spot.foam_summary;
+  const gallerySceneCount = activeDetail?.gallery_summary.scene_count ?? gallery.length;
+  const usableSceneCount = activeDetail?.gallery_summary.usable_scene_count ?? gallery.length;
 
   return (
     <>
@@ -79,20 +97,27 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
             <h2 className="text-lg font-semibold text-white">{spot.name}</h2>
             <div className="flex gap-1.5 mt-1">
               <Badge
-                label={spot.type}
+                label={formatBreakType(spot.break_type)}
                 color="border-navy-600 text-slate-400"
               />
-              {isConfirmed ? (
-                <Badge
-                  label="Confirmed"
-                  color="border-teal-500/40 text-teal-400"
-                />
-              ) : (
-                <Badge
-                  label="Candidate"
-                  color="border-orange-500/40 text-orange-400"
-                />
-              )}
+              <Badge
+                label={formatVerificationStatus(verificationStatus)}
+                color={
+                  verificationStatus === "confirmed"
+                    ? "border-teal-500/40 text-teal-400"
+                    : "border-orange-500/40 text-orange-400"
+                }
+              />
+              <Badge
+                label={formatEvidenceLabel(evidenceLabel)}
+                color={
+                  evidenceLabel === "high"
+                    ? "border-teal-500/40 text-teal-300"
+                    : evidenceLabel === "moderate"
+                      ? "border-cyan-500/40 text-cyan-300"
+                      : "border-orange-500/40 text-orange-300"
+                }
+              />
             </div>
           </div>
           <button
@@ -114,28 +139,48 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
         <div className="p-4 space-y-5">
           {/* Spot info */}
           <div className="text-sm text-slate-400">
-            <p>{spot.notes}</p>
-            <p className="mt-1">
+            <p>{summary}</p>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              <div className="bg-navy-800 rounded-lg p-3 text-center">
+                <div className="text-lg font-semibold text-white tabular-nums">
+                  {surfPotentialScore.toFixed(1)}
+                </div>
+                <div className="text-[11px] text-slate-500">surf potential</div>
+              </div>
+              <div className="bg-navy-800 rounded-lg p-3 text-center">
+                <div className="text-sm font-semibold text-cyan-300">
+                  {formatEvidenceLabel(evidenceLabel)}
+                </div>
+                <div className="text-[11px] text-slate-500">evidence level</div>
+              </div>
+              <div className="bg-navy-800 rounded-lg p-3 text-center">
+                <div className="text-lg font-semibold text-teal-300 tabular-nums">
+                  {gallerySceneCount}
+                </div>
+                <div className="text-[11px] text-slate-500">gallery scenes</div>
+              </div>
+            </div>
+            <p className="mt-3">
               <span className="text-slate-500">Swell window:</span>{" "}
-              {spot.swell_window}
+              {spot.swell_window_summary || "Not yet modeled"}
             </p>
             <p>
-              <span className="text-slate-500">Source:</span> {spot.source}
+              <span className="text-slate-500">Source:</span> {spot.source_summary}
             </p>
           </div>
 
           {/* Detection stats */}
-          {spot.foam_summary && (
+          {foamSummary && (
             <div className="bg-navy-800 rounded-lg p-3 grid grid-cols-2 gap-3 text-center">
               <div>
                 <div className="text-xl font-bold text-teal-400 tabular-nums">
-                  {spot.foam_summary.total_detections.toLocaleString()}
+                  {foamSummary.total_detections.toLocaleString()}
                 </div>
                 <div className="text-xs text-slate-500">observations</div>
               </div>
               <div>
                 <div className="text-xl font-bold text-slate-200 tabular-nums">
-                  {spot.foam_summary.scenes_processed}
+                  {foamSummary.scenes_processed}
                 </div>
                 <div className="text-xs text-slate-500">satellite passes</div>
               </div>
@@ -152,6 +197,35 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
           {!loading && !detail && (
             <div className="bg-navy-800 rounded-lg p-3 text-sm text-slate-400">
               Detailed metrics are not available for this location yet.
+            </div>
+          )}
+
+          {(highlights.length > 0 || caveats.length > 0) && (
+            <div className="grid gap-3 md:grid-cols-2">
+              {highlights.length > 0 && (
+                <div className="bg-navy-800 rounded-lg p-3">
+                  <h3 className="text-sm font-medium text-slate-200 mb-2">
+                    Highlights
+                  </h3>
+                  <ul className="space-y-1 text-sm text-slate-400 list-disc list-inside">
+                    {highlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {caveats.length > 0 && (
+                <div className="bg-navy-800 rounded-lg p-3">
+                  <h3 className="text-sm font-medium text-slate-200 mb-2">
+                    Caveats
+                  </h3>
+                  <ul className="space-y-1 text-sm text-slate-400 list-disc list-inside">
+                    {caveats.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )}
 
@@ -196,6 +270,12 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
           {/* Satellite gallery */}
           {gallery.length > 0 && <ImageGallery scenes={gallery} />}
 
+          {gallery.length === 0 && gallerySceneCount === 0 && (
+            <div className="bg-navy-800 rounded-lg p-3 text-sm text-slate-400">
+              No public satellite gallery scenes are available for this location yet.
+            </div>
+          )}
+
           {/* Score breakdown - for confirmed spots with foam data */}
           {detail?.swell_profile && (
             <div>
@@ -212,6 +292,11 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
                   label="Observations"
                   value={detail.swell_profile.total_observations}
                   max={2000}
+                />
+                <ScoreBar
+                  label="Usable scenes"
+                  value={usableSceneCount}
+                  max={Math.max(gallerySceneCount, 1)}
                 />
               </div>
             </div>

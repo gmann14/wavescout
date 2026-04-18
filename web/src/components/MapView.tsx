@@ -15,6 +15,7 @@ import {
   loadSegmentsAll,
   loadGallery,
 } from "@/lib/data";
+import { normalizeSpotProperties } from "@/lib/spotData";
 import SpotPanel from "./SpotPanel";
 
 // Nova Scotia center
@@ -41,6 +42,11 @@ export default function MapView() {
   const [selectedSpot, setSelectedSpot] = useState<SpotProperties | null>(null);
   const [gallery, setGallery] = useState<GalleryManifest | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [stats, setStats] = useState({
+    segmentCount: 0,
+    highCandidateCount: 0,
+    spotCount: 0,
+  });
 
   const handleSpotClick = useCallback(
     (props: SpotProperties) => {
@@ -99,6 +105,11 @@ export default function MapView() {
 
       if (abortController.signal.aborted) return;
       setGallery(galleryData);
+      setStats({
+        segmentCount: segAll.features.length,
+        highCandidateCount: segHigh.features.length,
+        spotCount: spots.features.length,
+      });
 
       // --- Layer 1: All scored segments (>40) - tiny dots ---
       m.addSource("segments-all", {
@@ -200,9 +211,10 @@ export default function MapView() {
           "circle-radius": 7,
           "circle-color": [
             "match",
-            ["get", "confidence"],
+            ["get", "evidence_confidence_label"],
             "high", "#14b8a6",
-            "medium", "#2dd4bf",
+            "moderate", "#2dd4bf",
+            "low", "#fb923c",
             "#fb923c",
           ],
           "circle-stroke-width": 2,
@@ -235,21 +247,7 @@ export default function MapView() {
         if (!e.features?.[0]) return;
         const props = e.features[0].properties;
         if (!props) return;
-        // Parse JSON-encoded properties from mapbox
-        const spotProps: SpotProperties = {
-          name: props.name,
-          slug: props.slug,
-          type: props.type,
-          swell_window: props.swell_window,
-          notes: props.notes,
-          confidence: props.confidence,
-          source: props.source,
-          foam_summary: props.foam_summary
-            ? JSON.parse(props.foam_summary)
-            : null,
-          has_swell_profile: props.has_swell_profile === true || props.has_swell_profile === "true",
-        };
-        handleSpotClick(spotProps);
+        handleSpotClick(normalizeSpotProperties(props as Record<string, unknown>));
       });
 
       // Popup on hover for high-scoring segments
@@ -267,7 +265,12 @@ export default function MapView() {
         if (!props || geom.type !== "Point") return;
 
         const displayScore = props.composite_score ?? props.score;
-        const confidence = typeof props.confidence === "number" ? props.confidence : undefined;
+        const confidence =
+          typeof props.evidence_confidence_level === "number"
+            ? props.evidence_confidence_level
+            : typeof props.confidence === "number"
+              ? props.confidence
+              : undefined;
         const foamComponent = typeof props.foam_component === "number" ? props.foam_component : undefined;
         const profileComponent = typeof props.profile_component === "number" ? props.profile_component : undefined;
 
@@ -332,7 +335,7 @@ export default function MapView() {
         <div className="text-slate-400 font-medium mb-1">Legend</div>
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-teal-500 border-2 border-white inline-block" />
-          <span className="text-slate-300">Verified spots (20)</span>
+          <span className="text-slate-300">Named spots ({stats.spotCount || "..."})</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-orange-400 inline-block" />
@@ -346,14 +349,14 @@ export default function MapView() {
 
       {/* Stats bar */}
       <div className="absolute top-4 left-4 bg-navy-900/90 backdrop-blur border border-navy-700 rounded-lg px-3 py-2 text-xs z-10">
-        <span className="text-teal-400 font-bold">16,939</span>
+        <span className="text-teal-400 font-bold">{stats.segmentCount}</span>
         <span className="text-slate-500"> segments scored</span>
         <span className="text-slate-600 mx-1.5">|</span>
-        <span className="text-orange-400 font-bold">2,420</span>
+        <span className="text-orange-400 font-bold">{stats.highCandidateCount}</span>
         <span className="text-slate-500"> high candidates</span>
         <span className="text-slate-600 mx-1.5">|</span>
-        <span className="text-white font-bold">20</span>
-        <span className="text-slate-500"> verified</span>
+        <span className="text-white font-bold">{stats.spotCount}</span>
+        <span className="text-slate-500"> named spots</span>
       </div>
 
       {/* Spot detail panel */}

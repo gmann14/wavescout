@@ -204,7 +204,24 @@ def validate_spots_payload(payload: dict[str, Any], *, strict: bool = False) -> 
     features = payload.get("features")
     if not isinstance(features, list):
         raise ValueError("spots.json features must be a list")
-    if not strict or not features:
+    if not features:
+        return
+
+    for feature in features:
+        props = feature.get("properties", {})
+        publication_status = props.get("publication_status")
+        if publication_status == "internal_only":
+            raise ValueError("spots.json must not expose internal_only spots")
+        if publication_status not in PUBLICATION_STATUSES:
+            raise ValueError("spots.json has unsupported publication_status")
+        verification_status = props.get("verification_status")
+        if verification_status is not None and verification_status not in VERIFICATION_STATUSES:
+            raise ValueError("spots.json has unsupported verification_status")
+        confidence_label = props.get("evidence_confidence_label")
+        if confidence_label is not None and confidence_label not in CONFIDENCE_LABELS:
+            raise ValueError("spots.json has unsupported evidence_confidence_label")
+
+    if not strict:
         return
 
     props = features[0].get("properties", {})
@@ -231,12 +248,6 @@ def validate_spots_payload(payload: dict[str, Any], *, strict: bool = False) -> 
     )
     if "confidence" in props:
         raise ValueError("spots.json must not expose legacy confidence in strict mode")
-    if props["verification_status"] not in VERIFICATION_STATUSES:
-        raise ValueError("spots.json has unsupported verification_status")
-    if props["publication_status"] not in PUBLICATION_STATUSES:
-        raise ValueError("spots.json has unsupported publication_status")
-    if props["evidence_confidence_label"] not in CONFIDENCE_LABELS:
-        raise ValueError("spots.json has unsupported evidence_confidence_label")
 
 
 def validate_segments_high_payload(payload: dict[str, Any], *, strict: bool = False) -> None:
@@ -276,10 +287,17 @@ def validate_gallery_payload(payload: dict[str, Any], *, strict: bool = False) -
         {"run_id", "generated_at_utc", "code_version", "parameters", "spots", "summary"},
         "gallery.json",
     )
+    spots = payload.get("spots", [])
+    for spot in spots:
+        publication_status = spot.get("publication_status")
+        if publication_status == "internal_only":
+            raise ValueError("gallery.json must not expose internal_only spots")
+        if publication_status is not None and publication_status not in PUBLICATION_STATUSES:
+            raise ValueError("gallery.json has unsupported publication_status")
+
     if not strict:
         return
 
-    spots = payload.get("spots", [])
     if not spots:
         raise ValueError("gallery.json must contain at least one spot in strict mode")
     spot = spots[0]
