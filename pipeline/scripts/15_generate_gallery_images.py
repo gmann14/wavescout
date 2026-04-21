@@ -31,6 +31,7 @@ import ee
 import requests
 from datetime import datetime, timedelta
 
+from _gallery_quality import scene_publishability
 from _script_utils import (
     generate_run_id,
     get_code_version,
@@ -38,6 +39,7 @@ from _script_utils import (
     now_utc_iso,
     write_json,
 )
+from _public_dataset import quality_status_from_score
 
 MANIFESTS_DIR = Path("pipeline/data/manifests")
 CONFIGS_DIR = Path("pipeline/configs")
@@ -236,15 +238,48 @@ def aggregate_scene_foam(detections: list[dict]) -> dict[str, dict]:
 MIN_GALLERY_QS = 90  # Minimum quality score for gallery scenes (lowered from 95 to capture bigger swell days)
 MAX_SNOW_PCT = 10.0  # Exclude scenes with >10% snow on land (scale 0-100, winter contamination → false foam)
 MIN_PERIOD_S = 8.0   # Prefer scenes with period ≥ 8s (cleaner swell, more defined waves)
+MAX_SCENES_PER_BIN = 1  # Default public-gallery mode: one representative scene per swell bin
+REFERENCE_BANK_MIN_GALLERY_QS = 75.0
+REFERENCE_BANK_MIN_PERIOD_S = 6.0
+REFERENCE_BANK_MAX_SCENES_PER_BIN = 3
+PUBLIC_GALLERY_MANIFEST = "manifest.json"
+REFERENCE_BANK_MANIFEST = "reference-bank-manifest.json"
+
+
+def selection_defaults(*, reference_bank: bool) -> dict[str, float | int]:
+    """Return default scene-selection thresholds for the chosen gallery mode."""
+    if reference_bank:
+        return {
+            "min_gallery_qs": REFERENCE_BANK_MIN_GALLERY_QS,
+            "min_period_s": REFERENCE_BANK_MIN_PERIOD_S,
+            "max_scenes_per_bin": REFERENCE_BANK_MAX_SCENES_PER_BIN,
+        }
+    return {
+        "min_gallery_qs": MIN_GALLERY_QS,
+        "min_period_s": MIN_PERIOD_S,
+        "max_scenes_per_bin": MAX_SCENES_PER_BIN,
+    }
+
+
+def output_manifest_name(*, reference_bank: bool) -> str:
+    """Return the manifest filename for the chosen gallery mode."""
+    return REFERENCE_BANK_MANIFEST if reference_bank else PUBLIC_GALLERY_MANIFEST
 
 
 def pick_representative_scenes(
-    scenes: dict[str, dict], limit: int | None = None
+    scenes: dict[str, dict],
+    limit: int | None = None,
+    *,
+    min_gallery_qs: float = MIN_GALLERY_QS,
+    min_period_s: float = MIN_PERIOD_S,
+    max_scenes_per_bin: int = MAX_SCENES_PER_BIN,
 ) -> list[dict]:
-    """Pick up to one scene per swell bin, balancing quality and foam visibility.
+    """Pick representative scenes per swell bin, balancing quality and foam visibility.
 
-    Filters to scenes with quality_score ≥ MIN_GALLERY_QS, then picks the scene
-    with the highest median foam fraction (robust to segment outliers).
+    Filters to scenes with quality_score ≥ min_gallery_qs, then picks up to
+    ``max_scenes_per_bin`` scenes per swell bin ranked by median foam fraction,
+    quality score, and wave energy. This supports a denser reference bank while
+    preserving the old gallery behavior by default.
 
     Returns list of {date, swell_height_m, foam_fraction, wave_energy, quality_score, bin_label}.
     """
@@ -252,7 +287,7 @@ def pick_representative_scenes(
 
     for date, info in scenes.items():
         # Filter by quality score — excludes cloudy/contaminated scenes
-        if info.get("quality_score", 0) < MIN_GALLERY_QS:
+        if info.get("quality_score", 0) < min_gallery_qs:
             continue
         # NOTE: Winter scenes kept — best swell comes with winter storms.
         # Human can visually distinguish foam from snow/ice in imagery.
@@ -270,22 +305,30 @@ def pick_representative_scenes(
         candidates = binned[label]
         if not candidates:
             continue
-        # Prefer scenes with period ≥ MIN_PERIOD_S (cleaner, more defined swell)
-        long_period = [(d, i) for d, i in candidates if (i.get("swell_period_s") or 0) >= MIN_PERIOD_S]
+        # Prefer scenes with period ≥ min_period_s (cleaner, more defined swell)
+        long_period = [(d, i) for d, i in candidates if (i.get("swell_period_s") or 0) >= min_period_s]
         pool = long_period if long_period else candidates
-        # Pick scene with highest median foam (robust to noisy outlier segments)
-        best_date, best_info = max(pool, key=lambda x: x[1]["median_foam_fraction"])
-        picks.append({
-            "date": best_date,
-            "swell_height_m": best_info["swell_height_m"],
-            "swell_period_s": best_info.get("swell_period_s"),
-            "swell_direction_deg": best_info.get("swell_direction_deg"),
-            "cloud_pct": best_info.get("cloud_pct", 0),
-            "foam_fraction": best_info["median_foam_fraction"],
-            "wave_energy": best_info.get("wave_energy", 0),
-            "quality_score": best_info.get("quality_score", 0),
-            "bin_label": label,
-        })
+        ranked = sorted(
+            pool,
+            key=lambda x: (
+                x[1]["median_foam_fraction"],
+                x[1].get("quality_score", 0),
+                x[1].get("wave_energy", 0),
+            ),
+            reverse=True,
+        )
+        for best_date, best_info in ranked[:max_scenes_per_bin]:
+            picks.append({
+                "date": best_date,
+                "swell_height_m": best_info["swell_height_m"],
+                "swell_period_s": best_info.get("swell_period_s"),
+                "swell_direction_deg": best_info.get("swell_direction_deg"),
+                "cloud_pct": best_info.get("cloud_pct", 0),
+                "foam_fraction": best_info["median_foam_fraction"],
+                "wave_energy": best_info.get("wave_energy", 0),
+                "quality_score": best_info.get("quality_score", 0),
+                "bin_label": label,
+            })
 
     if limit is not None:
         picks = picks[:limit]
@@ -378,7 +421,14 @@ def generate_scene_thumbnails(
     return results
 
 
-def process_spot(slug: str, limit: int | None = None) -> dict | None:
+def process_spot(
+    slug: str,
+    limit: int | None = None,
+    *,
+    min_gallery_qs: float = MIN_GALLERY_QS,
+    min_period_s: float = MIN_PERIOD_S,
+    max_scenes_per_bin: int = MAX_SCENES_PER_BIN,
+) -> dict | None:
     """Process a single spot: pick scenes, generate thumbnails.
 
     Returns manifest entry for the spot, or None on failure.
@@ -398,7 +448,13 @@ def process_spot(slug: str, limit: int | None = None) -> dict | None:
         return None
 
     scenes = aggregate_scene_foam(detections)
-    picks = pick_representative_scenes(scenes, limit=limit)
+    picks = pick_representative_scenes(
+        scenes,
+        limit=limit,
+        min_gallery_qs=min_gallery_qs,
+        min_period_s=min_period_s,
+        max_scenes_per_bin=max_scenes_per_bin,
+    )
 
     if not picks:
         print(f"  No representative scenes for {slug}")
@@ -450,6 +506,11 @@ def process_spot(slug: str, limit: int | None = None) -> dict | None:
             "rgb_path": paths.get("rgb_path"),
             "nir_path": paths.get("nir_path"),
         }
+        publishable, reason, black_ratio = scene_publishability(scene_entry, Path("."))
+        scene_entry["quality_status"] = quality_status_from_score(scene_entry.get("quality_score"))
+        scene_entry["publishable"] = publishable
+        scene_entry["publishability_reason"] = reason
+        scene_entry["black_fill_ratio"] = round(black_ratio, 4) if black_ratio is not None else None
         spot_scenes.append(scene_entry)
 
         # Small delay between scenes to be nice to GEE
@@ -470,7 +531,55 @@ def main():
     group.add_argument("--spot", help="Process a single spot by slug")
     group.add_argument("--all", action="store_true", help="Process all spots with foam data")
     parser.add_argument("--limit", type=int, default=None, help="Max scenes per spot (for testing)")
+    parser.add_argument(
+        "--reference-bank",
+        action="store_true",
+        help=(
+            "Write a denser non-public reference-bank manifest with relaxed defaults. "
+            "This does not affect the strict public gallery manifest used by the web build."
+        ),
+    )
+    parser.add_argument(
+        "--min-gallery-qs",
+        type=float,
+        default=None,
+        help=(
+            "Minimum quality score for gallery/reference scenes. "
+            f"Defaults: {MIN_GALLERY_QS} public gallery, {REFERENCE_BANK_MIN_GALLERY_QS} reference bank."
+        ),
+    )
+    parser.add_argument(
+        "--min-period-s",
+        type=float,
+        default=None,
+        help=(
+            "Preferred minimum swell period in seconds. "
+            f"Defaults: {MIN_PERIOD_S} public gallery, {REFERENCE_BANK_MIN_PERIOD_S} reference bank."
+        ),
+    )
+    parser.add_argument(
+        "--max-scenes-per-bin",
+        type=int,
+        default=None,
+        help=(
+            "Max scenes to keep per swell bin. "
+            f"Defaults: {MAX_SCENES_PER_BIN} public gallery, {REFERENCE_BANK_MAX_SCENES_PER_BIN} reference bank."
+        ),
+    )
     args = parser.parse_args()
+    defaults = selection_defaults(reference_bank=args.reference_bank)
+    effective_min_gallery_qs = (
+        float(args.min_gallery_qs) if args.min_gallery_qs is not None else float(defaults["min_gallery_qs"])
+    )
+    effective_min_period_s = (
+        float(args.min_period_s) if args.min_period_s is not None else float(defaults["min_period_s"])
+    )
+    effective_max_scenes_per_bin = (
+        int(args.max_scenes_per_bin)
+        if args.max_scenes_per_bin is not None
+        else int(defaults["max_scenes_per_bin"])
+    )
+    manifest_name = output_manifest_name(reference_bank=args.reference_bank)
 
     init_gee()
 
@@ -492,13 +601,18 @@ def main():
             sys.exit(1)
 
     print(f"Gallery Image Generator")
+    print(f"  Mode: {'reference-bank' if args.reference_bank else 'public-gallery'}")
     print(f"  Spots: {len(slugs)}")
     print(f"  Limit: {args.limit or 'none (up to 5 per spot)'}")
-    print(f"  Output: {GALLERY_DIR}/")
+    print(f"  Min gallery QS: {effective_min_gallery_qs}")
+    print(f"  Min preferred period: {effective_min_period_s}s")
+    print(f"  Max scenes/bin: {effective_max_scenes_per_bin}")
+    print(f"  Output: {GALLERY_DIR / manifest_name}")
 
     run_id = generate_run_id()
     gallery_manifest = {
         "script": "15_generate_gallery_images.py",
+        "gallery_mode": "reference_bank" if args.reference_bank else "public_gallery",
         "run_id": run_id,
         "generated_at_utc": now_utc_iso(),
         "code_version": get_code_version(),
@@ -506,12 +620,16 @@ def main():
             "image_width_px": IMAGE_WIDTH,
             "swell_bins": {label: f"{lo}-{hi}m" for label, lo, hi in SWELL_BINS},
             "limit_per_spot": args.limit,
+            "min_gallery_qs": effective_min_gallery_qs,
+            "min_period_s": effective_min_period_s,
+            "max_scenes_per_bin": effective_max_scenes_per_bin,
+            "reference_bank": args.reference_bank,
         },
         "spots": [],
     }
 
     # Load existing manifest to preserve previously-generated spots
-    manifest_path = GALLERY_DIR / "manifest.json"
+    manifest_path = GALLERY_DIR / manifest_name
     existing_spots: dict[str, dict] = {}
     if manifest_path.exists():
         try:
@@ -525,7 +643,13 @@ def main():
     total_images = 0
     for i, slug in enumerate(slugs, 1):
         print(f"\n[{i}/{len(slugs)}] Processing {slug} ...")
-        result = process_spot(slug, limit=args.limit)
+        result = process_spot(
+            slug,
+            limit=args.limit,
+            min_gallery_qs=effective_min_gallery_qs,
+            min_period_s=effective_min_period_s,
+            max_scenes_per_bin=effective_max_scenes_per_bin,
+        )
         if result:
             existing_spots[slug] = result
             total_images += sum(

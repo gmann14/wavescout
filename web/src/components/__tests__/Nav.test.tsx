@@ -12,7 +12,6 @@ describe("Nav", () => {
 
     expect(screen.getByRole("link", { name: /WaveScout/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Map" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Atlas" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Compare" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "How It Works" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();

@@ -230,7 +230,7 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
           )}
 
           {(highlights.length > 0 || caveats.length > 0) && (
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="space-y-3">
               {highlights.length > 0 && (
                 <div className="bg-navy-800 rounded-lg p-3">
                   <h3 className="text-sm font-medium text-slate-200 mb-2">

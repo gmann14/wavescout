@@ -57,18 +57,23 @@ Do not release if any are true:
 Run and record results for:
 
 ```bash
-python3 pipeline/scripts/build_web_data.py
-python3 pipeline/scripts/build_atlas_web_data.py
-cd web && pnpm install
-cd web && pnpm build
+python3 pipeline/scripts/check_release_readiness.py
 ```
 
-When tests exist, also run:
+Include browser verification before external release claims:
 
 ```bash
-pytest
-cd web && pnpm test
-cd web && pnpm test:e2e
+python3 pipeline/scripts/check_release_readiness.py --include-e2e
+```
+
+Promotion must use the explicit promotion command after a green readiness report and a recorded `Gate D` review:
+
+```bash
+python3 pipeline/scripts/promote_public_dataset.py \
+  --release-reviewer "<name>" \
+  --policy-reviewer "<name>" \
+  --review-record "docs/RELEASE-RECORD-TEMPLATE.md or linked issue/PR record" \
+  --gate-outcome pass
 ```
 
 ## Manual QA
@@ -112,6 +117,7 @@ cd web && pnpm test:e2e
 - [UI-STATES.md](UI-STATES.md) matches actual UI behavior
 - [REVIEW-GATES.md](REVIEW-GATES.md) matches the actual signoff flow used during implementation
 - [DEPLOY.md](../DEPLOY.md) matches actual deployment process
+- [RELEASE-RECORD-TEMPLATE.md](RELEASE-RECORD-TEMPLATE.md) or an equivalent durable record is ready for `Gate D`
 
 ## Sign-Off
 
@@ -125,3 +131,5 @@ Record before promotion:
 - date
 - `Gate D` outcome
 - location of the review record
+
+The current durable review log may live in [REVIEW-RECORDS.md](REVIEW-RECORDS.md) or an equivalent PR/release record.

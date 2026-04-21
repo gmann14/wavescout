@@ -9,9 +9,11 @@ import json
 import shutil
 from pathlib import Path
 
+from _gallery_quality import scene_publishability
 from _public_dataset import (
     confidence_label_for_level,
     derive_evidence_confidence_level,
+    map_display_eligible_for_segment,
     derive_spot_publication_status,
     derive_spot_verification_status,
     normalize_break_type,
@@ -25,6 +27,37 @@ PIPELINE_DATA = ROOT / "pipeline" / "data"
 MANIFESTS = PIPELINE_DATA / "manifests"
 WEB_DATA = ROOT / "web" / "public" / "data"
 WEB_GALLERY = ROOT / "web" / "public" / "gallery"
+
+SPOT_OVERRIDES: dict[str, dict] = {
+    "summerville": {
+        "coordinates": [-64.8153, 43.9469],
+        "location_override_source": "surfline",
+        "suppress_gallery": True,
+        "caveat": (
+            "Published coordinates were corrected from legacy source data. "
+            "Archive imagery is hidden until the Summerville run is regenerated "
+            "around the corrected beach location."
+        ),
+    },
+    "western-head": {
+        "coordinates": [-64.68, 43.985],
+        "location_override_source": "surfline",
+        "suppress_gallery": True,
+        "caveat": (
+            "Published coordinates were corrected from legacy source data. "
+            "Archive imagery is hidden until the Western Head run is regenerated "
+            "around the corrected point."
+        ),
+    },
+    "cherry-hill": {
+        "coordinates": [-64.509, 44.139],
+        "location_override_source": "surfline",
+    },
+    "broad-cove": {
+        "coordinates": [-64.4743, 44.1775],
+        "location_override_source": "surfline",
+    },
+}
 
 
 def _load_json(path: Path) -> dict:
@@ -67,7 +100,10 @@ def _spot_gallery_summaries() -> dict[str, dict]:
     manifest = _load_json(manifest_src)
     by_slug: dict[str, dict] = {}
     for spot in manifest.get("spots", []):
-        scenes = spot.get("scenes", [])
+        scenes = [
+            scene for scene in spot.get("scenes", [])
+            if _scene_is_publishable(scene)
+        ]
         quality_scores = [scene.get("quality_score") for scene in scenes if scene.get("quality_score") is not None]
         usable = sum(1 for score in quality_scores if score >= 90)
         degraded = sum(1 for score in quality_scores if score is not None and 60 <= score < 90)
@@ -81,6 +117,51 @@ def _spot_gallery_summaries() -> dict[str, dict]:
     return by_slug
 
 
+def _spot_override(slug: str) -> dict:
+    return SPOT_OVERRIDES.get(slug, {})
+
+
+def _apply_spot_override(feature: dict) -> None:
+    slug = feature.get("properties", {}).get("slug")
+    if not slug:
+        return
+
+    override = _spot_override(slug)
+    if not override:
+        return
+
+    coordinates = override.get("coordinates")
+    if coordinates:
+        feature["geometry"]["coordinates"] = coordinates
+
+    source = override.get("location_override_source")
+    if source:
+        feature["properties"]["location_override_source"] = source
+
+
+def _gallery_suppressed(slug: str) -> bool:
+    return bool(_spot_override(slug).get("suppress_gallery"))
+
+
+def _gallery_summary_for_slug(gallery_summaries: dict[str, dict], slug: str) -> dict:
+    if _gallery_suppressed(slug):
+        return {
+            "scene_count": 0,
+            "usable_scene_count": 0,
+            "degraded_scene_count": 0,
+            "latest_scene_date": None,
+        }
+    return gallery_summaries.get(
+        slug,
+        {
+            "scene_count": 0,
+            "usable_scene_count": 0,
+            "degraded_scene_count": 0,
+            "latest_scene_date": None,
+        },
+    )
+
+
 def _spot_source_index() -> dict[str, dict]:
     src = PIPELINE_DATA / "ns_spots.geojson"
     data = _load_json(src)
@@ -92,6 +173,13 @@ def _spot_source_index() -> dict[str, dict]:
     return index
 
 
+def _scene_is_publishable(scene: dict) -> bool:
+    if "publishable" in scene:
+        return bool(scene.get("publishable"))
+    publishable, _, _ = scene_publishability(scene, ROOT)
+    return publishable
+
+
 def _is_public_spot(feature: dict) -> bool:
     publication_status = derive_spot_publication_status(feature.get("properties", {}).get("source"))
     return publication_status != "internal_only"
@@ -99,6 +187,13 @@ def _is_public_spot(feature: dict) -> bool:
 
 def _spot_explanation(feature: dict, surf_potential_score: float, has_profile: bool) -> dict:
     notes = feature["properties"].get("notes", "")
+    slug = feature["properties"].get("slug", "")
+    override = _spot_override(slug)
+    caveats = [
+        "Score is a reference-entry proxy until the web app migrates to normalized ranking semantics.",
+    ]
+    if override.get("caveat"):
+        caveats.append(override["caveat"])
     return {
         "summary": notes or "Known reference location included for calibration and browsing.",
         "score_components": {
@@ -110,9 +205,7 @@ def _spot_explanation(feature: dict, surf_potential_score: float, has_profile: b
             "Reference location in the Nova Scotia dataset",
             "Imagery evidence available" if feature["properties"].get("foam_summary") else "Metadata-only reference",
         ],
-        "caveats": [
-            "Score is a reference-entry proxy until the web app migrates to normalized ranking semantics.",
-        ],
+        "caveats": caveats,
         "provenance": _ranking_provenance(),
     }
 
@@ -127,6 +220,8 @@ def build_spots():
     # Enrich spots with foam detection summaries and swell profile data
     for feature in data["features"]:
         slug = feature["properties"]["slug"]
+        _apply_spot_override(feature)
+        feature["properties"].pop("confidence", None)
 
         # Add foam detection summary
         foam_path = MANIFESTS / f"{slug}_foam_detections.json"
@@ -163,7 +258,7 @@ def build_spots():
         feature["properties"]["surf_potential_score"] = surf_potential_score
         feature["properties"]["evidence_confidence_level"] = confidence_level
         feature["properties"]["evidence_confidence_label"] = confidence_label_for_level(confidence_level)
-        feature["properties"]["gallery_available"] = gallery_summaries.get(slug, {}).get("scene_count", 0) > 0
+        feature["properties"]["gallery_available"] = _gallery_summary_for_slug(gallery_summaries, slug).get("scene_count", 0) > 0
         feature["properties"]["swell_profile_available"] = has_profile
         feature["properties"]["quality_status"] = quality_status_from_score(mean_quality)
         feature["properties"]["swell_window_summary"] = feature["properties"].get("swell_window", "")
@@ -208,6 +303,7 @@ def build_segments():
         # composite_score from ranked, total_score from scored
         score = props.get("composite_score") or props.get("total_score", 0)
         centroid = [props["centroid_lon"], props["centroid_lat"]]
+        coarse_centroid = [round(coord, 3) for coord in centroid]
 
         if score > all_threshold:
             evidence_level = derive_evidence_confidence_level(props.get("confidence", 0))
@@ -219,7 +315,7 @@ def build_segments():
                     "surf_potential_score": score,
                     "evidence_confidence_level": evidence_level,
                 },
-                "geometry": {"type": "Point", "coordinates": centroid},
+                "geometry": {"type": "Point", "coordinates": coarse_centroid},
             }
             all_features.append(minimal)
 
@@ -229,6 +325,11 @@ def build_segments():
             foam_component = props.get("foam_component") or 0.0
             profile_component = props.get("profile_component") or 0.0
             explanation = props.get("explanation") or {}
+            caveats = list(explanation.get("caveats", []))
+            if (props.get("coastal_context_penalty") or 0) >= 18:
+                shelter_caveat = "Sheltered coastal context reduces confidence as an open-ocean surf lead."
+                if shelter_caveat not in caveats:
+                    caveats.append(shelter_caveat)
             detailed: dict = {
                 "type": "Feature",
                 "properties": {
@@ -236,10 +337,25 @@ def build_segments():
                     "score": score,
                     "verification_status": "candidate",
                     "publication_status": "public_coarse",
+                    "map_display_eligible": map_display_eligible_for_segment(
+                        evidence_level,
+                        "public_coarse",
+                        props.get("orientation_deg"),
+                        props.get("exposure_arc_deg"),
+                        props.get("farfield_open_water_deg"),
+                        props.get("nearfield_open_water_deg"),
+                    ),
                     "surf_potential_score": score,
                     "evidence_confidence_level": evidence_level,
                     "evidence_confidence_label": confidence_label_for_level(evidence_level),
                     "quality_status": "usable" if evidence_level >= 2 else "degraded",
+                    "coastal_exposure_class": props.get("coastal_exposure_class"),
+                    "coastal_context_penalty": props.get("coastal_context_penalty", 0.0),
+                    "evidence_sparsity_penalty": props.get("evidence_sparsity_penalty", 0.0),
+                    "nearfield_open_water_deg": props.get("nearfield_open_water_deg"),
+                    "nearfield_blocked_ratio": props.get("nearfield_blocked_ratio"),
+                    "farfield_open_water_deg": props.get("farfield_open_water_deg"),
+                    "farfield_blocked_ratio": props.get("farfield_blocked_ratio"),
                     "score_components": {
                         "geometry": geometry_component,
                         "foam": foam_component,
@@ -262,17 +378,16 @@ def build_segments():
                             "profile": profile_component,
                         },
                         "highlights": explanation.get("highlights", []),
-                        "caveats": explanation.get("caveats", []),
+                        "caveats": caveats,
                         "provenance": _ranking_provenance(),
                     },
                 },
-                "geometry": {"type": "Point", "coordinates": centroid},
+                "geometry": {"type": "Point", "coordinates": coarse_centroid},
             }
 
             # Add composite ranking fields when available
             if use_ranked:
                 detailed["properties"]["composite_score"] = props.get("composite_score")
-                detailed["properties"]["confidence"] = props.get("confidence")
                 detailed["properties"]["foam_component"] = props.get("foam_component")
                 detailed["properties"]["profile_component"] = props.get("profile_component")
                 detailed["properties"]["geometry_component"] = props.get("geometry_component")
@@ -312,6 +427,7 @@ def build_spot_details():
 
     for feature in spots["features"]:
         slug = feature["properties"]["slug"]
+        _apply_spot_override(feature)
         legacy_confidence = feature["properties"].get("confidence")
         confidence_level = derive_evidence_confidence_level(legacy_confidence)
         detail = {
@@ -403,15 +519,7 @@ def build_spot_details():
         mean_quality = ((foam_summary.get("quality") or {}).get("mean_quality_score"))
         detail["surf_potential_score"] = surf_potential_score
         detail["quality_status"] = quality_status_from_score(mean_quality)
-        detail["gallery_summary"] = gallery_summaries.get(
-            slug,
-            {
-                "scene_count": 0,
-                "usable_scene_count": 0,
-                "degraded_scene_count": 0,
-                "latest_scene_date": None,
-            },
-        )
+        detail["gallery_summary"] = _gallery_summary_for_slug(gallery_summaries, slug)
         detail["provenance"] = _ranking_provenance()
         detail["explanation"] = _spot_explanation(feature, surf_potential_score, has_profile)
 
@@ -448,16 +556,19 @@ def build_gallery():
         source_feature = spot_index.get(slug)
         source = source_feature.get("properties", {}).get("source") if source_feature else spot.get("source")
         publication_status = derive_spot_publication_status(source)
-        if publication_status == "internal_only":
+        if publication_status == "internal_only" or _gallery_suppressed(slug):
             continue
 
         spot["publication_status"] = publication_status
         spot_gallery_dir = WEB_GALLERY / slug
         spot_gallery_dir.mkdir(parents=True, exist_ok=True)
+        filtered_scenes = []
 
         for scene in spot["scenes"]:
+            if not _scene_is_publishable(scene):
+                continue
             scene["scene_id"] = f"{slug}:{scene['date']}"
-            scene["quality_status"] = quality_status_from_score(scene.get("quality_score"))
+            scene.setdefault("quality_status", quality_status_from_score(scene.get("quality_score")))
             for key in ("rgb_path", "nir_path", "annotated_rgb_path", "annotated_nir_path"):
                 src_val = scene.get(key)
                 if not src_val:
@@ -473,6 +584,9 @@ def build_gallery():
                 else:
                     scene[key] = None
 
+            filtered_scenes.append(scene)
+
+        spot["scenes"] = filtered_scenes
         public_spots.append(spot)
 
     manifest["spots"] = public_spots

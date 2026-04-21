@@ -3,8 +3,8 @@
   "metadata": {
     "source": "Graham Mann \u2014 local knowledge",
     "created": "2026-03-25",
-    "notes": "NS surf spots from local knowledge + public sources (Surfline, Stormrider, Nomad Surfers). 20 total.",
-    "updated": "2026-03-25"
+    "notes": "NS surf spots from local knowledge + public sources (Surfline, Stormrider, Nomad Surfers). 26 total.",
+    "updated": "2026-04-20"
   },
   "features": [
     {
@@ -23,6 +23,44 @@
         "coordinates": [
           -63.3417,
           44.6375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lawrencetown Point",
+        "slug": "lawrencetown-point",
+        "type": "point",
+        "swell_window": "S/SE",
+        "notes": "Surfline point-break entry at the Lawrencetown headland. Strong nearby ranked support.",
+        "confidence": "high",
+        "source": "surfline"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.35122,
+          44.64182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Left Point",
+        "slug": "left-point",
+        "type": "point",
+        "swell_window": "S/SE",
+        "notes": "Surfline point-break entry on the Lawrencetown headland with strong local ranked support.",
+        "confidence": "high",
+        "source": "surfline"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.325,
+          44.639
         ]
       }
     },
@@ -208,13 +246,13 @@
         "confidence": "high",
         "source": "public-stormrider"
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -64.6617,
-          43.9733
-        ]
-      }
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -64.68,
+      43.985
+    ]
+  }
     },
     {
       "type": "Feature",
@@ -227,13 +265,13 @@
         "confidence": "high",
         "source": "public-stormrider"
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -64.5169,
-          44.1386
-        ]
-      }
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -64.509,
+      44.139
+    ]
+  }
     },
     {
       "type": "Feature",
@@ -249,8 +287,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -60.3994,
-          45.6541
+          -60.6795,
+          45.5881
         ]
       }
     },
@@ -276,6 +314,44 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Right Point",
+        "slug": "right-point",
+        "type": "point",
+        "swell_window": "E/SE",
+        "notes": "Surfline point-break entry east of Halifax with strong local ranked support.",
+        "confidence": "high",
+        "source": "surfline"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.25684,
+          44.657329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Cove",
+        "slug": "the-cove",
+        "type": "point",
+        "swell_window": "E/SE",
+        "notes": "Surfline point-break entry near Fisherman's Reserve. Strong broader neighborhood support.",
+        "confidence": "medium-high",
+        "source": "surfline"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.25845,
+          44.66404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "Summerville Beach",
         "slug": "summerville",
         "type": "beach",
@@ -284,13 +360,13 @@
         "confidence": "medium",
         "source": "public-nomadsurfers"
       },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -64.7502,
-          44.0586
-        ]
-      }
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -64.8153,
+      43.9469
+    ]
+  }
     },
     {
       "type": "Feature",
@@ -306,8 +382,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -59.975,
-          45.9
+          -60.0605,
+          45.8765
         ]
       }
     },
@@ -363,8 +439,46 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -63.525,
-          44.58
+          -64.4743,
+          44.1775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arties",
+        "slug": "arties",
+        "type": "point",
+        "swell_window": "S/SE",
+        "notes": "Private local Broad Cove reference. Coordinate needs manual review.",
+        "confidence": "high",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.462,
+          44.183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bullfield",
+        "slug": "bullfield",
+        "type": "reef",
+        "swell_window": "S/SE",
+        "notes": "Private local Broad Cove reference. Coordinate needs manual review.",
+        "confidence": "high",
+        "source": "graham-local-knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.476,
+          44.171
         ]
       }
     },

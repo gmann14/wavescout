@@ -1,0 +1,32 @@
+{
+  "regions": [
+    {
+      "name": "lahave_inner",
+      "bbox": [-64.56, 44.27, -64.39, 44.37],
+      "max_score": 70.0,
+      "max_count_ge_50": 10,
+      "max_count_ge_60": 4
+    },
+    {
+      "name": "rose_bay_inner",
+      "bbox": [-64.38, 44.34, -64.18, 44.47],
+      "max_score": 71.0,
+      "max_count_ge_50": 6,
+      "max_count_ge_60": 3
+    },
+    {
+      "name": "lawrencetown_open",
+      "bbox": [-63.40, 44.60, -63.18, 44.73],
+      "min_score": 78.0,
+      "min_count_ge_70": 4,
+      "min_count_ge_60": 5
+    },
+    {
+      "name": "martinique_open",
+      "bbox": [-63.22, 44.66, -63.06, 44.73],
+      "min_score": 80.0,
+      "min_count_ge_70": 6,
+      "min_count_ge_60": 8
+    }
+  ]
+}

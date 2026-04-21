@@ -3,17 +3,17 @@
   "slug": "broad-cove",
   "region": "nova-scotia",
   "bbox": [
-    -64.49510000000001,
-    44.157199999999996,
-    -64.4451,
-    44.1972
+    -64.5,
+    44.16,
+    -64.45,
+    44.2
   ],
   "point": {
-    "lat": 44.1772,
-    "lon": -64.4701
+    "lat": 44.1775,
+    "lon": -64.4743
   },
   "breaks": [
-    {"name": "Broad Cove", "lat": 44.1772, "lon": -64.4701, "type": "beach"},
+    {"name": "Broad Cove", "lat": 44.1775, "lon": -64.4743, "type": "beach"},
     {"name": "Arties", "lat": 44.1830, "lon": -64.4620, "type": "point"},
     {"name": "Bullfield", "lat": 44.1710, "lon": -64.4760, "type": "reef"}
   ],

@@ -117,11 +117,47 @@ def derive_spot_publication_status(source: str | None) -> str:
 
 
 def derive_spot_verification_status(source: str | None, legacy_confidence: Any) -> str:
+    # Named spots in the canonical inventory are reference entries, not candidate
+    # segments. Evidence confidence should affect evidence labeling, not whether
+    # the known spot itself is treated as confirmed.
     if source == "graham-local-knowledge":
         return "confirmed"
-    if derive_evidence_confidence_level(legacy_confidence) == 0:
-        return "candidate"
     return "confirmed"
+
+
+def map_display_eligible_for_segment(
+    evidence_confidence_level: int | None,
+    publication_status: str | None,
+    orientation_deg: float | None = None,
+    exposure_arc_deg: float | None = None,
+    farfield_open_water_deg: float | None = None,
+    nearfield_open_water_deg: float | None = None,
+) -> bool:
+    """Return whether a candidate segment is eligible for the main Map surface.
+
+    This gate is intentionally conservative: only coarse-public candidates with at
+    least moderate evidence, a primary swell-facing orientation, and substantial
+    open-ocean exposure may appear on the main Map. Atlas can remain broader.
+    """
+    if publication_status != "public_coarse":
+        return False
+    if evidence_confidence_level is None:
+        return False
+    if evidence_confidence_level < 2:
+        return False
+    if orientation_deg is None or not (120.0 <= orientation_deg <= 220.0):
+        return False
+    if exposure_arc_deg is None or exposure_arc_deg < 90.0:
+        return False
+    if farfield_open_water_deg is None or farfield_open_water_deg < 90.0:
+        return False
+    if (
+        nearfield_open_water_deg is not None
+        and farfield_open_water_deg is not None
+        and nearfield_open_water_deg - farfield_open_water_deg >= 35.0
+    ):
+        return False
+    return True
 
 
 def build_dataset_manifest() -> dict[str, Any]:
@@ -266,10 +302,18 @@ def validate_segments_high_payload(payload: dict[str, Any], *, strict: bool = Fa
             "id",
             "verification_status",
             "publication_status",
+            "map_display_eligible",
             "surf_potential_score",
             "evidence_confidence_level",
             "evidence_confidence_label",
             "quality_status",
+            "coastal_exposure_class",
+            "coastal_context_penalty",
+            "evidence_sparsity_penalty",
+            "nearfield_open_water_deg",
+            "nearfield_blocked_ratio",
+            "farfield_open_water_deg",
+            "farfield_blocked_ratio",
             "score_components",
             "foam_obs_count",
             "turn_on_threshold_m",
@@ -279,6 +323,17 @@ def validate_segments_high_payload(payload: dict[str, Any], *, strict: bool = Fa
         },
         "segments-high.json feature.properties",
     )
+    if "confidence" in props:
+        raise ValueError("segments-high.json must not expose legacy confidence in strict mode")
+    for feature in features:
+        props = feature.get("properties", {})
+        if props.get("publication_status") != "public_coarse":
+            continue
+        coords = ((feature.get("geometry") or {}).get("coordinates")) or []
+        if len(coords) != 2:
+            raise ValueError("segments-high.json public_coarse features must be point coordinates")
+        if any(round(coord, 3) != coord for coord in coords):
+            raise ValueError("segments-high.json public_coarse coordinates must be rounded to 3 decimals max")
 
 
 def validate_gallery_payload(payload: dict[str, Any], *, strict: bool = False) -> None:

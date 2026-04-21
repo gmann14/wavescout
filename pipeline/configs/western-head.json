@@ -1,1 +1,1 @@
-{"name":"Western Head","slug":"western-head","region":"nova-scotia","bbox":[-64.69,43.96,-64.64,43.99],"point":{"lat":43.9733,"lon":-64.6617},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}
+{"name":"Western Head","slug":"western-head","region":"nova-scotia","bbox":[-64.7,43.97,-64.65,44.0],"point":{"lat":43.985,"lon":-64.68},"date_range":{"start":"2017-01-01"},"export":{"drive_folder":"wavescout_samples"}}

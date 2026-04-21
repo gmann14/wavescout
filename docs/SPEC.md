@@ -20,7 +20,7 @@ Normative companion docs:
 The repo already contains:
 
 - a Nova Scotia-oriented processing pipeline with scripts through segmentation, geometry scoring, foam detection, swell profiling, ranking, and static web-data export
-- a static Next.js viewer with `Map`, `Atlas`, `Compare`, `How It Works`, and `About` pages
+- a static Next.js viewer with a primary discovery `Map`, `Compare`, `How It Works`, and `About` pages, plus section-analysis support layered into the map workflow
 - manual validation notes showing that Sentinel-2 imagery can contribute useful evidence at some known spots
 
 The repo does not yet have MVP-quality guarantees for:
@@ -75,14 +75,14 @@ Needs to answer:
 
 ## MVP Definition
 
-The MVP is a static Nova Scotia atlas and spot viewer built from precomputed data.
+The MVP is a static Nova Scotia surf-discovery viewer built from precomputed data.
 
 ### MVP Includes
 
 1. Ranked Nova Scotia coastline outputs with provenance.
 2. A map view for browsing confirmed spots and candidate segments.
 3. A detail experience that explains score, evidence, and caveats.
-4. An atlas for section-by-section browsing of the coastline.
+4. A section-analysis overlay for broader coastline browsing inside the main map workflow.
 5. A compare view for same-date cross-spot inspection.
 6. Methodology and about pages written for non-specialist users.
 
@@ -122,7 +122,6 @@ These concepts must stay separate.
 The global nav must expose:
 
 - `Map`
-- `Atlas`
 - `Compare`
 - `How It Works`
 - `About`
@@ -144,6 +143,7 @@ Required behavior:
 - the legend or nearby copy explains what each color/state means
 - selecting a feature opens a detail panel without losing map context
 - map interactions must remain usable with the detail panel open on mobile and desktop
+- the main `Map` candidate surface is stricter than the optional section-analysis overlay and may hide low-quality or sheltered candidates that remain visible in broader coastline browsing
 
 Required states:
 
@@ -151,6 +151,13 @@ Required states:
 - missing-token state with a clear operator-facing error
 - empty-data state if a dataset is unavailable
 - low-confidence presentation for geometry-only or sparse-evidence results
+
+Required candidate-display policy:
+
+- the main `Map` page must only display candidates that are eligible for public lead browsing
+- rivers, estuaries, harbours, and sheltered inner bays must not be treated as normal surf candidates on the main `Map`
+- broader section analysis may remain available as an overlay, but it must not imply that every section is a public surf lead
+- candidate display eligibility must be driven by generated data, not undocumented UI-only heuristics
 
 Non-interactive context-only layers are allowed for map density and orientation, but they are exempt from the full detail payload requirement as long as they are not selectable.
 
@@ -177,22 +184,26 @@ Required sections:
 
 The panel must never imply certainty when evidence is weak.
 
+If gallery scenes are suppressed for quality reasons, the panel must state that the imagery record exists but is not currently publishable.
+
+The public gallery remains strict by default. Denser internal reference banks may exist for research, but they must remain separate from the promoted public gallery contract.
+
 `when enough observations exist` is now defined by [DATA-CONTRACTS.md](DATA-CONTRACTS.md):
 
 - at least `30` clean observations
 - at least `3` non-empty swell bins
 - completed profile build status
 
-### Atlas Page
+### Section Analysis Overlay
 
-Primary user goal: browse the coastline systematically rather than hunt individual pins.
+Primary user goal: switch from spot-first browsing into broader coastline review without leaving the main discovery map.
 
 Requirements:
 
-- atlas sections are visually distinct and selectable
-- the panel for an atlas section summarizes section-level context before showing imagery
-- the atlas must explain that it is a browsing tool, not a list of confirmed breaks
-- users can move through adjacent sections without losing orientation
+- section boxes are visually distinct and selectable when analysis mode is enabled
+- the section panel summarizes section-level context before showing imagery
+- the UI must explain that section boxes are browsing aids, not a list of confirmed breaks
+- users can enable or disable section analysis without losing map context
 
 ### Compare Page
 

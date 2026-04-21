@@ -1,0 +1,108 @@
+{
+  "script": "14_build_swell_profiles.py",
+  "run_id": "27127e63f8f1",
+  "generated_at_utc": "2026-04-20T01:28:04.115800+00:00",
+  "code_version": "98ad85f",
+  "config": {
+    "spot": "Point Pleasant Beach Park",
+    "slug": "point-pleasant-beach-park"
+  },
+  "parameters": {
+    "foam_present_threshold": 0.05,
+    "foam_blowout_threshold": 0.8,
+    "foam_optimal_threshold": 0.15,
+    "min_observations": 3,
+    "swell_bin_edges": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      4.0,
+      5.0,
+      8.0
+    ]
+  },
+  "input_source": "pipeline/data/manifests/point-pleasant-beach-park_foam_detections.json",
+  "summary": {
+    "total_segments": 1,
+    "complete_profiles": 1,
+    "insufficient_data": 0,
+    "total_detections": 63
+  },
+  "profiles": {
+    "ns-seg-04311": {
+      "status": "complete",
+      "observation_count": 63,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": null,
+        "max_m": null,
+        "best_bin": "0.0-0.5m",
+        "best_mean_foam_fraction": 0.1073
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "E",
+      "responsive_directions": [
+        "SE",
+        "E",
+        "S"
+      ],
+      "swell_bins": {
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1073,
+          "observation_count": 19
+        },
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.0903,
+          "observation_count": 23
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.0803,
+          "observation_count": 15
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0976,
+          "observation_count": 3
+        },
+        "4.0-5.0m": {
+          "mean_foam_fraction": 0.0546,
+          "observation_count": 1
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "SE": {
+          "mean_foam_fraction": 0.0787,
+          "observation_count": 24
+        },
+        "E": {
+          "mean_foam_fraction": 0.1374,
+          "observation_count": 12
+        },
+        "S": {
+          "mean_foam_fraction": 0.0789,
+          "observation_count": 27
+        }
+      },
+      "foam_stats": {
+        "mean": 0.09,
+        "max": 0.6935,
+        "std": 0.0899
+      },
+      "nir_stats": {
+        "mean": 298.2,
+        "max": 1131.6
+      }
+    }
+  }
+}

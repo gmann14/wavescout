@@ -10,7 +10,7 @@ This document maps the core product requirements to the planned test surfaces an
 | ID | Requirement | Source | Planned Verification | Release Gate |
 |---|---|---|---|---|
 | TR-01 | MVP is Nova Scotia-only and static-data-first | [SPEC.md](SPEC.md) | route smoke tests, dataset manifest validation | release checklist docs sync |
-| TR-02 | map exposes `Map`, `Atlas`, `Compare`, `How It Works`, `About` | [SPEC.md](SPEC.md) | `Nav.test.tsx`, navigation e2e | manual QA nav |
+| TR-02 | nav exposes one primary discovery map plus `Compare`, `How It Works`, and `About` | [SPEC.md](SPEC.md) | `Nav.test.tsx`, navigation e2e | manual QA nav |
 | TR-03 | map has loading, config-error, data-error, and empty states | [SPEC.md](SPEC.md), [UI-STATES.md](UI-STATES.md) | map shell tests, e2e smoke | manual QA map |
 | TR-04 | confirmed and candidate states are visually distinct without color alone | [SPEC.md](SPEC.md), [UI-STATES.md](UI-STATES.md) | `MapLegend.test.tsx`, navigation e2e | manual QA map |
 | TR-05 | detail panel exposes score, confidence, signals, caveats, and provenance | [SPEC.md](SPEC.md), [DATA-CONTRACTS.md](DATA-CONTRACTS.md) | `SpotPanel.test.tsx`, `ScoreSummary.test.tsx`, payload schema tests | contract checks |

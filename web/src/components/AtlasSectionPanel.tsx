@@ -390,7 +390,8 @@ export default function AtlasSectionPanel({
             <ImageGallery scenes={gallery} />
           ) : (
             <div className="rounded-lg border border-navy-700 bg-navy-800 px-3 py-3 text-sm text-slate-400">
-              No atlas imagery is available for this section yet.
+              No atlas scenes are attached to this section yet. The score footprint is still useful for browsing,
+              but this section needs an imagery pass before it can be reviewed in-gallery.
             </div>
           )}
         </div>

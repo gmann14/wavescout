@@ -248,12 +248,39 @@ Scope:
 - implement contamination handling
 - calculate `quality_status`
 - align gallery/profile eligibility with [DATA-CONTRACTS.md](DATA-CONTRACTS.md)
+- add candidate display gating for the main `Map` surface
+- add generated coastal exposure classification and shelter penalties
+- add nearfield open-water and blocked-ray metrics
+- add farther-field open-water and blocked-ray metrics to estimate bay depth / retained ocean reach
+- add data-driven regional regression checks for known sheltered and open-coast windows
+- add spot-neighborhood regression checks for trusted named spots using current spot coordinates
+- exclude rivers, estuaries, harbours, and sheltered inner bays from map-display candidates
+- suppress broken or mostly nodata gallery scenes before public publish
+- support a non-public reference-bank manifest for denser scene retention experiments without changing the public gallery source of truth
 
 Acceptance criteria:
 
 - false-positive examples from [SPOT-VALIDATION-LOG.md](SPOT-VALIDATION-LOG.md) are downgraded or filtered
 - profile eligibility is deterministic
 - quality thresholds are enforced in generated payloads
+- `segments-high.json` includes a deterministic `map_display_eligible` field
+- ranked segments include deterministic coastal exposure context rather than frontend-only inference
+- known sheltered false positives are covered by explicit regression checks
+- known good and known bad coastline windows are covered by executable regional regression checks
+- trusted named spots are covered by executable spot-neighborhood regression checks rather than stale nearest-segment matches
+- fetch-aligned bay openings with real S/E ocean reach are not filtered only because they sit inside a bay
+- the main `Map` page consumes `map_display_eligible` rather than ad hoc UI-only heuristics
+- broken gallery scenes do not appear in `gallery.json`
+- denser reference-bank runs write to a separate internal manifest and do not alter the public gallery contract by accident
+
+Likely files:
+
+- `pipeline/scripts/13_detect_foam_nir.py`
+- `pipeline/scripts/15_generate_gallery_images.py`
+- `pipeline/scripts/20_rank_segments.py`
+- `pipeline/scripts/build_web_data.py`
+- `tests/pipeline/test_candidate_display_gate.py`
+- `tests/pipeline/test_gallery_publishability.py`
 
 ### `WS-09` Release Gating And CI Expansion
 
@@ -274,12 +301,15 @@ Scope:
 - expand CI beyond current web build/typecheck
 - add dataset validation and policy checks
 - automate release gate checks
+- emit a durable release-readiness report artifact
+- emit a durable promoted-dataset record artifact
 
 Acceptance criteria:
 
 - CI can fail on contract, policy, or test regressions
 - release checklist can be executed from docs alone
 - dataset promotion has an explicit validation path
+- release artifacts include a durable machine-readable report or record
 
 ## Definition Of Ready
 
@@ -289,6 +319,40 @@ A ticket is ready to start only if:
 - the acceptance criteria are clear
 - the target docs are identified
 - the expected output files or UI surfaces are known
+
+## Deferred Track
+
+### `WS-X` GeoNOVA Imagery Review
+
+Priority:
+
+- later
+
+Status:
+
+- deferred manual-validation investigation
+
+Notes:
+
+- review GeoNOVA orthophoto and imagery offerings for named-spot and atlas validation use
+- current user-noted pricing: roughly `$10` per aerial block or about `$6K` for province-wide coverage
+- capture access path, resolution, year coverage, licensing, and whether usage is manual-only or pipeline-viable
+- do not block current Sentinel-2 based pipeline hardening on this investigation
+
+### `WS-X` River-Wave Finder
+
+Priority:
+
+- later
+
+Status:
+
+- explicitly out of MVP scope
+
+Notes:
+
+- if pursued, it must use separate inputs and ranking logic from surf discovery
+- likely inputs include river level, discharge, channel geometry, and release/flood state
 
 ## Definition Of Done
 

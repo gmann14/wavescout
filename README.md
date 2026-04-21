@@ -7,12 +7,12 @@ WaveScout is a Nova Scotia surf-discovery project built from precomputed satelli
 
 ## Current Status
 
-As of 2026-04-18:
+As of 2026-04-20:
 
 - feasibility work is complete enough to justify continuing with imagery-assisted discovery
 - the repo contains pipeline scripts through ranking and web-data export
 - the web app exists locally and renders precomputed Nova Scotia data
-- the remaining work is product hardening: contamination handling, clearer score semantics, UX polish, and automated tests
+- the remaining work is formal review-gate signoff and release/promotion discipline
 
 The canonical planning docs are:
 
@@ -25,9 +25,11 @@ The canonical planning docs are:
 - [docs/UI-STATES.md](docs/UI-STATES.md)
 - [docs/PUBLIC-OUTPUT-POLICY.md](docs/PUBLIC-OUTPUT-POLICY.md)
 - [docs/REVIEW-GATES.md](docs/REVIEW-GATES.md)
+- [docs/REVIEW-RECORDS.md](docs/REVIEW-RECORDS.md)
 - [docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md)
 - [docs/TRACEABILITY.md](docs/TRACEABILITY.md)
 - [docs/METHODOLOGY.md](docs/METHODOLOGY.md)
+- [docs/CODEX-CLOUD-SETUP.md](docs/CODEX-CLOUD-SETUP.md)
 - [FEASIBILITY-STATUS.md](FEASIBILITY-STATUS.md)
 
 ## Product Definition
@@ -92,16 +94,33 @@ python3 pipeline/scripts/build_web_data.py
 python3 pipeline/scripts/build_atlas_web_data.py
 ```
 
-## Testing Status
+## Testing And Release Checks
 
-There is not yet a complete automated test harness for the pipeline and web app. The required red/green test plan is defined in [docs/ROADMAP.md](docs/ROADMAP.md) and should be treated as delivery work, not optional cleanup.
+The repo now has baseline pipeline, frontend, and browser smoke coverage.
 
-Initial test commands:
+Core validation commands:
 
 ```bash
 pytest
 cd web && pnpm test
+cd web && pnpm exec tsc --noEmit
 cd web && pnpm test:e2e
+```
+
+Release-readiness command:
+
+```bash
+python3 pipeline/scripts/check_release_readiness.py
+```
+
+Promotion command after a green readiness report and recorded `Gate D` review:
+
+```bash
+python3 pipeline/scripts/promote_public_dataset.py \
+  --release-reviewer "<name>" \
+  --policy-reviewer "<name>" \
+  --review-record "<durable review record path or URL>" \
+  --gate-outcome pass
 ```
 
 ## Notes
