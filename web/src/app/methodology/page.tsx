@@ -18,11 +18,16 @@ export default function MethodologyPage() {
     <>
       <Nav />
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+          <div className="text-xs uppercase tracking-[0.18em] text-bone-mute mb-4 font-readout">
+            Methodology · Field note
+          </div>
           {content ? (
-            <MarkdownContent content={content} />
+            <article className="methodology-article">
+              <MarkdownContent content={content} />
+            </article>
           ) : (
-            <div className="rounded-xl border border-navy-700 bg-navy-900 px-6 py-10 text-center text-slate-300">
+            <div className="rounded-xl border border-navy-700 bg-navy-900 px-6 py-10 text-center text-bone-dim">
               Methodology content is unavailable in this build.
             </div>
           )}

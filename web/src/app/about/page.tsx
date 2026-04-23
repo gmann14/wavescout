@@ -12,31 +12,33 @@ export default function AboutPage() {
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           {/* Hero */}
-          <div className="mb-10">
-            <h1 className="text-3xl font-bold text-white mb-3">
-              About WaveScout
+          <div className="mb-12">
+            <div className="text-xs uppercase tracking-[0.18em] text-bone-mute mb-4 font-readout">
+              About · Nova Scotia
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl font-semibold text-bone mb-5 tracking-tight leading-[1.05]">
+              A coastal evidence atlas.
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed">
-              Finding surf spots from space. WaveScout uses satellite imagery,
-              coastline geometry, and ocean data to discover where waves break
-              along Nova Scotia&apos;s coast.
+            <p className="text-lg text-bone-dim leading-relaxed max-w-[60ch]">
+              WaveScout reads satellite imagery, coastline geometry, and ocean
+              data to find where waves break along Nova Scotia&apos;s coast.
+              Each claim is paired with the imagery behind it.
             </p>
           </div>
 
           {/* What it is */}
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               What is this?
             </h2>
-            <p className="text-slate-400 leading-relaxed mb-3">
+            <p className="text-bone-dim leading-[1.75] mb-4 max-w-[66ch]">
               WaveScout is a surf discovery tool that analyzes over 16,000
               coastline segments across Nova Scotia using Sentinel-2 satellite
-              imagery from the European Space Agency. By detecting foam and
-              whitewater in the near-infrared band, then correlating with swell
-              conditions across hundreds of satellite passes, we can identify
+              imagery from the European Space Agency. Across hundreds of
+              satellite passes — correlated with swell conditions — it finds
               stretches of coast that behave like surf breaks.
             </p>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-bone-dim leading-[1.75] max-w-[66ch]">
               It&apos;s evidence-based discovery, not wave forecasting. The data
               tells you where waves consistently break and under what conditions
               &mdash; but only your feet in the water confirm if it&apos;s actually
@@ -45,8 +47,8 @@ export default function AboutPage() {
           </section>
 
           {/* How it works summary */}
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               The Pipeline
             </h2>
             <div className="space-y-3">
@@ -80,10 +82,10 @@ export default function AboutPage() {
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-slate-200">
+                    <h3 className="text-sm font-semibold text-bone">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-slate-400 mt-0.5">
+                    <p className="text-sm text-bone-dim mt-0.5 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -93,8 +95,8 @@ export default function AboutPage() {
           </section>
 
           {/* Data sources */}
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               Data Sources
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -124,11 +126,13 @@ export default function AboutPage() {
                   key={source.name}
                   className="bg-navy-800 rounded-lg p-3 border border-navy-700"
                 >
-                  <div className="text-sm font-medium text-slate-200">
+                  <div className="text-sm font-semibold text-bone">
                     {source.name}
                   </div>
-                  <div className="text-xs text-teal-400/80">{source.org}</div>
-                  <div className="text-xs text-slate-500 mt-1">
+                  <div className="text-xs text-teal-400/80 font-readout tracking-wide">
+                    {source.org}
+                  </div>
+                  <div className="text-xs text-bone-dim mt-1 leading-relaxed">
                     {source.desc}
                   </div>
                 </div>
@@ -137,38 +141,38 @@ export default function AboutPage() {
           </section>
 
           {/* Built by */}
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               Built By
             </h2>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-bone-dim leading-[1.75] max-w-[66ch]">
               WaveScout is built by{" "}
-              <span className="text-white font-medium">Graham Mann</span>, a
+              <span className="text-bone font-semibold">Graham Mann</span>, a
               surfer and developer based in Nova Scotia. The project started as
               a question: can satellite imagery tell us anything useful about
               where waves break along a rugged, under-explored coastline?
             </p>
-            <p className="text-slate-400 leading-relaxed mt-3">
+            <p className="text-bone-dim leading-[1.75] mt-3 max-w-[66ch]">
               Turns out it can.
             </p>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               Scope Boundary
             </h2>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-bone-dim leading-[1.75] max-w-[66ch]">
               WaveScout is a static discovery tool for Nova Scotia. It helps you
               inspect precomputed evidence about where waves may break, but it
               does not provide live forecasts, safety guidance, or access advice.
             </p>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-semibold text-teal-400 mb-3">
+          <section className="mb-10">
+            <h2 className="font-display text-2xl font-semibold text-teal-400 mb-4 tracking-tight">
               Uncertainty And Safety
             </h2>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-bone-dim leading-[1.75] max-w-[66ch]">
               Evidence quality varies by scene coverage, contamination, and data
               density. A strong score does not mean a break is safe, public,
               working today, or worth surfing in your conditions. Always verify
@@ -177,7 +181,7 @@ export default function AboutPage() {
           </section>
 
           {/* Footer */}
-          <div className="border-t border-navy-700 pt-6 mt-12 text-center text-xs text-slate-600">
+          <div className="border-t border-navy-700 pt-6 mt-12 text-center text-xs text-bone-mute font-readout tracking-wide">
             Satellite imagery: Copernicus Sentinel-2 (ESA) via Google Earth
             Engine. Marine data: Open-Meteo. Coastline: OpenStreetMap.
           </div>

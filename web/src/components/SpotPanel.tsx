@@ -167,52 +167,107 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
 
         <div className="p-4 space-y-5">
           {/* Spot info */}
-          <div className="text-sm text-slate-400">
-            <p>{summary}</p>
-            <div className="mt-3 grid grid-cols-3 gap-2">
-              <div className="bg-navy-800 rounded-lg p-3 text-center">
-                <div className="text-lg font-semibold text-white tabular-nums">
+          <div className="text-sm text-bone-dim">
+            <p className="leading-relaxed">{summary}</p>
+
+            {/* Peer hero: score + confidence at equal visual tier */}
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <div
+                data-testid="spot-score"
+                className="tier-hero bg-navy-800 rounded-lg p-3 border border-navy-700"
+              >
+                <div className="text-[10px] font-readout uppercase tracking-[0.12em] text-bone-mute">
+                  Surf potential
+                </div>
+                <div
+                  data-testid="spot-score-value"
+                  className="hero-number font-display text-3xl font-semibold text-bone tabular-nums mt-0.5 leading-none"
+                >
                   {surfPotentialScore.toFixed(1)}
                 </div>
-                <div className="text-[11px] text-slate-500">surf potential</div>
+                <div className="text-[10px] text-bone-mute mt-1 font-readout">
+                  out of 100
+                </div>
               </div>
-              <div className="bg-navy-800 rounded-lg p-3 text-center">
-                <div className="text-sm font-semibold text-cyan-300">
+              <div
+                data-testid="spot-confidence"
+                className="tier-hero bg-navy-800 rounded-lg p-3 border border-navy-700"
+              >
+                <div className="text-[10px] font-readout uppercase tracking-[0.12em] text-bone-mute">
+                  Evidence confidence
+                </div>
+                <div
+                  data-testid="spot-confidence-value"
+                  className="hero-number font-display text-3xl font-semibold tabular-nums mt-0.5 leading-none text-teal-300"
+                >
                   {formatEvidenceLabel(evidenceLabel)}
                 </div>
-                <div className="text-[11px] text-slate-500">evidence level</div>
-              </div>
-              <div className="bg-navy-800 rounded-lg p-3 text-center">
-                <div className="text-lg font-semibold text-teal-300 tabular-nums">
-                  {gallerySceneCount}
+                <div className="text-[10px] text-bone-mute mt-1 font-readout">
+                  {verificationStatus === "confirmed"
+                    ? "confirmed reference"
+                    : "candidate"}
                 </div>
-                <div className="text-[11px] text-slate-500">gallery scenes</div>
               </div>
             </div>
-            <p className="mt-3">
-              <span className="text-slate-500">Swell window:</span>{" "}
-              {spot.swell_window_summary || "Not yet modeled"}
-            </p>
-            <p>
-              <span className="text-slate-500">Source:</span> {spot.source_summary}
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="bg-navy-800/60 rounded-lg p-2">
+                <div className="text-[10px] font-readout uppercase tracking-[0.12em] text-bone-mute">
+                  Gallery scenes
+                </div>
+                <div className="text-base font-semibold text-bone tabular-nums">
+                  {gallerySceneCount}
+                </div>
+              </div>
+              <div className="bg-navy-800/60 rounded-lg p-2">
+                <div className="text-[10px] font-readout uppercase tracking-[0.12em] text-bone-mute">
+                  Swell window
+                </div>
+                <div className="text-xs text-bone">
+                  {spot.swell_window_summary || "Not yet modeled"}
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs">
+              <span className="text-bone-mute font-readout uppercase tracking-wider">
+                Source
+              </span>{" "}
+              <span className="text-bone-dim">{spot.source_summary}</span>
             </p>
           </div>
 
-          {/* Detection stats */}
+          {/* Detection stats — foam demoted to exploratory telemetry */}
           {foamSummary && (
-            <div className="bg-navy-800 rounded-lg p-3 grid grid-cols-2 gap-3 text-center">
-              <div>
-                <div className="text-xl font-bold text-teal-400 tabular-nums">
-                  {foamSummary.total_detections.toLocaleString()}
+            <div className="bg-navy-800 rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div className="text-[10px] font-readout uppercase tracking-[0.12em] text-bone-mute">
+                  Exploratory detection telemetry
                 </div>
-                <div className="text-xs text-slate-500">observations</div>
               </div>
-              <div>
-                <div className="text-xl font-bold text-slate-200 tabular-nums">
-                  {foamSummary.scenes_processed}
+              <div className="grid grid-cols-2 gap-3 text-center">
+                <div>
+                  <div className="text-lg font-semibold text-bone tabular-nums font-readout">
+                    {foamSummary.scenes_with_foam?.toLocaleString() ??
+                      foamSummary.total_detections.toLocaleString()}
+                  </div>
+                  <div className="text-[11px] text-bone-mute">
+                    Scenes with detections
+                  </div>
                 </div>
-                <div className="text-xs text-slate-500">satellite passes</div>
+                <div>
+                  <div className="text-lg font-semibold text-bone tabular-nums font-readout">
+                    {foamSummary.scenes_processed.toLocaleString()}
+                  </div>
+                  <div className="text-[11px] text-bone-mute">
+                    Satellite passes analyzed
+                  </div>
+                </div>
               </div>
+              <p className="mt-2 text-[10px] text-bone-mute leading-snug">
+                Detections are exploratory. A high count suggests recurring
+                activity, not confirmed surf.
+              </p>
             </div>
           )}
 
@@ -318,7 +373,7 @@ export default function SpotPanel({ spot, gallery, onClose }: Props) {
                   max={30}
                 />
                 <ScoreBar
-                  label="Observations"
+                  label="Detections sampled"
                   value={detail.swell_profile.total_observations}
                   max={2000}
                 />

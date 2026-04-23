@@ -9,3 +9,13 @@ test("map page shell renders primary navigation", async ({ page }) => {
   await expect(page.getByRole("link", { name: "WaveScout Nova Scotia" })).toBeVisible();
   await expect(page.getByText("Candidate segments")).toBeVisible();
 });
+
+test("home route explains itself before data loads", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(
+    page.getByText(
+      "Browse Nova Scotia's coast by map, then inspect satellite evidence and confidence.",
+    ),
+  ).toBeVisible();
+});
