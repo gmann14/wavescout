@@ -53,8 +53,23 @@ jobs:
         working-directory: web
         run: pnpm install --frozen-lockfile
 
-      - name: Run release-readiness gate
-        run: python pipeline/scripts/check_release_readiness.py
+      - name: Validate web dataset (strict, atlas required)
+        run: python pipeline/scripts/validate_public_dataset.py --strict --require-atlas
+
+      - name: Run web tests
+        working-directory: web
+        run: pnpm test
+
+      - name: Typecheck web
+        working-directory: web
+        run: pnpm exec tsc --noEmit
+
+      - name: Build web
+        working-directory: web
+        run: pnpm build
+
+      - name: Run release-readiness gate (validate committed artifacts)
+        run: python pipeline/scripts/check_release_readiness.py --skip-commands
 
   browser-smoke:
     runs-on: ubuntu-latest
