@@ -60,13 +60,13 @@ export default function AboutPage() {
                 },
                 {
                   step: "2",
-                  title: "Detect Foam via NIR",
-                  desc: "For each segment, we analyze ~120 clear Sentinel-2 scenes using the near-infrared band. Water absorbs NIR (black), foam reflects it (bright white).",
+                  title: "Observe from Satellites",
+                  desc: "For each segment, we analyze ~120 clear Sentinel-2 scenes. Repeated brightness in the near-infrared band — where calm water looks dark and whitewater looks bright — becomes evidence that waves are breaking.",
                 },
                 {
                   step: "3",
-                  title: "Build Swell Profiles",
-                  desc: "By correlating foam detection with swell conditions, we build response curves: turn-on threshold, optimal range, and blow-out point.",
+                  title: "Correlate Evidence with Conditions",
+                  desc: "Each observation is joined to swell height, period, and direction. Response patterns — segments that light up on bigger days or turn off when swell is blocked — build into a profile.",
                 },
                 {
                   step: "4",
