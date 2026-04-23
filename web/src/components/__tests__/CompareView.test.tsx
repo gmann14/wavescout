@@ -15,10 +15,12 @@ vi.mock("next/navigation", () => ({
 vi.mock("next/image", () => ({
   default: ({
     fill: _fill,
+    priority: _priority,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean }) => (
-    <img {...props} alt={props.alt ?? ""} />
-  ),
+  }: React.ImgHTMLAttributes<HTMLImageElement> & {
+    fill?: boolean;
+    priority?: boolean;
+  }) => <img {...props} alt={props.alt ?? ""} />,
 }));
 
 vi.mock("@/lib/data", () => ({
@@ -177,5 +179,45 @@ describe("CompareView", () => {
       expect(screen.getByText("No comparison scenes were found for this date.")).toBeInTheDocument();
     });
     expect(screen.getByRole("link", { name: "Return to all comparisons" })).toHaveAttribute("href", "/compare");
+  });
+
+  it("promotes a featured scene with acquisition readout for each date", async () => {
+    vi.mocked(loadGallery).mockResolvedValue(baseGallery);
+
+    render(<CompareView />);
+
+    const featured = await screen.findAllByTestId("compare-featured-scene");
+    expect(featured.length).toBeGreaterThan(0);
+
+    const readouts = screen.getAllByTestId("compare-featured-readout");
+    expect(readouts[0]).toHaveTextContent(/2026/);
+    expect(readouts[0]).toHaveTextContent(/m/i);
+    expect(readouts[0]).toHaveTextContent(/spot/i);
+  });
+
+  it("does not show NIR, foam, or %foam anywhere in the default compare view", async () => {
+    vi.mocked(loadGallery).mockResolvedValue(baseGallery);
+
+    render(<CompareView />);
+
+    await screen.findAllByTestId("compare-featured-scene");
+
+    const filterBar = screen.queryByTestId("compare-filters");
+    if (filterBar) {
+      expect(filterBar).not.toHaveTextContent(/NIR/i);
+      expect(filterBar).not.toHaveTextContent(/RGB/i);
+    }
+
+    const readouts = screen.getAllByTestId("compare-featured-readout");
+    for (const readout of readouts) {
+      expect(readout).not.toHaveTextContent(/foam/i);
+      expect(readout).not.toHaveTextContent(/NIR/i);
+      expect(readout).not.toHaveTextContent(/%/);
+    }
+
+    expect(screen.queryByText(/%\s*foam/i)).toBeNull();
+
+    const detectionDetails = screen.getByTestId("compare-detection-details");
+    expect(detectionDetails).toHaveAttribute("data-open", "false");
   });
 });

@@ -10,3 +10,13 @@ test("map page shell renders primary navigation", async ({ page }) => {
   await expect(page.getByText("Discovery map")).toBeVisible();
   await expect(page.getByLabel("Show section analysis")).toBeVisible();
 });
+
+test("home route explains itself before data loads", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(
+    page.getByText(
+      "Browse Nova Scotia's coast by map, then inspect satellite evidence and confidence.",
+    ),
+  ).toBeVisible();
+});

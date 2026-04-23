@@ -71,6 +71,7 @@ export default function CompareView() {
   const [swellFilter, setSwellFilter] = useState(0);
   const [spotCountFilter, setSpotCountFilter] = useState(0);
   const [nirMode, setNirMode] = useState(false);
+  const [detectionDetailsOpen, setDetectionDetailsOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{
     dateIdx: number;
     sceneIdx: number;
@@ -277,19 +278,24 @@ export default function CompareView() {
 
       {/* Filters (hidden when date param is active) */}
       {!dateParam && (
-        <div className="flex flex-wrap items-center gap-3 mb-6">
+        <div
+          data-testid="compare-filters"
+          className="flex flex-wrap items-center gap-3 mb-6"
+        >
           {/* Swell filter */}
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500">Swell:</span>
+            <span className="text-xs text-bone-mute font-readout uppercase tracking-wider">
+              Swell
+            </span>
             <div className="flex gap-1">
               {SWELL_RANGES.map((range, i) => (
                 <button
                   key={range.label}
                   onClick={() => setSwellFilter(i)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors font-readout ${
                     swellFilter === i
                       ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
-                      : "bg-navy-800 border-navy-700 text-slate-400 hover:text-slate-300"
+                      : "bg-navy-800 border-navy-700 text-bone-dim hover:text-bone"
                   }`}
                 >
                   {range.label}
@@ -300,16 +306,18 @@ export default function CompareView() {
 
           {/* Spot count filter */}
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500">Min spots:</span>
+            <span className="text-xs text-bone-mute font-readout uppercase tracking-wider">
+              Min spots
+            </span>
             <div className="flex gap-1">
               {SPOT_COUNTS.map((opt, i) => (
                 <button
                   key={opt.label}
                   onClick={() => setSpotCountFilter(i)}
-                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+                  className={`text-xs px-2.5 py-1 rounded-full border transition-colors font-readout ${
                     spotCountFilter === i
                       ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
-                      : "bg-navy-800 border-navy-700 text-slate-400 hover:text-slate-300"
+                      : "bg-navy-800 border-navy-700 text-bone-dim hover:text-bone"
                   }`}
                 >
                   {opt.label}
@@ -317,18 +325,47 @@ export default function CompareView() {
               ))}
             </div>
           </div>
+        </div>
+      )}
 
-          {/* NIR toggle */}
+      {/* Detection details disclosure — default-collapsed, off the primary bar */}
+      {!dateParam && (
+        <div
+          data-testid="compare-detection-details"
+          data-open={detectionDetailsOpen ? "true" : "false"}
+          className="mb-6 border border-navy-700 bg-navy-900/40 rounded-lg"
+        >
           <button
-            onClick={() => setNirMode(!nirMode)}
-            className={`text-xs px-2.5 py-1 rounded-full border transition-colors ml-auto ${
-              nirMode
-                ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
-                : "bg-navy-800 border-navy-700 text-slate-400 hover:text-slate-300"
-            }`}
+            type="button"
+            onClick={() => setDetectionDetailsOpen((v) => !v)}
+            aria-expanded={detectionDetailsOpen}
+            className="w-full flex items-center justify-between px-3 py-2 text-xs font-readout uppercase tracking-wider text-bone-mute hover:text-bone transition-colors"
           >
-            {nirMode ? "NIR" : "RGB"}
+            <span>Detection details</span>
+            <span aria-hidden>{detectionDetailsOpen ? "−" : "+"}</span>
           </button>
+          {detectionDetailsOpen && (
+            <div className="border-t border-navy-700 px-3 py-3 flex flex-wrap items-center gap-3">
+              <span className="text-[11px] text-bone-mute font-readout uppercase tracking-wider">
+                Imagery band
+              </span>
+              <button
+                type="button"
+                onClick={() => setNirMode(!nirMode)}
+                className={`text-xs px-2.5 py-1 rounded-full border transition-colors font-readout ${
+                  nirMode
+                    ? "bg-teal-500/20 border-teal-500/40 text-teal-400"
+                    : "bg-navy-800 border-navy-700 text-bone-dim hover:text-bone"
+                }`}
+              >
+                {nirMode ? "NIR" : "RGB"}
+              </button>
+              <span className="text-[11px] text-bone-mute leading-snug max-w-[36ch]">
+                NIR mode highlights exploratory foam detection and is not the
+                default evidence signal.
+              </span>
+            </div>
+          )}
         </div>
       )}
 
@@ -374,8 +411,8 @@ export default function CompareView() {
             <ComparisonDateCard
               key={cd.date}
               cd={cd}
-              dateIdx={dateIdx}
               nirMode={nirMode}
+              showFoam={detectionDetailsOpen || nirMode}
               onOpenLightbox={(sceneIdx) =>
                 setLightbox({ dateIdx, sceneIdx })
               }
@@ -435,15 +472,16 @@ export default function CompareView() {
                     ? ` @ ${lightboxData.spotScene.scene.swell_period_s.toFixed(0)}s`
                     : ""}
                 </span>
-                {(lightboxData.spotScene.scene.foam_fraction ?? 0) > 0 && (
-                  <>
-                    <span className="text-slate-400 mx-3">|</span>
-                    <span className="text-orange-400">
-                      {((lightboxData.spotScene.scene.foam_fraction ?? 0) * 100).toFixed(1)}%
-                      foam
-                    </span>
-                  </>
-                )}
+                {(detectionDetailsOpen || nirMode) &&
+                  (lightboxData.spotScene.scene.foam_fraction ?? 0) > 0 && (
+                    <>
+                      <span className="text-slate-400 mx-3">|</span>
+                      <span className="text-orange-400 font-readout">
+                        {((lightboxData.spotScene.scene.foam_fraction ?? 0) * 100).toFixed(1)}%
+                        foam
+                      </span>
+                    </>
+                  )}
               </div>
               <div className="flex items-center gap-3">
                 <button
@@ -484,73 +522,139 @@ export default function CompareView() {
 /** Individual date comparison card */
 function ComparisonDateCard({
   cd,
-  dateIdx,
   nirMode,
+  showFoam,
   onOpenLightbox,
 }: {
   cd: ComparisonDate;
-  dateIdx: number;
   nirMode: boolean;
+  showFoam: boolean;
   onOpenLightbox: (sceneIdx: number) => void;
 }) {
+  const [featured, ...rest] = cd.spotScenes;
+  const featuredPath = featured
+    ? nirMode
+      ? featured.scene.nir_path
+      : featured.scene.rgb_path
+    : null;
+  const directionText =
+    cd.swellDirection != null ? directionLabel(cd.swellDirection) : null;
+
   return (
     <div className="bg-navy-900 border border-navy-700 rounded-xl overflow-hidden">
       {/* Date header */}
       <div className="px-4 py-3 border-b border-navy-700 flex flex-wrap items-center gap-x-4 gap-y-1">
-        <h3 className="text-lg font-semibold text-white">{cd.dateLabel}</h3>
-        <div className="flex items-center gap-3 text-sm">
-          <span className="text-teal-400">
+        <h3 className="font-display text-xl font-semibold text-bone tracking-tight">
+          {cd.dateLabel}
+        </h3>
+        <div className="flex items-center gap-3 text-sm font-readout">
+          <span className="text-teal-400 tabular-nums">
             {cd.swellHeight.toFixed(1)}m
-            {cd.swellDirection != null
-              ? ` ${directionLabel(cd.swellDirection)}`
-              : ""}
+            {directionText ? ` ${directionText}` : ""}
             {cd.swellPeriod ? ` @ ${cd.swellPeriod.toFixed(0)}s` : ""}
           </span>
-          <span className="text-slate-500">
+          <span className="text-bone-mute">
             {cd.spotScenes.length} spot{cd.spotScenes.length !== 1 ? "s" : ""}
           </span>
         </div>
       </div>
 
-      {/* Thumbnail grid */}
-      <div className="p-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        {cd.spotScenes.map((ss, sceneIdx) => {
-          const path = nirMode ? ss.scene.nir_path : ss.scene.rgb_path;
-          if (!path) return null;
-          const foamPct = (ss.scene.foam_fraction ?? 0) * 100;
-          return (
-            <div
-              key={ss.slug}
-              className="rounded-lg overflow-hidden bg-navy-800 border border-navy-700 cursor-pointer hover:border-teal-500/50 transition-colors"
-              onClick={() => onOpenLightbox(sceneIdx)}
-            >
-              <div className="relative aspect-square">
-                <Image
-                  src={path}
-                  alt={`${ss.spotName} - ${cd.date}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                />
-                {/* Foam badge */}
-                {foamPct > 0 && (
-                  <div className="absolute top-1.5 right-1.5 bg-black/60 backdrop-blur-sm text-orange-400 text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                    {foamPct.toFixed(1)}%
-                  </div>
-                )}
+      {/* Featured scene */}
+      {featured && featuredPath && (
+        <div
+          data-testid="compare-featured-scene"
+          className="relative cursor-pointer group"
+          onClick={() => onOpenLightbox(0)}
+        >
+          <div className="relative aspect-[16/9] bg-navy-950">
+            <Image
+              src={featuredPath}
+              alt={`${featured.spotName} - ${cd.date}`}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+            <div className="absolute left-4 bottom-3 right-4">
+              <div className="font-display text-lg text-bone font-semibold tracking-tight drop-shadow">
+                {featured.spotName}
               </div>
-              <div className="px-2 py-1.5">
-                <div className="text-xs text-slate-300 font-medium truncate">
-                  {ss.spotName}
-                </div>
-                <div className="text-[10px] text-slate-500">
-                  {(ss.scene.swell_height_m ?? 0).toFixed(1)}m swell
-                </div>
+              <div
+                data-testid="compare-featured-readout"
+                className="font-readout text-xs text-bone-dim mt-1 flex flex-wrap items-center gap-x-3 gap-y-1"
+              >
+                <span>{cd.dateLabel}</span>
+                <span className="text-navy-600">·</span>
+                <span className="tabular-nums">
+                  {(featured.scene.swell_height_m ?? 0).toFixed(1)}m
+                </span>
+                {directionText && (
+                  <>
+                    <span className="text-navy-600">·</span>
+                    <span>{directionText}</span>
+                  </>
+                )}
+                {featured.scene.swell_period_s != null && (
+                  <>
+                    <span className="text-navy-600">·</span>
+                    <span className="tabular-nums">
+                      {featured.scene.swell_period_s.toFixed(0)}s
+                    </span>
+                  </>
+                )}
+                <span className="text-navy-600">·</span>
+                <span>
+                  {cd.spotScenes.length} spot
+                  {cd.spotScenes.length !== 1 ? "s" : ""}
+                </span>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        </div>
+      )}
+
+      {/* Thumbnail grid */}
+      {rest.length > 0 && (
+        <div className="p-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {rest.map((ss, idx) => {
+            const sceneIdx = idx + 1;
+            const path = nirMode ? ss.scene.nir_path : ss.scene.rgb_path;
+            if (!path) return null;
+            const foamPct = (ss.scene.foam_fraction ?? 0) * 100;
+            return (
+              <div
+                key={ss.slug}
+                className="rounded-lg overflow-hidden bg-navy-800 border border-navy-700 cursor-pointer hover:border-teal-500/50 transition-colors"
+                onClick={() => onOpenLightbox(sceneIdx)}
+              >
+                <div className="relative aspect-square">
+                  <Image
+                    src={path}
+                    alt={`${ss.spotName} - ${cd.date}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                  />
+                  {showFoam && foamPct > 0 && (
+                    <div className="absolute top-1.5 right-1.5 bg-black/60 backdrop-blur-sm text-orange-400 text-[10px] font-bold px-1.5 py-0.5 rounded-full font-readout">
+                      {foamPct.toFixed(1)}%
+                    </div>
+                  )}
+                </div>
+                <div className="px-2 py-1.5">
+                  <div className="text-xs text-bone font-medium truncate">
+                    {ss.spotName}
+                  </div>
+                  <div className="text-[10px] text-bone-mute font-readout tabular-nums">
+                    {(ss.scene.swell_height_m ?? 0).toFixed(1)}m swell
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

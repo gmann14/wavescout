@@ -14,11 +14,14 @@ export default function ComparePage() {
       <Nav />
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-3">
-              Cross-Spot Comparison
+          <div className="mb-10">
+            <div className="text-xs uppercase tracking-[0.18em] text-bone-mute mb-4 font-readout">
+              Compare · Same acquisition date
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl font-semibold text-bone mb-4 tracking-tight leading-[1.08]">
+              Cross-spot comparison.
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed">
+            <p className="text-lg text-bone-dim leading-relaxed max-w-[60ch]">
               Same satellite pass, multiple spots. See which breaks fire on the
               same swell conditions.
             </p>

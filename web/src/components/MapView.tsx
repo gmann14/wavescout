@@ -454,29 +454,23 @@ export default function MapView() {
             : typeof props.confidence === "number"
               ? props.confidence
               : undefined;
-        const foamComponent = typeof props.foam_component === "number" ? props.foam_component : undefined;
-        const profileComponent = typeof props.profile_component === "number" ? props.profile_component : undefined;
 
-        let detailHtml = "";
-        if (foamComponent != null && foamComponent > 0) {
-          detailHtml += `<div>Foam: ${foamComponent.toFixed(1)}/40</div>`;
-        }
-        if (profileComponent != null && profileComponent > 0) {
-          detailHtml += `<div>Profile: ${profileComponent.toFixed(1)}/25</div>`;
-        }
-        if (props.primary_direction) {
-          detailHtml += `<div>Dir: ${props.primary_direction}</div>`;
-        }
+        const directionHtml = props.primary_direction
+          ? `<div class="ws-popup-row"><span class="ws-popup-key">Dir</span><span class="ws-popup-val">${props.primary_direction}</span></div>`
+          : "";
+        const rankHtml = props.rank
+          ? `<div class="ws-popup-row"><span class="ws-popup-key">Rank</span><span class="ws-popup-val">#${props.rank}</span></div>`
+          : "";
 
         segPopup
           .setLngLat(geom.coordinates as [number, number])
           .setHTML(
-            `<div class="text-xs">
-              <div class="font-medium" style="color:${getScoreColor(displayScore)}">${props.id}</div>
-              <div>Score: ${displayScore}/100</div>
-              <div>${getConfidenceBadge(confidence)}</div>
-              ${props.rank ? `<div>Rank: #${props.rank}</div>` : ""}
-              ${detailHtml}
+            `<div class="ws-popup">
+              <div class="ws-popup-title" style="color:${getScoreColor(displayScore)}">${props.id}</div>
+              <div class="ws-popup-row"><span class="ws-popup-key">Score</span><span class="ws-popup-val">${displayScore}/100</span></div>
+              <div class="ws-popup-row"><span class="ws-popup-key">Evidence</span><span class="ws-popup-val">${getConfidenceBadge(confidence)}</span></div>
+              ${rankHtml}
+              ${directionHtml}
             </div>`
           )
           .addTo(m);
@@ -627,23 +621,50 @@ export default function MapView() {
         segmentCount={stats.segmentCount}
       />
 
-      {/* Stats bar */}
-      <div className="absolute top-4 left-4 bg-navy-900/90 backdrop-blur border border-navy-700 rounded-lg px-3 py-2 text-xs z-10">
-        <span className="text-teal-400 font-bold">{stats.segmentCount}</span>
-        <span className="text-slate-500"> segments scored</span>
-        <span className="text-slate-600 mx-1.5">|</span>
-        <span className="text-orange-400 font-bold">{stats.highCandidateCount}</span>
-        <span className="text-slate-500"> high candidates</span>
-        <span className="text-slate-600 mx-1.5">|</span>
-        <span className="text-white font-bold">{stats.spotCount}</span>
-        <span className="text-slate-500"> named spots</span>
-        {showAnalysis && (
-          <>
-            <span className="text-slate-600 mx-1.5">|</span>
-            <span className="text-slate-300 font-bold">{stats.atlasSectionCount}</span>
-            <span className="text-slate-500"> section boxes</span>
-          </>
-        )}
+      {/* Orientation + stats bar */}
+      <div className="absolute top-4 left-4 z-10 max-w-[26rem] space-y-2 map-chrome-enter">
+        <div className="rounded-lg border border-navy-700 bg-navy-900/90 backdrop-blur px-3.5 py-3">
+          <div className="font-readout text-[10px] uppercase tracking-[0.18em] text-bone-mute mb-1">
+            Nova Scotia · Coastline atlas
+          </div>
+          <p className="text-[13px] leading-snug text-bone">
+            Browse Nova Scotia&apos;s coast by map, then inspect satellite
+            evidence and confidence.
+          </p>
+        </div>
+        <div className="rounded-lg border border-navy-700 bg-navy-900/90 backdrop-blur px-3 py-2 text-xs font-readout flex flex-wrap items-center gap-x-2">
+          <span>
+            <span className="text-teal-400 font-semibold tabular-nums">
+              {stats.segmentCount}
+            </span>
+            <span className="text-bone-mute"> segments scored</span>
+          </span>
+          <span className="text-navy-600">|</span>
+          <span>
+            <span className="text-orange-400 font-semibold tabular-nums">
+              {stats.highCandidateCount}
+            </span>
+            <span className="text-bone-mute"> high candidates</span>
+          </span>
+          <span className="text-navy-600">|</span>
+          <span>
+            <span className="text-bone font-semibold tabular-nums">
+              {stats.spotCount}
+            </span>
+            <span className="text-bone-mute"> named spots</span>
+          </span>
+          {showAnalysis && (
+            <>
+              <span className="text-navy-600">|</span>
+              <span>
+                <span className="text-bone-dim font-semibold tabular-nums">
+                  {stats.atlasSectionCount}
+                </span>
+                <span className="text-bone-mute"> section boxes</span>
+              </span>
+            </>
+          )}
+        </div>
       </div>
 
       <div className="absolute left-4 top-20 z-10 max-w-[320px] rounded-lg border border-navy-700 bg-navy-900/92 px-4 py-3 text-sm text-slate-300 backdrop-blur">

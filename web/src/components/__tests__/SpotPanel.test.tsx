@@ -158,4 +158,49 @@ describe("SpotPanel", () => {
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  it("presents surf potential score and evidence confidence as peer facts", async () => {
+    vi.mocked(loadSpotDetail).mockResolvedValue(mockDetail);
+
+    render(<SpotPanel spot={mockSpot} gallery={mockGallery} onClose={() => undefined} />);
+
+    const score = await screen.findByTestId("spot-score");
+    const confidence = screen.getByTestId("spot-confidence");
+
+    expect(score).toBeInTheDocument();
+    expect(confidence).toBeInTheDocument();
+
+    // Parity: both must be visible as peer tiles, side-by-side, with a
+    // comparable visual weight. We assert shared class structure rather than
+    // pixel-measuring in jsdom (which is unreliable).
+    expect(score.className).toMatch(/tier-hero/);
+    expect(confidence.className).toMatch(/tier-hero/);
+
+    const scoreValue = screen.getByTestId("spot-score-value");
+    const confidenceValue = screen.getByTestId("spot-confidence-value");
+
+    // Both share the same headline class token.
+    expect(scoreValue.className).toMatch(/hero-number/);
+    expect(confidenceValue.className).toMatch(/hero-number/);
+  });
+
+  it("relabels foam-derived metrics so foam is not a hero fact", async () => {
+    vi.mocked(loadSpotDetail).mockResolvedValue(mockDetail);
+
+    render(<SpotPanel spot={mockSpot} gallery={mockGallery} onClose={() => undefined} />);
+
+    await screen.findByTestId("spot-score");
+
+    // Old labels are gone.
+    expect(screen.queryByText(/^observations$/i)).toBeNull();
+    expect(screen.queryByText(/^satellite passes$/i)).toBeNull();
+
+    // New labels are present.
+    expect(
+      screen.getByText(/scenes with detections/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/satellite passes analyzed/i),
+    ).toBeInTheDocument();
+  });
 });
