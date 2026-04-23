@@ -4,15 +4,63 @@ on:
   push:
     branches: [main]
     paths:
-      - 'web/**'
+      - ".github/workflows/ci.yml"
+      - "pipeline/**"
+      - "tests/**"
+      - "web/**"
+      - "docs/**"
+      - "README.md"
+      - "DEPLOY.md"
+      - "requirements.txt"
   pull_request:
     branches: [main]
     paths:
-      - 'web/**'
+      - ".github/workflows/ci.yml"
+      - "pipeline/**"
+      - "tests/**"
+      - "web/**"
+      - "docs/**"
+      - "README.md"
+      - "DEPLOY.md"
+      - "requirements.txt"
 
 jobs:
-  typecheck-and-build:
+  release-readiness:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install web dependencies
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      - name: Run release-readiness gate
+        run: python pipeline/scripts/check_release_readiness.py
+
+  browser-smoke:
+    runs-on: ubuntu-latest
+    needs: release-readiness
+    env:
+      NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -26,16 +74,14 @@ jobs:
           cache: pnpm
           cache-dependency-path: web/pnpm-lock.yaml
 
-      - name: Install dependencies
+      - name: Install web dependencies
         working-directory: web
         run: pnpm install --frozen-lockfile
 
-      - name: Type check
+      - name: Install Playwright browsers
         working-directory: web
-        run: npx tsc --noEmit
+        run: pnpm exec playwright install --with-deps
 
-      - name: Build
+      - name: Run browser smoke tests
         working-directory: web
-        run: pnpm build
-        env:
-          NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+        run: pnpm test:e2e

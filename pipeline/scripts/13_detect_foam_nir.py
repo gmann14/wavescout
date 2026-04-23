@@ -234,7 +234,7 @@ def get_scl_quality_metrics(date: str, bbox: list[float]) -> dict:
             ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
             .filterBounds(roi)
             .filterDate(date, ee.Date(date).advance(1, "day"))
-            .filter(ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", MAX_CLOUD_PERCENT))
+            .filter(ee.Filter.lte("CLOUDY_PIXEL_PERCENTAGE", MAX_CLOUD_PERCENT))
             .sort("CLOUDY_PIXEL_PERCENTAGE")
         )
 
@@ -351,7 +351,7 @@ def extract_foam_metrics(
         ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED")
         .filterBounds(roi)
         .filterDate(date, ee.Date(date).advance(1, "day"))
-        .filter(ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", MAX_CLOUD_PERCENT))
+        .filter(ee.Filter.lte("CLOUDY_PIXEL_PERCENTAGE", MAX_CLOUD_PERCENT))
         .sort("CLOUDY_PIXEL_PERCENTAGE")
     )
 
@@ -744,6 +744,12 @@ def parse_args() -> argparse.Namespace:
         help="Skip Open-Meteo conditions lookup (faster for testing).",
     )
     parser.add_argument(
+        "--max-cloud-percent",
+        type=float,
+        default=MAX_CLOUD_PERCENT,
+        help=f"Max Sentinel-2 CLOUDY_PIXEL_PERCENTAGE for scene discovery. Default: {MAX_CLOUD_PERCENT}",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         help="Override output path (ignored when --all-spots is set).",
@@ -757,6 +763,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    global MAX_CLOUD_PERCENT
+    MAX_CLOUD_PERCENT = float(args.max_cloud_percent)
 
     global NIR_FOAM_THRESHOLD, BUFFER_DISTANCE_M
     NIR_FOAM_THRESHOLD = args.nir_threshold

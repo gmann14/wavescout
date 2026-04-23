@@ -8,20 +8,19 @@ This document describes how to deploy the current static web viewer. It does not
 
 Before deploying, confirm:
 
-- the promoted dataset has been generated and validated
+- the promoted dataset has been generated, validated, and promoted
 - the promoted dataset satisfies [docs/DATA-CONTRACTS.md](docs/DATA-CONTRACTS.md)
 - the public payload satisfies [docs/PUBLIC-OUTPUT-POLICY.md](docs/PUBLIC-OUTPUT-POLICY.md)
 - `web/public/data/` contains the intended static payloads
 - `NEXT_PUBLIC_MAPBOX_TOKEN` is available for the target environment
 - the web app builds locally with `pnpm build`
+- `python3 pipeline/scripts/check_release_readiness.py` has passed
+- `python3 pipeline/scripts/promote_public_dataset.py` has been run with a recorded `Gate D` review
 
 ## Local Validation
 
 ```bash
-cd web
-pnpm install
-pnpm build
-pnpm start
+python3 pipeline/scripts/check_release_readiness.py --include-e2e
 ```
 
 Verify:
@@ -30,6 +29,8 @@ Verify:
 - the atlas route loads
 - the compare route loads
 - the methodology page renders markdown correctly
+- the release-readiness report exists in `pipeline/data/manifests/release_readiness_report.json`
+- the promoted dataset record exists in `pipeline/data/manifests/promoted_dataset_record.json`
 
 ## Vercel Deployment
 

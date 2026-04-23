@@ -30,6 +30,14 @@ from pathlib import Path
 
 import numpy as np
 
+from _coastal_context import coastal_context_penalty, coastal_exposure_class
+from _ranking_support import (
+    evidence_sparsity_penalty,
+    trusted_calibration_match,
+    validate_spot_neighborhood_regressions,
+    validate_ranking_region_regressions,
+    validate_ranking_regressions,
+)
 from _script_utils import (
     generate_run_id,
     get_code_version,
@@ -47,6 +55,10 @@ SCORED_SEGMENTS_PATH = COASTLINE_DIR / "ns_scored_segments.geojson"
 RANKED_SEGMENTS_PATH = COASTLINE_DIR / "ns_ranked_segments.geojson"
 RANKING_MANIFEST_PATH = MANIFESTS_DIR / "unified_ranking_manifest.json"
 CALIBRATION_PATH = DATA_DIR / "calibration_report.json"
+RANKING_REGRESSIONS_PATH = DATA_DIR / "ranking_regressions.json"
+RANKING_REGION_REGRESSIONS_PATH = DATA_DIR / "ranking_region_regressions.json"
+SPOTS_PATH = DATA_DIR / "ns_spots.geojson"
+SPOT_NEIGHBORHOOD_REGRESSIONS_PATH = DATA_DIR / "spot_neighborhood_regressions.json"
 
 # ---------------------------------------------------------------------------
 # Defaults
@@ -60,6 +72,8 @@ QUALITY_SCORE_MIN = 60
 FOAM_PRESENT_THRESHOLD = 0.05
 FALSE_POSITIVE_FOAM_THRESHOLD = 0.2
 FALSE_POSITIVE_SWELL_THRESHOLD = 0.5
+FALSE_POSITIVE_MIN_COUNT = 4
+FALSE_POSITIVE_MIN_FLAT_RATIO = 0.1
 FALSE_POSITIVE_PENALTY = 5.0
 
 
@@ -263,14 +277,19 @@ def compute_false_positive_penalty(detections: list[dict]) -> float:
         and d.get("swell_height_m") is not None
     ]
 
-    flat_day_foam = [
+    flat_day_obs = [
         d for d in valid_obs
         if d["swell_height_m"] < FALSE_POSITIVE_SWELL_THRESHOLD
-        and d["foam_fraction"] > FALSE_POSITIVE_FOAM_THRESHOLD
+    ]
+    flat_day_foam = [
+        d for d in flat_day_obs
+        if d["foam_fraction"] > FALSE_POSITIVE_FOAM_THRESHOLD
     ]
 
-    if flat_day_foam:
-        return FALSE_POSITIVE_PENALTY
+    if flat_day_obs and len(flat_day_foam) >= FALSE_POSITIVE_MIN_COUNT:
+        flat_ratio = len(flat_day_foam) / len(flat_day_obs)
+        if flat_ratio >= FALSE_POSITIVE_MIN_FLAT_RATIO:
+            return FALSE_POSITIVE_PENALTY
     return 0.0
 
 
@@ -279,6 +298,12 @@ def compute_false_positive_penalty(detections: list[dict]) -> float:
 # ---------------------------------------------------------------------------
 def compute_composite_score(
     geometry_score: float,
+    exposure_arc_deg: float | None,
+    orientation_deg: float | None,
+    nearfield_open_water_deg: float | None,
+    nearfield_blocked_ratio: float | None,
+    farfield_open_water_deg: float | None,
+    farfield_blocked_ratio: float | None,
     foam_detections: list[dict] | None,
     swell_profile: dict | None,
     geometry_weight: float,
@@ -373,6 +398,24 @@ def compute_composite_score(
             composite_normalized = max(0.0, composite_normalized - penalty)
             metadata["false_positive_penalty"] = penalty
 
+    context_penalty = coastal_context_penalty(
+        exposure_arc_deg,
+        orientation_deg,
+        nearfield_open_water_deg,
+        nearfield_blocked_ratio,
+        farfield_open_water_deg,
+        farfield_blocked_ratio,
+    )
+    if context_penalty > 0:
+        composite_normalized = max(0.0, composite_normalized - context_penalty)
+    metadata["coastal_context_penalty"] = round(context_penalty, 1)
+    metadata["coastal_exposure_class"] = coastal_exposure_class(exposure_arc_deg)
+
+    sparsity_penalty = evidence_sparsity_penalty(confidence)
+    if sparsity_penalty > 0:
+        composite_normalized = max(0.0, composite_normalized - sparsity_penalty)
+    metadata["evidence_sparsity_penalty"] = round(sparsity_penalty, 1)
+
     return {
         "composite_score": round(composite_normalized, 1),
         "confidence": confidence,
@@ -388,7 +431,7 @@ def validate_known_spots(
     segments_by_id: dict[str, dict],
     calibration_path: Path,
 ) -> bool:
-    """Check that known spots still rank in a reasonable percentile range.
+    """Check that known spots still calibrate sensibly.
 
     Returns True if validation passes.
     """
@@ -399,9 +442,49 @@ def validate_known_spots(
     with calibration_path.open() as f:
         cal = json.load(f)
 
+    spot_neighborhoods = cal.get("spot_neighborhoods", [])
+    if spot_neighborhoods:
+        print(f"\n{'=' * 60}")
+        print("VALIDATION: Known spot neighborhoods")
+        print(f"{'=' * 60}")
+        print(
+            f"{'Spot':<24} {'Best':>6} {'Local':>6} {'>=50':>5} {'>=60':>5} {'>=70':>5} {'Status':>10}"
+        )
+        print("-" * 71)
+
+        issues = []
+        for item in spot_neighborhoods:
+            if not item.get("tracked_by_regression"):
+                status = "untracked"
+            else:
+                status = "pass" if item.get("meets_expectations") else "fail"
+            local_score = item.get("best_score_within_distance")
+            local_display = f"{float(local_score):.1f}" if local_score is not None else "-"
+            print(
+                f"  {item.get('spot_name', item.get('slug', '?')):<24} "
+                f"{float(item.get('best_segment_score', 0.0)):>6.1f} "
+                f"{local_display:>6} "
+                f"{int(item.get('count_ge_50', 0)):>5} "
+                f"{int(item.get('count_ge_60', 0)):>5} "
+                f"{int(item.get('count_ge_70', 0)):>5} "
+                f"{status:>10}"
+            )
+            if item.get("tracked_by_regression"):
+                for issue in item.get("issues", []):
+                    issues.append(issue)
+
+        if issues:
+            print(f"\nWARN: {len(issues)} spot neighborhood expectations failed:")
+            for issue in issues:
+                print(f"  - {issue}")
+            return False
+
+        print("\nValidation PASSED: trusted spot neighborhoods meet current expectations")
+        return True
+
     spot_matches = cal.get("spot_matches", [])
     if not spot_matches:
-        print("\nWARN: No spot matches in calibration report")
+        print("\nWARN: No recognized spot calibration data in calibration report")
         return True
 
     # Collect all composite scores for percentile calculation
@@ -414,10 +497,11 @@ def validate_known_spots(
     print(f"\n{'=' * 60}")
     print("VALIDATION: Known spots vs composite ranking")
     print(f"{'=' * 60}")
-    print(f"{'Spot':<30} {'Seg ID':<16} {'Composite':>10} {'Percentile':>11}")
-    print("-" * 70)
+    print(f"{'Spot':<30} {'Seg ID':<16} {'Composite':>10} {'Percentile':>11} {'Status':>10}")
+    print("-" * 82)
 
     issues = []
+    suspect_matches = []
     for match in spot_matches:
         seg_id = match.get("matched_segment_id")
         spot_name = match.get("spot_name", "?")
@@ -432,20 +516,32 @@ def validate_known_spots(
         rank = sum(1 for s in all_scores if s > comp_score) + 1
         percentile = round((1.0 - rank / n) * 100, 1)
 
-        status = ""
-        if percentile < 50:
-            status = " <-- LOW"
+        trusted = trusted_calibration_match(
+            match.get("distance_m"),
+            match.get("spot_facing"),
+            match.get("segment_orientation_deg"),
+        )
+        status = "ok"
+        if not trusted:
+            status = "suspect"
+            suspect_matches.append(spot_name)
+        elif percentile < 50:
+            status = "low"
             issues.append(f"{spot_name}: {percentile}th percentile")
 
-        print(f"  {spot_name:<30} {seg_id:<16} {comp_score:>10.1f} {percentile:>10.1f}%{status}")
+        print(f"  {spot_name:<30} {seg_id:<16} {comp_score:>10.1f} {percentile:>10.1f}% {status:>10}")
 
     if issues:
         print(f"\nWARN: {len(issues)} known spots ranked below 50th percentile:")
         for issue in issues:
             print(f"  - {issue}")
+    if suspect_matches:
+        print(f"\nNote: {len(suspect_matches)} known-spot matches were treated as suspect and excluded")
+        print("from pass/fail calibration because the nearest segment match looks stale or misaligned.")
+    if issues:
         return False
 
-    print("\nValidation PASSED: all known spots rank above 50th percentile")
+    print("\nValidation PASSED: trusted known spots rank above 50th percentile")
     return True
 
 
@@ -546,6 +642,12 @@ def main() -> None:
 
         result = compute_composite_score(
             geometry_score=geometry_score,
+            exposure_arc_deg=props.get("exposure_arc_deg"),
+            orientation_deg=props.get("orientation_deg"),
+            nearfield_open_water_deg=props.get("nearfield_open_water_deg"),
+            nearfield_blocked_ratio=props.get("nearfield_blocked_ratio"),
+            farfield_open_water_deg=props.get("farfield_open_water_deg"),
+            farfield_blocked_ratio=props.get("farfield_blocked_ratio"),
             foam_detections=foam_dets,
             swell_profile=profile,
             geometry_weight=args.geometry_weight,
@@ -571,6 +673,17 @@ def main() -> None:
             props["primary_direction"] = result["primary_direction"]
         if result.get("false_positive_penalty"):
             props["false_positive_penalty"] = result["false_positive_penalty"]
+        props["coastal_context_penalty"] = result.get("coastal_context_penalty", 0.0)
+        props["coastal_exposure_class"] = result.get("coastal_exposure_class", "unknown")
+        props["evidence_sparsity_penalty"] = result.get("evidence_sparsity_penalty", 0.0)
+        if props.get("nearfield_open_water_deg") is not None:
+            props["nearfield_open_water_deg"] = props.get("nearfield_open_water_deg")
+        if props.get("nearfield_blocked_ratio") is not None:
+            props["nearfield_blocked_ratio"] = props.get("nearfield_blocked_ratio")
+        if props.get("farfield_open_water_deg") is not None:
+            props["farfield_open_water_deg"] = props.get("farfield_open_water_deg")
+        if props.get("farfield_blocked_ratio") is not None:
+            props["farfield_blocked_ratio"] = props.get("farfield_blocked_ratio")
 
         scored_props[seg_id] = props
 
@@ -635,7 +748,11 @@ def main() -> None:
             "quality_score_min": QUALITY_SCORE_MIN,
             "false_positive_foam_threshold": FALSE_POSITIVE_FOAM_THRESHOLD,
             "false_positive_swell_threshold": FALSE_POSITIVE_SWELL_THRESHOLD,
+            "false_positive_min_count": FALSE_POSITIVE_MIN_COUNT,
+            "false_positive_min_flat_ratio": FALSE_POSITIVE_MIN_FLAT_RATIO,
             "false_positive_penalty": FALSE_POSITIVE_PENALTY,
+            "coastal_context_penalty_enabled": True,
+            "evidence_sparsity_penalty_enabled": True,
         },
         "total_segments": n,
         "segments_with_foam": segments_with_foam,
@@ -695,10 +812,57 @@ def main() -> None:
             f["properties"]["segment_id"]: f["properties"]
             for f in valid_features
         }
-        passed = validate_known_spots(segments_by_id, CALIBRATION_PATH)
-        if not passed:
+        spot_passed = validate_known_spots(segments_by_id, CALIBRATION_PATH)
+        regressions_passed, regression_issues = validate_ranking_regressions(
+            segments_by_id,
+            RANKING_REGRESSIONS_PATH,
+        )
+        region_passed, region_issues, region_summaries = validate_ranking_region_regressions(
+            valid_features,
+            RANKING_REGION_REGRESSIONS_PATH,
+        )
+        spot_neighborhood_passed, spot_neighborhood_issues, spot_neighborhood_summaries = (
+            validate_spot_neighborhood_regressions(
+                valid_features,
+                SPOTS_PATH,
+                SPOT_NEIGHBORHOOD_REGRESSIONS_PATH,
+            )
+        )
+
+        if regression_issues:
+            print(f"\n{'=' * 60}")
+            print("VALIDATION: Ranking regression cases")
+            print(f"{'=' * 60}")
+            for issue in regression_issues:
+                print(f"  - {issue}")
+        if region_summaries:
+            print(f"\n{'=' * 60}")
+            print("VALIDATION: Regional ranking regressions")
+            print(f"{'=' * 60}")
+            for summary in region_summaries:
+                print(summary)
+        if region_issues:
+            for issue in region_issues:
+                print(f"  - {issue}")
+        if spot_neighborhood_summaries:
+            print(f"\n{'=' * 60}")
+            print("VALIDATION: Spot neighborhood regressions")
+            print(f"{'=' * 60}")
+            for summary in spot_neighborhood_summaries:
+                print(summary)
+        if spot_neighborhood_issues:
+            for issue in spot_neighborhood_issues:
+                print(f"  - {issue}")
+
+        if not spot_passed:
             print("\nValidation WARNING — some known spots rank low (may be calibration artifacts)")
             print("Key spots (Lawrencetown, Martinique, Cow Bay, etc.) should rank above 85th percentile")
+        if not regressions_passed:
+            print("\nValidation WARNING — one or more explicit ranking regression cases failed")
+        if not region_passed:
+            print("\nValidation WARNING — one or more regional ranking regression cases failed")
+        if not spot_neighborhood_passed:
+            print("\nValidation WARNING — one or more trusted spot neighborhood regressions failed")
 
 
 if __name__ == "__main__":

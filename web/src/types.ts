@@ -77,10 +77,18 @@ export interface SegmentProperties {
   score: number;
   verification_status?: VerificationStatus;
   publication_status?: PublicationStatus;
+  map_display_eligible?: boolean;
   surf_potential_score?: number;
   evidence_confidence_level?: number;
   evidence_confidence_label?: EvidenceConfidenceLabel;
   quality_status?: QualityStatus;
+  coastal_exposure_class?: "open_coast" | "outer_coast" | "semi_sheltered" | "sheltered_inner_coast";
+  coastal_context_penalty?: number;
+  evidence_sparsity_penalty?: number;
+  nearfield_open_water_deg?: number;
+  nearfield_blocked_ratio?: number;
+  farfield_open_water_deg?: number;
+  farfield_blocked_ratio?: number;
   score_components?: ScoreComponents;
   swell_exposure?: number;
   geometry_score?: number;

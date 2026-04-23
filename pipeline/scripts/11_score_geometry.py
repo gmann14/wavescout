@@ -14,6 +14,7 @@ Output: pipeline/data/coastline/ns_scored_segments.geojson
 
 from __future__ import annotations
 
+import argparse
 import json
 import math
 import sys
@@ -23,8 +24,12 @@ import numpy as np
 import requests
 from pyproj import Transformer
 from shapely.geometry import LineString, MultiLineString, Point, shape
-from shapely.ops import nearest_points
+from shapely.ops import nearest_points, unary_union
+from shapely.prepared import prep
 from shapely.strtree import STRtree
+
+from _coastal_context import coastal_context_penalty, coastal_exposure_class
+from _geometry_support import load_legacy_road_scores
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -87,8 +92,7 @@ def score_swell_exposure(orientation_deg: float, exposure_arc_deg: float) -> tup
 def score_geometry(
     centroid_utm: tuple[float, float],
     seg_utm: LineString,
-    coastline_tree: object,
-    coastline_lines: list[LineString],
+    nearby_lines: list[LineString],
 ) -> tuple[float, str]:
     """Score coastal geometry for surf-favorable features.
 
@@ -99,18 +103,15 @@ def score_geometry(
     cx, cy = centroid_utm
     center_pt = Point(cx, cy)
 
-    # Query coastline within 2km using spatial index
     outer_radius = 2000.0
     inner_radius = 500.0
     search_area = center_pt.buffer(outer_radius)
-    nearby_idxs = coastline_tree.query(search_area)
 
     coastline_nearby = 0.0
     inner_circle = center_pt.buffer(inner_radius)
     outer_ring = search_area.difference(inner_circle)
 
-    for idx in nearby_idxs:
-        line = coastline_lines[idx]
+    for line in nearby_lines:
         clipped = line.intersection(outer_ring)
         if not clipped.is_empty:
             coastline_nearby += clipped.length
@@ -137,6 +138,42 @@ def score_geometry(
         explanation = "Relatively straight, open coastline"
 
     return round(raw, 1), explanation
+
+
+def compute_open_water_fan(
+    centroid_utm: tuple[float, float],
+    nearby_prepared: object,
+    normal_bearing: float,
+    radius_m: float,
+) -> tuple[float, float]:
+    """Measure immediate seaward openness in the main swell-facing fan.
+
+    Starts rays slightly seaward of the segment so the segment does not block
+    itself, then checks whether the near field is free of opposing coastline.
+    """
+    cx, cy = centroid_utm
+    open_degrees = 0.0
+    blocked = 0
+    total = 0
+    start_offset_m = 100.0
+
+    for angle_offset in range(-60, 61, 10):
+        total += 1
+        ray_bearing = (normal_bearing + angle_offset) % 360
+        rad = math.radians(ray_bearing)
+        start_x = cx + start_offset_m * math.sin(rad)
+        start_y = cy + start_offset_m * math.cos(rad)
+        end_x = cx + radius_m * math.sin(rad)
+        end_y = cy + radius_m * math.cos(rad)
+        ray = LineString([(start_x, start_y), (end_x, end_y)])
+
+        if not nearby_prepared.intersects(ray):
+            open_degrees += 10.0
+        else:
+            blocked += 1
+
+    blocked_ratio = blocked / total if total else 1.0
+    return open_degrees, blocked_ratio
 
 
 # ---------------------------------------------------------------------------
@@ -284,7 +321,7 @@ def download_ns_roads() -> list[LineString]:
     return lines
 
 
-def load_road_tree() -> tuple[STRtree, list[LineString]]:
+def load_road_tree(allow_download: bool) -> tuple[STRtree | None, list[LineString]]:
     """Load or download NS roads and build a spatial index."""
     global _road_tree, _road_lines
 
@@ -296,9 +333,15 @@ def load_road_tree() -> tuple[STRtree, list[LineString]]:
         with ROADS_CACHE_PATH.open() as f:
             cache_data = json.load(f)
         _road_lines = [LineString(coords) for coords in cache_data]
+    elif not allow_download:
+        print("Road cache missing — skipping road download for this run.")
+        return None, []
     else:
         print("Downloading NS road network from Overpass...")
         _road_lines = download_ns_roads()
+
+    if not _road_lines:
+        return None, []
 
     print(f"  Building road spatial index ({len(_road_lines)} roads)...")
     _road_tree = STRtree(_road_lines)
@@ -307,10 +350,13 @@ def load_road_tree() -> tuple[STRtree, list[LineString]]:
 
 def score_road_access(
     centroid_utm: tuple[float, float],
-    road_tree: STRtree,
+    road_tree: STRtree | None,
     road_lines: list[LineString],
 ) -> tuple[float, str]:
     """Score proximity to nearest road. Closer = higher score (15 pts max)."""
+    if road_tree is None or not road_lines:
+        return 0.0, "Road data unavailable for this run"
+
     cx, cy = centroid_utm
     pt = Point(cx, cy)
 
@@ -337,10 +383,24 @@ def score_road_access(
     return round(score, 1), explanation
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Score coastline segments using geometry, bathymetry, and road heuristics."
+    )
+    parser.add_argument(
+        "--allow-road-download",
+        action="store_true",
+        help="Allow a fresh Overpass road download when the local road cache is missing.",
+    )
+    return parser.parse_args()
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main() -> None:
+    args = parse_args()
+
     print("=" * 60)
     print("Phase 2, Step 2: Score Geometry Heuristics")
     print("=" * 60)
@@ -371,8 +431,13 @@ def main() -> None:
     else:
         print("GEBCO not available — bathymetry score will be 0 for all segments")
 
-    # Load road network
-    road_tree, road_lines = load_road_tree()
+    # Load road network or reuse prior road-access scores if offline.
+    road_tree, road_lines = load_road_tree(allow_download=args.allow_road_download)
+    legacy_road_scores = load_legacy_road_scores(OUTPUT_PATH) if road_tree is None else {}
+    if road_tree is None and legacy_road_scores:
+        print(f"Reusing legacy road scores for {len(legacy_road_scores)} segments")
+    elif road_tree is None:
+        print("No road cache or legacy road scores available — road access scores will be zero")
 
     # Score each segment
     print(f"\nScoring {n} segments...")
@@ -392,13 +457,43 @@ def main() -> None:
         seg_coords = [(TO_UTM.transform(x, y)) for x, y in feat["geometry"]["coordinates"]]
         seg_utm = LineString(seg_coords)
 
+        nearby_search = Point(cx, cy).buffer(5000.0)
+        nearby_idxs = coastline_tree.query(nearby_search)
+        nearby_lines = [all_lines_utm[idx] for idx in nearby_idxs]
+        nearby_prepared = prep(unary_union(nearby_lines))
+
         # Score components
         swell_score, swell_expl = score_swell_exposure(orientation, exposure_arc)
-        geom_score, geom_expl = score_geometry((cx, cy), seg_utm, coastline_tree, all_lines_utm)
+        geom_score, geom_expl = score_geometry((cx, cy), seg_utm, nearby_lines)
         bathy_score, bathy_expl = score_bathymetry(clon, clat, gebco_ds)
-        road_score, road_expl = score_road_access((cx, cy), road_tree, road_lines)
+        nearfield_open_deg, nearfield_blocked_ratio = compute_open_water_fan(
+            (cx, cy),
+            nearby_prepared,
+            orientation,
+            radius_m=2000.0,
+        )
+        farfield_open_deg, farfield_blocked_ratio = compute_open_water_fan(
+            (cx, cy),
+            nearby_prepared,
+            orientation,
+            radius_m=8000.0,
+        )
+        if road_tree is None and props["segment_id"] in legacy_road_scores:
+            road_score = round(legacy_road_scores[props["segment_id"]], 1)
+            road_expl = "Road access score reused from prior cached geometry run"
+        else:
+            road_score, road_expl = score_road_access((cx, cy), road_tree, road_lines)
 
         total = swell_score + geom_score + bathy_score + road_score
+        exposure_class = coastal_exposure_class(exposure_arc)
+        context_penalty = coastal_context_penalty(
+            exposure_arc,
+            orientation,
+            nearfield_open_deg,
+            nearfield_blocked_ratio,
+            farfield_open_deg,
+            farfield_blocked_ratio,
+        )
 
         # Build explanation
         highlights = []
@@ -418,12 +513,28 @@ def main() -> None:
             caveats.append("Remote — no nearby road access")
         if exposure_arc < 60:
             caveats.append("Limited ocean exposure")
+        elif exposure_arc < 90:
+            caveats.append("Partial coastal shelter may limit open-ocean swell")
+        if nearfield_blocked_ratio >= 0.15:
+            caveats.append("Nearby opposing coastline may indicate harbour, bay, or estuary shelter")
+        if farfield_open_deg < 90:
+            caveats.append("Longer-range ocean opening is limited, which may indicate deep-bay or estuary shelter")
+        elif nearfield_open_deg - farfield_open_deg >= 35:
+            caveats.append("Local opening narrows farther seaward, which may reduce true Atlantic fetch")
+        if context_penalty >= 18:
+            caveats.append("Sheltered coastal context reduces confidence as a surf lead")
 
         props["total_score"] = round(total, 1)
         props["swell_exposure_score"] = swell_score
         props["geometry_score"] = geom_score
         props["bathymetry_score"] = bathy_score
         props["road_access_score"] = road_score
+        props["coastal_exposure_class"] = exposure_class
+        props["coastal_context_penalty"] = round(context_penalty, 1)
+        props["nearfield_open_water_deg"] = round(nearfield_open_deg, 1)
+        props["nearfield_blocked_ratio"] = round(nearfield_blocked_ratio, 4)
+        props["farfield_open_water_deg"] = round(farfield_open_deg, 1)
+        props["farfield_blocked_ratio"] = round(farfield_blocked_ratio, 4)
         props["explanation"] = {
             "summary": f"Score {total:.0f}/100 — {swell_expl}",
             "score_components": {

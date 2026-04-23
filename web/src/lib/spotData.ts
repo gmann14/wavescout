@@ -98,10 +98,14 @@ function evidenceLabelForLevel(level: number): EvidenceConfidenceLabel {
 
 function verificationStatusForRaw(
   value: unknown,
-  evidenceConfidenceLevel: number
+  evidenceConfidenceLevel: number,
+  publicationStatus: PublicationStatus
 ): VerificationStatus {
   if (value === "confirmed" || value === "candidate" || value === "rejected") {
     return value;
+  }
+  if (publicationStatus === "public_named") {
+    return "confirmed";
   }
   return evidenceConfidenceLevel >= 2 ? "confirmed" : "candidate";
 }
@@ -165,6 +169,7 @@ export function normalizeSpotProperties(raw: RawSpotValue): SpotProperties {
       ? raw.evidence_confidence_label
       : evidenceLabelForLevel(evidenceConfidenceLevel)
   ) as EvidenceConfidenceLabel;
+  const publicationStatus = publicationStatusForRaw(raw.publication_status);
 
   const explanation = parseObject<Explanation>(raw.explanation) ??
     buildFallbackExplanation(shortSummary, surfPotentialScore);
@@ -177,8 +182,8 @@ export function normalizeSpotProperties(raw: RawSpotValue): SpotProperties {
       : typeof raw.type === "string"
         ? raw.type
         : "unknown",
-    verification_status: verificationStatusForRaw(raw.verification_status, evidenceConfidenceLevel),
-    publication_status: publicationStatusForRaw(raw.publication_status),
+    verification_status: verificationStatusForRaw(raw.verification_status, evidenceConfidenceLevel, publicationStatus),
+    publication_status: publicationStatus,
     source_summary: sourceSummary,
     short_summary: shortSummary,
     swell_window_summary: swellWindowSummary,

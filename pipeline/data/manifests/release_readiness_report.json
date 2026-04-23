@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-04-20T16:42:02.481198+00:00",
+  "dataset": {
+    "dataset_id": "ns-64bfcb1997e1",
+    "status": "draft",
+    "run_id": "64bfcb1997e1",
+    "code_version": "98ad85f"
+  },
+  "checks": {
+    "artifacts": {
+      "dataset_manifest_exists": true,
+      "spots_exists": true,
+      "segments_high_exists": true,
+      "segments_all_exists": true,
+      "gallery_exists": true,
+      "atlas_sections_exists": true,
+      "atlas_gallery_exists": true
+    },
+    "provenance": {
+      "dataset_manifest_has_run_id": true,
+      "dataset_manifest_has_generated_at": true,
+      "dataset_manifest_has_code_version": true,
+      "dataset_manifest_has_config_version": true,
+      "gallery_has_run_id": true,
+      "gallery_has_generated_at": true,
+      "gallery_has_code_version": true
+    },
+    "spot_details": {
+      "missing_public_named_spot_details": [],
+      "all_public_named_spot_details_present": true
+    },
+    "traceability": {
+      "missing_release_blocking_ids": [],
+      "release_blocking_ids_present": true
+    },
+    "policy": {
+      "report_or_takedown_path_documented": true
+    },
+    "docs_sync": {
+      "README.md": true,
+      "docs/SPEC.md": true,
+      "docs/DATA-CONTRACTS.md": true,
+      "docs/UI-STATES.md": true,
+      "docs/REVIEW-GATES.md": true,
+      "DEPLOY.md": true
+    }
+  },
+  "ready": true,
+  "failures": [],
+  "command_results": []
+}

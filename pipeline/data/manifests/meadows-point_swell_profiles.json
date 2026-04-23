@@ -1,0 +1,1475 @@
+{
+  "script": "14_build_swell_profiles.py",
+  "run_id": "ed202738ea79",
+  "generated_at_utc": "2026-04-20T01:28:03.467561+00:00",
+  "code_version": "98ad85f",
+  "config": {
+    "spot": "Meadows Point",
+    "slug": "meadows-point"
+  },
+  "parameters": {
+    "foam_present_threshold": 0.05,
+    "foam_blowout_threshold": 0.8,
+    "foam_optimal_threshold": 0.15,
+    "min_observations": 3,
+    "swell_bin_edges": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      4.0,
+      5.0,
+      8.0
+    ]
+  },
+  "input_source": "pipeline/data/manifests/meadows-point_foam_detections.json",
+  "summary": {
+    "total_segments": 19,
+    "complete_profiles": 19,
+    "insufficient_data": 0,
+    "total_detections": 1144
+  },
+  "profiles": {
+    "ns-seg-01235": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.2184
+      },
+      "blow_out_point_m": 0.46,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1141,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0392,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1398,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2336,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3492,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.2184,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1076,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1675,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.0942,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.1598,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1304,
+        "max": 0.8548,
+        "std": 0.117
+      },
+      "nir_stats": {
+        "mean": 368.8,
+        "max": 1329.4
+      }
+    },
+    "ns-seg-01236": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.3
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1655,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.046,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1682,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.248,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3642,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.3,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0008,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1493,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1993,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1366,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2392,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1695,
+        "max": 0.4557,
+        "std": 0.0958
+      },
+      "nir_stats": {
+        "mean": 450.8,
+        "max": 1100.2
+      }
+    },
+    "ns-seg-01237": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.3401
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.2082,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0655,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1902,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2608,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3501,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.3401,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1923,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.2275,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1598,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2133,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.2,
+        "max": 0.5575,
+        "std": 0.1098
+      },
+      "nir_stats": {
+        "mean": 516.8,
+        "max": 1116.6
+      }
+    },
+    "ns-seg-01238": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.5,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.4331
+      },
+      "blow_out_point_m": 1.36,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1542,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0615,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1448,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1743,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2788,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.4331,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0112,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1501,
+          "observation_count": 22
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1716,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1202,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.4683,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1626,
+        "max": 0.8942,
+        "std": 0.1352
+      },
+      "nir_stats": {
+        "mean": 454.0,
+        "max": 2491.9
+      }
+    },
+    "ns-seg-01239": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.556
+      },
+      "blow_out_point_m": 1.36,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1955,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.1048,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1828,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2316,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3812,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.556,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0239,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1821,
+          "observation_count": 22
+        },
+        "SE": {
+          "mean_foam_fraction": 0.2388,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.1554,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.5173,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.2092,
+        "max": 1.0,
+        "std": 0.1587
+      },
+      "nir_stats": {
+        "mean": 547.5,
+        "max": 2273.2
+      }
+    },
+    "ns-seg-01240": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.531
+      },
+      "blow_out_point_m": 1.36,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1116,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0788,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1045,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1515,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2297,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.531,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0318,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1115,
+          "observation_count": 22
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1537,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.089,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.5026,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1358,
+        "max": 1.0,
+        "std": 0.161
+      },
+      "nir_stats": {
+        "mean": 390.8,
+        "max": 2313.2
+      }
+    },
+    "ns-seg-01241": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.4674
+      },
+      "blow_out_point_m": 0.92,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1498,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.086,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1141,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1834,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2979,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.4674,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1556,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1505,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1771,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.0931,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.3707,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1555,
+        "max": 0.8932,
+        "std": 0.1648
+      },
+      "nir_stats": {
+        "mean": 427.1,
+        "max": 2284.8
+      }
+    },
+    "ns-seg-01242": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.386
+      },
+      "blow_out_point_m": 1.42,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1302,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.081,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1054,
+          "observation_count": 24
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1977,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3082,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.386,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1675,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1393,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1663,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.0771,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2133,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1386,
+        "max": 0.8492,
+        "std": 0.1429
+      },
+      "nir_stats": {
+        "mean": 376.2,
+        "max": 2385.2
+      }
+    },
+    "ns-seg-01243": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 2.0,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.3512
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1954,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.1502,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.2377,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2419,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3452,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.3512,
+          "observation_count": 3
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1452,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.2178,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.2618,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.154,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.1893,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.2198,
+        "max": 0.4979,
+        "std": 0.127
+      },
+      "nir_stats": {
+        "mean": 589.1,
+        "max": 1201.1
+      }
+    },
+    "ns-seg-01244": {
+      "status": "complete",
+      "observation_count": 50,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.5,
+        "max_m": 2.0,
+        "best_bin": "1.5-2.0m",
+        "best_mean_foam_fraction": 0.2673
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1539,
+          "observation_count": 23
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.2673,
+          "observation_count": 3
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1108,
+          "observation_count": 20
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.4701,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.0,
+          "observation_count": 1
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.6812,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1359,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1768,
+          "observation_count": 19
+        },
+        "S": {
+          "mean_foam_fraction": 0.1495,
+          "observation_count": 10
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1542,
+        "max": 0.6812,
+        "std": 0.2319
+      },
+      "nir_stats": {
+        "mean": 473.4,
+        "max": 1774.5
+      }
+    },
+    "ns-seg-01245": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.2401
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1088,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0599,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.0888,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1494,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.186,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.2401,
+          "observation_count": 3
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0337,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1104,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1034,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.0723,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2596,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1045,
+        "max": 0.4962,
+        "std": 0.0747
+      },
+      "nir_stats": {
+        "mean": 341.4,
+        "max": 1044.0
+      }
+    },
+    "ns-seg-01246": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.1865
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1293,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0741,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1123,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2095,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2124,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.1865,
+          "observation_count": 3
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0519,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1278,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1308,
+          "observation_count": 23
+        },
+        "S": {
+          "mean_foam_fraction": 0.0942,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.1639,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1229,
+        "max": 0.32,
+        "std": 0.0594
+      },
+      "nir_stats": {
+        "mean": 365.1,
+        "max": 697.0
+      }
+    },
+    "ns-seg-01258": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": null,
+        "max_m": null,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.1482
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.0636,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0752,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.0655,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1972,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2419,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.1482,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0245,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.0745,
+          "observation_count": 22
+        },
+        "SE": {
+          "mean_foam_fraction": 0.0954,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.0415,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.058,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.0752,
+        "max": 0.3014,
+        "std": 0.0512
+      },
+      "nir_stats": {
+        "mean": 289.8,
+        "max": 678.0
+      }
+    },
+    "ns-seg-01601": {
+      "status": "complete",
+      "observation_count": 62,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.2796
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1734,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0771,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1801,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2177,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.4448,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.2796,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1672,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1679,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.208,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1504,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2304,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1817,
+        "max": 0.4448,
+        "std": 0.0783
+      },
+      "nir_stats": {
+        "mean": 510.8,
+        "max": 901.5
+      }
+    },
+    "ns-seg-01602": {
+      "status": "complete",
+      "observation_count": 62,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 1.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.1661
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "SE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1321,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0387,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1113,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1334,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2941,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.1661,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.0762,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1251,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.1326,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.0954,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.1205,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1216,
+        "max": 0.55,
+        "std": 0.0778
+      },
+      "nir_stats": {
+        "mean": 363.5,
+        "max": 959.3
+      }
+    },
+    "ns-seg-01603": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.2522
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.1728,
+          "observation_count": 24
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0472,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.165,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1776,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3788,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.2522,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1223,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1454,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.2021,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1402,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.2101,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.1691,
+        "max": 0.4106,
+        "std": 0.0821
+      },
+      "nir_stats": {
+        "mean": 490.8,
+        "max": 951.7
+      }
+    },
+    "ns-seg-01604": {
+      "status": "complete",
+      "observation_count": 60,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.3535
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.218,
+          "observation_count": 24
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0531,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.1846,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.1616,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.3663,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.3535,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.07,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.1603,
+          "observation_count": 21
+        },
+        "SE": {
+          "mean_foam_fraction": 0.2473,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.1616,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.334,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.2012,
+        "max": 0.6575,
+        "std": 0.1349
+      },
+      "nir_stats": {
+        "mean": 579.5,
+        "max": 1494.5
+      }
+    },
+    "ns-seg-01605": {
+      "status": "complete",
+      "observation_count": 61,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": 0.0,
+        "max_m": 1.5,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.625
+      },
+      "blow_out_point_m": 0.28,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.3704,
+          "observation_count": 25
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0478,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.4373,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.2221,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.2156,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.625,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.6303,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.4251,
+          "observation_count": 22
+        },
+        "SE": {
+          "mean_foam_fraction": 0.3941,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.3264,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.4496,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.3926,
+        "max": 0.9243,
+        "std": 0.3078
+      },
+      "nir_stats": {
+        "mean": 747.9,
+        "max": 2092.7
+      }
+    },
+    "ns-seg-01606": {
+      "status": "complete",
+      "observation_count": 62,
+      "turn_on_threshold_m": 0.22,
+      "optimal_range": {
+        "min_m": null,
+        "max_m": null,
+        "best_bin": "1.0-1.5m",
+        "best_mean_foam_fraction": 0.1197
+      },
+      "blow_out_point_m": null,
+      "primary_direction": "NE",
+      "responsive_directions": [
+        "E",
+        "SE",
+        "S",
+        "NE"
+      ],
+      "swell_bins": {
+        "0.5-1.0m": {
+          "mean_foam_fraction": 0.0633,
+          "observation_count": 26
+        },
+        "1.5-2.0m": {
+          "mean_foam_fraction": 0.0094,
+          "observation_count": 4
+        },
+        "0.0-0.5m": {
+          "mean_foam_fraction": 0.0642,
+          "observation_count": 25
+        },
+        "2.0-2.5m": {
+          "mean_foam_fraction": 0.0441,
+          "observation_count": 1
+        },
+        "3.0-4.0m": {
+          "mean_foam_fraction": 0.1038,
+          "observation_count": 1
+        },
+        "1.0-1.5m": {
+          "mean_foam_fraction": 0.1197,
+          "observation_count": 4
+        },
+        "2.5-3.0m": {
+          "mean_foam_fraction": 0.1015,
+          "observation_count": 1
+        }
+      },
+      "direction_bins": {
+        "E": {
+          "mean_foam_fraction": 0.0649,
+          "observation_count": 23
+        },
+        "SE": {
+          "mean_foam_fraction": 0.0641,
+          "observation_count": 24
+        },
+        "S": {
+          "mean_foam_fraction": 0.052,
+          "observation_count": 13
+        },
+        "NE": {
+          "mean_foam_fraction": 0.1547,
+          "observation_count": 2
+        }
+      },
+      "foam_stats": {
+        "mean": 0.0648,
+        "max": 0.2693,
+        "std": 0.0539
+      },
+      "nir_stats": {
+        "mean": 238.5,
+        "max": 772.6
+      }
+    }
+  }
+}

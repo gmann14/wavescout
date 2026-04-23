@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "name": "lahave_inner_not_high_candidate",
+      "segment_id": "ns-seg-01506",
+      "max_score": 50.0
+    },
+    {
+      "name": "lawrencetown_open_stays_strong",
+      "segment_id": "ns-seg-03842",
+      "min_score": 75.0
+    },
+    {
+      "name": "broad_cove_outer_beats_lahave_inner",
+      "higher_segment_id": "ns-seg-01268",
+      "lower_segment_id": "ns-seg-01506",
+      "min_margin": 10.0
+    },
+    {
+      "name": "corroborated_open_beats_geometry_only_open",
+      "higher_segment_id": "ns-seg-03842",
+      "lower_segment_id": "ns-seg-01576",
+      "min_margin": 10.0
+    },
+    {
+      "name": "martinique_profiled_beats_geometry_only_open",
+      "higher_segment_id": "ns-seg-04390",
+      "lower_segment_id": "ns-seg-01576",
+      "min_margin": 10.0
+    }
+  ]
+}

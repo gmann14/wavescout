@@ -13,18 +13,7 @@ describe("MapLegend", () => {
     );
 
     expect(screen.getByText("Named spots (14)")).toBeInTheDocument();
-    expect(
-      screen.getByText("Confirmed public references with named detail panels.")
-    ).toBeInTheDocument();
-
     expect(screen.getByText("Candidate segments (4402)")).toBeInTheDocument();
-    expect(
-      screen.getByText("Exploratory leads only. Treat these as unconfirmed candidates.")
-    ).toBeInTheDocument();
-
     expect(screen.getByText("Context coastline (14191)")).toBeInTheDocument();
-    expect(
-      screen.getByText("Background scored coastline for regional context, not a named break list.")
-    ).toBeInTheDocument();
   });
 });

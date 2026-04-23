@@ -35,10 +35,18 @@ def test_high_segments_payload_uses_candidate_contract(segments_high_payload: di
         "id",
         "verification_status",
         "publication_status",
+        "map_display_eligible",
         "surf_potential_score",
         "evidence_confidence_level",
         "evidence_confidence_label",
         "quality_status",
+        "coastal_exposure_class",
+        "coastal_context_penalty",
+        "evidence_sparsity_penalty",
+        "nearfield_open_water_deg",
+        "nearfield_blocked_ratio",
+        "farfield_open_water_deg",
+        "farfield_blocked_ratio",
         "score_components",
         "foam_obs_count",
         "turn_on_threshold_m",
@@ -50,3 +58,4 @@ def test_high_segments_payload_uses_candidate_contract(segments_high_payload: di
     assert required.issubset(props)
     assert props["verification_status"] == "candidate"
     assert props["publication_status"] == "public_coarse"
+    assert isinstance(props["map_display_eligible"], bool)

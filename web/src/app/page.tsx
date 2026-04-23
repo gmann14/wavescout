@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Nav from "@/components/Nav";
 import MapView from "@/components/MapView";
 
@@ -6,7 +7,9 @@ export default function HomePage() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", width: "100%" }}>
       <Nav />
       <div style={{ flex: 1, position: "relative", minHeight: 0 }}>
-        <MapView />
+        <Suspense fallback={null}>
+          <MapView />
+        </Suspense>
       </div>
     </div>
   );

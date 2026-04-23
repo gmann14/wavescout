@@ -1,11 +1,15 @@
 import { test, expect } from "@playwright/test";
 
-test("atlas route renders browsing guidance", async ({ page }) => {
+test("atlas route redirects into map analysis mode", async ({ page }) => {
   await page.goto("/atlas");
 
-  await expect(page.getByRole("link", { name: "Atlas" })).toBeVisible();
+  await expect(page).toHaveURL(/analysis=atlas/);
+  await expect(page.getByRole("link", { name: "Map" })).toBeVisible();
   await expect(
-    page.getByText("Atlas sections are browsing units, not confirmed breaks.")
+    page.getByText("Show section analysis")
+  ).toBeVisible();
+  await expect(
+    page.getByText("Click a section box to inspect coastline context, review scenes, or flag a potential break.")
   ).toBeVisible();
 });
 

@@ -20,7 +20,7 @@ This document removes ambiguity from page behavior. Each user-facing surface mus
 
 Visible:
 
-- all five routes
+- four primary routes
 - active-route styling
 - Nova Scotia region label
 
@@ -28,7 +28,7 @@ Visible:
 
 Visible:
 
-- the same five routes in a mobile-usable layout
+- the same primary routes in a mobile-usable layout
 
 Release rule:
 
@@ -211,16 +211,16 @@ Must show:
 - `Details failed to load.`
 - close action
 
-## Atlas Page
+## Section Analysis Overlay
 
-### `atlas-loading`
+### `analysis-loading`
 
 Must show:
 
-- atlas shell placeholder
-- `Loading coastline atlas...`
+- section-analysis shell placeholder
+- `Loading coastline analysis...`
 
-### `atlas-empty`
+### `analysis-empty`
 
 Trigger:
 
@@ -228,16 +228,16 @@ Trigger:
 
 Must show:
 
-- `No atlas sections are available for this dataset.`
+- `No section analysis is available for this dataset.`
 
-### `atlas-ready-no-selection`
+### `analysis-ready-no-selection`
 
 Must show:
 
-- atlas legend
-- explanation that atlas sections are browsing units, not confirmed breaks
+- section-analysis legend or nearby explanation
+- explanation that section boxes are browsing units, not confirmed breaks
 
-### `atlas-ready-selection-with-scenes`
+### `analysis-ready-selection-with-scenes`
 
 Must show:
 
@@ -245,7 +245,7 @@ Must show:
 - mean and max score
 - scene gallery
 
-### `atlas-ready-selection-no-scenes`
+### `analysis-ready-selection-no-scenes`
 
 Trigger:
 
@@ -254,7 +254,7 @@ Trigger:
 Must show:
 
 - section summary
-- `No atlas imagery is available for this section yet.`
+- `No section imagery is available for this area yet.`
 
 ## Compare Page
 

@@ -53,16 +53,48 @@
       "type": "Feature",
       "properties": {
         "name": "Broad Cove",
-        "region": "Eastern Shore",
+        "region": "South Shore",
         "break_type": "beach",
-        "bottom": "sand",
+        "bottom": "mixed",
         "facing": "SE",
         "status": "confirmed",
-        "notes": "Beach break on Eastern Shore."
+        "notes": "South Shore reference spot near the Broad Cove / Arties / Bullfield cluster. Coordinate needs manual review."
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-63.2167, 44.6667]
+        "coordinates": [-64.4743, 44.1775]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arties",
+        "region": "South Shore",
+        "break_type": "point",
+        "bottom": "rock",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Private local Broad Cove reference. Coordinate needs manual review."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.462, 44.183]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bullfield",
+        "region": "South Shore",
+        "break_type": "reef",
+        "bottom": "rock",
+        "facing": "SE",
+        "status": "confirmed",
+        "notes": "Private local Broad Cove reference. Coordinate needs manual review."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-64.476, 44.171]
       }
     },
     {

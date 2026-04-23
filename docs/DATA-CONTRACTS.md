@@ -221,10 +221,6 @@ Forbidden:
 
 - legacy `confidence` string
 
-Current deviation:
-
-- current `spots.json` still uses `confidence` and does not yet expose `publication_status`, `surf_potential_score`, or `explanation`
-
 ### `segments-high.json`
 
 Type:
@@ -240,10 +236,17 @@ Required `properties`:
 - `id`
 - `verification_status`
 - `publication_status`
+- `map_display_eligible`
 - `surf_potential_score`
 - `evidence_confidence_level`
 - `evidence_confidence_label`
 - `quality_status`
+- `coastal_exposure_class`
+- `coastal_context_penalty`
+- `nearfield_open_water_deg`
+- `nearfield_blocked_ratio`
+- `farfield_open_water_deg`
+- `farfield_blocked_ratio`
 - `score_components`
 - `foam_obs_count`
 - `turn_on_threshold_m`
@@ -257,10 +260,17 @@ Optional:
 - `exposure_arc_deg`
 - `rank`
 
-Current deviation:
+Rules:
 
-- current `segments-high.json` exposes `score` and `confidence` instead of the normalized target fields
-- current web payload strips the existing pipeline `explanation`
+- `map_display_eligible` determines whether the segment may appear on the main `Map` page as a public lead-browsing candidate
+- `Atlas` may remain broader than `Map`
+- `map_display_eligible` must be generated data, not an undocumented UI-only heuristic
+- `coastal_exposure_class` must be one of `open_coast`, `outer_coast`, `semi_sheltered`, or `sheltered_inner_coast`
+- `coastal_context_penalty` must be a deterministic numeric penalty derived from generated coastal context, not hand-edited UI logic
+- `nearfield_open_water_deg` must represent immediate open-water degrees in the primary seaward fan
+- `nearfield_blocked_ratio` must represent the fraction of nearfield fan rays blocked by opposing coastline
+- `farfield_open_water_deg` must represent broader open-water degrees farther seaward in the same primary fan
+- `farfield_blocked_ratio` must represent the fraction of farther-field fan rays blocked by opposing coastline
 
 ### `segments-all.json`
 
@@ -359,9 +369,12 @@ Rules:
 - if `quality_status` is `rejected`, the scene must not appear in default compare results
 - if a true upstream scene id is unavailable, build `scene_id` as `<slug>:<date>`
 
-Current deviation:
+Internal-only companion artifact:
 
-- current gallery entries do not expose `scene_id` or `quality_status`
+- `pipeline/data/gallery/reference-bank-manifest.json` may exist as a denser non-public scene bank
+- it is allowed to use relaxed scene-selection thresholds for manual research
+- it must not be copied into `web/public/data/`
+- it must not be treated as part of the promoted public dataset contract
 
 ### `atlas/sections.json`
 

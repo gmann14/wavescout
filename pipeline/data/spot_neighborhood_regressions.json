@@ -1,0 +1,121 @@
+{
+  "spots": [
+    {
+      "slug": "lawrencetown-beach",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 70.0,
+      "min_best_score": 78.0,
+      "min_count_ge_60": 3
+    },
+    {
+      "slug": "lawrencetown-point",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 80.0,
+      "min_best_score": 80.0,
+      "min_count_ge_60": 3
+    },
+    {
+      "slug": "left-point",
+      "radius_m": 2500,
+      "within_distance_m": 1200,
+      "min_best_score_within_distance": 78.0,
+      "min_best_score": 80.0,
+      "min_count_ge_60": 3
+    },
+    {
+      "slug": "martinique-beach",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 80.0,
+      "min_best_score": 80.0,
+      "min_count_ge_60": 8
+    },
+    {
+      "slug": "white-point",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 58.0,
+      "min_best_score": 58.0,
+      "min_count_ge_50": 4
+    },
+    {
+      "slug": "western-head",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 68.0,
+      "min_best_score": 68.0
+    },
+    {
+      "slug": "cherry-hill",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 55.0,
+      "min_best_score": 55.0,
+      "min_count_ge_50": 1
+    },
+    {
+      "slug": "point-michaud",
+      "radius_m": 2500,
+      "min_best_score": 58.0,
+      "min_count_ge_50": 2
+    },
+    {
+      "slug": "clam-harbour",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 65.0,
+      "min_best_score": 65.0,
+      "min_count_ge_50": 2
+    },
+    {
+      "slug": "right-point",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 75.0,
+      "min_best_score": 75.0,
+      "min_count_ge_70": 1
+    },
+    {
+      "slug": "the-cove",
+      "radius_m": 2500,
+      "within_distance_m": 1500,
+      "min_best_score_within_distance": 75.0,
+      "min_best_score": 75.0,
+      "min_count_ge_70": 1
+    },
+    {
+      "slug": "summerville",
+      "radius_m": 2500,
+      "min_best_score": 45.0
+    },
+    {
+      "slug": "kennington-cove",
+      "radius_m": 2500,
+      "min_best_score": 72.0,
+      "min_count_ge_60": 3
+    },
+    {
+      "slug": "mavillette",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 50.0,
+      "min_best_score": 55.0,
+      "min_count_ge_50": 3
+    },
+    {
+      "slug": "broad-cove",
+      "radius_m": 2500,
+      "min_best_score": 58.0
+    },
+    {
+      "slug": "gullivers-cove",
+      "radius_m": 2500,
+      "within_distance_m": 1000,
+      "min_best_score_within_distance": 60.0,
+      "min_best_score": 60.0,
+      "min_count_ge_50": 2
+    }
+  ]
+}

@@ -42,10 +42,11 @@ These are the next actions the repo should take, in order:
 
 1. Add a real pipeline test harness with fixed fixtures and schema assertions.
 2. Add frontend unit and route-level smoke tests.
-3. Harden contamination handling and evidence-quality flags.
-4. Standardize explanation payloads and split `surf potential` from `evidence confidence`.
-5. Finish viewer UX states, legends, and accessibility gaps.
-6. Add release validation for dataset promotion and deployment.
+3. Harden contamination handling, gallery publishability, and evidence-quality flags.
+4. Add a candidate display gate that excludes rivers, estuaries, harbours, and sheltered inner bays from the main `Map` surface.
+5. Standardize explanation payloads and split `surf potential` from `evidence confidence`.
+6. Finish the single-map discovery workflow, analysis overlay, legends, and accessibility gaps.
+7. Add release validation for dataset promotion and deployment.
 
 ## Phase 1: Test Harness Baseline
 
@@ -111,6 +112,15 @@ Make the imagery evidence layer honest enough for product use.
 - contamination masks or explicit quality flags for clouds, snow, shadows, swath-edge issues, and shoreline-sand artifacts
 - scene-level and observation-level evidence-quality indicators
 - recalibrated foam summaries based on clean observations
+- gallery publishability rules that suppress broken or mostly nodata scenes
+- a separate non-public reference-bank mode for denser scene retention without weakening the promoted gallery contract
+- a deterministic `map_display_eligible` gate for candidate segments
+- a generated coastal exposure classifier and shelter penalty for segment ranking
+- a nearfield open-water / blocked-ray metric to distinguish open coast from estuary or harbour shelter
+- a farther-field open-water / blocked-ray metric to estimate how deep into a bay or estuary a segment sits
+- executable region-level ranking regressions for known sheltered and known open-coast windows
+- executable spot-neighborhood regressions for trusted named spots using current spot coordinates
+- estuary/harbour/rivermouth exclusion logic for the main `Map` candidate surface
 
 ### Red
 
@@ -119,6 +129,8 @@ Add failing tests for:
 - `tests/pipeline/test_observation_masking.py`
 - `tests/pipeline/test_scene_quality_flags.py`
 - `tests/pipeline/test_profile_builder_clean_observations.py`
+- `tests/pipeline/test_candidate_display_gate.py`
+- `tests/pipeline/test_gallery_publishability.py`
 
 The first assertions should prove:
 
@@ -126,6 +138,10 @@ The first assertions should prove:
 - low-quality scenes are either excluded or clearly flagged
 - swell-profile metrics are derived from clean observations only
 - profile eligibility matches [DATA-CONTRACTS.md](DATA-CONTRACTS.md)
+- river, estuary, harbour, and sheltered inner-bay segments are not eligible for the main `Map` candidate surface
+- fetch-aligned bay openings with strong S/E ocean reach are not penalized solely for being inside a bay
+- broken gallery scenes with dominant nodata fill are not published to the web gallery
+- denser internal scene banks can be generated without changing the public gallery manifest consumed by the web app
 
 ### Green
 
@@ -134,17 +150,40 @@ Implement:
 - mask handling in the observation pipeline
 - per-observation `quality_flag` or equivalent
 - recalculation of summary metrics from filtered observations
+- scene publishability filtering in the gallery pipeline
+- separate public-gallery and reference-bank manifest outputs so quantity experiments do not silently weaken public UX expectations
+- `map_display_eligible` candidate gating in generated artifacts
+- coastal exposure classification and shelter penalties in generated ranking artifacts
+- nearfield open-water metrics in generated ranking artifacts
+- data-driven regional regression validation for known false-positive and known open-coast windows
+- spot-centered neighborhood validation for trusted named spots instead of relying only on stale nearest-segment matches
+- estuary/harbour/rivermouth exclusion rules in segment scoring or ranking
 
 ### Refactor
 
 - consolidate threshold logic into one module
 - document each contamination class and how it is handled
-- regenerate a known calibration subset and record before/after changes
+- replace stale nearest-segment spot calibration with spot-neighborhood regression checks and record before/after changes
 
 ### Exit Criteria
 
 - known false-positive examples from the validation log are either filtered or clearly downgraded
 - the methodology doc and UI can explain the quality flag without hand-waving
+- the main `Map` candidate layer is materially stricter than the optional section-analysis overlay
+- display-eligible candidates are defensible surf leads rather than generic exposed shoreline
+
+## Future Track: River Waves
+
+This is explicitly out of MVP scope.
+
+If pursued later, it should be treated as a separate discovery mode with different inputs:
+
+- river level or flow data
+- channel and constriction geometry
+- flood or release state
+- a dedicated candidate model
+
+Do not merge river-wave heuristics into the surf-discovery ranking path.
 
 ## Phase 3: Ranking And Explanation Contract
 
@@ -272,6 +311,7 @@ Add failing tests or validation scripts for:
 
 Implement:
 
+- a documented release-readiness command or script
 - a documented promotion command or script
 - release notes template tied to the promoted run
 
