@@ -1,0 +1,11 @@
+{
+  "dataset_id": "ns-64bfcb1997e1",
+  "run_id": "64bfcb1997e1",
+  "code_version": "98ad85f",
+  "status": "promoted",
+  "release_reviewer": "Graham Mann",
+  "policy_reviewer": "Graham Mann",
+  "review_record": "docs/REVIEW-RECORDS.md#gate-d-resolution-2026-04-23",
+  "gate_outcome": "pass",
+  "recorded_at_utc": "2026-04-23T23:49:53.175613+00:00"
+}
