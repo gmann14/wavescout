@@ -27,7 +27,6 @@ pipeline/data/coastline/ns_scored_segments.geojson
 pipeline/data/atlas/ns_atlas_sections.geojson
 web/public/data/segments-high.json
 web/public/data/segments-all.json
-web/public/data/atlas/sections.json
 
 # Test outputs
 .pytest_cache/

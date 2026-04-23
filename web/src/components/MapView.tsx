@@ -36,10 +36,11 @@ function getScoreColor(score: number): string {
   return "#475569"; // dim gray — minimal evidence
 }
 
-function getConfidenceBadge(confidence: number | undefined): string {
-  if (confidence === 3) return '<span style="color:#22c55e">Satellite verified</span>';
-  if (confidence === 2) return '<span style="color:#eab308">Partial data</span>';
-  return '<span style="color:#94a3b8">Geometry only</span>';
+function getEvidenceBadge(label: string | undefined): string {
+  if (label === "high") return '<span style="color:#22c55e">High evidence</span>';
+  if (label === "moderate") return '<span style="color:#eab308">Moderate evidence</span>';
+  if (label === "low") return '<span style="color:#94a3b8">Low evidence</span>';
+  return '<span style="color:#94a3b8">No evidence</span>';
 }
 
 export default function MapView() {
@@ -448,12 +449,10 @@ export default function MapView() {
         if (!props || geom.type !== "Point") return;
 
         const displayScore = props.composite_score ?? props.score;
-        const confidence =
-          typeof props.evidence_confidence_level === "number"
-            ? props.evidence_confidence_level
-            : typeof props.confidence === "number"
-              ? props.confidence
-              : undefined;
+        const evidenceLabel =
+          typeof props.evidence_confidence_label === "string"
+            ? props.evidence_confidence_label
+            : undefined;
 
         const directionHtml = props.primary_direction
           ? `<div class="ws-popup-row"><span class="ws-popup-key">Dir</span><span class="ws-popup-val">${props.primary_direction}</span></div>`
@@ -468,7 +467,7 @@ export default function MapView() {
             `<div class="ws-popup">
               <div class="ws-popup-title" style="color:${getScoreColor(displayScore)}">${props.id}</div>
               <div class="ws-popup-row"><span class="ws-popup-key">Score</span><span class="ws-popup-val">${displayScore}/100</span></div>
-              <div class="ws-popup-row"><span class="ws-popup-key">Evidence</span><span class="ws-popup-val">${getConfidenceBadge(confidence)}</span></div>
+              <div class="ws-popup-row"><span class="ws-popup-key">Evidence</span><span class="ws-popup-val">${getEvidenceBadge(evidenceLabel)}</span></div>
               ${rankHtml}
               ${directionHtml}
             </div>`
