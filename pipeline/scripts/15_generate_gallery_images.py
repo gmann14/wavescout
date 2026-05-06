@@ -400,6 +400,11 @@ def generate_scene_thumbnails(
         }
 
         print(f"    {kind.upper()} ... ", end="", flush=True)
+        if outpath.exists() and outpath.stat().st_size > 0:
+            print(f"exists ({outpath.stat().st_size // 1024}KB)")
+            results[f"{kind}_path"] = str(outpath)
+            continue
+
         try:
             url = image.getThumbURL(vis_params)
         except ee.EEException as e:

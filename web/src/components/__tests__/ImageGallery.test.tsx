@@ -7,8 +7,12 @@ import type { GalleryScene } from "@/types";
 vi.mock("next/image", () => ({
   default: ({
     fill: _fill,
+    unoptimized: _unoptimized,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean }) => (
+  }: React.ImgHTMLAttributes<HTMLImageElement> & {
+    fill?: boolean;
+    unoptimized?: boolean;
+  }) => (
     <img {...props} alt={props.alt ?? ""} />
   ),
 }));

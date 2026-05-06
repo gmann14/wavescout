@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 PIPELINE_DATA = ROOT / "pipeline" / "data"
 MANIFESTS = PIPELINE_DATA / "manifests"
 WEB_DATA = ROOT / "web" / "public" / "data"
+WEB_PUBLIC = ROOT / "web" / "public"
 
 SUPPORTED_STATUSES = {"draft", "promoted", "retired"}
 CONFIDENCE_LABELS = {"none", "low", "moderate", "high"}
@@ -183,7 +184,7 @@ def build_dataset_manifest() -> dict[str, Any]:
         "region": "Nova Scotia",
         "status": "draft",
         "run_id": run_id,
-        "generated_at_utc": datetime.now(UTC).isoformat(),
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "code_version": code_version,
         "config_version": "unknown",
         "source_manifests": _source_manifest_paths(),
@@ -381,12 +382,58 @@ def validate_gallery_payload(payload: dict[str, Any], *, strict: bool = False) -
     )
 
 
+def _public_asset_path(public_root: Path, web_path: str, *, label: str) -> Path:
+    if not web_path.startswith("/"):
+        raise ValueError(f"{label} image path must be web-root-relative: {web_path}")
+
+    public_root = public_root.resolve()
+    candidate = (public_root / web_path.lstrip("/")).resolve()
+    try:
+        candidate.relative_to(public_root)
+    except ValueError as exc:
+        raise ValueError(f"{label} image path escapes web/public: {web_path}") from exc
+    return candidate
+
+
+def validate_gallery_asset_paths(
+    payload: dict[str, Any],
+    *,
+    public_root: Path = WEB_PUBLIC,
+    label: str = "gallery.json",
+) -> None:
+    """Validate that every non-null gallery image path resolves under web/public."""
+    image_keys = ("rgb_path", "nir_path", "annotated_rgb_path", "annotated_nir_path")
+    entries = payload.get("spots") or payload.get("sections") or []
+
+    missing: list[str] = []
+    for entry in entries:
+        slug = entry.get("slug") or entry.get("section_id") or "unknown"
+        for scene in entry.get("scenes", []):
+            date = scene.get("date", "unknown-date")
+            for key in image_keys:
+                web_path = scene.get(key)
+                if not web_path:
+                    continue
+                if not isinstance(web_path, str):
+                    raise ValueError(f"{label} {slug}:{date} {key} must be a string or null")
+                asset_path = _public_asset_path(public_root, web_path, label=label)
+                if not asset_path.is_file():
+                    missing.append(f"{slug}:{date} {key} -> {web_path}")
+
+    if missing:
+        sample = "; ".join(missing[:10])
+        suffix = f" (+{len(missing) - 10} more)" if len(missing) > 10 else ""
+        raise ValueError(f"{label} references missing public image assets: {sample}{suffix}")
+
+
 def validate_public_dataset(*, strict: bool = False, require_atlas: bool = False) -> None:
     manifest = _read_json(WEB_DATA / "dataset-manifest.json")
     validate_dataset_manifest(manifest, require_atlas=require_atlas)
     validate_spots_payload(_read_json(WEB_DATA / "spots.json"), strict=strict)
     validate_segments_high_payload(_read_json(WEB_DATA / "segments-high.json"), strict=strict)
-    validate_gallery_payload(_read_json(WEB_DATA / "gallery.json"), strict=strict)
+    gallery_payload = _read_json(WEB_DATA / "gallery.json")
+    validate_gallery_payload(gallery_payload, strict=strict)
+    validate_gallery_asset_paths(gallery_payload, label="gallery.json")
 
     if require_atlas:
         atlas_dir = WEB_DATA / "atlas"
@@ -394,3 +441,4 @@ def validate_public_dataset(*, strict: bool = False, require_atlas: bool = False
             raise ValueError("atlas/sections.json is required")
         if not (atlas_dir / "gallery.json").exists():
             raise ValueError("atlas/gallery.json is required")
+        validate_gallery_asset_paths(_read_json(atlas_dir / "gallery.json"), label="atlas/gallery.json")

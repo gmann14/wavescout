@@ -1,6 +1,6 @@
 # WaveScout Data Contracts
 
-*Updated: 2026-04-17*  
+*Updated: 2026-05-05*  
 *Status: Normative contract for payload shape, field semantics, and public dataset packaging*
 
 ## Purpose
@@ -368,6 +368,10 @@ Rules:
 - `scene_id` must uniquely identify the acquisition for that spot-date combination
 - if `quality_status` is `rejected`, the scene must not appear in default compare results
 - if a true upstream scene id is unavailable, build `scene_id` as `<slug>:<date>`
+- every non-null image path must be web-root-relative, for example `/gallery/{slug}/{filename}.png`
+- every non-null image path must resolve to a real file under `web/public/`
+- `web/public/gallery/` is a deployable release artifact, not a local-only cache
+- local and CI validation must fail if a manifest references an image missing from `web/public/`
 
 Internal-only companion artifact:
 
@@ -419,6 +423,12 @@ Each section entry must contain:
 - `segment_count`
 - `coastline_length_m`
 - `scenes`
+
+Rules:
+
+- every non-null image path must be web-root-relative, for example `/atlas-gallery/{slug}/{filename}.png`
+- every non-null image path must resolve to a real file under `web/public/`
+- `web/public/atlas-gallery/` is a deployable release artifact when atlas gallery scenes are present
 
 ## Eligibility Thresholds
 

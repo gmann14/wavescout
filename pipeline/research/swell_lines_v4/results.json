@@ -1,0 +1,437 @@
+{
+  "generated_at_utc": "2026-04-24T11:53:01.188843+00:00",
+  "code_version": "5cfd459",
+  "pairs_path": "pipeline/research/swell_lines/calibration_pairs.json",
+  "chips_dir": "pipeline/data/research/swell_lines/chips",
+  "band": "B04",
+  "scene_count": 8,
+  "scenes_correct": 4,
+  "threshold": 6,
+  "status": "fail",
+  "detector_kwargs": {},
+  "pairs": [
+    {
+      "pair_id": "cow-bay",
+      "slug": "cow-bay",
+      "spot_name": "Cow Bay (Osbourne)",
+      "spot_context": {
+        "segment_id": "ns-seg-04324",
+        "segment_orientation_deg": 138.8
+      },
+      "organized_scene": {
+        "date": "2026-03-18",
+        "swell_height_m": 2.1,
+        "swell_period_s": 9.0,
+        "swell_direction_deg": 175,
+        "cloud_pct": 7.69,
+        "quality_score": 96.5,
+        "expected_classification": "organized",
+        "scene_id": "cow-bay_2026-03-18",
+        "chip_path": "pipeline/data/research/swell_lines/chips/cow-bay_2026-03-18_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 150.8,
+          "cluster_wavelength_m": 114.36170212765956,
+          "retained_transect_share": 0.18181818181818182,
+          "wavelength_cluster_share": 1.0,
+          "retained_transect_count": 2,
+          "total_transects": 11,
+          "pixel_size_m": 10.0,
+          "spot_slug": "cow-bay",
+          "segment_id": "ns-seg-04324",
+          "segment_orientation_deg": 138.8,
+          "azimuth_delta_vs_segment_deg": 12.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 10016,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 16.789468613458663,
+          "transects": [
+            {
+              "wavelength_m": 112.55319148936168,
+              "coherence": 23.008552296748235,
+              "peak_fraction": 0.2282890907874723,
+              "valid_fraction": 0.8674698795180723,
+              "along_offset_m": -400.0
+            },
+            {
+              "wavelength_m": 116.17021276595744,
+              "coherence": 10.57038493016909,
+              "peak_fraction": 0.2034476472054144,
+              "valid_fraction": 0.925531914893617,
+              "along_offset_m": -200.0
+            }
+          ],
+          "notes": [
+            "retained_share_below_threshold",
+            "retained_count_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 24.19999999999999,
+          "azimuth_delta_vs_segment_deg": 12.0
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.02,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "cow-bay_2022-11-09",
+        "chip_path": "pipeline/data/research/swell_lines/chips/cow-bay_2022-11-09_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 138.8,
+          "cluster_wavelength_m": null,
+          "retained_transect_share": 0.0,
+          "wavelength_cluster_share": 0.0,
+          "retained_transect_count": 0,
+          "total_transects": 11,
+          "pixel_size_m": 10.0,
+          "spot_slug": "cow-bay",
+          "segment_id": "ns-seg-04324",
+          "segment_orientation_deg": 138.8,
+          "azimuth_delta_vs_segment_deg": 0.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 11549,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 0.0,
+          "transects": [],
+          "notes": [
+            "no_retained_transects"
+          ]
+        },
+        "checks": {
+          "classification_ok": true,
+          "azimuth_delta_vs_segment_deg": 0.0
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    },
+    {
+      "pair_id": "lawrencetown-beach",
+      "slug": "lawrencetown-beach",
+      "spot_name": "Lawrencetown Beach",
+      "spot_context": {
+        "segment_id": "ns-seg-03842",
+        "segment_orientation_deg": 196.7
+      },
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 3.5,
+        "swell_period_s": 10.65,
+        "swell_direction_deg": 162,
+        "cloud_pct": 1.03,
+        "quality_score": 94.2,
+        "expected_classification": "organized",
+        "scene_id": "lawrencetown-beach_2023-11-19",
+        "chip_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2023-11-19_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 172.7,
+          "cluster_wavelength_m": 98.08510638297872,
+          "retained_transect_share": 0.06666666666666667,
+          "wavelength_cluster_share": 1.0,
+          "retained_transect_count": 1,
+          "total_transects": 15,
+          "pixel_size_m": 10.0,
+          "spot_slug": "lawrencetown-beach",
+          "segment_id": "ns-seg-03842",
+          "segment_orientation_deg": 196.7,
+          "azimuth_delta_vs_segment_deg": 24.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 14149,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 5.46026216958921,
+          "transects": [
+            {
+              "wavelength_m": 98.08510638297872,
+              "coherence": 5.46026216958921,
+              "peak_fraction": 0.2028724586706443,
+              "valid_fraction": 0.9358974358974359,
+              "along_offset_m": -800.0
+            }
+          ],
+          "notes": [
+            "retained_share_below_threshold",
+            "retained_count_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 10.699999999999989,
+          "azimuth_delta_vs_segment_deg": 24.0
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "lawrencetown-beach_2022-11-09",
+        "chip_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2022-11-09_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 16.69999999999999,
+          "cluster_wavelength_m": null,
+          "retained_transect_share": 0.0,
+          "wavelength_cluster_share": 0.0,
+          "retained_transect_count": 0,
+          "total_transects": 0,
+          "pixel_size_m": 10.0,
+          "spot_slug": "lawrencetown-beach",
+          "segment_id": "ns-seg-03842",
+          "segment_orientation_deg": 196.7,
+          "azimuth_delta_vs_segment_deg": 0.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 15500,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 0.0,
+          "transects": [],
+          "notes": [
+            "no_valid_transects"
+          ]
+        },
+        "checks": {
+          "classification_ok": true,
+          "azimuth_delta_vs_segment_deg": 0.0
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    },
+    {
+      "pair_id": "hirtles-beach",
+      "slug": "hirtles-beach",
+      "spot_name": "Hirtle's Beach",
+      "spot_context": {
+        "segment_id": "ns-seg-01506",
+        "segment_orientation_deg": 148.9
+      },
+      "organized_scene": {
+        "date": "2023-09-05",
+        "swell_height_m": 1.7,
+        "swell_period_s": 9.2,
+        "swell_direction_deg": 104,
+        "cloud_pct": 0.52,
+        "quality_score": 99.0,
+        "expected_classification": "organized",
+        "scene_id": "hirtles-beach_2023-09-05",
+        "chip_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2023-09-05_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 130.9,
+          "cluster_wavelength_m": 105.31914893617021,
+          "retained_transect_share": 0.06666666666666667,
+          "wavelength_cluster_share": 1.0,
+          "retained_transect_count": 1,
+          "total_transects": 15,
+          "pixel_size_m": 10.0,
+          "spot_slug": "hirtles-beach",
+          "segment_id": "ns-seg-01506",
+          "segment_orientation_deg": 148.9,
+          "azimuth_delta_vs_segment_deg": 18.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 25558,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 11.838763933048005,
+          "transects": [
+            {
+              "wavelength_m": 105.31914893617021,
+              "coherence": 11.838763933048005,
+              "peak_fraction": 0.21931981069801518,
+              "valid_fraction": 0.9072847682119205,
+              "along_offset_m": -700.0
+            }
+          ],
+          "notes": [
+            "retained_share_below_threshold",
+            "retained_count_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": false,
+          "azimuth_delta_deg": 26.900000000000006,
+          "azimuth_delta_vs_segment_deg": 18.0
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2024-08-30",
+        "swell_height_m": 0.26,
+        "swell_period_s": 9.55,
+        "swell_direction_deg": 126,
+        "cloud_pct": 0.0,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "hirtles-beach_2024-08-30",
+        "chip_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2024-08-30_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 148.9,
+          "cluster_wavelength_m": null,
+          "retained_transect_share": 0.0,
+          "wavelength_cluster_share": 0.0,
+          "retained_transect_count": 0,
+          "total_transects": 17,
+          "pixel_size_m": 10.0,
+          "spot_slug": "hirtles-beach",
+          "segment_id": "ns-seg-01506",
+          "segment_orientation_deg": 148.9,
+          "azimuth_delta_vs_segment_deg": 0.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 25857,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 0.0,
+          "transects": [],
+          "notes": [
+            "no_retained_transects"
+          ]
+        },
+        "checks": {
+          "classification_ok": true,
+          "azimuth_delta_vs_segment_deg": 0.0
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    },
+    {
+      "pair_id": "martinique-beach",
+      "slug": "martinique-beach",
+      "spot_name": "Martinique Beach",
+      "spot_context": {
+        "segment_id": "ns-seg-04390",
+        "segment_orientation_deg": 170.8
+      },
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 2.92,
+        "swell_period_s": 10.35,
+        "swell_direction_deg": 167,
+        "cloud_pct": 2.16,
+        "quality_score": 94.8,
+        "expected_classification": "organized",
+        "scene_id": "martinique-beach_2023-11-19",
+        "chip_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2023-11-19_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 170.8,
+          "cluster_wavelength_m": null,
+          "retained_transect_share": 0.0,
+          "wavelength_cluster_share": 0.0,
+          "retained_transect_count": 0,
+          "total_transects": 17,
+          "pixel_size_m": 10.0,
+          "spot_slug": "martinique-beach",
+          "segment_id": "ns-seg-04390",
+          "segment_orientation_deg": 170.8,
+          "azimuth_delta_vs_segment_deg": 0.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 26999,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 0.0,
+          "transects": [],
+          "notes": [
+            "no_retained_transects"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": false,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 3.8000000000000114,
+          "azimuth_delta_vs_segment_deg": 0.0
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2021-10-10",
+        "swell_height_m": 0.22,
+        "swell_period_s": 9.5,
+        "swell_direction_deg": 143,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "martinique-beach_2021-10-10",
+        "chip_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2021-10-10_b04.tif",
+        "result": {
+          "classification": "flat",
+          "cluster_azimuth_deg": 170.8,
+          "cluster_wavelength_m": null,
+          "retained_transect_share": 0.0,
+          "wavelength_cluster_share": 0.0,
+          "retained_transect_count": 0,
+          "total_transects": 17,
+          "pixel_size_m": 10.0,
+          "spot_slug": "martinique-beach",
+          "segment_id": "ns-seg-04390",
+          "segment_orientation_deg": 170.8,
+          "azimuth_delta_vs_segment_deg": 0.0,
+          "corridor_near_m": 250.0,
+          "corridor_far_m": 1750.0,
+          "corridor_half_width_m": 900.0,
+          "roi_valid_pixel_count": 26999,
+          "transect_spacing_m": 100.0,
+          "azimuth_search_half_width_deg": 36.0,
+          "azimuth_step_deg": 6.0,
+          "cluster_median_coherence": 0.0,
+          "transects": [],
+          "notes": [
+            "no_retained_transects"
+          ]
+        },
+        "checks": {
+          "classification_ok": true,
+          "azimuth_delta_vs_segment_deg": 0.0
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    }
+  ],
+  "report_path": "pipeline/research/swell_lines_v4/REPORT.md"
+}

@@ -141,6 +141,7 @@ export default function ImageGallery({ scenes }: Props) {
                   src={path}
                   alt={`${scene.date} - ${scene.swell_height_m}m swell`}
                   fill
+                  unoptimized
                   className="object-cover"
                   sizes="160px"
                 />

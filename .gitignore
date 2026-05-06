@@ -33,3 +33,7 @@ web/public/data/segments-all.json
 web/coverage/
 web/playwright-report/
 web/test-results/
+
+# Swell-line research outputs
+pipeline/data/research/swell_lines/chips/
+pipeline/research/swell_lines/plots/

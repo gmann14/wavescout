@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "frozen_at_utc": "2026-04-23T00:00:00+00:00",
+  "source_manifest": "pipeline/data/gallery/manifest.json",
+  "notes": [
+    "These 8 scenes are frozen for the research spike and must not be swapped after seeing detector results.",
+    "The set is a go/no-go triage set, not a validation set."
+  ],
+  "pairs": [
+    {
+      "spot_name": "Cow Bay (Osbourne)",
+      "slug": "cow-bay",
+      "config_path": "pipeline/configs/cow-bay.json",
+      "bbox": [
+        -63.4468,
+        44.6038,
+        -63.4168,
+        44.6238
+      ],
+      "window_bbox": [
+        -63.4468,
+        44.6038,
+        -63.4168,
+        44.6238
+      ],
+      "organized_scene": {
+        "date": "2026-03-18",
+        "swell_height_m": 2.1,
+        "swell_period_s": 9.0,
+        "swell_direction_deg": 175,
+        "cloud_pct": 7.69,
+        "quality_score": 96.5,
+        "expected_classification": "organized"
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.02,
+        "quality_score": 100.0,
+        "expected_classification": "flat"
+      }
+    },
+    {
+      "spot_name": "Lawrencetown Beach",
+      "slug": "lawrencetown-beach",
+      "config_path": "pipeline/configs/lawrencetown-beach.json",
+      "bbox": [
+        -63.36,
+        44.633,
+        -63.33,
+        44.653
+      ],
+      "window_bbox": [
+        -63.36,
+        44.633,
+        -63.33,
+        44.653
+      ],
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 3.5,
+        "swell_period_s": 10.65,
+        "swell_direction_deg": 162,
+        "cloud_pct": 1.03,
+        "quality_score": 94.2,
+        "expected_classification": "organized"
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat"
+      }
+    },
+    {
+      "spot_name": "Hirtle's Beach",
+      "slug": "hirtles-beach",
+      "config_path": "pipeline/configs/hirtles-beach.json",
+      "bbox": [
+        -64.3,
+        44.25,
+        -64.25,
+        44.28
+      ],
+      "window_bbox": [
+        -64.3,
+        44.25,
+        -64.25,
+        44.28
+      ],
+      "organized_scene": {
+        "date": "2023-09-05",
+        "swell_height_m": 1.7,
+        "swell_period_s": 9.2,
+        "swell_direction_deg": 104,
+        "cloud_pct": 0.52,
+        "quality_score": 99.0,
+        "expected_classification": "organized"
+      },
+      "flat_scene": {
+        "date": "2024-08-30",
+        "swell_height_m": 0.26,
+        "swell_period_s": 9.55,
+        "swell_direction_deg": 126,
+        "cloud_pct": 0.0,
+        "quality_score": 100.0,
+        "expected_classification": "flat"
+      }
+    },
+    {
+      "spot_name": "Martinique Beach",
+      "slug": "martinique-beach",
+      "config_path": "pipeline/configs/martinique-beach.json",
+      "bbox": [
+        -63.17,
+        44.66,
+        -63.1,
+        44.7
+      ],
+      "window_bbox": [
+        -63.17,
+        44.66,
+        -63.1,
+        44.7
+      ],
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 2.92,
+        "swell_period_s": 10.35,
+        "swell_direction_deg": 167,
+        "cloud_pct": 2.16,
+        "quality_score": 94.8,
+        "expected_classification": "organized"
+      },
+      "flat_scene": {
+        "date": "2021-10-10",
+        "swell_height_m": 0.22,
+        "swell_period_s": 9.5,
+        "swell_direction_deg": 143,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat"
+      }
+    }
+  ]
+}

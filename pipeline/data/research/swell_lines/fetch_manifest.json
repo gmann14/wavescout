@@ -1,0 +1,64 @@
+{
+  "pairs_path": "pipeline/research/swell_lines/calibration_pairs.json",
+  "chips_dir": "pipeline/data/research/swell_lines/chips",
+  "band": "B08",
+  "scale_m": 10,
+  "exports": [
+    {
+      "slug": "cow-bay",
+      "scene_type": "organized_scene",
+      "date": "2026-03-18",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/cow-bay_2026-03-18_b08.tif"
+    },
+    {
+      "slug": "cow-bay",
+      "scene_type": "flat_scene",
+      "date": "2022-11-09",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/cow-bay_2022-11-09_b08.tif"
+    },
+    {
+      "slug": "lawrencetown-beach",
+      "scene_type": "organized_scene",
+      "date": "2023-11-19",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2023-11-19_b08.tif"
+    },
+    {
+      "slug": "lawrencetown-beach",
+      "scene_type": "flat_scene",
+      "date": "2022-11-09",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2022-11-09_b08.tif"
+    },
+    {
+      "slug": "hirtles-beach",
+      "scene_type": "organized_scene",
+      "date": "2023-09-05",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2023-09-05_b08.tif"
+    },
+    {
+      "slug": "hirtles-beach",
+      "scene_type": "flat_scene",
+      "date": "2024-08-30",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2024-08-30_b08.tif"
+    },
+    {
+      "slug": "martinique-beach",
+      "scene_type": "organized_scene",
+      "date": "2023-11-19",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2023-11-19_b08.tif"
+    },
+    {
+      "slug": "martinique-beach",
+      "scene_type": "flat_scene",
+      "date": "2021-10-10",
+      "band": "B08",
+      "output_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2021-10-10_b08.tif"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # WaveScout Release Checklist
 
-*Updated: 2026-04-18*  
+*Updated: 2026-05-05*  
 *Status: Required pre-release and promotion gate*
 
 ## Purpose
@@ -18,6 +18,7 @@ Do not release if any are true:
 - public output violates [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md)
 - required UI states in [UI-STATES.md](UI-STATES.md) are not implemented
 - traceability gaps remain for blocking spec requirements
+- any non-null gallery image path points to a missing file under `web/public/`
 
 ## Artifact Checks
 
@@ -29,6 +30,8 @@ Do not release if any are true:
 - `web/public/data/atlas/sections.json` exists
 - `web/public/data/atlas/gallery.json` exists
 - `web/public/data/spots/<slug>.json` exists for all public named spots
+- `web/public/gallery/` contains every non-null image referenced by `web/public/data/gallery.json`
+- `web/public/atlas-gallery/` contains every non-null image referenced by `web/public/data/atlas/gallery.json`, if atlas gallery scenes are present
 
 ## Provenance Checks
 
@@ -44,6 +47,7 @@ Do not release if any are true:
 - score fields are normalized to `surf_potential_score`
 - confidence fields are normalized to `evidence_confidence_level` and label
 - publication status is present for public entities
+- gallery image paths are web-root-relative and resolve under `web/public/`
 
 ## Policy Checks
 
@@ -58,6 +62,12 @@ Run and record results for:
 
 ```bash
 python3 pipeline/scripts/check_release_readiness.py
+```
+
+The web build also runs gallery asset validation before compiling:
+
+```bash
+cd web && pnpm build
 ```
 
 Include browser verification before external release claims:
