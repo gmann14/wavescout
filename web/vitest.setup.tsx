@@ -23,8 +23,12 @@ vi.mock("next/image", () => ({
   default: ({
     alt,
     src,
+    unoptimized: _unoptimized,
     ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement> & { src: string }) => (
+  }: React.ImgHTMLAttributes<HTMLImageElement> & {
+    src: string;
+    unoptimized?: boolean;
+  }) => (
     <img alt={alt} src={src} {...props} />
   ),
 }));

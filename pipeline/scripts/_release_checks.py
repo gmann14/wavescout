@@ -5,9 +5,14 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+try:
+    from _public_dataset import validate_gallery_asset_paths
+except ImportError:  # pragma: no cover - used when imported as pipeline.scripts.*
+    from pipeline.scripts._public_dataset import validate_gallery_asset_paths
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 WEB_DATA = ROOT / "web" / "public" / "data"
@@ -70,6 +75,7 @@ def build_release_readiness_report(root: Path = ROOT) -> dict[str, Any]:
     manifest = _read_json(manifest_path)
     spots_payload = _read_json(web_data / "spots.json")
     gallery_payload = _read_json(web_data / "gallery.json")
+    atlas_gallery_path = web_data / "atlas" / "gallery.json"
     traceability_text = (root / "docs" / "TRACEABILITY.md").read_text()
     policy_text = (root / "docs" / "PUBLIC-OUTPUT-POLICY.md").read_text()
 
@@ -96,10 +102,28 @@ def build_release_readiness_report(root: Path = ROOT) -> dict[str, Any]:
     missing_details = missing_public_spot_detail_slugs(spots_payload, web_data / "spots")
     traceability_missing = missing_release_blocking_traceability_ids(traceability_text)
     docs_sync = {str(path.relative_to(root)): path.exists() for path in DOC_SYNC_PATHS}
+    asset_errors: list[str] = []
+    try:
+        validate_gallery_asset_paths(gallery_payload, public_root=root / "web" / "public", label="gallery.json")
+    except ValueError as exc:
+        asset_errors.append(str(exc))
+    if atlas_gallery_path.exists():
+        try:
+            validate_gallery_asset_paths(
+                _read_json(atlas_gallery_path),
+                public_root=root / "web" / "public",
+                label="atlas/gallery.json",
+            )
+        except ValueError as exc:
+            asset_errors.append(str(exc))
 
     checks = {
         "artifacts": artifact_checks,
         "provenance": provenance_checks,
+        "gallery_assets": {
+            "all_referenced_public_images_present": not asset_errors,
+            "errors": asset_errors,
+        },
         "spot_details": {
             "missing_public_named_spot_details": missing_details,
             "all_public_named_spot_details_present": not missing_details,
@@ -130,12 +154,16 @@ def build_release_readiness_report(root: Path = ROOT) -> dict[str, Any]:
                     + ", ".join(values["missing_release_blocking_ids"])
                 )
             continue
+        if section == "gallery_assets":
+            if values["errors"]:
+                failures.extend(values["errors"])
+            continue
         for key, value in values.items():
             if value is not True:
                 failures.append(f"{section}.{key} failed")
 
     return {
-        "generated_at_utc": datetime.now(UTC).isoformat(),
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "dataset": {
             "dataset_id": manifest.get("dataset_id"),
             "status": manifest.get("status"),
@@ -179,7 +207,7 @@ def write_promoted_dataset_record(
         "policy_reviewer": policy_review,
         "review_record": review_record,
         "gate_outcome": gate_outcome,
-        "recorded_at_utc": datetime.now(UTC).isoformat(),
+        "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
     }
     with target.open("w") as handle:
         json.dump(record, handle, indent=2)

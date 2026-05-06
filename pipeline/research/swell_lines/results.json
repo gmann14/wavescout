@@ -1,0 +1,279 @@
+{
+  "generated_at_utc": "2026-04-24T01:39:03.412977+00:00",
+  "code_version": "5cfd459",
+  "pairs_path": "pipeline/research/swell_lines/calibration_pairs.json",
+  "chips_dir": "pipeline/data/research/swell_lines/chips",
+  "band": "B04",
+  "scene_count": 8,
+  "scenes_correct": 3,
+  "threshold": 6,
+  "status": "fail",
+  "pairs": [
+    {
+      "pair_id": "cow-bay",
+      "slug": "cow-bay",
+      "spot_name": "Cow Bay (Osbourne)",
+      "organized_scene": {
+        "date": "2026-03-18",
+        "swell_height_m": 2.1,
+        "swell_period_s": 9.0,
+        "swell_direction_deg": 175,
+        "cloud_pct": 7.69,
+        "quality_score": 96.5,
+        "expected_classification": "organized",
+        "scene_id": "cow-bay_2026-03-18",
+        "chip_path": "pipeline/data/research/swell_lines/chips/cow-bay_2026-03-18_b04.tif",
+        "result": {
+          "wavelength_m": 178.23993158174642,
+          "azimuth_deg": 162.71850162818333,
+          "peak_power": 5689338442.896523,
+          "classification": "flat",
+          "peak_snr": 18.183482897803195,
+          "peak_fraction": 0.02133031311271166,
+          "noise_floor": 312884966.80599463,
+          "valid_pixel_count": 20123,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 12.281498371816667
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.02,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "cow-bay_2022-11-09",
+        "chip_path": "pipeline/data/research/swell_lines/chips/cow-bay_2022-11-09_b04.tif",
+        "result": {
+          "wavelength_m": 241.85809225156137,
+          "azimuth_deg": 149.74356283647074,
+          "peak_power": 38452130794.46462,
+          "classification": "flat",
+          "peak_snr": 40.96319870744982,
+          "peak_fraction": 0.0394037854518585,
+          "noise_floor": 938699418.2041619,
+          "valid_pixel_count": 27620,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": true
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    },
+    {
+      "pair_id": "lawrencetown-beach",
+      "slug": "lawrencetown-beach",
+      "spot_name": "Lawrencetown Beach",
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 3.5,
+        "swell_period_s": 10.65,
+        "swell_direction_deg": 162,
+        "cloud_pct": 1.03,
+        "quality_score": 94.2,
+        "expected_classification": "organized",
+        "scene_id": "lawrencetown-beach_2023-11-19",
+        "chip_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2023-11-19_b04.tif",
+        "result": {
+          "wavelength_m": 247.56125525715916,
+          "azimuth_deg": 174.07937928595322,
+          "peak_power": 14329379149.186193,
+          "classification": "flat",
+          "peak_snr": 24.107520398423404,
+          "peak_fraction": 0.03599420915174104,
+          "noise_floor": 594394567.0216384,
+          "valid_pixel_count": 28138,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 12.079379285953223
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2022-11-09",
+        "swell_height_m": 0.26,
+        "swell_period_s": 10.95,
+        "swell_direction_deg": 175,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "lawrencetown-beach_2022-11-09",
+        "chip_path": "pipeline/data/research/swell_lines/chips/lawrencetown-beach_2022-11-09_b04.tif",
+        "result": {
+          "wavelength_m": 248.8888888888889,
+          "azimuth_deg": 0.0,
+          "peak_power": 37344860608.40779,
+          "classification": "organized",
+          "peak_snr": 160.7572709438554,
+          "peak_fraction": 0.08527562939128021,
+          "noise_floor": 232305888.18250412,
+          "valid_pixel_count": 33880,
+          "pixel_size_m": 10.0,
+          "notes": []
+        },
+        "checks": {
+          "classification_ok": false
+        },
+        "passed": false
+      },
+      "scenes_correct": 0
+    },
+    {
+      "pair_id": "hirtles-beach",
+      "slug": "hirtles-beach",
+      "spot_name": "Hirtle's Beach",
+      "organized_scene": {
+        "date": "2023-09-05",
+        "swell_height_m": 1.7,
+        "swell_period_s": 9.2,
+        "swell_direction_deg": 104,
+        "cloud_pct": 0.52,
+        "quality_score": 99.0,
+        "expected_classification": "organized",
+        "scene_id": "hirtles-beach_2023-09-05",
+        "chip_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2023-09-05_b04.tif",
+        "result": {
+          "wavelength_m": 89.52383172402708,
+          "azimuth_deg": 127.27220194949842,
+          "peak_power": 4210249242.4055557,
+          "classification": "flat",
+          "peak_snr": 52.68538455253249,
+          "peak_fraction": 0.0225952628713799,
+          "noise_floor": 79913039.98564392,
+          "valid_pixel_count": 55258,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": true,
+          "azimuth_delta_deg": 23.272201949498424
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2024-08-30",
+        "swell_height_m": 0.26,
+        "swell_period_s": 9.55,
+        "swell_direction_deg": 126,
+        "cloud_pct": 0.0,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "hirtles-beach_2024-08-30",
+        "chip_path": "pipeline/data/research/swell_lines/chips/hirtles-beach_2024-08-30_b04.tif",
+        "result": {
+          "wavelength_m": 247.24473057939545,
+          "azimuth_deg": 150.76553530734657,
+          "peak_power": 226775223405.93854,
+          "classification": "flat",
+          "peak_snr": 86.72625205935307,
+          "peak_fraction": 0.03739663281406284,
+          "noise_floor": 2614839428.9048696,
+          "valid_pixel_count": 61833,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": true
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    },
+    {
+      "pair_id": "martinique-beach",
+      "slug": "martinique-beach",
+      "spot_name": "Martinique Beach",
+      "organized_scene": {
+        "date": "2023-11-19",
+        "swell_height_m": 2.92,
+        "swell_period_s": 10.35,
+        "swell_direction_deg": 167,
+        "cloud_pct": 2.16,
+        "quality_score": 94.8,
+        "expected_classification": "organized",
+        "scene_id": "martinique-beach_2023-11-19",
+        "chip_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2023-11-19_b04.tif",
+        "result": {
+          "wavelength_m": 241.8467168083894,
+          "azimuth_deg": 12.561537068068844,
+          "peak_power": 118718383157.38028,
+          "classification": "flat",
+          "peak_snr": 35.02548283999765,
+          "peak_fraction": 0.008846930261811478,
+          "noise_floor": 3389485983.6681194,
+          "valid_pixel_count": 183713,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": false,
+          "wavelength_ok": true,
+          "azimuth_ok": false,
+          "azimuth_delta_deg": 25.561537068068844
+        },
+        "passed": false
+      },
+      "flat_scene": {
+        "date": "2021-10-10",
+        "swell_height_m": 0.22,
+        "swell_period_s": 9.5,
+        "swell_direction_deg": 143,
+        "cloud_pct": 0.08,
+        "quality_score": 100.0,
+        "expected_classification": "flat",
+        "scene_id": "martinique-beach_2021-10-10",
+        "chip_path": "pipeline/data/research/swell_lines/chips/martinique-beach_2021-10-10_b04.tif",
+        "result": {
+          "wavelength_m": 247.53210264775436,
+          "azimuth_deg": 2.5516607972448924,
+          "peak_power": 16743595617.307722,
+          "classification": "flat",
+          "peak_snr": 75.29661597790385,
+          "peak_fraction": 0.013801733948922056,
+          "noise_floor": 222368500.89280516,
+          "valid_pixel_count": 201993,
+          "pixel_size_m": 10.0,
+          "notes": [
+            "peak_fraction_below_threshold"
+          ]
+        },
+        "checks": {
+          "classification_ok": true
+        },
+        "passed": true
+      },
+      "scenes_correct": 1
+    }
+  ]
+}

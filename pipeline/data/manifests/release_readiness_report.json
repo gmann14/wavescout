@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-04-23T23:49:49.806957+00:00",
+  "generated_at_utc": "2026-05-06T00:29:36.117641+00:00",
   "dataset": {
     "dataset_id": "ns-64bfcb1997e1",
-    "status": "draft",
+    "status": "promoted",
     "run_id": "64bfcb1997e1",
     "code_version": "98ad85f"
   },
@@ -24,6 +24,10 @@
       "gallery_has_run_id": true,
       "gallery_has_generated_at": true,
       "gallery_has_code_version": true
+    },
+    "gallery_assets": {
+      "all_referenced_public_images_present": true,
+      "errors": []
     },
     "spot_details": {
       "missing_public_named_spot_details": [],

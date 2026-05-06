@@ -571,6 +571,7 @@ function ComparisonDateCard({
               src={featuredPath}
               alt={`${featured.spotName} - ${cd.date}`}
               fill
+              unoptimized
               priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 768px"
@@ -633,6 +634,7 @@ function ComparisonDateCard({
                     src={path}
                     alt={`${ss.spotName} - ${cd.date}`}
                     fill
+                    unoptimized
                     className="object-cover"
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                   />

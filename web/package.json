@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "pnpm validate:assets",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "validate:assets": "node scripts/validate-gallery-assets.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",

@@ -8,6 +8,7 @@ from pipeline.scripts._public_dataset import (
     derive_spot_verification_status,
     map_display_eligible_for_segment,
     validate_dataset_manifest,
+    validate_gallery_asset_paths,
     validate_gallery_payload,
     validate_segments_high_payload,
     validate_spots_payload,
@@ -40,6 +41,31 @@ def test_gallery_validator_rejects_internal_only_leaks(gallery_payload: dict) ->
 
     with pytest.raises(ValueError, match="must not expose internal_only spots"):
         validate_gallery_payload(leaked, strict=False)
+
+
+def test_gallery_asset_validator_requires_existing_public_files(tmp_path, gallery_payload: dict) -> None:
+    payload = deepcopy(gallery_payload)
+    scene = payload["spots"][0]["scenes"][0]
+    scene["rgb_path"] = "/gallery/example.png"
+    scene["nir_path"] = None
+    scene["annotated_rgb_path"] = None
+    scene["annotated_nir_path"] = None
+    (tmp_path / "gallery").mkdir()
+    (tmp_path / "gallery" / "example.png").write_bytes(b"png")
+
+    validate_gallery_asset_paths(payload, public_root=tmp_path)
+
+    scene["nir_path"] = "/gallery/missing.png"
+    with pytest.raises(ValueError, match="references missing public image assets"):
+        validate_gallery_asset_paths(payload, public_root=tmp_path)
+
+
+def test_gallery_asset_validator_rejects_paths_outside_public_root(gallery_payload: dict) -> None:
+    payload = deepcopy(gallery_payload)
+    payload["spots"][0]["scenes"][0]["rgb_path"] = "/../secrets.png"
+
+    with pytest.raises(ValueError, match="escapes web/public"):
+        validate_gallery_asset_paths(payload)
 
 
 def test_segment_map_display_gate_requires_moderate_evidence() -> None:

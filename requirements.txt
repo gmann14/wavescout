@@ -9,6 +9,10 @@ pandas
 requests
 matplotlib
 pytest
+Pillow
+scipy
+scikit-image
+PyWavelets
 
 # ML (Phase 2+)
 torch
