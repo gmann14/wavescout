@@ -25,6 +25,18 @@ For each row:
 3. Write that value into the `label` column.
 4. Add one short note in the `note` column explaining why.
 
+For a browser-friendly contact sheet that opens locally, run:
+
+```bash
+venv/bin/python pipeline/research/swell_lines_v5/build_review_sheet.py
+```
+
+That writes `pipeline/research/swell_lines_v5/review_sheet.html` (kept
+out of git) and reports any rows with missing imagery. The generator
+never edits the CSV — it only renders existing rows so you can compare
+RGB and NIR scenes side-by-side before typing labels back into the
+CSV.
+
 ## Label Definitions
 
 - `clear_positive`

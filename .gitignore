@@ -37,3 +37,7 @@ web/test-results/
 # Swell-line research outputs
 pipeline/data/research/swell_lines/chips/
 pipeline/research/swell_lines/plots/
+pipeline/research/swell_lines_v5/review_sheet.html
+
+# Private/local field notes and spot observations
+private/
