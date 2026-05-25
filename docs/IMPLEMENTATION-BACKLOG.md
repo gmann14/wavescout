@@ -1,11 +1,20 @@
 # WaveScout Implementation Backlog
 
-*Updated: 2026-04-17*  
-*Status: Ordered workboard for the first implementation cycle*
+*Updated: 2026-05-25*
+*Status: Historical — `WS-01` through `WS-09` are largely implemented as
+of the current release gate work. Start new work from the active list in
+[../tasks.md](../tasks.md) and the ticket specs in
+[NON-MANUAL-IMPLEMENTATION-SPECS.md](NON-MANUAL-IMPLEMENTATION-SPECS.md).
+Older `WS-` tickets below remain as historical context unless explicitly
+reactivated under a new ticket ID.*
 
 ## Purpose
 
-This document turns the roadmap into ticket-sized execution units with explicit dependencies and acceptance criteria.
+This document turned the roadmap into ticket-sized execution units with
+explicit dependencies and acceptance criteria for the first
+implementation cycle. It is retained as the historical record of the
+`WS-` tickets that shipped through the Hamburg merge (commit `99930d1`)
+and the Gate D promotion.
 
 Use this with:
 
@@ -14,6 +23,7 @@ Use this with:
 - [UI-STATES.md](UI-STATES.md)
 - [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md)
 - [MIGRATION-STRATEGY.md](MIGRATION-STRATEGY.md)
+- [NON-MANUAL-IMPLEMENTATION-SPECS.md](NON-MANUAL-IMPLEMENTATION-SPECS.md)
 
 ## Global Rules
 

@@ -11,10 +11,20 @@ Public-safe source of truth for project work. Keep sensitive spot details, crede
 
 ## Active
 
-- [ ] Ship the Hamburg worktree to `main`: commit the research/docs/gallery/deploy-guard changes, push a replacement branch, open a PR, and merge after green checks.
-- [ ] Decide long-term gallery asset hosting before public launch: keep `web/public/gallery/` in the deploy artifact for now, or move image delivery to object storage/CDN and update manifests accordingly.
-- [ ] Complete manual scene review for the swell-line research outputs and record whether the current Sentinel-derived examples are good enough to continue.
+Implementation tickets live in [docs/NON-MANUAL-IMPLEMENTATION-SPECS.md](docs/NON-MANUAL-IMPLEMENTATION-SPECS.md). Start there for red/green plans, file targets, and verification commands.
+
+- [ ] `NM-01` Release-readiness reproducibility — pin docs to one supported Python runtime and add a testable command-plan helper.
+- [ ] `NM-03` Gallery asset URL/CDN abstraction — make image manifests support an optional CDN prefix without weakening local validation.
+- [ ] `NM-04` Bathymetry fixture hardening — refactor bathymetry scoring to be deterministic and testable without real GEBCO data.
+- [ ] `NM-05` Swell-line review tooling — generate a static local review sheet from `pipeline/research/swell_lines_v5/scene_reviews.csv`.
+- [ ] Decide long-term gallery asset hosting before public launch: keep `web/public/gallery/` in the deploy artifact, or move image delivery to object storage/CDN. Closing this needs the `NM-03` decision in `DEPLOY.md`.
 - [ ] Triage the remaining local/private backlog into public-safe tracked tasks.
+
+## Active — Manual Review Required
+
+These need Graham or another human visual reviewer; do not assign to an implementation agent.
+
+- [ ] Complete manual scene review for V5 swell-line research and record whether the current Sentinel-derived examples are good enough to continue.
 
 ## Done
 
@@ -26,3 +36,6 @@ Public-safe source of truth for project work. Keep sensitive spot details, crede
 - [x] Added browser smoke coverage that fails when visible gallery images render broken.
 - [x] Documented the gallery asset contract in deploy and data-contract documentation.
 - [x] Fixed release-readiness helpers so the documented `python3` commands work on the repo's local Python 3.9 runtime.
+- [x] Shipped the Hamburg research/docs/gallery/deploy-guard changes to `main` in merge commit `99930d1`.
+- [x] Specified non-manual implementation handoff work with red/green TDD plans.
+- [x] Reconciled the canonical task/backlog status after the Hamburg merge (`NM-02`).

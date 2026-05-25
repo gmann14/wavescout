@@ -1,9 +1,22 @@
 # WaveScout Implementation Kickoff
 
-*Updated: 2026-04-18*  
-*Status: Start-here guide for the first coding cycle*
+*Updated: 2026-05-25*
+*Status: Historical — the original `WS-01`/`WS-02`/`WS-03` start-here
+plan shipped through the Hamburg merge (commit `99930d1`). New agents
+should begin with [../tasks.md](../tasks.md) and the active tickets in
+[NON-MANUAL-IMPLEMENTATION-SPECS.md](NON-MANUAL-IMPLEMENTATION-SPECS.md).
+The original kickoff is retained below as historical context.*
 
-## Start Here
+## Start Here (Current)
+
+For a fresh implementation cycle:
+
+1. [../tasks.md](../tasks.md) — public-safe active task list
+2. [NON-MANUAL-IMPLEMENTATION-SPECS.md](NON-MANUAL-IMPLEMENTATION-SPECS.md) — red/green specs for the `NM-` tickets
+3. [REVIEW-GATES.md](REVIEW-GATES.md) — when to stop for human signoff
+4. [DATA-CONTRACTS.md](DATA-CONTRACTS.md) and [PUBLIC-OUTPUT-POLICY.md](PUBLIC-OUTPUT-POLICY.md) — payload and disclosure rules
+
+## Start Here (Historical — First Implementation Cycle)
 
 If implementation starts now, begin with:
 
