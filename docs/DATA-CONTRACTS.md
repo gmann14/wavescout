@@ -179,11 +179,62 @@ Required fields:
 - `source_manifests`
 - `artifacts`
 
+Optional (recorded by the current build scripts):
+
+- `image_delivery` (see [Image Delivery](#image-delivery))
+
 `status` must be one of:
 
 - `draft`
 - `promoted`
 - `retired`
+
+#### Image Delivery
+
+The optional `image_delivery` object describes how gallery image paths
+in `gallery.json` and `atlas/gallery.json` are intended to be served.
+
+Modes:
+
+- `static-public` (default): image paths are web-root-relative under
+  `/gallery/...` or `/atlas-gallery/...` and must resolve to real files
+  under `web/public/`.
+- `cdn`: image paths may be absolute `https://` URLs under
+  `gallery_url_prefix`. Local copies should still be present in
+  `web/public/` so the static deploy mode remains a fallback.
+
+Shape:
+
+```json
+{
+  "image_delivery": {
+    "mode": "static-public",
+    "gallery_url_prefix": null
+  }
+}
+```
+
+```json
+{
+  "image_delivery": {
+    "mode": "cdn",
+    "gallery_url_prefix": "https://cdn.example/gallery"
+  }
+}
+```
+
+Rules:
+
+- `mode` must be one of `static-public` or `cdn`.
+- `gallery_url_prefix` must be `null` for `static-public` mode.
+- For `cdn` mode, `gallery_url_prefix` must be an absolute `https://`
+  URL. Protocol-relative (`//host`) and `http://` prefixes are not
+  allowed.
+- CDN image URLs must stay under the configured prefix. If the prefix
+  ends with `/gallery` or `/atlas-gallery`, those two collection
+  directories are treated as siblings under the same parent path.
+- Build scripts read the prefix from the environment variable
+  `WAVESCOUT_GALLERY_URL_PREFIX`.
 
 ### `spots.json`
 
@@ -368,10 +419,12 @@ Rules:
 - `scene_id` must uniquely identify the acquisition for that spot-date combination
 - if `quality_status` is `rejected`, the scene must not appear in default compare results
 - if a true upstream scene id is unavailable, build `scene_id` as `<slug>:<date>`
-- every non-null image path must be web-root-relative, for example `/gallery/{slug}/{filename}.png`
-- every non-null image path must resolve to a real file under `web/public/`
+- image paths must match the dataset's `image_delivery.mode`
+  (see [Image Delivery](#image-delivery) below); the default mode keeps
+  web-root-relative paths like `/gallery/{slug}/{filename}.png` that
+  resolve to a real file under `web/public/`
 - `web/public/gallery/` is a deployable release artifact, not a local-only cache
-- local and CI validation must fail if a manifest references an image missing from `web/public/`
+- local and CI validation must fail if a manifest references an image missing from `web/public/` (static-public mode) or a path inconsistent with the declared delivery mode (cdn mode)
 
 Internal-only companion artifact:
 
@@ -426,8 +479,10 @@ Each section entry must contain:
 
 Rules:
 
-- every non-null image path must be web-root-relative, for example `/atlas-gallery/{slug}/{filename}.png`
-- every non-null image path must resolve to a real file under `web/public/`
+- image paths must match the dataset's `image_delivery.mode`
+  (see [Image Delivery](#image-delivery) below); the default mode keeps
+  web-root-relative paths like `/atlas-gallery/{slug}/{filename}.png`
+  that resolve to a real file under `web/public/`
 - `web/public/atlas-gallery/` is a deployable release artifact when atlas gallery scenes are present
 
 ## Eligibility Thresholds

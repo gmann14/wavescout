@@ -16,7 +16,9 @@ from _public_dataset import (
     map_display_eligible_for_segment,
     derive_spot_publication_status,
     derive_spot_verification_status,
+    gallery_url_prefix_from_env,
     normalize_break_type,
+    public_gallery_url,
     quality_status_from_score,
     validate_public_dataset,
     write_dataset_manifest,
@@ -531,8 +533,14 @@ def build_spot_details():
     print(f"  spot details: {len(slugs)} files in spots/")
 
 
-def build_gallery():
-    """Copy gallery manifest and symlink/copy images."""
+def build_gallery(gallery_url_prefix: str | None = None):
+    """Copy gallery manifest and symlink/copy images.
+
+    When ``gallery_url_prefix`` is provided, emitted image paths are
+    rewritten to absolute https URLs under that prefix. The local copy
+    of each image is still written to ``web/public/gallery/`` so the
+    deploy artifact remains self-contained.
+    """
     gallery_src = PIPELINE_DATA / "gallery"
     manifest_src = gallery_src / "manifest.json"
 
@@ -578,8 +586,10 @@ def build_gallery():
                 if src_path.exists():
                     dst = spot_gallery_dir / src_path.name
                     shutil.copy2(src_path, dst)
-                    # Update path to be web-relative
-                    scene[key] = f"/gallery/{slug}/{src_path.name}"
+                    web_relative = f"/gallery/{slug}/{src_path.name}"
+                    scene[key] = public_gallery_url(
+                        web_relative, prefix=gallery_url_prefix
+                    )
                     total_images += 1
                 else:
                     scene[key] = None
@@ -605,12 +615,16 @@ def main():
     WEB_DATA.mkdir(parents=True, exist_ok=True)
     WEB_GALLERY.mkdir(parents=True, exist_ok=True)
 
+    gallery_url_prefix = gallery_url_prefix_from_env()
+
     print("Building web data...")
+    if gallery_url_prefix:
+        print(f"  gallery URL prefix: {gallery_url_prefix}")
     build_spots()
     build_segments()
     build_spot_details()
-    build_gallery()
-    manifest_path = write_dataset_manifest()
+    build_gallery(gallery_url_prefix=gallery_url_prefix)
+    manifest_path = write_dataset_manifest(gallery_url_prefix=gallery_url_prefix)
     validate_public_dataset(strict=False, require_atlas=False)
     print(f"  dataset-manifest.json: {manifest_path.stat().st_size / 1024:.1f}KB")
     print("Done!")

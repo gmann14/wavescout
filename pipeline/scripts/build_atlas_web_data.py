@@ -12,7 +12,12 @@ import json
 import shutil
 from pathlib import Path
 
-from _public_dataset import validate_public_dataset, write_dataset_manifest
+from _public_dataset import (
+    gallery_url_prefix_from_env,
+    public_gallery_url,
+    validate_public_dataset,
+    write_dataset_manifest,
+)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 PIPELINE_DATA = ROOT / "pipeline" / "data"
@@ -44,8 +49,13 @@ def build_sections() -> None:
     print(f"  sections.json: {len(data['features'])} sections, {size_kb:.1f}KB")
 
 
-def build_gallery() -> None:
-    """Copy atlas gallery manifest and images to web."""
+def build_gallery(gallery_url_prefix: str | None = None) -> None:
+    """Copy atlas gallery manifest and images to web.
+
+    When ``gallery_url_prefix`` is provided, emitted image paths use
+    absolute https URLs under that prefix while images still land under
+    ``web/public/atlas-gallery/``.
+    """
     manifest_src = ATLAS_GALLERY_SRC / "manifest.json"
     if not manifest_src.exists():
         # Write empty manifest so the web app doesn't 404
@@ -85,7 +95,10 @@ def build_gallery() -> None:
                 if src_path.exists():
                     dst = section_gallery_dir / src_path.name
                     shutil.copy2(src_path, dst)
-                    scene[key] = f"/atlas-gallery/{slug}/{src_path.name}"
+                    web_relative = f"/atlas-gallery/{slug}/{src_path.name}"
+                    scene[key] = public_gallery_url(
+                        web_relative, prefix=gallery_url_prefix
+                    )
                 else:
                     scene[key] = None
 
@@ -107,10 +120,14 @@ def main() -> None:
     WEB_ATLAS.mkdir(parents=True, exist_ok=True)
     WEB_ATLAS_GALLERY.mkdir(parents=True, exist_ok=True)
 
+    gallery_url_prefix = gallery_url_prefix_from_env()
+
     print("Building atlas web data...")
+    if gallery_url_prefix:
+        print(f"  gallery URL prefix: {gallery_url_prefix}")
     build_sections()
-    build_gallery()
-    manifest_path = write_dataset_manifest()
+    build_gallery(gallery_url_prefix=gallery_url_prefix)
+    manifest_path = write_dataset_manifest(gallery_url_prefix=gallery_url_prefix)
     validate_public_dataset(strict=False, require_atlas=True)
     print(f"  dataset-manifest.json: {manifest_path.stat().st_size / 1024:.1f}KB")
     print("Done!")

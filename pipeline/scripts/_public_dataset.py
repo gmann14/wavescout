@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 PIPELINE_DATA = ROOT / "pipeline" / "data"
@@ -19,6 +21,144 @@ CONFIDENCE_LABELS = {"none", "low", "moderate", "high"}
 VERIFICATION_STATUSES = {"confirmed", "candidate", "rejected"}
 PUBLICATION_STATUSES = {"public_named", "public_coarse", "internal_only"}
 BREAK_TYPES = {"beach", "point", "reef", "slab", "mixed", "unknown"}
+
+IMAGE_DELIVERY_MODES = {"static-public", "cdn"}
+GALLERY_URL_PREFIX_ENV = "WAVESCOUT_GALLERY_URL_PREFIX"
+GALLERY_COLLECTION_SEGMENTS = ("gallery", "atlas-gallery")
+
+
+def normalize_gallery_url_prefix(prefix: str | None) -> str | None:
+    """Validate and normalize an optional CDN prefix.
+
+    Returns ``None`` when no prefix is configured. Raises ``ValueError``
+    for unsupported schemes (only absolute ``https://`` URLs are
+    accepted). Trailing slashes are stripped so callers can join the
+    prefix with web-root-relative paths without worrying about double
+    slashes.
+    """
+    if prefix is None:
+        return None
+    prefix = prefix.strip()
+    if not prefix:
+        return None
+    if prefix.startswith("//"):
+        raise ValueError(
+            "gallery URL prefix must be an absolute https URL, "
+            f"not protocol-relative: {prefix!r}"
+        )
+    if not prefix.startswith("https://"):
+        raise ValueError(
+            "gallery URL prefix must use https://, "
+            f"got: {prefix!r}"
+        )
+    return prefix.rstrip("/")
+
+
+def gallery_url_prefix_from_env(env: dict[str, str] | None = None) -> str | None:
+    """Read and normalize the CDN prefix from the process environment."""
+    source = env if env is not None else os.environ
+    return normalize_gallery_url_prefix(source.get(GALLERY_URL_PREFIX_ENV))
+
+
+def _first_path_segment(path: str) -> tuple[str, str]:
+    rest = path.lstrip("/")
+    first, _, suffix = rest.partition("/")
+    return first, suffix
+
+
+def _prefix_collection_segment(prefix: str) -> str | None:
+    parsed = urlparse(prefix)
+    segment = parsed.path.rstrip("/").rsplit("/", 1)[-1]
+    if segment in GALLERY_COLLECTION_SEGMENTS:
+        return segment
+    return None
+
+
+def _replace_prefix_collection(prefix: str, collection: str) -> str:
+    current = _prefix_collection_segment(prefix)
+    if current is None:
+        return f"{prefix}/{collection}"
+    return f"{prefix[: -(len(current) + 1)]}/{collection}"
+
+
+def allowed_cdn_url_prefixes(prefix: str) -> tuple[str, ...]:
+    """Return CDN URL prefixes allowed by a configured gallery prefix.
+
+    A single env var drives both gallery collections. If the configured
+    prefix ends in one known collection segment, the sibling collection
+    is allowed at the same parent path.
+    """
+    normalized = normalize_gallery_url_prefix(prefix)
+    if normalized is None:
+        raise ValueError("CDN image delivery requires a gallery URL prefix")
+    collection = _prefix_collection_segment(normalized)
+    if collection is None:
+        return tuple(
+            f"{normalized}/{segment}" for segment in GALLERY_COLLECTION_SEGMENTS
+        )
+    return tuple(
+        _replace_prefix_collection(normalized, segment)
+        for segment in GALLERY_COLLECTION_SEGMENTS
+    )
+
+
+def normalize_image_delivery(image_delivery: dict[str, Any] | None) -> dict[str, Any]:
+    """Validate and normalize dataset image-delivery metadata."""
+    if image_delivery is None:
+        return {"mode": "static-public", "gallery_url_prefix": None}
+    mode = image_delivery.get("mode", "static-public")
+    if mode not in IMAGE_DELIVERY_MODES:
+        raise ValueError(
+            f"image_delivery.mode must be one of {sorted(IMAGE_DELIVERY_MODES)}, got {mode!r}"
+        )
+    prefix = image_delivery.get("gallery_url_prefix")
+    if mode == "static-public":
+        if prefix not in (None, ""):
+            raise ValueError("static-public image delivery must not set gallery_url_prefix")
+        return {"mode": "static-public", "gallery_url_prefix": None}
+    normalized_prefix = normalize_gallery_url_prefix(prefix)
+    if normalized_prefix is None:
+        raise ValueError("cdn image delivery requires gallery_url_prefix")
+    return {"mode": "cdn", "gallery_url_prefix": normalized_prefix}
+
+
+def public_gallery_url(path: str | None, *, prefix: str | None) -> str | None:
+    """Return the public URL for a gallery image path.
+
+    With no prefix, the existing web-root-relative path is returned
+    unchanged. With a prefix, the path is joined onto the prefix. If
+    the prefix already ends with the path's leading directory (for
+    example, prefix ``https://cdn/gallery`` with path
+    ``/gallery/foo/x.png``), the duplicate segment is collapsed so
+    the resulting URL contains the directory exactly once.
+    """
+    if path is None:
+        return None
+    if prefix is None:
+        return path
+    if not path.startswith("/"):
+        raise ValueError(
+            "public_gallery_url expects a web-root-relative path "
+            f"starting with '/': {path!r}"
+        )
+    normalized_prefix = normalize_gallery_url_prefix(prefix)
+    assert normalized_prefix is not None  # for type checker
+
+    first_segment, suffix = _first_path_segment(path)
+    if first_segment in GALLERY_COLLECTION_SEGMENTS:
+        collection_prefix = _replace_prefix_collection(normalized_prefix, first_segment)
+        return f"{collection_prefix}/{suffix}" if suffix else collection_prefix
+
+    rest = path.lstrip("/")
+    return f"{normalized_prefix}/{rest}"
+
+
+def image_delivery_metadata(*, prefix: str | None) -> dict[str, Any]:
+    """Describe the image delivery mode for the dataset manifest."""
+    normalized = normalize_gallery_url_prefix(prefix)
+    if normalized is None:
+        return {"mode": "static-public", "gallery_url_prefix": None}
+    return {"mode": "cdn", "gallery_url_prefix": normalized}
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -161,7 +301,7 @@ def map_display_eligible_for_segment(
     return True
 
 
-def build_dataset_manifest() -> dict[str, Any]:
+def build_dataset_manifest(*, gallery_url_prefix: str | None = None) -> dict[str, Any]:
     ranking = _maybe_manifest(MANIFESTS / "unified_ranking_manifest.json")
     gallery = _maybe_manifest(PIPELINE_DATA / "gallery" / "manifest.json")
     atlas = _maybe_manifest(PIPELINE_DATA / "atlas" / "gallery" / "manifest.json")
@@ -189,12 +329,21 @@ def build_dataset_manifest() -> dict[str, Any]:
         "config_version": "unknown",
         "source_manifests": _source_manifest_paths(),
         "artifacts": _artifact_paths(),
+        "image_delivery": image_delivery_metadata(prefix=gallery_url_prefix),
     }
 
 
-def write_dataset_manifest() -> Path:
+def write_dataset_manifest(*, gallery_url_prefix: str | None = None) -> Path:
+    """Write the public dataset manifest.
+
+    ``gallery_url_prefix`` defaults to ``None``, which preserves the
+    historical static-hosted behavior. Builders that want to record a
+    CDN delivery mode pass the normalized prefix explicitly.
+    """
+    if gallery_url_prefix is None:
+        gallery_url_prefix = gallery_url_prefix_from_env()
     WEB_DATA.mkdir(parents=True, exist_ok=True)
-    manifest = build_dataset_manifest()
+    manifest = build_dataset_manifest(gallery_url_prefix=gallery_url_prefix)
     out = WEB_DATA / "dataset-manifest.json"
     with out.open("w") as handle:
         json.dump(manifest, handle, separators=(",", ":"))
@@ -225,6 +374,8 @@ def validate_dataset_manifest(manifest: dict[str, Any], *, require_atlas: bool =
     )
     if manifest["status"] not in SUPPORTED_STATUSES:
         raise ValueError("dataset-manifest.json has unsupported status")
+    if "image_delivery" in manifest:
+        normalize_image_delivery(manifest["image_delivery"])
     artifacts = manifest["artifacts"]
     _require_keys(
         artifacts,
@@ -395,17 +546,48 @@ def _public_asset_path(public_root: Path, web_path: str, *, label: str) -> Path:
     return candidate
 
 
+def _classify_image_path(web_path: str, *, label: str, slug: str, date: str, key: str) -> str:
+    """Classify a non-null image path as 'local', 'remote-https', or raise."""
+    if web_path.startswith("//"):
+        raise ValueError(
+            f"{label} {slug}:{date} {key} protocol-relative URLs are not allowed: {web_path}"
+        )
+    if web_path.startswith("https://"):
+        return "remote-https"
+    if web_path.startswith("/"):
+        return "local"
+    raise ValueError(
+        f"{label} {slug}:{date} {key} has unsupported scheme or shape: {web_path}"
+    )
+
+
 def validate_gallery_asset_paths(
     payload: dict[str, Any],
     *,
     public_root: Path = WEB_PUBLIC,
     label: str = "gallery.json",
+    image_delivery: dict[str, Any] | None = None,
 ) -> None:
-    """Validate that every non-null gallery image path resolves under web/public."""
+    """Validate that every non-null gallery image path is reachable.
+
+    ``image_delivery`` describes how the manifest's images are served.
+    When the mode is ``cdn``, ``https://`` URLs are allowed (and not
+    fetched). Otherwise only web-root-relative paths under
+    ``public_root`` are allowed.
+    """
     image_keys = ("rgb_path", "nir_path", "annotated_rgb_path", "annotated_nir_path")
     entries = payload.get("spots") or payload.get("sections") or []
 
+    delivery = normalize_image_delivery(image_delivery)
+    delivery_mode = delivery["mode"]
+    allowed_remote_prefixes = (
+        allowed_cdn_url_prefixes(delivery["gallery_url_prefix"])
+        if delivery_mode == "cdn"
+        else ()
+    )
+
     missing: list[str] = []
+    remote_count = 0
     for entry in entries:
         slug = entry.get("slug") or entry.get("section_id") or "unknown"
         for scene in entry.get("scenes", []):
@@ -416,6 +598,26 @@ def validate_gallery_asset_paths(
                     continue
                 if not isinstance(web_path, str):
                     raise ValueError(f"{label} {slug}:{date} {key} must be a string or null")
+                kind = _classify_image_path(
+                    web_path, label=label, slug=slug, date=date, key=key
+                )
+                if kind == "remote-https":
+                    if delivery_mode != "cdn":
+                        raise ValueError(
+                            f"{label} {slug}:{date} {key} uses https URL but "
+                            "dataset image_delivery.mode is not 'cdn': "
+                            f"{web_path}"
+                        )
+                    if not any(
+                        web_path == prefix or web_path.startswith(f"{prefix}/")
+                        for prefix in allowed_remote_prefixes
+                    ):
+                        raise ValueError(
+                            f"{label} {slug}:{date} {key} is outside configured "
+                            f"gallery_url_prefix {delivery['gallery_url_prefix']!r}: {web_path}"
+                        )
+                    remote_count += 1
+                    continue
                 asset_path = _public_asset_path(public_root, web_path, label=label)
                 if not asset_path.is_file():
                     missing.append(f"{slug}:{date} {key} -> {web_path}")
@@ -429,11 +631,14 @@ def validate_gallery_asset_paths(
 def validate_public_dataset(*, strict: bool = False, require_atlas: bool = False) -> None:
     manifest = _read_json(WEB_DATA / "dataset-manifest.json")
     validate_dataset_manifest(manifest, require_atlas=require_atlas)
+    image_delivery = manifest.get("image_delivery")
     validate_spots_payload(_read_json(WEB_DATA / "spots.json"), strict=strict)
     validate_segments_high_payload(_read_json(WEB_DATA / "segments-high.json"), strict=strict)
     gallery_payload = _read_json(WEB_DATA / "gallery.json")
     validate_gallery_payload(gallery_payload, strict=strict)
-    validate_gallery_asset_paths(gallery_payload, label="gallery.json")
+    validate_gallery_asset_paths(
+        gallery_payload, label="gallery.json", image_delivery=image_delivery
+    )
 
     if require_atlas:
         atlas_dir = WEB_DATA / "atlas"
@@ -441,4 +646,8 @@ def validate_public_dataset(*, strict: bool = False, require_atlas: bool = False
             raise ValueError("atlas/sections.json is required")
         if not (atlas_dir / "gallery.json").exists():
             raise ValueError("atlas/gallery.json is required")
-        validate_gallery_asset_paths(_read_json(atlas_dir / "gallery.json"), label="atlas/gallery.json")
+        validate_gallery_asset_paths(
+            _read_json(atlas_dir / "gallery.json"),
+            label="atlas/gallery.json",
+            image_delivery=image_delivery,
+        )

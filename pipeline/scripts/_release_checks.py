@@ -103,8 +103,14 @@ def build_release_readiness_report(root: Path = ROOT) -> dict[str, Any]:
     traceability_missing = missing_release_blocking_traceability_ids(traceability_text)
     docs_sync = {str(path.relative_to(root)): path.exists() for path in DOC_SYNC_PATHS}
     asset_errors: list[str] = []
+    image_delivery = manifest.get("image_delivery")
     try:
-        validate_gallery_asset_paths(gallery_payload, public_root=root / "web" / "public", label="gallery.json")
+        validate_gallery_asset_paths(
+            gallery_payload,
+            public_root=root / "web" / "public",
+            label="gallery.json",
+            image_delivery=image_delivery,
+        )
     except ValueError as exc:
         asset_errors.append(str(exc))
     if atlas_gallery_path.exists():
@@ -113,6 +119,7 @@ def build_release_readiness_report(root: Path = ROOT) -> dict[str, Any]:
                 _read_json(atlas_gallery_path),
                 public_root=root / "web" / "public",
                 label="atlas/gallery.json",
+                image_delivery=image_delivery,
             )
         except ValueError as exc:
             asset_errors.append(str(exc))
