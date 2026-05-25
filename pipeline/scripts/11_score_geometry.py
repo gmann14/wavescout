@@ -28,6 +28,7 @@ from shapely.ops import nearest_points, unary_union
 from shapely.prepared import prep
 from shapely.strtree import STRtree
 
+from _bathymetry import score_bathymetry, try_load_gebco
 from _coastal_context import coastal_context_penalty, coastal_exposure_class
 from _geometry_support import load_legacy_road_scores
 
@@ -179,58 +180,9 @@ def compute_open_water_fan(
 # ---------------------------------------------------------------------------
 # Score 3: Bathymetric Gradient (20 pts max)
 # ---------------------------------------------------------------------------
-def try_load_gebco() -> object | None:
-    """Try to load GEBCO bathymetry NetCDF. Returns None if not available."""
-    try:
-        import netCDF4
-        gebco_path = DATA_DIR.parent / "gebco" / "gebco_ns.nc"
-        if gebco_path.exists():
-            return netCDF4.Dataset(str(gebco_path))
-    except ImportError:
-        pass
-    return None
-
-
-def score_bathymetry(
-    centroid_lon: float, centroid_lat: float, gebco_ds: object | None
-) -> tuple[float, str]:
-    """Score bathymetric gradient offshore of the segment.
-
-    Steeper nearshore gradients often correlate with better wave quality.
-    If GEBCO data is unavailable, returns 0 with explanation.
-    """
-    if gebco_ds is None:
-        return 0.0, "Bathymetry data not available (GEBCO not loaded)"
-
-    try:
-        lats = gebco_ds.variables["lat"][:]
-        lons = gebco_ds.variables["lon"][:]
-        elevation = gebco_ds.variables["elevation"]
-
-        lat_idx = int(np.argmin(np.abs(lats - centroid_lat)))
-        lon_idx = int(np.argmin(np.abs(lons - centroid_lon)))
-
-        # Sample depths at increasing distances offshore (roughly)
-        # Use a 5-pixel transect
-        depths = []
-        for offset in range(5):
-            li = min(lat_idx + offset, len(lats) - 1)
-            val = float(elevation[li, lon_idx])
-            if val < 0:  # underwater
-                depths.append(abs(val))
-
-        if len(depths) >= 2:
-            gradient = (depths[-1] - depths[0]) / (len(depths) * 500)
-            score = min(gradient / 0.05, 1.0) * 20.0
-            explanation = f"Nearshore gradient: {gradient:.3f} m/m"
-        else:
-            score = 5.0
-            explanation = "Shallow nearshore area"
-
-        return round(score, 1), explanation
-
-    except Exception:
-        return 0.0, "Bathymetry lookup failed"
+# Bathymetry loader and scorer live in ``_bathymetry`` so the heuristic
+# can be exercised with synthetic GEBCO-like fixtures without needing
+# the full NetCDF on disk.
 
 
 # ---------------------------------------------------------------------------
@@ -465,7 +417,9 @@ def main() -> None:
         # Score components
         swell_score, swell_expl = score_swell_exposure(orientation, exposure_arc)
         geom_score, geom_expl = score_geometry((cx, cy), seg_utm, nearby_lines)
-        bathy_score, bathy_expl = score_bathymetry(clon, clat, gebco_ds)
+        bathy_score, bathy_expl = score_bathymetry(
+            clon, clat, gebco_ds, offshore_bearing_deg=orientation
+        )
         nearfield_open_deg, nearfield_blocked_ratio = compute_open_water_fan(
             (cx, cy),
             nearby_prepared,

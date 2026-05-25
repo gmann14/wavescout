@@ -13,7 +13,6 @@ Public-safe source of truth for project work. Keep sensitive spot details, crede
 
 Implementation tickets live in [docs/NON-MANUAL-IMPLEMENTATION-SPECS.md](docs/NON-MANUAL-IMPLEMENTATION-SPECS.md). Start there for red/green plans, file targets, and verification commands.
 
-- [ ] `NM-04` Bathymetry fixture hardening — refactor bathymetry scoring to be deterministic and testable without real GEBCO data.
 - [ ] `NM-05` Swell-line review tooling — generate a static local review sheet from `pipeline/research/swell_lines_v5/scene_reviews.csv`.
 - [ ] Decide long-term gallery asset hosting before public launch: keep `web/public/gallery/` in the deploy artifact, or move image delivery to object storage/CDN. Closing this needs the `NM-03` decision in `DEPLOY.md`.
 - [ ] Triage the remaining local/private backlog into public-safe tracked tasks.
@@ -39,3 +38,4 @@ These need Graham or another human visual reviewer; do not assign to an implemen
 - [x] Reconciled the canonical task/backlog status after the Hamburg merge (`NM-02`).
 - [x] Made release-readiness reproducible: testable `build_command_plan`, read-only `--skip-commands`, docs pinned to Python 3.12 (`NM-01`).
 - [x] Added an optional CDN prefix for gallery assets with manifest-driven validation, keeping static-public hosting as the default (`NM-03`).
+- [x] Split bathymetry sampling and scoring into a testable module with offshore-bearing transects and synthetic fixtures (`NM-04`).
