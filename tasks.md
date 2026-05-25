@@ -13,7 +13,6 @@ Public-safe source of truth for project work. Keep sensitive spot details, crede
 
 Implementation tickets live in [docs/NON-MANUAL-IMPLEMENTATION-SPECS.md](docs/NON-MANUAL-IMPLEMENTATION-SPECS.md). Start there for red/green plans, file targets, and verification commands.
 
-- [ ] `NM-01` Release-readiness reproducibility — pin docs to one supported Python runtime and add a testable command-plan helper.
 - [ ] `NM-03` Gallery asset URL/CDN abstraction — make image manifests support an optional CDN prefix without weakening local validation.
 - [ ] `NM-04` Bathymetry fixture hardening — refactor bathymetry scoring to be deterministic and testable without real GEBCO data.
 - [ ] `NM-05` Swell-line review tooling — generate a static local review sheet from `pipeline/research/swell_lines_v5/scene_reviews.csv`.
@@ -39,3 +38,4 @@ These need Graham or another human visual reviewer; do not assign to an implemen
 - [x] Shipped the Hamburg research/docs/gallery/deploy-guard changes to `main` in merge commit `99930d1`.
 - [x] Specified non-manual implementation handoff work with red/green TDD plans.
 - [x] Reconciled the canonical task/backlog status after the Hamburg merge (`NM-02`).
+- [x] Made release-readiness reproducible: testable `build_command_plan`, read-only `--skip-commands`, docs pinned to Python 3.12 (`NM-01`).

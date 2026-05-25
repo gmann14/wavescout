@@ -1,6 +1,6 @@
 # WaveScout Release Checklist
 
-*Updated: 2026-05-05*  
+*Updated: 2026-05-25*
 *Status: Required pre-release and promotion gate*
 
 ## Purpose
@@ -58,10 +58,23 @@ Do not release if any are true:
 
 ## Build And Validation Commands
 
-Run and record results for:
+The release-readiness gate is pinned to Python 3.12 (matches
+`requirements.txt`). Use the supported interpreter directly so a
+mismatched system `python3` does not silently swap dependencies.
+
+Artifact-only gate (no rebuild, no test execution, and no report file
+rewrite unless `--report-out` is provided):
 
 ```bash
-python3 pipeline/scripts/check_release_readiness.py
+python3.12 pipeline/scripts/check_release_readiness.py --skip-commands
+```
+
+Full local gate (regenerates web data and runs the full test/build
+matrix; may modify generated artifacts under `web/public/data/`, so
+inspect any diffs before committing them):
+
+```bash
+python3.12 pipeline/scripts/check_release_readiness.py
 ```
 
 The web build also runs gallery asset validation before compiling:
@@ -73,13 +86,13 @@ cd web && pnpm build
 Include browser verification before external release claims:
 
 ```bash
-python3 pipeline/scripts/check_release_readiness.py --include-e2e
+python3.12 pipeline/scripts/check_release_readiness.py --include-e2e
 ```
 
 Promotion must use the explicit promotion command after a green readiness report and a recorded `Gate D` review:
 
 ```bash
-python3 pipeline/scripts/promote_public_dataset.py \
+python3.12 pipeline/scripts/promote_public_dataset.py \
   --release-reviewer "<name>" \
   --policy-reviewer "<name>" \
   --review-record "docs/RELEASE-RECORD-TEMPLATE.md or linked issue/PR record" \

@@ -90,33 +90,37 @@ Set `NEXT_PUBLIC_MAPBOX_TOKEN` in `web/.env.local`.
 ### Rebuild Web Data
 
 ```bash
-python3 pipeline/scripts/build_web_data.py
-python3 pipeline/scripts/build_atlas_web_data.py
+python3.12 pipeline/scripts/build_web_data.py
+python3.12 pipeline/scripts/build_atlas_web_data.py
 ```
 
 ## Testing And Release Checks
 
 The repo now has baseline pipeline, frontend, and browser smoke coverage.
 
-Core validation commands:
+Core validation commands (run from the `python3.12` venv created above):
 
 ```bash
-pytest
+python -m pytest
 cd web && pnpm test
 cd web && pnpm exec tsc --noEmit
 cd web && pnpm test:e2e
 ```
 
-Release-readiness command:
+Release-readiness gate (pinned to Python 3.12 — see
+[docs/RELEASE-CHECKLIST.md](docs/RELEASE-CHECKLIST.md) for the three
+documented modes):
 
 ```bash
-python3 pipeline/scripts/check_release_readiness.py
+python3.12 pipeline/scripts/check_release_readiness.py --skip-commands
+python3.12 pipeline/scripts/check_release_readiness.py
+python3.12 pipeline/scripts/check_release_readiness.py --include-e2e
 ```
 
 Promotion command after a green readiness report and recorded `Gate D` review:
 
 ```bash
-python3 pipeline/scripts/promote_public_dataset.py \
+python3.12 pipeline/scripts/promote_public_dataset.py \
   --release-reviewer "<name>" \
   --policy-reviewer "<name>" \
   --review-record "<durable review record path or URL>" \

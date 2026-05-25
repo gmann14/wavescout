@@ -1,6 +1,6 @@
 # Codex Cloud Setup
 
-*Updated: 2026-04-19*
+*Updated: 2026-05-25*
 
 This document describes the recommended Codex cloud environment for this repo.
 
@@ -39,7 +39,7 @@ Will not work without credentials or extra setup:
 - Google Earth Engine scripts
 - map rendering without a Mapbox token
 - any API-dependent pipeline step if internet access is disabled
-- bathymetry scoring if the GEBCO NetCDF is not present in the environment
+- bathymetry scoring if the GEBCO NetCDF is not present at `pipeline/data/gebco/gebco_ns.nc` (the scorer returns `0.0` with `Bathymetry data not available`; CI exercises the scorer with synthetic fixtures only)
 
 ## Required Environment Variables
 
@@ -63,7 +63,7 @@ Use a manual setup script like this:
 ```bash
 set -euxo pipefail
 
-python3 -m venv venv
+python3.12 -m venv venv
 . venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -73,6 +73,11 @@ corepack enable || true
 pnpm install --frozen-lockfile
 pnpm exec playwright install --with-deps
 ```
+
+`requirements.txt` and the release-readiness gate are pinned to Python
+3.12. Newer interpreters (for example Homebrew's 3.14) may be missing
+wheels for required packages such as `PyWavelets`, which causes the
+pipeline test suite to error at collection time.
 
 ## Optional Earth Engine Auth Bootstrap
 
@@ -96,13 +101,30 @@ python pipeline/scripts/11_score_geometry.py
 python pipeline/scripts/20_rank_segments.py --validate
 python pipeline/scripts/build_web_data.py
 python pipeline/scripts/validate_public_dataset.py
-pytest
+python -m pytest
+python pipeline/scripts/check_release_readiness.py --skip-commands
 
 cd web
 pnpm test
 pnpm exec tsc --noEmit
 pnpm build
 ```
+
+## Release-Readiness Modes
+
+`check_release_readiness.py` has three explicit modes:
+
+- artifact-only: `python pipeline/scripts/check_release_readiness.py --skip-commands`
+  inspects current artifacts and docs without rebuilding anything or
+  rewriting the committed readiness report. Pass `--report-out <path>`
+  if you want a JSON report artifact from this mode.
+- full local gate: `python pipeline/scripts/check_release_readiness.py`
+  regenerates web data, runs the Python and JS test suites, type-checks,
+  and builds the web app. It may modify generated artifacts under
+  `web/public/data/`, so run it from a clean worktree and inspect any
+  diffs before committing them.
+- browser-inclusive gate: `python pipeline/scripts/check_release_readiness.py --include-e2e`
+  is the full gate plus Playwright browser checks.
 
 ## Minimal Cloud Mode
 
